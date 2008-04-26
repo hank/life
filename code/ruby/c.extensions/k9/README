@@ -1,0 +1,14 @@
+A very simple Doctor Who C module for Ruby.
+
+== Compile
+ruby extconf.rb
+make
+
+== Run
+$ irb
+irb(main):001:0> require 'k9'
+=> true
+irb(main):002:0> include K9
+=> Object
+irb(main):003:0> speak
+=> "Affirmative!"
