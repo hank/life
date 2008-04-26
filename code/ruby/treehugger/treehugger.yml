@@ -1,0 +1,5 @@
+--- 
+app: treehugger
+dir: /etc/rv
+port: 4000
+cluster_size: 1

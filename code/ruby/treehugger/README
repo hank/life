@@ -1,0 +1,25 @@
+This is a Camping application with some extra rv hotness.  rv is a little
+Camping on Apache helper daemon, and can be found here:
+
+http://blog.evanweaver.com/articles/2006/12/19/rv-a-tool-for-luxurious-camping/
+
+Anyway, install that, and then put all this crap in /etc/rv.  Also, configure
+Apache sort of like the following (which I have in
+/etc/apache2/sites-enabled/rv.conf):
+
+<VirtualHost *>
+  ServerName treehugger.who
+  ServerAlias treehugger 
+  ProxyRequests Off
+  ProxyPass / http://127.0.0.1:4000/
+  ProxyPassReverse / http://127.0.0.1:4000/
+  ProxyPreserveHost On
+
+  #Fix for Apache bug 39499
+  SetEnv force-proxy-request-1.0 1
+  SetEnv proxy-nokeepalive 1
+</VirtualHost>
+
+Then everything works.  There are dependencies required for rv to function,
+and I'm using sqlite3 for my database.  If you're Ruby-savvy, you can figure
+it out.
