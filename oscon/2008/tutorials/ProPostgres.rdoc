@@ -125,3 +125,65 @@ Some general recommendations.  He's "not a hardware guy."
 - drbd is an example
 - Shipping filesystem crap around
 - sync, ordered writes
+
+=== pg_pool
+- dual-master, statement based
+- bad for random, now, sequences
+- has to run as root
+
+=== Scaling
+- pg scales well
+- more disks (tablespaces)
+- more cpus, more ram
+- connection pooling
+- 1000+ connections, TBs of data
+
+=== pg_bouncer
+- simple connection pooler (gets rid of process limitations)
+- 10/1 - 40/1 ratio of processes
+- caveats: prepared statements, temp tables
+- skype, myyearbook.com
+
+== Optimization
+=== Queries
+- pgfouine and pqa
+- command line reports!
+- IO load
+
+==== explain analyze
+- complicated
+- good for large queries
+- http://wiki.postgresql.org/Using_EXPLAIN
+
+=== Internal
+==== pg_stat_all_tables
+- number of inserts, update, deletes, hot updates (not too interesting)
+- sequential scans are when the whole table is scanned.  BAD.
+- Live and dead tuples.  New in 8.3.  Need to vacuum/vac_full?  Ratio dead/live is a good indicator.
+- timestamps of when crap happened
+
+==== pg_stat_all_indexes
+Good for looking at index perf.
+
+==== Other
+- in-memory-joins are nice for dual-col indexing
+- restrain index to rows that are queried a lot (maybe for SB /8, /16, /24)
+- where clause of the index should match the where of the query
+- push expensive functions into your index (it allows a lot)
+
+=== Fulltext search
+- lexemes, word stemming
+- _looks nice.  We should try._
+- gist is oldschool, fast insert/update, slow queries
+- gin is better for query, worse for indexing
+
+== Tablespaces
+- logical for locations for object placement
+- point to locations on disk (symlinks)
+- size is by disk size
+- dedicate per db, split on disk
+- _maybe use fast flash for indexes_
+
+== Partitioning
+- Look at pgcon talk from 2007.
+- http://www.pgcon.org/2007/schedule/events/41.en.html

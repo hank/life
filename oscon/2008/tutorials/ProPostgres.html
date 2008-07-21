@@ -9,7 +9,7 @@
 <h2>File: ProPostgres.rdoc</h2>
 <table>
   <tr><td>Path:</td><td>ProPostgres.rdoc</td></tr>
-  <tr><td>Modified:</td><td>Mon Jul 21 11:17:00 -0700 2008</td></tr>
+  <tr><td>Modified:</td><td>Mon Jul 21 12:00:58 -0700 2008</td></tr>
 </table>
 
 <h1>OSCON 2008, Tutorial 1: Pro Postgres</h1>
@@ -290,6 +290,156 @@ after the second node takes over, and pwns everything.
 
 </li>
 </ul>
+<h3>pg_pool</h3>
+<ul>
+<li>dual-master, statement based
+
+</li>
+<li>bad for random, now, sequences
+
+</li>
+<li>has to run as root
+
+</li>
+</ul>
+<h3>Scaling</h3>
+<ul>
+<li>pg scales well
+
+</li>
+<li>more disks (tablespaces)
+
+</li>
+<li>more cpus, more ram
+
+</li>
+<li>connection pooling
+
+</li>
+<li>1000+ connections, TBs of data
+
+</li>
+</ul>
+<h3>pg_bouncer</h3>
+<ul>
+<li>simple connection pooler (gets rid of process limitations)
+
+</li>
+<li>10/1 - 40/1 ratio of processes
+
+</li>
+<li>caveats: prepared statements, temp tables
+
+</li>
+<li>skype, myyearbook.com
+
+</li>
+</ul>
+<h2>Optimization</h2>
+<h3>Queries</h3>
+<ul>
+<li>pgfouine and pqa
+
+</li>
+<li>command line reports!
+
+</li>
+<li>IO load
+
+</li>
+</ul>
+<h4>explain analyze</h4>
+<ul>
+<li>complicated
+
+</li>
+<li>good for large queries
+
+</li>
+<li><a
+href="http://wiki.postgresql.org/Using_EXPLAIN">wiki.postgresql.org/Using_EXPLAIN</a>
+
+</li>
+</ul>
+<h3>Internal</h3>
+<h4>pg_stat_all_tables</h4>
+<ul>
+<li>number of inserts, update, deletes, hot updates (not too interesting)
+
+</li>
+<li>sequential scans are when the whole table is scanned. BAD.
+
+</li>
+<li>Live and dead tuples. New in 8.3. Need to vacuum/vac_full? Ratio dead/live
+is a good indicator.
+
+</li>
+<li>timestamps of when crap happened
+
+</li>
+</ul>
+<h4>pg_stat_all_indexes</h4>
+<p>
+Good for looking at index perf.
+</p>
+<h4>Other</h4>
+<ul>
+<li>in-memory-joins are nice for dual-col indexing
+
+</li>
+<li>restrain index to rows that are queried a lot (maybe for SB /8, /16, /24)
+
+</li>
+<li>where clause of the index should match the where of the query
+
+</li>
+<li>push expensive functions into your index (it allows a lot)
+
+</li>
+</ul>
+<h3>Fulltext search</h3>
+<ul>
+<li>lexemes, word stemming
+
+</li>
+<li>_looks nice. We should try._
+
+</li>
+<li>gist is oldschool, fast insert/update, slow queries
+
+</li>
+<li>gin is better for query, worse for indexing
+
+</li>
+</ul>
+<h2>Tablespaces</h2>
+<ul>
+<li>logical for locations for object placement
+
+</li>
+<li>point to locations on disk (symlinks)
+
+</li>
+<li>size is by disk size
+
+</li>
+<li>dedicate per db, split on disk
+
+</li>
+<li>_maybe use fast flash for indexes_
+
+</li>
+</ul>
+<h2>Partitioning</h2>
+<ul>
+<li>Look at pgcon talk from 2007.
+
+</li>
+<li><a
+href="http://www.pgcon.org/2007/schedule/events/41.en.html">www.pgcon.org/2007/schedule/events/41.en.html</a>
+
+</li>
+</ul>
 
 
 
@@ -304,4 +454,4 @@ Files:   1
 Classes: 0
 Modules: 0
 Methods: 0
-Elapsed: 0.190s
+Elapsed: 0.210s
