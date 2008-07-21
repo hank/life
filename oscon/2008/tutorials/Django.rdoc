@@ -1,5 +1,7 @@
 = OSCON 2008, Tutorial 2: Introduction to Django
 
+Slides: http://toys.jacobian.org/presentations/2008/oscon/tutorial/
+
 - Django isn't really MVC, just kinda
 - SQL is hard
 - No version control for SQL
@@ -32,5 +34,13 @@ It figures out the correct <tt>JOIN</tt>.  So awesome.
   )
 This actually doesn't do 2 SQL queries.  It returns a lazy object (query set),
 which doesn't execute until you access it.  It build up queries automatically.
+
+== Adding an admin interface
+- The admin interface is really pretty and cool
+- has a really nice permissions interface for CRUD for users
+
+== URLs
+- Some URLs really suck.
+- Django has pretty URLs
 
 
