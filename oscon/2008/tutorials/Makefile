@@ -6,5 +6,5 @@ clean: $(HTML)
 	rm $<
 
 %.html: %.rdoc
-	rdoc -1 -s style.css $< > $@
+	rdoc -1 $< > $@
 

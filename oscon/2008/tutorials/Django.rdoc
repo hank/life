@@ -1,0 +1,36 @@
+= OSCON 2008, Tutorial 2: Introduction to Django
+
+- Django isn't really MVC, just kinda
+- SQL is hard
+- No version control for SQL
+- You can use Rails Migrations with Django
+- A manager contains the logic to connect Python to the database.
+- You don't have to do has_one if you do belongs_to
+
+== Finding things
+  license = Topic.objects.get(name="License")
+  license.categories.filter(value__startswith="OSI")
+
+  bsd = license.categories.get(value__contains="BSD")
+  p = Package.categories.get(name="Shop");
+  p.categories = [bsd]
+  
+=== Show all Spanish-language packages with a BSD license
+  packages = Package.objects.filter(
+    categories__topic__name = "Natural language",
+    categories__value__contains = "Spanish"
+  )
+It figures out the correct <tt>JOIN</tt>.  So awesome.
+
+==== Another way
+  
+  packages = Package.objects.filter(
+    categories__topic__name = "Natural language",
+  )
+  packages.filter(
+    categories__value__contains = "Spanish"
+  )
+This actually doesn't do 2 SQL queries.  It returns a lazy object (query set),
+which doesn't execute until you access it.  It build up queries automatically.
+
+
