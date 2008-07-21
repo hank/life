@@ -42,5 +42,54 @@ which doesn't execute until you access it.  It build up queries automatically.
 == URLs
 - Some URLs really suck.
 - Django has pretty URLs
+- Redirects to */ automatically
+- <b>matching happens in order</b>
+- include() makes it nice when you want to pass it off to another urls.py
 
+== Views
+- must take a request as the first param
+- Must return an HttpResponse object or a subclass
 
+=== Making some nice views
+  def package_list(request):
+    return HttpResponse("This is the package list!")
+
+  def package_list(request):
+    r = "<ul>"
+    ps = Package.objects.order_by("name")
+    for p in ps:
+      r += "<li%s: %s</li>" % \
+        (p.name, p.description)
+    r += "</ul>"
+    return HttpResponse(r);
+
+Well, that sucks because we're embedding HTML in our Python!
+
+MTV (Model View Template) = Views pull the data, pass them to the template
+
+  def package_list(request):
+    ps = Package.objects.order_by("name")
+    t = template.loader.get_template("packages/index.html")
+    c = Context({"package_list": ps})
+    return HttpResponse(t.render(c))
+
+<i>"You're welcome to call a View a Controller"</i>
+
+The purpose of a controller is to connect the business logic to the frontend.
+The views in Django are only to send things into templates (more like 4 layers)
+
+== Templates
+- */end* block syntax (for/endfor, if/endif, etc)
+- Similar to liquid, apparently taken from smarty and cheetah?
+
+=== The magic dot
+
+  p["name"]
+  p.name
+  p.name()
+
+- extends must be the first thing in your template
+- more {% block %}s are better
+
+direct to template is hawt:
+  (r'^$', direct_to_template, {'template':'homepage.html'}),
