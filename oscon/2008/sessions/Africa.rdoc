@@ -1,0 +1,106 @@
+= OSCON 2008, Session 2: Creating and supporting Free Software in Africa
+== The African Virtual Open Initiatives and Resources AVOIR experience
+
+=== Some alarming perspectives
+- Land mass by tertiary education is massively bent towards North America and Europe, Japan.
+- By Scientific papers, worse
+- HIV/AIDS, it wins by a *lot*
+
+=== More than software
+- Capetown is night and day living conditions in close proximity
+- Fewer actively researching CS profs in Africa than there are at a typical midsize US university
+- Lack the critical mass to find knowledge-based solutions to their challenges
+- One way to solve: *collaboration*
+
+=== AVOIR
+- Started as a conversation among African academics 4.5 years ago
+- Project itself was established 3 years ago
+- Collaboration does *not* mean structural collaboration
+  - It's failed miserably - see African Virtual University
+  - We want collaboration between individuals in institutions
+- Collaborative Master's Degree in FOSS
+- Mentored Internships
+
+==== What's been done so far
+- Established network of universities
+- Alliance of partners
+
+==== Partnerships
+- An Alliance is a network of friends
+- E-learning initiative
+- Chisimba Training for SADC Parliamentary Program
+
+===== Examples
+- InWent
+- FLOSS Include
+- Animal Health
+- Others
+
+
+=== Chisimba (Application Framework)
+- Distributed, Web 2.0
+- For building "software and skills"
+- Chichewa (Malawi) word for the framework used to build a traditional African house
+- Building confidence through collaboration
+- Focus on getting youth involved and contributing
+- Participation in International projects
+- Typical MVC, reusable objects, Modular
+- Package management (idea from Debian) like apt, but uses Ajax
+- Fits under PEAR, PHP, MySQL, and GNU/Linux
+
+==== Package Management
+- Basically web-based synaptic, allows you to apply one-off patches
+- To set up e-learning, you can just install a module
+- Wealth of modules, blogs, etc.
+
+=== Successes
+- webPresent: http://chameleon.uwc.ac.za/
+  - Allows web-based presentation and slide sharing
+  - made with the Chisimba
+- His website: http://www.dkeats.com
+- Social Content and Networking for Schools
+- SANORD: South Africa Nordic Centre
+
+=== More tech
+- They use memcached!
+- His laptop is awesome.
+
+=== Internships
+- They enable them to become authors of good wuality code
+- 90% of them have contributed to the codebase
+
+=== Challenges
+- Biggest: <b>bandwidth, bandwidth, bandwidth</b>
+- Institutional understanding of the value of networks
+- Cultural predisposition to silence - many are quiet, won't speak up
+- Neurotic productivity challenges the status quo
+  - Lot's of people are apathetic
+- Salary structures in education
+  - Income supplementation is necessary
+- High turnover of students
+  - Rwanda cannot keep students long enough to get them the necessary training.
+
+=== Questions
+==== OLPC
+- Low cost devices into the hands of students is a good thing
+- Reservations about the choices they made
+- eeePC as podcast recording tools
+- Sunlabs with thin clients is one of their big installations
+
+==== Government assistance
+- SA gov first year had good support, champion was moved out, funding slipped through the cracks
+
+==== Mentoring and contribution
+- Mentoring and contribution is possible at ICS: http://ics.uwc.ac.za
+
+==== Use
+- "You can use it to run a war if you want"
+
+==== Languages
+- UTF8, they have translations into Farsi
+- Language packs
+
+==== Biggest Obstacle
+- Internal to the network: Getting people to be comfortable participating and commiting their code while it's incomplete
+- Funding, of course
+- Use outside the network
