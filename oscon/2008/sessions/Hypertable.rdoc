@@ -1,0 +1,146 @@
+== GFS
+- Run on 1000 machines, not 1
+=== Filesystem
+- 64MB chunk
+- Replicates each chunk across machines
+- By doing so, system is impervious to a whole class of hardware failures
+  - Power supply
+  - Power to the rack
+  - Network failure
+- Map/Reduce
+- Bigtable
+
+=== Hypertable
+- Not relational
+- Modeled after Google's bigtable
+- One big massive primary keyed table
+- No transactions, maybe in the future
+- *Scalable*
+- <b>High Random insert, update, and delete rate</b>
+- Loaded 1TB into a 9-node HT cluster, systained random insert @ 1M inserts per second (Quad core Intel, 16GB RAM, SATA 3Gb/s).
+
+=== Data Model
+- Sparse, 2D talbe with cell versions
+- 1 table with 2 columns, next one has 1M, that's OK
+- 4-part key
+  - Row
+  - Column Family
+  - Column Qualifier
+  - Timestamp
+
+- <i>Tim O'Reilly walks in and looks around for a seat, they're all taken</i>
+
+=== Anatomy of a key
+- Row key is \0 Terminated
+- Col family is a single-byte (256 possible)
+- Col qualifier is \0 terminated
+- Timestamp is big-endian 1's Comp. (memcmp, ordering has more recent ahead of older versions)
+
+=== Concurrency
+- Bigtable uses Copy on write
+- MVCC (like Couch) form in Hypertable.  Deletes are inserted as delete records.  Multiple versions are kept around.
+
+=== Cellstore
+- 65K blocks of compressed KV pairs
+- Bloom Filter - booya!
+
+=== System Overview
+- Hyperspace has a distributed lock manager, and a small metadata fs (built on BDB)
+- Chubby (sp?) is google's hyperspace
+- Function of the master is to perform metadata operations (ALTER, CREATE, etc.)
+- Clients can communicate with Range servers
+- Master can be down for a while with no one even noticing
+- Hot standby design for availability
+- Range Servers: Responsible for UPDATING and SCANNING
+- All sits on top of HDFS distrubted FS
+- Hadoop, KFS (GFS Clone)
+
+=== Range server
+- Manages ranges of table data
+- Caches updates in memory (CellCache)
+- Spills (compacts) periodically to update the disk (CellStore)
+
+==== Write ahead commit log
+- When updates come into a rangeserver, they're written to a commit log, then the data structures are updated so you can replay the log.
+
+==== Range meta-operation log
+- When a rangeserver does anything (moves, stops), it's written into the log
+
+== Client API
+- C++ client is the only one supported ATM:
+- You modify a table by creating a mutator
+- You scan a table by creating a scanner
+- Thrift Broker in the works
+- Someone contrib'd a Hadoop Map/Reduce connector
+
+== Compression
+- CellStore: compressed KV pairs
+- Commit log: Compressed blocks (optionally)
+- Supported types
+  - zlib (fastest/best)
+  - lzo (high decomp speed)
+  - quicklz (fast decomp, high ratio)
+  - bmz (longest commons substring, lost of replication)
+  - none
+
+== Caching
+=== Block Cache
+- CellStore blocks of KV pairs configurable
+
+=== Query cache
+- Not finished implementing
+- Caches results
+
+=== Bloom Filter (!!)
+- Negative Cache
+- Configurable K
+- Allows you to find out if you definitely *don't* have the data
+
+=== Scaling
+- Session table and crawl table
+- Splits them all up into ranges, go to rangeservers
+- Just add more machines, and the system migrates data equally
+- Balancing is questionable...
+
+=== Access Groups
+- Control of physical layout hybrid row/col oriented
+- Improves perf. by minimizing IO
+- Grouping columns allows physical storage control
+- Makes faster updates possible
+
+=== FS Broker
+- Can run on any distributed FS
+- FUSE hooks
+
+== More
+- Comparison to Hbase (Java, yuck), C++ much better
+- System is designed for async communication
+- Hypertable is CPU intensive
+- Java uses 2-3 times the memory for large memmap
+- Poor processor cache perf.
+
+== Performance
+- AOL Query logs
+- 75,275,825 inserted cells
+- 8-node cluster (1 1.8 Ghz Dual Core Opteron)
+  - 4GB RAM
+  - 3x 7200 SATA
+- Row Key 7B
+- Avg value 15B
+- Crap.  Slide change
+
+- Another test yielded oveer 1M sustained inserts/s
+
+== Weaknesses
+- Range data managed by a single rangeserver
+  - No data loss, but if it goes down, bad bad
+  - Can be mitigated with client-side cache or memcached
+
+== Status
+- Alpha, 0.9.0.7 released
+- Beta at the end of August
+- Waiting on Hadoop JIRA 1700
+  - Bug in Hadoop, don't allow appending to existing files
+- GPL 2
+
+- Delete records get flushed in a "major operation"
