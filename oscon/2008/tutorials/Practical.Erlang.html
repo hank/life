@@ -9,7 +9,7 @@
 <h2>File: Practical.Erlang.rdoc</h2>
 <table>
   <tr><td>Path:</td><td>Practical.Erlang.rdoc</td></tr>
-  <tr><td>Modified:</td><td>Tue Jul 22 15:12:12 -0700 2008</td></tr>
+  <tr><td>Modified:</td><td>Tue Jul 22 16:11:39 -0700 2008</td></tr>
 </table>
 
 <h1>OSCON 2008, Tutorial 4: Practical Erlang</h1>
@@ -281,6 +281,11 @@ Not sure about this part, he switched slides:
 <h4>Meta Calls</h4>
 <pre>
   apply(Module, Function, Args)
+
+  68&gt; apply(boolean, b_not, [false]).
+  true
+  69&gt; apply(boolean, b_not, [true]).
+  false
 </pre>
 <ul>
 <li>Dynamically evaluate functions.
@@ -296,7 +301,37 @@ Not sure about this part, he switched slides:
 
 </li>
 </ul>
-<h3>Exception Handling</h3>
+<h2>Creating Processes</h2>
+<pre>
+  Pid2 = spawn(Mod, Func, Arg)
+</pre>
+<h2>Message Passing</h2>
+<pre>
+  Pid ! Msg
+</pre>
+<ul>
+<li>Bang construct (!)
+
+</li>
+<li>Msg is any valid Erlang type
+
+</li>
+<li>Goes to the process mailbox, stores the message sequentially
+
+</li>
+</ul>
+<h3>Receive Clause</h3>
+<pre>
+  receive
+    {reset, Board} -&gt; reset(Board);
+    {shut_down, Board} -&gt; {error, unknown_msg}
+  end
+</pre>
+<ul>
+<li>There is a non-blocking form of receive using an <b>after</b> clause.
+
+</li>
+</ul>
 <h2>Concurrent Programming</h2>
 <h2>Process Error Handling</h2>
 
@@ -313,4 +348,4 @@ Files:   1
 Classes: 0
 Modules: 0
 Methods: 0
-Elapsed: 0.135s
+Elapsed: 0.138s

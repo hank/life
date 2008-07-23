@@ -172,9 +172,35 @@ Not sure about this part, he switched slides:
 - Arguments established at runtime
 - Extremely powerful when implementing generic code
 
+== Creating Processes
+  Pid2 = spawn(Mod, Func, Arg)
+== Message Passing
+  Pid ! Msg
+- Bang construct (!)
+- Msg is any valid Erlang type
+- Goes to the process mailbox, stores the message sequentially
 
+=== Receive Clause
+  receive
+    {reset, Board} -> reset(Board);
+    {shut_down, Board} -> {error, unknown_msg}
+  end
 
-=== Exception Handling
+- There is a non-blocking form of receive using an *after* clause.
+- Pid2 ! {self(), foo} sends foo to Process 2, and self() tells it who it's from
+  
+Time to filter by PID!:
+  Pid2 ! {self(), {digit, [1,2,3,4]}}
+  receive
+    {Pid, {digit, Digit}} -> ...
+  end
+
+Registering a process allows any process to message it.
+  receive ...
+  after Timeout
+  end
+
+Timeout can be the atom infinity or an integer.
 
 == Concurrent Programming
 
