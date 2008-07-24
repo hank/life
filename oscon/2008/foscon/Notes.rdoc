@@ -1,0 +1,24 @@
+= FOSCON 2008: Cooking with Ruby Notes
+== Random
+- Arduino is awesome.  RAD is Ruby for it. (atduskgreg)
+- Make an ordered hash in Ruby
+- Selenium is frickin cool - you can even DRAG ELEMENTS AROUND!
+- Calagator
+- AutomateIt
+
+== Turning a Rails Project into a business
+- Do things on Facebook with Ruby as a consultant
+- iPhone development
+- Don't write any code first
+  - Design first
+  - Customer connection
+  - Articulate the problem you're solving, and figure out who has that problem
+  - Define what will drive the target to spend money
+- Determine where your client spend your time
+  - Lawyers - Golf Course
+- Know your competition
+- Why are you different
+- Make a story (car salesman)
+- Build software
+- Level the playingfield - compete with the enterprise
+
