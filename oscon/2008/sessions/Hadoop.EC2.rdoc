@@ -1,0 +1,111 @@
+
+= OSCON 2008, Session 6: Hadoop and EC2
+
+== EC2
+- Virtualized Linux and Xen
+- On demand
+- Pro-rated
+- EC2 = Computing
+- S3 = Storage
+
+== Hadoop
+- Framework supporting massively distributed applications
+- Open Source Map/Reduce
+- HDFS, Job Control, Programming Model, Self Healing, Failover, Monitoring, Reporting - and it's simple
+
+== Problem
+- 1851-1922 historical archive
+- Free and open is better
+- Articles served as PDFs
+- Free = More Traffic
+- Really need 1851-1981 PDFs
+- PDFs dynamically generated
+- Real deadline
+
+=== Background
+- Articles are and image of the newspaper
+- Some poor shmuck has to draw rectangles around the parts of the article
+- Create metadata
+- Stitch all of it together
+
+=== Simple answer
+- We could pregenerate 11 million PDFs and serve them out
+- Copy all the source data to S3
+- EC2 instnaces and Hadoop generate the PDFs
+- Store the output PDFs back in S3
+- <b>Hope that S3 never goes down</b>
+
+=== Data
+- 4.3 TB of data
+- 20M files, TIFFs, metadata
+- cp data amazons3
+- simple if you have big bandwidth
+
+=== It works
+- There's no interdependency among articles
+- Parallelizable
+- Not really using the Reduce functionality in Map/Reduce
+
+=== Non-Hadoop Specific code
+- Suck in metadata file, parse it
+- Load TIFFs, scale em
+- Arrange, combine, generate
+- Store
+
+=== IO notes on Hadoop
+- Minimal use of HDFS
+ - Simplified by S3 usage
+ - HDFS in an EC2 on-demand environment
+
+=== Map/Reduce Programming model
+- Input KV pair, output KV pair
+- Reduce takes a Key and a list of values associated with the key, outputs a single KV pair
+
+=== Hadoopize the PDF generator
+- Simply put the previous PDF code inside the map class
+- Use a reporter to indicate job success/failure
+
+=== Reduce class
+- If I have a key and an iterator, I just iterate through the list and add, then write.
+
+=== Run
+- Xen images with Hadoop preconfigured
+- Bundle, Upload, Register Images with EC2
+- Boot Master Node
+- Boot all slaves
+- Check Hadoop management console
+- Submit a job request
+- 4TB of data in 24 hours using 100 computers
+- Produced another 1.5 TB of data, 11 million PDFs
+- Cost - $240 for computing, $650 for storing the data
+
+=== Error!
+- Off by 1 error, Java and the Date class <b>JAVA FAIL</b>
+- They re-ran the data
+
+== TimesMachine
+- We have all this cool data that's never been very accessible
+- Date-based browsable archive of full-page image scans
+- Possible because it was cheap and self-service
+- http://timesmachine.nytimes.com/browser
+
+== Other Projects
+- Data mining
+- Article Clustering (15 million articles)
+- Other secret ones...
+
+== Question time
+- Do you OCR?
+  - Yes, the articles are OCRed.
+
+- How much are you concerned about security sending blogs into the cloud
+  - Article data isn't a concern, but there are extra precautions with blogs, personal information worries.
+
+- Can you say what you're doing to protect the cloud?
+  - No, not really, no.
+
+- What about having something like google trends for words
+  - Sounds great, you want a job?
+
+- Did you lose any machines during processing, and how would you say Hadoop handled that?
+  - We did see it, it just works.

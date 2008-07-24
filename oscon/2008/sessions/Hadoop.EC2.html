@@ -1,0 +1,299 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>RDoc Documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body>
+<h2>File: Hadoop.EC2.rdoc</h2>
+<table>
+  <tr><td>Path:</td><td>Hadoop.EC2.rdoc</td></tr>
+  <tr><td>Modified:</td><td>Thu Jul 24 11:22:08 -0700 2008</td></tr>
+</table>
+
+<h1>OSCON 2008, Session 6: Hadoop and EC2</h1>
+<h2>EC2</h2>
+<ul>
+<li>Virtualized Linux and Xen
+
+</li>
+<li>On demand
+
+</li>
+<li>Pro-rated
+
+</li>
+<li>EC2 = Computing
+
+</li>
+<li>S3 = Storage
+
+</li>
+</ul>
+<h2>Hadoop</h2>
+<ul>
+<li>Framework supporting massively distributed applications
+
+</li>
+<li>Open Source Map/Reduce
+
+</li>
+<li>HDFS, Job Control, Programming Model, Self Healing, Failover, Monitoring,
+Reporting - and it&#8216;s simple
+
+</li>
+</ul>
+<h2>Problem</h2>
+<ul>
+<li>1851-1922 historical archive
+
+</li>
+<li>Free and open is better
+
+</li>
+<li>Articles served as PDFs
+
+</li>
+<li>Free = More Traffic
+
+</li>
+<li>Really need 1851-1981 PDFs
+
+</li>
+<li>PDFs dynamically generated
+
+</li>
+<li>Real deadline
+
+</li>
+</ul>
+<h3>Background</h3>
+<ul>
+<li>Articles are and image of the newspaper
+
+</li>
+<li>Some poor shmuck has to draw rectangles around the parts of the article
+
+</li>
+<li>Create metadata
+
+</li>
+<li>Stitch all of it together
+
+</li>
+</ul>
+<h3>Simple answer</h3>
+<ul>
+<li>We could pregenerate 11 million PDFs and serve them out
+
+</li>
+<li>Copy all the source data to S3
+
+</li>
+<li>EC2 instnaces and Hadoop generate the PDFs
+
+</li>
+<li>Store the output PDFs back in S3
+
+</li>
+<li><b>Hope that S3 never goes down</b>
+
+</li>
+</ul>
+<h3>Data</h3>
+<ul>
+<li>4.3 TB of data
+
+</li>
+<li>20M files, TIFFs, metadata
+
+</li>
+<li>cp data amazons3
+
+</li>
+<li>simple if you have big bandwidth
+
+</li>
+</ul>
+<h3>It works</h3>
+<ul>
+<li>There&#8216;s no interdependency among articles
+
+</li>
+<li>Parallelizable
+
+</li>
+<li>Not really using the Reduce functionality in Map/Reduce
+
+</li>
+</ul>
+<h3>Non-Hadoop Specific code</h3>
+<ul>
+<li>Suck in metadata file, parse it
+
+</li>
+<li>Load TIFFs, scale em
+
+</li>
+<li>Arrange, combine, generate
+
+</li>
+<li>Store
+
+</li>
+</ul>
+<h3>IO notes on Hadoop</h3>
+<ul>
+<li>Minimal use of HDFS
+
+</li>
+</ul>
+<pre>
+ - Simplified by S3 usage
+ - HDFS in an EC2 on-demand environment
+</pre>
+<h3>Map/Reduce Programming model</h3>
+<ul>
+<li>Input KV pair, output KV pair
+
+</li>
+<li>Reduce takes a Key and a list of values associated with the key, outputs a
+single KV pair
+
+</li>
+</ul>
+<h3>Hadoopize the PDF generator</h3>
+<ul>
+<li>Simply put the previous PDF code inside the map class
+
+</li>
+<li>Use a reporter to indicate job success/failure
+
+</li>
+</ul>
+<h3>Reduce class</h3>
+<ul>
+<li>If I have a key and an iterator, I just iterate through the list and add,
+then write.
+
+</li>
+</ul>
+<h3>Run</h3>
+<ul>
+<li>Xen images with Hadoop preconfigured
+
+</li>
+<li>Bundle, Upload, Register Images with EC2
+
+</li>
+<li>Boot Master Node
+
+</li>
+<li>Boot all slaves
+
+</li>
+<li>Check Hadoop management console
+
+</li>
+<li>Submit a job request
+
+</li>
+<li>4TB of data in 24 hours using 100 computers
+
+</li>
+<li>Produced another 1.5 TB of data, 11 million PDFs
+
+</li>
+<li>Cost - $240 for computing, $650 for storing the data
+
+</li>
+</ul>
+<h3>Error!</h3>
+<ul>
+<li>Off by 1 error, Java and the Date class <b>JAVA FAIL</b>
+
+</li>
+<li>They re-ran the data
+
+</li>
+</ul>
+<h2>TimesMachine</h2>
+<ul>
+<li>We have all this cool data that&#8216;s never been very accessible
+
+</li>
+<li>Date-based browsable archive of full-page image scans
+
+</li>
+<li>Possible because it was cheap and self-service
+
+</li>
+<li><a
+href="http://timesmachine.nytimes.com/browser">timesmachine.nytimes.com/browser</a>
+
+</li>
+</ul>
+<h2>Other Projects</h2>
+<ul>
+<li>Data mining
+
+</li>
+<li>Article Clustering (15 million articles)
+
+</li>
+<li>Other secret ones&#8230;
+
+</li>
+</ul>
+<h2>Question time</h2>
+<ul>
+<li>Do you OCR?
+
+<ul>
+<li>Yes, the articles are OCRed.
+
+</li>
+</ul>
+</li>
+<li>How much are you concerned about security sending blogs into the cloud
+
+<ul>
+<li>Article data isn&#8216;t a concern, but there are extra precautions with
+blogs, personal information worries.
+
+</li>
+</ul>
+</li>
+<li>Can you say what you&#8216;re doing to protect the cloud?
+
+<ul>
+<li>No, not really, no.
+
+</li>
+</ul>
+</li>
+<li>What about having something like google trends for words
+
+<ul>
+<li>Sounds great, you want a job?
+
+</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+<h2>Classes</h2>
+</body>
+</html>
+Files:   1
+Classes: 0
+Modules: 0
+Methods: 0
+Elapsed: 0.132s
