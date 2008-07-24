@@ -1,0 +1,378 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>RDoc Documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body>
+<h2>File: History.of.Failure.rdoc</h2>
+<table>
+  <tr><td>Path:</td><td>History.of.Failure.rdoc</td></tr>
+  <tr><td>Modified:</td><td>Wed Jul 23 17:57:41 -0700 2008</td></tr>
+</table>
+
+<h1>OSCON 2008, Session 5: A History of Failure</h1>
+<h2>Ancient Greece</h2>
+<ul>
+<li>More than 2000 years ago
+
+</li>
+<li>Device - position of the stars, sun, planets, and moon
+
+</li>
+<li>First computer, but also first software collaboration
+
+</li>
+<li>Modification of device after created
+
+<ul>
+<li>Bugfixes
+
+</li>
+<li>Feature Creep
+
+</li>
+</ul>
+</li>
+<li>Plundered by Romans
+
+</li>
+<li>Sank, recovered in 1901.
+
+</li>
+<li>X-ray tomography, 2000 greek characters on the outside
+
+</li>
+<li>(Funny EULA)
+
+</li>
+</ul>
+<h2>Modern Times</h2>
+<ul>
+<li>First bug: 1947. A Real Insect
+
+</li>
+<li>1983: Therac-25 Radiation Treatment Machine
+
+<ul>
+<li>PDP-11
+
+</li>
+<li>Errors are caused by alpha particles and EM noise
+
+</li>
+<li>Picks the wrong mode 1 in 250M times, massive radiation overdose
+
+</li>
+<li>No hardware interlocks, software controlled
+
+</li>
+<li>Picked wrong mode 6 times in 3 years.
+
+</li>
+</ul>
+</li>
+<li>Overcorrection killed a rocket because of absolute velocity vs. smoothed
+velocity
+
+</li>
+<li>Self-destruct buttons
+
+</li>
+</ul>
+<p>
+<em>&quot;It&#8216;s possible to make mistakes so large they invalidate
+your entire worth as a human being&quot;</em>
+</p>
+<ul>
+<li>Australian = $40,000/year, over lifespan of 80 years, $3.17M
+
+</li>
+<li>Metric = lifetime effort lost
+
+</li>
+</ul>
+<h2>Bug 1: AT&amp;T 1990</h2>
+<ul>
+<li>Switches fail, tell its neighbors, they remove it from the routing table,
+bad switch spends 6 seconds trying to fix itself.
+
+</li>
+<li>Coming back up, it would 3way handshake with peers to add them back.
+
+</li>
+<li>Changed, still send fault, still self-fix, then just makes an outgoing call
+to the other switches.
+
+</li>
+<li>Bug: 1st switch made the call, 2nd switch updating routing table, crashes
+everyone!
+
+</li>
+<li>75M calls were lost
+
+</li>
+<li>Lost revenue = $60M, 2300 years of productivity lost.
+
+</li>
+</ul>
+<h2>1996: Tiwai Point</h2>
+<ul>
+<li>Aluminum smelter, computer controlled
+
+</li>
+<li>Comalco Australia programmed them
+
+</li>
+<li>2 hours behind AUS
+
+</li>
+<li>Leap year, computers couldn&#8216;t take day 366.
+
+</li>
+<li>All computers crash @ midnight.
+
+</li>
+<li>2 hours pass, same problem happens in AUS
+
+</li>
+<li>Cells melted, had to be replaced.
+
+</li>
+<li>Unknown cost.
+
+</li>
+</ul>
+<h2>Space vehicles</h2>
+<h3>1996: Ariane 5</h3>
+<ul>
+<li>Developed bug 37 seconds after launch
+
+</li>
+<li>Veered off course dramatically
+
+</li>
+<li>64-bit FP to measure launch position
+
+</li>
+<li>Casting to 16-bit int
+
+</li>
+<li><b>No Exception Handling!</b>
+
+</li>
+<li>Overflow, negative! Rocket turned around!
+
+</li>
+<li>Reused code from Ariane 4, could only move 1/2 the horizontal speed
+
+</li>
+<li>Testing? The <b>bug showed up perfectly!!!</b>
+
+</li>
+<li>The bug showed up afterwards in simulation
+
+</li>
+<li>$370M lost!
+
+</li>
+<li>150 lifetimes, 12,000 years
+
+</li>
+</ul>
+<h2>1998: Mars Climate Orbiter</h2>
+<ul>
+<li>Plummeted through the atmosphere
+
+</li>
+<li>Part of the code in imperial, some in metric
+
+</li>
+<li>Pound force, newtons :P
+
+</li>
+<li>Testing budget was cut before launch
+
+</li>
+<li>Mars Lander failed as well
+
+<ul>
+<li>Thrusters stopped working
+
+</li>
+<li>Landing gear started vibrating, thought it was on the ground
+
+</li>
+</ul>
+</li>
+<li>8300 years of time lost
+
+</li>
+</ul>
+<h2>Deeps Space 2: Hit Mars</h2>
+<ul>
+<li>644+ KM/h
+
+</li>
+<li>Sat in storage
+
+</li>
+<li>Launched it, and it hit mars
+
+</li>
+<li><b>Battery was dead!</b>
+
+</li>
+<li>$30M, 10 lifetimes
+
+</li>
+</ul>
+<h2>2003: North American Blackouts</h2>
+<ul>
+<li>50M people
+
+</li>
+<li>2.38 x AUS, 1/6 of USA
+
+</li>
+<li>Who&#8216;s to blame?
+
+<ul>
+<li>El Nino
+
+</li>
+<li>Canada blames New York, but was a sunny day
+
+</li>
+<li>Canada blames a nuclear power plant in Pennsylvania
+
+</li>
+<li>New York blames Canada
+
+</li>
+</ul>
+</li>
+<li>Europe was saying USA had 3rd world electric grid
+
+</li>
+<li>6 weeks later, there was a big blackout
+
+</li>
+<li>First Energy in Ohio
+
+<ul>
+<li>14:14 Alarm system fails <b>SILENTLY</b>
+
+</li>
+<li>Display said everything was fine
+
+</li>
+<li>Remained in that state for 27 minutes, crashed
+
+</li>
+<li>Hot spare failed silent after 13 minutes
+
+</li>
+<li>345kV line goes down, alarm system isn&#8216;t working
+
+</li>
+<li>Automatic re-route, other lines pick up the load
+
+</li>
+<li>2 more lines went down, no one knows
+
+</li>
+</ul>
+</li>
+<li>11 more lines go down says MISO
+
+</li>
+<li>MISO calls First Energy to notify, then their own power went out
+
+</li>
+</ul>
+<h2>Take away</h2>
+<ul>
+<li>Race conditions
+
+</li>
+<li>Test
+
+</li>
+<li>Deploy in New Zealand First
+
+</li>
+</ul>
+<h2>1998: Auckland blackouts</h2>
+<ul>
+<li>LOTR: Where the orcs come from
+
+</li>
+<li>5 weeks without power
+
+</li>
+<li>150MWatts of load, 110MW of rated cable :P
+
+</li>
+<li>4 cables, 1 failed.
+
+</li>
+<li>Bad press recently, so no announcement
+
+</li>
+<li>150MW of power on 85MW of cable
+
+</li>
+<li>Cable 2 fails -&gt; 150MW of power on 50MW of cable
+
+</li>
+<li>Management willpower vs. physics. Classic.
+
+</li>
+<li>Blamed it on El Nino
+
+</li>
+<li>Actually a lack of sysadmins, engineers knew cables were overloaded
+
+</li>
+<li>1980: &quot;We should replace the cables, guys&quot;
+
+</li>
+<li>Cost: $150M to Mercury power, unknown to business
+
+</li>
+<li>Economic gain to Wellington: Priceless
+
+</li>
+</ul>
+<h2>Sysadmins</h2>
+<ul>
+<li>Hard to get people to listen to you, doomsayers
+
+</li>
+<li>Disk failure, we need raid
+
+</li>
+<li>Power? UPS
+
+</li>
+<li>Listen to the sysadmins
+
+</li>
+</ul>
+
+
+
+
+
+
+
+<h2>Classes</h2>
+</body>
+</html>
+Files:   1
+Classes: 0
+Modules: 0
+Methods: 0
+Elapsed: 0.173s
