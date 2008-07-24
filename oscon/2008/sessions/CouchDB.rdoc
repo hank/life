@@ -1,4 +1,4 @@
-= OSCON 2008 Session 1: CouchDB
+= OSCON 2008, Session 1: CouchDB
 
 == RDBMS
 - CouchDB is not a relational database.
