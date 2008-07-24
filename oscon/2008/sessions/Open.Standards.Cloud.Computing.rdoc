@@ -1,0 +1,11 @@
+= Open standards in cloud computing
+== Presenter
+- wifi-radar
+
+== Real Life
+- We get the technical side (make it, post it)
+- We miss the business side (selling it, supporting it)
+
+== Law of Diminishing Returns
+- At first, more adoption = more returns
+- Support cost rises
