@@ -1,4 +1,4 @@
-= Open standards in cloud computing
+= OSCON 2008, Session 7: Open standards in cloud computing
 == Presenter
 - wifi-radar
 
