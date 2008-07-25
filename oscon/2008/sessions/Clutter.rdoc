@@ -1,0 +1,153 @@
+= OSCON 2008, Session 11: Clutter
+- http://www.clutter-project.org
+
+== Demo
+- Neat sliders, neat floaty movement
+- Photo mess :)
+- <i>"Let's quit before it crashes"</i>
+
+== Clutter
+- OpenGL(ES) based
+- Written in C with C++, Vala, Python, Ruby, C#, Scheme, Ocaml bindings
+- Internationalization with Pango
+- Windows, OSX, Linux natively
+- LGPL
+
+== What's it for
+- Spicing up desktop apps
+- Funky mobile UIs
+  - All desktops are basically alike, save mice
+  - Mobile world, no 2 devices are alike (touch, buttons, gyroscopics, etc)
+- Custom toolkits
+- *NOT* for 3D games!
+- Media application interfaces
+
+== Graphics
+=== OpenGL
+- Cutter has a nice UI to allow you to easily design interfaces with OpenGL
+
+=== OpenGL ES
+- Subset of OpenGL
+- Optimized for embedded hardware
+- Fixed-point (?) API
+- You cannot expect compile-time compatibility with regular OpenGL code
+
+=== COGL
+- Sits between the two and mediates
+- If you are hardcore, you can still use the COGL layer to write GL code
+
+== Basic Idea
+- Manipulate 2D surfaces in 3D space
+- Simply anchor objects, and you can Size, Position, Scale, Rotate, and Fade it
+- The API conceptualized actors in 2D, but you can "fake" 3D
+
+== Scenegraphs
+- Actor tree
+- Parents, children
+
+== Containers
+- Changing stacking order of children
+- Manipulation of groups with ClutterGroup
+- ClutterStage, special subclass of ClutterGroup
+
+== Actors
+=== ClutterRectangle 
+Just a rectangle, you can set the color and size
+=== ClutterTexture
+Load an image that your backaend supports
+=== ClutterCloneTexture
+You have an image, and you want to display it 20 times.  
+If you dont clone, it loads the image over again and again.
+=== ClutterLabel
+static piece of text you can place
+=== ClutterEntry
+Basic one-line editing widget
+=== ClutterGstVideoTexture
+GStreamer interface for video
+=== GtkClutterEmbed / ClutterQT
+You can embed clutter into GTK and Qt.
+=== WebkitWebView
+Browser embedding
+
+== Python example
+
+  import sys
+  import clutter
+  
+  def main(args)
+    stage = clutter.Stage()
+    stage.set_size(800,600)
+    stage.set_color(0xcc, 0xcc, 0xcc, 0xff)
+
+    pixbuf = gtk.gdk.pixbuf_new_from_file("image.jpg")
+    redhand = clutter.Texture(pixbuf)
+    redhand.set_position(20,20)
+    redhand.show()
+
+    redhand.set_rotation ...
+
+== Animation
+- 2 Animation APIs in Clutter
+=== Timelines
+- Reliable timekeeping - create a timeline that runs for 300ms, it does.
+  - If user starts doing something bad and takes all the CPU, still try to guarantee
+- Anti-starvation pool
+==== Signals
+- started, paused, completed
+- new-frame
+- marker-reached: points along the timeline you're interested in
+
+==== Behaviours
+- Scale
+- Depth
+- Path
+- Rotate
+- Opacity
+Simply create your timeline and apply these behaviours.
+
+==== Alpha functions
+- Sine function (SINE_INC)
+- Half-sine, quarter-sine, exponential
+
+A quick example of the timeline API:
+
+  timeline - clutter.Timeline(100,26)
+  timeline.set_look(True)
+  alpha = clutter.Alpha(timeline, clutter.sine_func)
+  s_behvaviour = clutter.BehaviourScale(1.0,1.0,4.0,4.0,alpha)
+  s_behaviour.apply(redhand)
+  s_behvaviour2 = clutter.BehaviourOpacity(alpha=alpha, opacity_start=10, opacity_end=255)
+
+== Events
+- Efficient picking
+- Reactive vs. non-reactive actors
+  - Default all actors are non-reactive
+  - You have to set the reactive attribute on the actor
+- Signals
+  - button-press-event, button-release-event
+  - motion-event, enter-event, leave-event
+  - key-press-event, key-release-event
+  - focus-in, focus-out
+- Similar to GTK
+- Event processing is similar to the DOM event model
+- Allows you to implement containers sensibly
+
+== Why Clutter
+- There are no FOSS alternatives
+- Intuitive, clean API
+- Easily extensible
+- Multiple language bindings ... <i>"You should use the C, really"</i>
+- <b>Portability!!</b>
+
+== Example: woohaa
+- Toy example interface
+- Movie trailers
+- Shows the Gst integration
+- You can play a trailer and see the interface on the screen
+- You can manipulate the Gst actor like anything else
+
+== Also, twitter
+- Tweet, a twitter client, nice flashy.
+
+= More
+- http://svn.o-hand.com/repos/clutter/trunk/

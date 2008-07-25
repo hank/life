@@ -1,0 +1,374 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>RDoc Documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body>
+<h2>File: Clutter.rdoc</h2>
+<table>
+  <tr><td>Path:</td><td>Clutter.rdoc</td></tr>
+  <tr><td>Modified:</td><td>Fri Jul 25 11:30:50 -0700 2008</td></tr>
+</table>
+
+<h1>OSCON 2008, Session 11: Clutter</h1>
+<ul>
+<li><a href="http://www.clutter-project.org">www.clutter-project.org</a>
+
+</li>
+</ul>
+<h2>Demo</h2>
+<ul>
+<li>Neat sliders, neat floaty movement
+
+</li>
+<li>Photo mess :)
+
+</li>
+<li><em>&quot;Let&#8216;s quit before it crashes&quot;</em>
+
+</li>
+</ul>
+<h2>Clutter</h2>
+<ul>
+<li>OpenGL(ES) based
+
+</li>
+<li>Written in C with C++, Vala, Python, Ruby, C#, Scheme, Ocaml bindings
+
+</li>
+<li>Internationalization with Pango
+
+</li>
+<li>Windows, OSX, Linux natively
+
+</li>
+<li>LGPL
+
+</li>
+</ul>
+<h2>What&#8216;s it for</h2>
+<ul>
+<li>Spicing up desktop apps
+
+</li>
+<li>Funky mobile UIs
+
+<ul>
+<li>All desktops are basically alike, save mice
+
+</li>
+<li>Mobile world, no 2 devices are alike (touch, buttons, gyroscopics, etc)
+
+</li>
+</ul>
+</li>
+<li>Custom toolkits
+
+</li>
+<li><b>NOT</b> for 3D games!
+
+</li>
+<li>Media application interfaces
+
+</li>
+</ul>
+<h2>Graphics</h2>
+<h3>OpenGL</h3>
+<ul>
+<li>Cutter has a nice UI to allow you to easily design interfaces with OpenGL
+
+</li>
+</ul>
+<h3>OpenGL ES</h3>
+<ul>
+<li>Subset of OpenGL
+
+</li>
+<li>Optimized for embedded hardware
+
+</li>
+<li>Fixed-point (?) API
+
+</li>
+<li>You cannot expect compile-time compatibility with regular OpenGL code
+
+</li>
+</ul>
+<h3>COGL</h3>
+<ul>
+<li>Sits between the two and mediates
+
+</li>
+<li>If you are hardcore, you can still use the COGL layer to write GL code
+
+</li>
+</ul>
+<h2>Basic Idea</h2>
+<ul>
+<li>Manipulate 2D surfaces in 3D space
+
+</li>
+<li>Simply anchor objects, and you can Size, Position, Scale, Rotate, and Fade
+it
+
+</li>
+<li>The API conceptualized actors in 2D, but you can &quot;fake&quot; 3D
+
+</li>
+</ul>
+<h2>Scenegraphs</h2>
+<ul>
+<li>Actor tree
+
+</li>
+<li>Parents, children
+
+</li>
+</ul>
+<h2>Containers</h2>
+<ul>
+<li>Changing stacking order of children
+
+</li>
+<li>Manipulation of groups with ClutterGroup
+
+</li>
+<li>ClutterStage, special subclass of ClutterGroup
+
+</li>
+</ul>
+<h2>Actors</h2>
+<h3>ClutterRectangle</h3>
+<p>
+Just a rectangle, you can set the color and size
+</p>
+<h3>ClutterTexture</h3>
+<p>
+Load an image that your backaend supports
+</p>
+<h3>ClutterCloneTexture</h3>
+<p>
+You have an image, and you want to display it 20 times. If you dont clone,
+it loads the image over again and again.
+</p>
+<h3>ClutterLabel</h3>
+<p>
+static piece of text you can place
+</p>
+<h3>ClutterEntry</h3>
+<p>
+Basic one-line editing widget
+</p>
+<h3>ClutterGstVideoTexture</h3>
+<p>
+GStreamer interface for video
+</p>
+<h3>GtkClutterEmbed / ClutterQT</h3>
+<p>
+You can embed clutter into GTK and Qt.
+</p>
+<h3>WebkitWebView</h3>
+<p>
+Browser embedding
+</p>
+<h2>Python example</h2>
+<pre>
+  import sys
+  import clutter
+
+  def main(args)
+    stage = clutter.Stage()
+    stage.set_size(800,600)
+    stage.set_color(0xcc, 0xcc, 0xcc, 0xff)
+
+    pixbuf = gtk.gdk.pixbuf_new_from_file(&quot;image.jpg&quot;)
+    redhand = clutter.Texture(pixbuf)
+    redhand.set_position(20,20)
+    redhand.show()
+
+    redhand.set_rotation ...
+</pre>
+<h2>Animation</h2>
+<ul>
+<li>2 Animation APIs in Clutter
+
+</li>
+</ul>
+<h3>Timelines</h3>
+<ul>
+<li>Reliable timekeeping - create a timeline that runs for 300ms, it does.
+
+<ul>
+<li>If user starts doing something bad and takes all the CPU, still try to
+guarantee
+
+</li>
+</ul>
+</li>
+<li>Anti-starvation pool
+
+</li>
+</ul>
+<h4>Signals</h4>
+<ul>
+<li>started, paused, completed
+
+</li>
+<li>new-frame
+
+</li>
+<li>marker-reached: points along the timeline you&#8216;re interested in
+
+</li>
+</ul>
+<h4>Behaviours</h4>
+<ul>
+<li>Scale
+
+</li>
+<li>Depth
+
+</li>
+<li>Path
+
+</li>
+<li>Rotate
+
+</li>
+<li>Opacity
+
+</li>
+</ul>
+<p>
+Simply create your timeline and apply these behaviours.
+</p>
+<h4>Alpha functions</h4>
+<ul>
+<li>Sine function (SINE_INC)
+
+</li>
+<li>Half-sine, quarter-sine, exponential
+
+</li>
+</ul>
+<p>
+A quick example of the timeline API:
+</p>
+<pre>
+  timeline - clutter.Timeline(100,26)
+  timeline.set_look(True)
+  alpha = clutter.Alpha(timeline, clutter.sine_func)
+  s_behvaviour = clutter.BehaviourScale(1.0,1.0,4.0,4.0,alpha)
+  s_behaviour.apply(redhand)
+  s_behvaviour2 = clutter.BehaviourOpacity(alpha=alpha, opacity_start=10, opacity_end=255)
+</pre>
+<h2>Events</h2>
+<ul>
+<li>Efficient picking
+
+</li>
+<li>Reactive vs. non-reactive actors
+
+<ul>
+<li>Default all actors are non-reactive
+
+</li>
+<li>You have to set the reactive attribute on the actor
+
+</li>
+</ul>
+</li>
+<li>Signals
+
+<ul>
+<li>button-press-event, button-release-event
+
+</li>
+<li>motion-event, enter-event, leave-event
+
+</li>
+<li>key-press-event, key-release-event
+
+</li>
+<li>focus-in, focus-out
+
+</li>
+</ul>
+</li>
+<li>Similar to GTK
+
+</li>
+<li>Event processing is similar to the DOM event model
+
+</li>
+<li>Allows you to implement containers sensibly
+
+</li>
+</ul>
+<h2>Why Clutter</h2>
+<ul>
+<li>There are no FOSS alternatives
+
+</li>
+<li>Intuitive, clean API
+
+</li>
+<li>Easily extensible
+
+</li>
+<li>Multiple language bindings &#8230; <em>&quot;You should use the C,
+really&quot;</em>
+
+</li>
+<li><b>Portability!!</b>
+
+</li>
+</ul>
+<h2>Example: woohaa</h2>
+<ul>
+<li>Toy example interface
+
+</li>
+<li>Movie trailers
+
+</li>
+<li>Shows the Gst integration
+
+</li>
+<li>You can play a trailer and see the interface on the screen
+
+</li>
+<li>You can manipulate the Gst actor like anything else
+
+</li>
+</ul>
+<h2>Also, twitter</h2>
+<ul>
+<li>Tweet, a twitter client, nice flashy.
+
+</li>
+</ul>
+<h1>More</h1>
+<ul>
+<li><a
+href="http://svn.o-hand.com/repos/clutter/trunk">svn.o-hand.com/repos/clutter/trunk</a>/
+
+</li>
+</ul>
+
+
+
+
+
+
+
+<h2>Classes</h2>
+</body>
+</html>
+Files:   1
+Classes: 0
+Modules: 0
+Methods: 0
+Elapsed: 0.145s
