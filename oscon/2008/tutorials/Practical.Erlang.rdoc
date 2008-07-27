@@ -71,8 +71,8 @@ Succeeds - A=abc, B=22
     false -> {error, unknown}
   end
 - No punctuation on last *case* clause.
-- Can evaluate one or more expressions per clause, seperated by ;.
-- There's a dont-care clause that can protect you from a runtime error.
+- Can evaluate one or more expressions per clause, separated by ;.
+- There's a don't-care clause that can protect you from a runtime error.
 
 ==== If 
   if
@@ -145,7 +145,7 @@ Not sure about this part, he switched slides:
   average([], Length, Sum) ->
     Sum/Length;
 
-=== Builtin Functions
+=== Built-in Functions
   63> date().
   {2008,7,22}
   64> time().
@@ -157,7 +157,7 @@ Not sure about this part, he switched slides:
   67> atom_to_list(asd).
   "asd"
 
-- BIFs can modify realtime properties of the system
+- BIFs can modify real-time properties of the system
 
 ==== Meta Calls
   apply(Module, Function, Args)
