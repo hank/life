@@ -5,10 +5,10 @@
 
 
 === OEM services group
-- Massachusettes primarily
+- Massachusetts primarily
 
 === Contributing to UME
-- To date, very difficuly
+- To date, very difficulty
 - Samsung Ultra
 - KVM install images
 - In the guide, you can use the Moblin image creator
@@ -69,4 +69,4 @@
 - Web services applications
   - Integration with web services (Twitter)
   - Social networking
-- Locaiton-based services
+- Location-based services

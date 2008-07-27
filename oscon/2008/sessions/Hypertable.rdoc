@@ -19,10 +19,10 @@
 - No transactions, maybe in the future
 - *Scalable*
 - <b>High Random insert, update, and delete rate</b>
-- Loaded 1TB into a 9-node HT cluster, systained random insert @ 1M inserts per second (Quad core Intel, 16GB RAM, SATA 3Gb/s).
+- Loaded 1TB into a 9-node HT cluster, sustained random insert @ 1M inserts per second (Quad core Intel, 16GB RAM, SATA 3Gb/s).
 
 === Data Model
-- Sparse, 2D talbe with cell versions
+- Sparse, 2D table with cell versions
 - 1 table with 2 columns, next one has 1M, that's OK
 - 4-part key
   - Row
@@ -54,7 +54,7 @@
 - Master can be down for a while with no one even noticing
 - Hot standby design for availability
 - Range Servers: Responsible for UPDATING and SCANNING
-- All sits on top of HDFS distrubted FS
+- All sits on top of HDFS distributed FS
 - Hadoop, KFS (GFS Clone)
 
 === Range server
@@ -131,7 +131,7 @@
 - Avg value 15B
 - Crap.  Slide change
 
-- Another test yielded oveer 1M sustained inserts/s
+- Another test yielded over 1M sustained inserts/s
 
 == Weaknesses
 - Range data managed by a single rangeserver

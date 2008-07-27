@@ -24,14 +24,14 @@
 
 === Background
 - Articles are and image of the newspaper
-- Some poor shmuck has to draw rectangles around the parts of the article
+- Some poor schmuck has to draw rectangles around the parts of the article
 - Create metadata
 - Stitch all of it together
 
 === Simple answer
 - We could pregenerate 11 million PDFs and serve them out
 - Copy all the source data to S3
-- EC2 instnaces and Hadoop generate the PDFs
+- EC2 instances and Hadoop generate the PDFs
 - Store the output PDFs back in S3
 - <b>Hope that S3 never goes down</b>
 
