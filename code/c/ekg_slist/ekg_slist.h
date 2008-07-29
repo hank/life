@@ -7,7 +7,7 @@
 typedef struct _snode_t snode_t;
 struct _snode_t {
   snode_t * next;
-  uint8_t data;
+  uint32_t data;
 };
 
 typedef struct {
@@ -18,5 +18,5 @@ typedef struct {
 
 slist_t * slist_init();
 snode_t * slist_push(slist_t * list, snode_t * node);
-uint8_t slist_print(slist_t * list);
+uint32_t slist_print(slist_t * list);
 slist_t * slist_reverse(slist_t * list);

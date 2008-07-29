@@ -3,19 +3,8 @@
  */
 #include <stdio.h>
 #include <stdint.h>
-#include "slist.h"
-
-typedef struct _snode_t snode_t;
-struct _snode_t {
-  snode_t * next;
-  uint8_t data;
-};
-
-typedef struct {
-  snode_t * head;
-  snode_t * tail;
-  char * name;
-} slist_t;
+#include <stdlib.h>
+#include "ekg_slist.h"
 
 slist_t * slist_init() {
   slist_t * list = calloc(1,sizeof(slist_t));
@@ -41,16 +30,18 @@ snode_t * slist_push(slist_t * list, snode_t * node) {
   list->tail = node;
 }
 
-uint8_t slist_print(slist_t * list) {
+uint32_t slist_print(slist_t * list) {
   snode_t * node = list->head;
   uint32_t i = 0;
 
   if(list->name) printf("Printing %s\n", list->name);
-  while(node && i<10) {
+  while(node) {
     printf("\t%u (%p):\t%u\n", i, node, node->data);
     i++;
     node = node->next;
   }
+
+  return 1;
 }
 
 slist_t * slist_reverse(slist_t * list) {
