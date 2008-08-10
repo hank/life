@@ -36,7 +36,7 @@ uint32_t slist_print(slist_t * list) {
 
   if(list->name) printf("Printing %s\n", list->name);
   while(node) {
-    printf("\t%u (%p):\t%u\n", i, node, node->data);
+    printf("\t%u (%p):\t%u\tnext = %p\n", i, node, node->data, node->next);
     i++;
     node = node->next;
   }
