@@ -1,7 +1,7 @@
 == Git is awesome
 === 8.10.08
 I really like Git.  It is really pretty cool.  I now have it installed on
-my iPod Touch, and I'm about to check out my repos on there.  **Brilliant!**
+my iPod Touch, and I'm about to check out my repos on there.  <b>Brilliant!</b>
 
 == Initial
 I'm really liking git so far.  I need to use it more often for my stuffs.
