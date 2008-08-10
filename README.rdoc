@@ -1,0 +1,6 @@
+== 08.10.08 :: Git is awesome
+I really like Git.  It is really pretty cool.  I now have it installed on
+my iPod Touch, and I'm about to check out my repos on there.  **Brilliant!**
+
+== Initial
+I'm really liking git so far.  I need to use it more often for my stuffs.
