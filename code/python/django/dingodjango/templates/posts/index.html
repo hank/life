@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <style type='text/css'>
+      body {
+        background-color: #555;
+        font-family: "Verdana,sans-serif";
+      }
+      a, a:visited {
+        color: #7c7;
+        text-decoration: none;
+      }
+      h1, h2, h3 {
+        font-family:"Trebuchet MS",sans-serif;
+        font-weight:normal;
+      }
+      #header {
+        float: left;
+        clear: both;
+        padding: 3px;
+        margin: 0;
+        width: 100%;
+        background-color: #777;
+        -moz-border-radius-topright: 3px;
+        -moz-border-radius-topleft: 3px;
+      }
+      #header h1 {
+        margin-bottom: 2px;
+        margin-top: 0px;
+      }
+      #header h2 {
+        margin-top: 2px;
+        font-size: 1.2em;
+        color: #333;
+      }
+      #content {
+        width: 100%;
+      }
+      div.post {
+        background-color: #333;
+        color: #fff;
+        padding: 5px;
+        width: 100%;
+      }
+      div.post h2 {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    {% load humanize %}
+    {% include 'header.html' %}
+    <div id='content'>
+    {% block content %}
+      {% if posts %}
+        {% for post in posts %}
+          <div class="post">
+            <h2>{% block post_title %}
+              <a href="{{ post.slug|urlize }}">&raquo {{ post.title }}</a>
+              {% endblock %}
+            </h2>
+            <p>
+              {{ post.body }}
+            </p>
+            <div class="meta">
+              Posted {{ post.date_created|naturalday }} 
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p>No posts found</p>
+      {% endif %}
+    {% endblock %}
+    </div>
+  </body>
+</html>
