@@ -1,0 +1,319 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>RDoc Documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body>
+<h2>File: Ubiquitous.Multithreading.rdoc</h2>
+<table>
+  <tr><td>Path:</td><td>Ubiquitous.Multithreading.rdoc</td></tr>
+  <tr><td>Modified:</td><td>Tue Jul 22 11:08:15 -0700 2008</td></tr>
+</table>
+
+<h1>OSCON 2008, Tutorial 3: Ubiquitous Multithreading in a Multicore World</h1>
+<h2>Shift from serial to parallel</h2>
+<h3>Process</h3>
+<ul>
+<li>Find things that can be done almost independendently
+
+</li>
+<li>Analyze communication (dependences)
+
+</li>
+<li>Organize dependences for parallelism
+
+</li>
+<li><b>Do this early!</b>
+
+</li>
+</ul>
+<h3>Generic programming</h3>
+<ul>
+<li>Make assumptions
+
+</li>
+<li>eg. Quicksort -&gt; walk bidirectionally and swap items.
+
+</li>
+</ul>
+<h3>Generic iteration</h3>
+<ul>
+<li>Dependences hinder paralell execution
+
+</li>
+<li>STL foreach is a good example, has to check the iterator before calling the
+function
+
+</li>
+</ul>
+<h3>Dealing with Dependences</h3>
+<ul>
+<li>Remove dependences
+
+</li>
+<li>Rearrange dependences to shorten critical path
+
+</li>
+<li>Domain experts are better than programmers since they know where to break
+rules.
+
+</li>
+</ul>
+<h3>Parallel iteration</h3>
+<ul>
+<li>Know number of iterations ahead of time to control dependence
+
+</li>
+<li>Linked-lists/variable length structures suck for what we&#8216;re talking
+about
+
+</li>
+</ul>
+<h2>Correctness</h2>
+<ul>
+<li>Make sure you have the sequential version right first
+
+</li>
+<li><em>&quot;Embarrassing parallelism is good&quot;</em> (big arrays, no
+dependences)
+
+</li>
+</ul>
+<h3>First, define what is Correct</h3>
+<ul>
+<li>Matching a serial program bit-for-bit might be unrealistic
+
+</li>
+</ul>
+<h4>Examples</h4>
+<ul>
+<li>Floating point round-off in fluid solvers (iteration process that solves a
+parameter, inaccuracies of floating point will introduce error)
+
+</li>
+<li>MPEG compression - trading compression for parallelism
+
+</li>
+<li>Search returns one of several accepable answers
+
+</li>
+</ul>
+<h3>Race conditions</h3>
+<ul>
+<li>Shared data, winners and losers
+
+</li>
+</ul>
+<h3>Syncronization</h3>
+<h4>Low-level</h4>
+<ul>
+<li>Mutexes, condition variables (wait on condition, no lock), tricky events
+
+</li>
+<li>Atomic operations: guaranteed to happen without interruption
+
+</li>
+<li>Emphasis on a pair of threads
+
+</li>
+</ul>
+<h4>Higher-level</h4>
+<ul>
+<li>Parallel loops
+
+</li>
+<li>Pipelines
+
+</li>
+<li>Barriers - serialization after parallel, waiting for parallel to finish
+
+</li>
+<li>Work queues - dynamic scheduling
+
+</li>
+</ul>
+<h4>Mutex</h4>
+<ul>
+<li>A lock on a (critical) section of code.
+
+</li>
+<li>We have 2 things (or more) we want to change at the same time
+
+</li>
+</ul>
+<h4>Semaphore</h4>
+<ul>
+<li>Let up to N threads in at the same time
+
+</li>
+</ul>
+<h4>Reader-writer lock</h4>
+<ul>
+<li>Multiple readers or one writer at a time
+
+</li>
+<li>Useful when there&#8216;s lots of reading, little writing
+
+</li>
+</ul>
+<h4>Condition variables</h4>
+<ul>
+<li>Allow threads to wait for state protected by mutex to change, without
+holding the mutex and without timing holes (uses signaling)
+
+</li>
+</ul>
+<h3>Problems with locks</h3>
+<h4>Composition</h4>
+<ul>
+<li>Locking lower level operations does not guarantee higher level is race free
+
+</li>
+</ul>
+<h4>Deadlock</h4>
+<ul>
+<li>Everyone&#8216;s waiting for a lock that no one can give
+
+</li>
+</ul>
+<h4>Convoying</h4>
+<ul>
+<li>Similar to deadlocking, owner of lock is preempted, other threads wait
+behind it
+
+</li>
+<li>Owner lock crashes, other threads wait forever
+
+</li>
+<li>Minimize convoying with atomics and minimize lock-length time
+
+</li>
+</ul>
+<h4>Priority Inversion</h4>
+<ul>
+<li>Can occur with prioritized preemptive scheduling
+
+<ul>
+<li>Low-priority thread is preempted when holding lock
+
+</li>
+<li>Medium-priority thread runs in preference to low-priority thread
+
+</li>
+<li>High-priority thread waits forever on a lock, times out, and restarts sys
+
+</li>
+</ul>
+</li>
+<li>Mars Pathfinder example: <a
+href="http://research.microsoft.com/~mbj/Mars_Pathfinder/Mars_Pathfinder.html">research.microsoft.com/~mbj/Mars_Pathfinder/Mars_Pathfinder.html</a>
+
+</li>
+</ul>
+<h3>Composition problem</h3>
+<ul>
+<li>Multiple threads might append the same thing to a list, for example
+
+</li>
+<li>Move your locks to the outermost invariant
+
+</li>
+</ul>
+<h3>Notes on Mutexes</h3>
+<ul>
+<li>Avoid exposing mutexes to other packages
+
+</li>
+<li>Look into invariant-based programming
+
+</li>
+<li><b>Remember exception handling</b>
+
+</li>
+</ul>
+<h3>Exception-safe mutexing using RAII</h3>
+<ul>
+<li>RAII = Resouce Acquisition is initialization
+
+<ul>
+<li>Constructor acquires resource
+
+</li>
+<li>Destructor releases resource
+
+</li>
+</ul>
+</li>
+</ul>
+<h3>Lockless problems</h3>
+<ul>
+<li>Livelock - when everyone gets a lock!
+
+</li>
+<li>ABA problem - When you read a var as A, it then is changed to B, then back
+to A, then you screw up (linked list example).
+
+</li>
+<li>Memory reclamation - compare and swaps required, so one has to succeed, the
+rest have to fail. You might have trouble when freeing memory in case it
+gets. See Hazard Pointers: <a
+href="http://www.research.ibm.com/people/m/michael/ieeetpds-2004.pdf">www.research.ibm.com/people/m/michael/ieeetpds-2004.pdf</a>
+
+</li>
+<li>Memory Consistency model
+
+</li>
+<li>Lock-free data structures are difficult to understand
+
+<ul>
+<li>Often publishable, even for simple structures
+
+</li>
+<li>Verification is tricky: consider using Spin to verify (<a
+href="http://www.spinroot.com">www.spinroot.com</a>)
+
+</li>
+</ul>
+</li>
+</ul>
+<h3>Tools for correctness</h3>
+<ul>
+<li>KISS: Keep it simple stupid
+
+</li>
+<li>Use automatic race detectors: Detect races like memory checkers detect
+leaks
+
+</li>
+<li>Helgrind (part of Valgrind)
+
+</li>
+<li>Intel thread checker: more general race detection based on inter-thread
+communication
+
+</li>
+</ul>
+<h2>Scalability tidbits</h2>
+<ul>
+<li>Creating and destroying a thread can take on the order of <b>25,000 clock
+cycles!</b>
+
+</li>
+</ul>
+
+
+
+
+
+
+
+<h2>Classes</h2>
+</body>
+</html>
+Files:   1
+Classes: 0
+Modules: 0
+Methods: 0
+Elapsed: 0.199s

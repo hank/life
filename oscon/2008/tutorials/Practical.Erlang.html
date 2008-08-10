@@ -1,0 +1,351 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>RDoc Documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body>
+<h2>File: Practical.Erlang.rdoc</h2>
+<table>
+  <tr><td>Path:</td><td>Practical.Erlang.rdoc</td></tr>
+  <tr><td>Modified:</td><td>Tue Jul 22 16:11:39 -0700 2008</td></tr>
+</table>
+
+<h1>OSCON 2008, Tutorial 4: Practical Erlang</h1>
+<p>
+This tutorial is not about the history of Erlang, comparing Erlang to other
+languages, or a comprehensive overview.
+</p>
+<p>
+The goal is that we can read and write erlang, understand the concurrency
+model and the error handling model.
+</p>
+<h2>Basic Erlang</h2>
+<h3>Starting the system</h3>
+<pre>
+  erl
+</pre>
+<p>
+You get some *1&gt;* and *2&gt;* stuff. End everything with a .
+</p>
+<h3>Data Types</h3>
+<h4>Integers</h4>
+<ul>
+<li>10
+
+</li>
+<li>-234
+
+</li>
+<li>16#16 = conversion from hex
+
+</li>
+<li>2#101010 = conversion from binary
+
+</li>
+<li>$A = ASCII value of A
+
+</li>
+</ul>
+<p>
+There&#8216;s also floats.
+</p>
+<h4>Atoms</h4>
+<p>
+Constant literals, always lowercase letter or in quotes.
+</p>
+<h4>Tuples</h4>
+<p>
+Fixed number of elements, any size, and contain any valid Erlang
+expression.
+</p>
+<h4>Lists</h4>
+<ul>
+<li>Variable number of elements
+
+</li>
+<li>dynamic size
+
+</li>
+<li>strings are lists of characters
+
+</li>
+<li>lists are encapsulated by *[]*
+
+</li>
+<li>empty string is an empty list
+
+</li>
+</ul>
+<h5>Concatenation</h5>
+<pre>
+  [1,2,3] ++ [4,5,6]
+</pre>
+<h4>Complex Data Structures</h4>
+<ul>
+<li>Just a big list generally, containing tuples.
+
+</li>
+<li>Uses a garbage collector.
+
+</li>
+</ul>
+<h3>Pattern Matching</h3>
+<ul>
+<li>Pattern = Expression
+
+</li>
+</ul>
+<h4>Assignment</h4>
+<pre>
+  {B,C,D} = {10,foo,bar}.
+  [H|T] = [1,2,3]
+</pre>
+<h4>Testing</h4>
+<pre>
+  {A,A,B} = {abc,def,123}.
+</pre>
+<p>
+Fails because A is being reassigned
+</p>
+<pre>
+  [A,B,C,D] = [1,2,3]
+</pre>
+<p>
+Fails because the lists are not the same size
+</p>
+<pre>
+  [A,B|C] = [1,2,3,4,5,6,7]
+</pre>
+<p>
+Suceeds, A=1, B=2, and C=the rest
+</p>
+<pre>
+  [H|T] = []
+</pre>
+<p>
+Fails since at least 1 element is needed on the right
+</p>
+<h3>Variables</h3>
+<pre>
+  {A,_, [B|_], {B}} = {abc,23,[22,x], {22}}
+</pre>
+<p>
+Succeeds - A=abc, B=22
+</p>
+<h3>Functions</h3>
+<ul>
+<li>You have to define functions with the correct arity.
+
+</li>
+<li>Need to be exported to be used outside
+
+</li>
+</ul>
+<h2>Sequential Erlang</h2>
+<h3>Conditionals</h3>
+<h4>Case</h4>
+<pre>
+  case lists:member(foo,List) of
+    true -&gt; ok;
+    false -&gt; {error, unknown}
+  end
+</pre>
+<ul>
+<li>No punctuation on last <b>case</b> clause.
+
+</li>
+<li>Can evaluate one or more expressions per clause, seperated by ;.
+
+</li>
+<li>There&#8216;s a dont-care clause that can protect you from a runtime error.
+
+</li>
+</ul>
+<h4>If</h4>
+<pre>
+  if
+    X&lt;1 -&gt; smaller;
+    X&gt;1 -&gt; greater;
+    X==1 -&gt; equal
+  end
+</pre>
+<ul>
+<li>true guard allows a default case. It&#8216;s not mandatory.
+
+</li>
+</ul>
+<h4>Guards</h4>
+<p>
+We can use guards in functions using <b>when</b>.
+</p>
+<pre>
+  factorial(N) when N &gt; 0 -&gt;
+    N * factorial(N-1);
+  factorial(0) -&gt; 1.
+</pre>
+<p>
+Since everything is pattern matched sequentially, we get a performance
+improvement by having the N&gt;0 case first.
+</p>
+<pre>
+  is_number
+  is_atom
+  length
+  X == Y % Simply compares values
+  X =:= Y % Also compares data types
+</pre>
+<p>
+All guards have to succeed here:
+</p>
+<pre>
+  swap(String) when is_list(String),
+                    length(String) &lt; 10 -&gt; ...
+</pre>
+<p>
+Only one guard has to succeed here:
+</p>
+<pre>
+  swap(Tuple) when is_tuple(Tuple);
+                   is_atom(Tuple) -&gt; ...
+</pre>
+<h3>Recursion</h3>
+<h4>Traversing lists</h4>
+<pre>
+  average(X) -&gt; sum(X)/len(X).
+
+  sum([H|T]) -&gt; H + sum(T);
+  sum([]) -&gt; 0.
+
+  len([H|T]) -&gt; 1 + len(T);
+  len([]) -&gt; 0.
+</pre>
+<h4>More Patterns</h4>
+<pre>
+  even([H|T]) when H rem 2 == 0 -&gt;
+    [H|even(T)];
+  even([_|T]) -&gt;
+    even(T);
+  even([]) -&gt;
+    [].
+</pre>
+<p>
+Finds even numbers by using the first when clause, passing odds to the
+second one, which simply calls even on the tail.
+</p>
+<pre>
+  double([H|T]) -&gt; [2*H|double(T)];
+  double([]) -&gt; [].
+
+  member(H, [H|_]) -&gt; true;
+  member(H, [_|T]) -&gt; member(H, T);
+  member(_, []) -&gt; false.
+</pre>
+<p>
+Checks the head of the list equality with the element to search for. Fail,
+then go through the rest of the list save the head.
+</p>
+<h4>Accumulators</h4>
+<pre>
+  average(X) -&gt; average(X,0,0).
+
+  average([H|T], Length, Sum) -&gt;
+    average(T, Length + 1, Sum + H);
+</pre>
+<p>
+Not sure about this part, he switched slides:
+</p>
+<pre>
+  average([], Length, Sum) -&gt;
+    Sum/Length;
+</pre>
+<h3>Builtin Functions</h3>
+<pre>
+  63&gt; date().
+  {2008,7,22}
+  64&gt; time().
+  {15,5,32}
+  65&gt; length([1,2,3]).
+  3
+  66&gt; size({4,5,6}).
+  3
+  67&gt; atom_to_list(asd).
+  &quot;asd&quot;
+</pre>
+<ul>
+<li>BIFs can modify realtime properties of the system
+
+</li>
+</ul>
+<h4>Meta Calls</h4>
+<pre>
+  apply(Module, Function, Args)
+
+  68&gt; apply(boolean, b_not, [false]).
+  true
+  69&gt; apply(boolean, b_not, [true]).
+  false
+</pre>
+<ul>
+<li>Dynamically evaluate functions.
+
+</li>
+<li>Function must be exported
+
+</li>
+<li>Arguments established at runtime
+
+</li>
+<li>Extremely powerful when implementing generic code
+
+</li>
+</ul>
+<h2>Creating Processes</h2>
+<pre>
+  Pid2 = spawn(Mod, Func, Arg)
+</pre>
+<h2>Message Passing</h2>
+<pre>
+  Pid ! Msg
+</pre>
+<ul>
+<li>Bang construct (!)
+
+</li>
+<li>Msg is any valid Erlang type
+
+</li>
+<li>Goes to the process mailbox, stores the message sequentially
+
+</li>
+</ul>
+<h3>Receive Clause</h3>
+<pre>
+  receive
+    {reset, Board} -&gt; reset(Board);
+    {shut_down, Board} -&gt; {error, unknown_msg}
+  end
+</pre>
+<ul>
+<li>There is a non-blocking form of receive using an <b>after</b> clause.
+
+</li>
+</ul>
+<h2>Concurrent Programming</h2>
+<h2>Process Error Handling</h2>
+
+
+
+
+
+
+
+<h2>Classes</h2>
+</body>
+</html>
+Files:   1
+Classes: 0
+Modules: 0
+Methods: 0
+Elapsed: 0.138s

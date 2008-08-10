@@ -1,0 +1,130 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>RDoc Documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body>
+<h2>File: LucidDB.rdoc</h2>
+<table>
+  <tr><td>Path:</td><td>LucidDB.rdoc</td></tr>
+  <tr><td>Modified:</td><td>Wed Jul 23 17:21:01 -0700 2008</td></tr>
+</table>
+
+<h1>OSCON 2008, Session 4: LucidDB</h1>
+<ul>
+<li>Lucidera
+
+</li>
+<li>LucidDB is and open-source column store
+
+</li>
+</ul>
+<h2>Why</h2>
+<ul>
+<li>Boatload of data
+
+</li>
+<li>Need to analyze
+
+</li>
+<li>You are Lazy, cheap, smart
+
+</li>
+<li>Not like bigtable or hypertable, vanilla db accelerated for analytics
+
+</li>
+<li>Complex star joins and stuff
+
+</li>
+<li>LucidDB adresses sizes between 10&#8216;s of GB and terabytes (sweet spot).
+
+</li>
+</ul>
+<h2>Benchmarks</h2>
+<h3>Assumptions</h3>
+<ul>
+<li>TPC-H Scale Factor 10
+
+</li>
+<li>LucidDB 0.7.4
+
+<ul>
+<li>6GB Buffer Pool
+
+</li>
+<li>libaio and O_DIRECT
+
+</li>
+</ul>
+</li>
+<li>MySQL 5.0.22, MyISAM
+
+</li>
+<li>Scale factor 10 = 10GB flat file data = 60M lineitems
+
+<ul>
+<li>same schema, primary and foreign keys indexed
+
+</li>
+</ul>
+</li>
+<li>Machine used: AMD64 2Ghz, RHEL5, 2.6.18-8, JRockit R27.4, 8GB RAM, 1MB L2,
+SATA 10K RPM, ext3
+
+</li>
+<li>Dramatic differences (factors of 2 and better are average)
+
+</li>
+<li>Loading takes more time, Creating indexes a LOT faster
+
+</li>
+</ul>
+<h2>Architecture</h2>
+<ul>
+<li>Read what you need
+
+</li>
+<li>Aggressive compression
+
+</li>
+<li>Optimal use of IO
+
+</li>
+<li>Larger effective data cache
+
+</li>
+<li>Uses index semijoin to handle star joins
+
+</li>
+<li>Make every disk read count: High selectivity, fragmentation, page reads may
+by non-contiguous.
+
+</li>
+<li>Java? What the&#8230; &quot;If you&#8216;re not doing Java, there&#8216;s
+not a very good solution&quot;
+
+</li>
+<li>C++ heavy lifting.
+
+</li>
+<li>Never do single-row inserts or updates into a column data store
+
+</li>
+</ul>
+
+
+
+
+
+
+
+<h2>Classes</h2>
+</body>
+</html>
+Files:   1
+Classes: 0
+Modules: 0
+Methods: 0
+Elapsed: 0.410s

@@ -1,0 +1,64 @@
+= OSCON 2008, Session 10: Python, C++, and SWIG
+== Interfacing
+- Python is C-extensible
+- Calling code doesn't need to know if it's calling Python or C
+- You can deal with objects, raise Python exceptions, call python functions/methods, play with lists and dictionaries, etc.
+
+== Extension Modules
+- Implemented as shared objects
+- Placed in the Python path
+- Used with the Python *import* statement
+- Python calls an init function in the C library
+
+=== But
+- You still have to deal with the bas parts of C/C++
+- Yet, we can minimize it to just things that need massive optimization
+- Unit testing can happen from the Python side
+
+=== Bad?
+- Can be tedious to make this stuff
+- You have to write a Python wrapper for every function you want to access
+  - Convert input params
+  - Call target function
+  - Checking for errors
+  - Raising Exceptions
+  - Converting the return value to something acceptable in Python
+- Create Python versions of C constants
+- C structs, variables, C++ classes
+- Write an initialization function
+- Total yuck.  I wonder if there's a better way to do this....
+
+== SWIG
+- OMG!
+- Simplified Wrapper Interface Generator
+- Automates work creating modules, removes tedium
+- Allows you to glue C/C++ to Python, and partition your application to the language's strengths
+- You can think of it as a compiler, it reads C/C++ declarations and writes C code implementing the extension
+- Support for structs, classes, functions, constants, etc.
+- Lots of language extensions
+- Understands the C++ Class hierarchy
+- Does appropriate type checking of input params, etc.
+- Can generate code for C++ templates
+- Can generate code to override C++ virtual methods in Python classes
+
+=== Many things out of the box
+- You can customize lots of stuff it does
+  - %typemap: controls what C code is generated in wrapper functions that receive or return objects of certain types
+  - %extend: Can add new methods to a wrapped class that don't necessarily exist in the C++ class
+  - %inline: Add new C functions that will automatically be wrapped
+  - %pythoncode: Emit custom Python code into the wrapper for the current class, or append or prepend it to the Python proxy function
+- There's more too!
+- You can define a macro that's multiple lines without doing line continuation
+
+=== Modes of operation for Python targets
+- Generate nothing but the extension module (just creates the C wrapper)
+- Generate the above, and the proxy module.  Useful when wrapping C++.  Makes the Python classes that look and act like the C++ ones.
+- You can make class-based API wrappers for plain old C functions.
+- the .i file makes a python script and a c/cpp file.  Then you compile it into a shared object
+
+=== Why not use SWIG
+- It doesn't generate optimized code
+- Classes are flattened to a collection of wrapped functions, with OO-ness added back on by the Proxy classes.  Hand-coded module would probably use extension types (classes) instead.
+
+=== But then again, we should use it
+- Saves time and lets you focus on the good stuff

@@ -1,0 +1,269 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>RDoc Documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body>
+<h2>File: Ruby.1.9.rdoc</h2>
+<table>
+  <tr><td>Path:</td><td>Ruby.1.9.rdoc</td></tr>
+  <tr><td>Modified:</td><td>Thu Jul 24 14:33:06 -0700 2008</td></tr>
+</table>
+
+<h1>OSCON 2008, Session 8: Ruby 1.9: What to Expect</h1>
+<h2>Major features</h2>
+<ul>
+<li>Performance, factor of 3 improvement in some cases
+
+</li>
+<li>Real threads! Also, fibers
+
+</li>
+<li>Encoding support for character sets
+
+</li>
+<li><b>gems</b> is built-in (mostly)
+
+<ul>
+<li>no contribs
+
+</li>
+</ul>
+</li>
+</ul>
+<h3>One lesson</h3>
+<ul>
+<li>if String.method_defined(:encode) for instance allows you to make code that
+works in all major Ruby versions. Brilliant
+
+</li>
+</ul>
+<h3>CI Efforts</h3>
+<ul>
+<li>He took a bunch of libraries and got them to work in 1.9
+
+</li>
+</ul>
+<h2>What&#8216;s Changed?</h2>
+<h3>Single character strings are strings!</h3>
+<p>
+Ruby 1.9:
+</p>
+<pre>
+  ?c =&gt; &quot;c&quot;
+</pre>
+<p>
+Ruby 1.8.x:
+</p>
+<pre>
+  ?c =&gt; 99
+</pre>
+<h3>String array access</h3>
+<p>
+Ruby 1.9:
+</p>
+<pre>
+  &quot;cat&quot;[1] =&gt; a
+</pre>
+<p>
+Ruby 1.8.x:
+</p>
+<pre>
+  &quot;cat&quot;[1] =&gt; 99
+</pre>
+<h3>Hash issues</h3>
+<pre>
+  {1,2} is now valid, not T_ASSOC error
+</pre>
+<h3>String <tt>to_s</tt></h3>
+<pre>
+  [1,2,3].to_s =&gt; &quot;[1, 2, 3]&quot;
+  [1,2,3].to_s =&gt; 123
+</pre>
+<h3>Colon is not longer valid in <tt>when</tt> statements</h3>
+<p>
+Ruby 1.9:
+</p>
+<pre>
+  case 'a'; when /a/: puts 'word'; end  =&gt; SyntaxError
+</pre>
+<h3>Dummy variables are not modified in scope</h3>
+<p>
+Ruby 1.9:
+</p>
+<pre>
+  i=0; [1,2,3].each{|i|}; puts i =&gt; 0
+</pre>
+<p>
+It still happens when you do a <tt>for</tt> loop, which is debatable.
+</p>
+<h3>to_sym for integers</h3>
+<ul>
+<li>5.to_sym doesn&#8216;t work anymore
+
+</li>
+<li>But, you can use &quot;5&quot;.to_sym
+
+</li>
+<li>rake breaks on the [] function!
+
+</li>
+</ul>
+<h3>Hash Keys &quot;unordered&quot;</h3>
+<p>
+Ruby 1.8.x:
+</p>
+<pre>
+  {:a=&gt;&quot;a&quot;, :b=&gt;&quot;b&quot;, :c=&gt;&quot;c&quot;}
+  =&gt; {:a=&gt;&quot;a&quot;, :c=&gt;&quot;c&quot;, :b=&gt;&quot;b&quot;}
+</pre>
+<p>
+Ruby 1.9:
+</p>
+<pre>
+  {:a=&gt;&quot;a&quot;, :b=&gt;&quot;b&quot;, :c=&gt;&quot;c&quot;}
+  =&gt; {:a=&gt;&quot;a&quot;, :b=&gt;&quot;b&quot;, :c=&gt;&quot;c&quot;}
+</pre>
+<ul>
+<li>Insertion order is guaranteed apparently
+
+</li>
+</ul>
+<h3>Stricter unicode regex</h3>
+<p>
+Ruby 1.9:
+</p>
+<pre>
+  /\x80/u =&gt; SyntaxError
+</pre>
+<ul>
+<li>TR and Regexp are now unicode
+
+</li>
+</ul>
+<h3>BasicObject</h3>
+<ul>
+<li>You have to put :: in front of things now inside classes inherited from
+BasicObject
+
+</li>
+</ul>
+<h3>$KCODE produces warnings</h3>
+<h3>Instance methods are now arrays of symbols</h3>
+<p>
+Ruby 1.9:
+</p>
+<pre>
+  {}.methods.sort.last =&gt; :zip
+</pre>
+<p>
+Ruby 1.8.x:
+</p>
+<pre>
+  {}.methods.sort.last =&gt; &quot;zip&quot;
+</pre>
+<h3><tt>encoding:</tt></h3>
+<ul>
+<li>You can define encoding at the top of your source file
+
+</li>
+</ul>
+<h3>Real threading</h3>
+<ul>
+<li>Race conditions
+
+</li>
+<li>Assumptions
+
+</li>
+</ul>
+<h3>Implications</h3>
+<ul>
+<li>Changes are straightforward
+
+</li>
+<li>Cumulative effect is massive
+
+</li>
+<li>Lots of gems are non-maintained, 1.9 breaks them. Who fixes them?
+
+</li>
+</ul>
+<h3>Recommendations</h3>
+<ul>
+<li>Make gems that work with 1.8.x and 1.9
+
+</li>
+<li>use git
+
+</li>
+<li>to_enum
+
+</li>
+</ul>
+<h3>Lambda shorthand</h3>
+<p>
+Ruby 1.9:
+</p>
+<pre>
+  p = -&gt; a,b,c {a+b+c}
+  puts p.[1,2,3]
+</pre>
+<h3>Complex is builtin</h3>
+<p>
+Ruby 1.9:
+</p>
+<pre>
+  Complex(3,4) = 3 + 4.im
+</pre>
+<h3>Splat in the middle</h3>
+<pre>
+  def foo(first *middle, last)
+</pre>
+<h2>Fibers</h2>
+<ul>
+<li>No blocking IO
+
+</li>
+<li>Lightweight threads
+
+</li>
+<li>Does the equivalent of co-routines
+
+</li>
+</ul>
+<h2>When you break, you can choose what to return</h2>
+<pre>
+  break line if line.match('foo')
+</pre>
+<h2>&quot;nested&quot; methods</h2>
+<pre>
+  class F
+    def foo
+      def foo
+        &quot;subsequent&quot;
+      end
+      &quot;first&quot;
+    end
+   end
+   f = F.new
+   f.foo =&gt; &quot;first&quot;
+   f.foo =&gt; &quot;subsequent&quot;
+</pre>
+
+
+
+
+
+
+
+<h2>Classes</h2>
+</body>
+</html>
+Files:   1
+Classes: 0
+Modules: 0
+Methods: 0
+Elapsed: 0.147s

@@ -1,0 +1,207 @@
+= OSCON 2008, Tutorial 4: Practical Erlang
+This tutorial is not about the history of Erlang, comparing Erlang to other languages, or a comprehensive overview.
+
+The goal is that we can read and write erlang, understand the concurrency model and the error handling model.
+
+== Basic Erlang
+=== Starting the system
+  erl
+You get some *1>* and *2>* stuff.  End everything with a .
+
+=== Data Types
+==== Integers
+- 10
+- -234
+- 16#16 = conversion from hex
+- 2#101010 = conversion from binary
+- $A = ASCII value of A
+
+There's also floats.
+
+==== Atoms
+Constant literals, always lowercase letter or in quotes.
+
+==== Tuples
+Fixed number of elements, any size, and contain any valid Erlang expression.
+
+==== Lists
+- Variable number of elements
+- dynamic size
+- strings are lists of characters
+- lists are encapsulated by *[]*
+- empty string is an empty list
+
+===== Concatenation
+  [1,2,3] ++ [4,5,6]
+
+==== Complex Data Structures
+- Just a big list generally, containing tuples.
+- Uses a garbage collector.
+
+=== Pattern Matching
+- Pattern = Expression
+
+==== Assignment
+  {B,C,D} = {10,foo,bar}.
+  [H|T] = [1,2,3]
+
+==== Testing
+  {A,A,B} = {abc,def,123}.
+Fails because A is being reassigned
+  [A,B,C,D] = [1,2,3]
+Fails because the lists are not the same size
+  [A,B|C] = [1,2,3,4,5,6,7]
+Suceeds, A=1, B=2, and C=the rest
+  [H|T] = []
+Fails since at least 1 element is needed on the right
+
+=== Variables
+  {A,_, [B|_], {B}} = {abc,23,[22,x], {22}}
+Succeeds - A=abc, B=22
+
+=== Functions
+- You have to define functions with the correct arity.
+- Need to be exported to be used outside
+
+== Sequential Erlang
+=== Conditionals
+==== Case
+  case lists:member(foo,List) of
+    true -> ok;
+    false -> {error, unknown}
+  end
+- No punctuation on last *case* clause.
+- Can evaluate one or more expressions per clause, separated by ;.
+- There's a don't-care clause that can protect you from a runtime error.
+
+==== If 
+  if
+    X<1 -> smaller;
+    X>1 -> greater;
+    X==1 -> equal
+  end
+
+- true guard allows a default case.  It's not mandatory.
+
+==== Guards
+We can use guards in functions using *when*.
+  factorial(N) when N > 0 ->
+    N * factorial(N-1);
+  factorial(0) -> 1.
+
+Since everything is pattern matched sequentially, we get a performance improvement by having the N>0 case first.
+
+  is_number
+  is_atom
+  length
+  X == Y % Simply compares values
+  X =:= Y % Also compares data types
+
+All guards have to succeed here:
+  swap(String) when is_list(String),
+                    length(String) < 10 -> ...
+
+Only one guard has to succeed here:
+  swap(Tuple) when is_tuple(Tuple);
+                   is_atom(Tuple) -> ...
+
+
+=== Recursion
+
+==== Traversing lists
+  average(X) -> sum(X)/len(X).
+
+  sum([H|T]) -> H + sum(T);
+  sum([]) -> 0.
+
+  len([H|T]) -> 1 + len(T);
+  len([]) -> 0.
+
+==== More Patterns
+
+  even([H|T]) when H rem 2 == 0 ->
+    [H|even(T)];
+  even([_|T]) ->
+    even(T);
+  even([]) ->
+    [].
+Finds even numbers by using the first when clause, passing odds to the second one, which simply calls even on the tail.
+
+  double([H|T]) -> [2*H|double(T)];
+  double([]) -> [].
+
+  member(H, [H|_]) -> true;
+  member(H, [_|T]) -> member(H, T);
+  member(_, []) -> false.
+Checks the head of the list equality with the element to search for.  Fail, then go through the rest of the list save the head.
+
+==== Accumulators
+  average(X) -> average(X,0,0).
+
+  average([H|T], Length, Sum) ->
+    average(T, Length + 1, Sum + H);
+
+Not sure about this part, he switched slides:
+  average([], Length, Sum) ->
+    Sum/Length;
+
+=== Built-in Functions
+  63> date().
+  {2008,7,22}
+  64> time().
+  {15,5,32}
+  65> length([1,2,3]).
+  3
+  66> size({4,5,6}).
+  3
+  67> atom_to_list(asd).
+  "asd"
+
+- BIFs can modify real-time properties of the system
+
+==== Meta Calls
+  apply(Module, Function, Args)
+
+  68> apply(boolean, b_not, [false]).
+  true
+  69> apply(boolean, b_not, [true]). 
+  false
+
+- Dynamically evaluate functions.
+- Function must be exported
+- Arguments established at runtime
+- Extremely powerful when implementing generic code
+
+== Creating Processes
+  Pid2 = spawn(Mod, Func, Arg)
+== Message Passing
+  Pid ! Msg
+- Bang construct (!)
+- Msg is any valid Erlang type
+- Goes to the process mailbox, stores the message sequentially
+
+=== Receive Clause
+  receive
+    {reset, Board} -> reset(Board);
+    {shut_down, Board} -> {error, unknown_msg}
+  end
+
+- There is a non-blocking form of receive using an *after* clause.
+- Pid2 ! {self(), foo} sends foo to Process 2, and self() tells it who it's from
+  
+Time to filter by PID!:
+  Pid2 ! {self(), {digit, [1,2,3,4]}}
+  receive
+    {Pid, {digit, Digit}} -> ...
+  end
+
+Registering a process allows any process to message it.
+  receive ...
+  after Timeout
+  end
+
+Timeout can be the atom infinity or an integer.
+
+== Concurrent Programming
+
+== Process Error Handling

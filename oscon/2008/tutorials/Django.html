@@ -1,0 +1,187 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>RDoc Documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body>
+<h2>File: Django.rdoc</h2>
+<table>
+  <tr><td>Path:</td><td>Django.rdoc</td></tr>
+  <tr><td>Modified:</td><td>Mon Jul 21 16:30:41 -0700 2008</td></tr>
+</table>
+
+<h1>OSCON 2008, Tutorial 2: Introduction to Django</h1>
+<p>
+Slides: <a
+href="http://toys.jacobian.org/presentations/2008/oscon/tutorial">toys.jacobian.org/presentations/2008/oscon/tutorial</a>/
+</p>
+<ul>
+<li>Django isn&#8216;t really MVC, just kinda
+
+</li>
+<li>SQL is hard
+
+</li>
+<li>No version control for SQL
+
+</li>
+<li>You can use Rails Migrations with Django
+
+</li>
+<li>A manager contains the logic to connect Python to the database.
+
+</li>
+<li>You don&#8216;t have to do has_one if you do belongs_to
+
+</li>
+</ul>
+<h2>Finding things</h2>
+<pre>
+  license = Topic.objects.get(name=&quot;License&quot;)
+  license.categories.filter(value__startswith=&quot;OSI&quot;)
+
+  bsd = license.categories.get(value__contains=&quot;BSD&quot;)
+  p = Package.categories.get(name=&quot;Shop&quot;);
+  p.categories = [bsd]
+</pre>
+<h3>Show all Spanish-language packages with a BSD license</h3>
+<pre>
+  packages = Package.objects.filter(
+    categories__topic__name = &quot;Natural language&quot;,
+    categories__value__contains = &quot;Spanish&quot;
+  )
+</pre>
+<p>
+It figures out the correct <tt>JOIN</tt>. So awesome.
+</p>
+<h4>Another way</h4>
+<pre>
+  packages = Package.objects.filter(
+    categories__topic__name = &quot;Natural language&quot;,
+  )
+  packages.filter(
+    categories__value__contains = &quot;Spanish&quot;
+  )
+</pre>
+<p>
+This actually doesn&#8216;t do 2 SQL queries. It returns a lazy object
+(query set), which doesn&#8216;t execute until you access it. It build up
+queries automatically.
+</p>
+<h2>Adding an admin interface</h2>
+<ul>
+<li>The admin interface is really pretty and cool
+
+</li>
+<li>has a really nice permissions interface for CRUD for users
+
+</li>
+</ul>
+<h2>URLs</h2>
+<ul>
+<li>Some URLs really suck.
+
+</li>
+<li>Django has pretty URLs
+
+</li>
+<li>Redirects to */ automatically
+
+</li>
+<li><b>matching happens in order</b>
+
+</li>
+<li>include() makes it nice when you want to pass it off to another urls.py
+
+</li>
+</ul>
+<h2>Views</h2>
+<ul>
+<li>must take a request as the first param
+
+</li>
+<li>Must return an HttpResponse object or a subclass
+
+</li>
+</ul>
+<h3>Making some nice views</h3>
+<pre>
+  def package_list(request):
+    return HttpResponse(&quot;This is the package list!&quot;)
+
+  def package_list(request):
+    r = &quot;&lt;ul&gt;&quot;
+    ps = Package.objects.order_by(&quot;name&quot;)
+    for p in ps:
+      r += &quot;&lt;li%s: %s&lt;/li&gt;&quot; % \
+        (p.name, p.description)
+    r += &quot;&lt;/ul&gt;&quot;
+    return HttpResponse(r);
+</pre>
+<p>
+Well, that sucks because we&#8216;re embedding HTML in our Python!
+</p>
+<p>
+MTV (Model View Template) = Views pull the data, pass them to the template
+</p>
+<pre>
+  def package_list(request):
+    ps = Package.objects.order_by(&quot;name&quot;)
+    t = template.loader.get_template(&quot;packages/index.html&quot;)
+    c = Context({&quot;package_list&quot;: ps})
+    return HttpResponse(t.render(c))
+</pre>
+<p>
+<em>&quot;You&#8216;re welcome to call a View a Controller&quot;</em>
+</p>
+<p>
+The purpose of a controller is to connect the business logic to the
+frontend. The views in Django are only to send things into templates (more
+like 4 layers)
+</p>
+<h2>Templates</h2>
+<ul>
+<li>*/end* block syntax (for/endfor, if/endif, etc)
+
+</li>
+<li>Similar to liquid, apparently taken from smarty and cheetah?
+
+</li>
+</ul>
+<h3>The magic dot</h3>
+<pre>
+  p[&quot;name&quot;]
+  p.name
+  p.name()
+</pre>
+<ul>
+<li>extends must be the first thing in your template
+
+</li>
+<li>more {% block %}s are better
+
+</li>
+</ul>
+<p>
+direct to template is hawt:
+</p>
+<pre>
+  (r'^$', direct_to_template, {'template':'homepage.html'}),
+</pre>
+
+
+
+
+
+
+
+<h2>Classes</h2>
+</body>
+</html>
+Files:   1
+Classes: 0
+Modules: 0
+Methods: 0
+Elapsed: 0.139s

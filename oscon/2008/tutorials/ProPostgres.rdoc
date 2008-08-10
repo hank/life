@@ -1,0 +1,189 @@
+= OSCON 2008, Tutorial 1: Pro Postgres
+== Some useful notes
+
+Slides: http://www.slideshare.net/xzilla/pro-postgresql-oscon-2008
+
+Consider Book: Beginning PHP & Postgres 8
+
+pgfoundry is a postgres dedicated projects 
+
+auth methods:
+- TRUST means you're leaving the box pretty open
+- md5 uses hashing (of course)
+- Don't use IDENT
+
+== Contributed code
+pgcrypto = widely used contrib lib
+
+== Procedural plugins
+plperl apparently rocks your socks off.
+
+Transitioning versions of pg:
+- -Fc is your friend (compressed) (90% compression is avg!)
+- dump with the new version of pg_dump
+- restore form files with pg_restore
+
+Look into slony for upgrading.  Slave-copy system.
+
+== Options
+
+=== effective_cache_size
+- "here's how much fs cache I have to work with."
+- Maybe 75% of RAM on a dedicated machine.
+- Doesn't preallocate.
+
+=== shared_buffers
+Does preallocate.  Read more.
+
+=== default_statistics_target 
+- samples the tables depending on the size of the table and makes a decision on when to index first.  
+- "set it to 100 and let it go."
+- The higher you set it, the more statistics it does.
+
+=== work_mem
+- amount of memory available IN an SQL query for hashing/sorting.  
+- For a big box, set a LOT higher.  
+- It defaults to about 1M.  It can multiply very fast.  
+- Depending on max num of queries, set to something reasonable (10M?).
+
+=== checkpoint_segments
+- as it's going along, it makes checkpoints (flush, check).  
+- If you have a lot of writes, turn up this option.  
+- Putting it at something like 30 is not unheard of.  
+- If there's a crash, it takes a long time the higher the number is.
+
+=== maintenance_work_mem
+- Running vacuum or reindexing.  
+- Like work_mem.  
+- Big tables it makes a difference. He's gone as high as 1G.
+
+=== update_process_title
+Might remove some overhead...
+
+=== max_fsm_pages
+- Not Flying Spaghetti Monster.  
+- Freespace map keeps track of dead rows, and it sizes this.
+
+=== syncronous_commit
+- New in 8.3.  At the end of any commit, we push data to disk.  
+- That's good, but expensive.  This lets you put it into memory for a second, and then chunk commits together.  
+- Good for lots of fast concurrent transactions.
+- You can lose transactions to crashes, but you don't get data corruption.
+
+== Logging
+
+=== log_min_error_statement
+Gives the SQL query that caused the error.
+
+=== log_line_prefix
+Keeps a PID in the error.
+
+== Vacuuming
+Lazy vacuuming is awesome if you want no downtime.
+
+=== Autovacuuming
+- Do it.
+- track_activities and track_counts are your friends
+- autovacuum_max_freeze_age: for n transactions, make sure everything's cleaned up.
+- pg_autovacuum allows you to set vacuuming per table.
+
+== Hardware
+Some general recommendations.  He's "not a hardware guy."
+
+- Get Lots of (ECC) RAM
+- Prefer SCSI, Accept SATA
+- RAID Z (JBOD) ?
+- Plateau of CPU linear improvement at about 8
+
+=== Disk
+- Put WAL on it's own disk ?
+- More spindles = better
+- More controllers = even better (tablespaces, dedicated disk, insert-only)
+- write cache if you care about crash recovery.
+- NFS = bad
+- RAID 5 no.  Not optimal for DB performance.  Use RAID 1 or 10.
+- Someone said "after 8 spindles you won't notice the diff between RAID 5 and RAID 10"
+
+== Availability
+=== pg_dump LOL
+- Dump it and copy it to another server
+- constantly run restore
+- large time/IO constraints
+
+=== bucardo
+- asynchronous multi-master or master-slave
+- low IO, time constraints
+- other benefits - upgrades, scaling
+- fewer people in the community
+
+=== Shared disk
+- one copy of PGDATA on shared storage
+- standby takes over when db crashes
+- STONITH (Shoot the other node in the head): When the original side comes up after the second node takes over, and pwns everything.
+
+=== Filesys replication
+- drbd is an example
+- Shipping filesystem crap around
+- sync, ordered writes
+
+=== pg_pool
+- dual-master, statement based
+- bad for random, now, sequences
+- has to run as root
+
+=== Scaling
+- pg scales well
+- more disks (tablespaces)
+- more cpus, more ram
+- connection pooling
+- 1000+ connections, TBs of data
+
+=== pg_bouncer
+- simple connection pooler (gets rid of process limitations)
+- 10/1 - 40/1 ratio of processes
+- caveats: prepared statements, temp tables
+- skype, myyearbook.com
+
+== Optimization
+=== Queries
+- pgfouine and pqa
+- command line reports!
+- IO load
+
+==== explain analyze
+- complicated
+- good for large queries
+- http://wiki.postgresql.org/Using_EXPLAIN
+
+=== Internal
+==== pg_stat_all_tables
+- number of inserts, update, deletes, hot updates (not too interesting)
+- sequential scans are when the whole table is scanned.  BAD.
+- Live and dead tuples.  New in 8.3.  Need to vacuum/vac_full?  Ratio dead/live is a good indicator.
+- timestamps of when crap happened
+
+==== pg_stat_all_indexes
+Good for looking at index perf.
+
+==== Other
+- in-memory-joins are nice for dual-col indexing
+- restrain index to rows that are queried a lot (maybe for SB /8, /16, /24)
+- where clause of the index should match the where of the query
+- push expensive functions into your index (it allows a lot)
+
+=== Fulltext search
+- lexemes, word stemming
+- _looks nice.  We should try._
+- gist is oldschool, fast insert/update, slow queries
+- gin is better for query, worse for indexing
+
+== Tablespaces
+- logical for locations for object placement
+- point to locations on disk (symlinks)
+- size is by disk size
+- dedicate per db, split on disk
+- _maybe use fast flash for indexes_
+
+== Partitioning
+- Look at pgcon talk from 2007.
+- http://www.pgcon.org/2007/schedule/events/41.en.html

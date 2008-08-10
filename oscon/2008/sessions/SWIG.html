@@ -1,0 +1,210 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>RDoc Documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body>
+<h2>File: SWIG.rdoc</h2>
+<table>
+  <tr><td>Path:</td><td>SWIG.rdoc</td></tr>
+  <tr><td>Modified:</td><td>Thu Jul 24 17:07:48 -0700 2008</td></tr>
+</table>
+
+<h1>OSCON 2008, Session 10: Python, C++, and SWIG</h1>
+<h2>Interfacing</h2>
+<ul>
+<li>Python is C-extensible
+
+</li>
+<li>Calling code doesnt need to know if it&#8216;s calling Python or C
+
+</li>
+<li>You can deal with objects, raise Python exceptions, call python
+functions/methods, play with lists and dictionaries, etc.
+
+</li>
+</ul>
+<h2>Extension Modules</h2>
+<ul>
+<li>Implemented as shared objects
+
+</li>
+<li>Placed in the Python path
+
+</li>
+<li>Used with the Python <b>import</b> statement
+
+</li>
+<li>Python calls an init function in the C library
+
+</li>
+</ul>
+<h3>But</h3>
+<ul>
+<li>You still have to deal with the bas parts of C/C++
+
+</li>
+<li>Yet, we can minimize it to just things that need massive optimization
+
+</li>
+<li>Unit testing can happen from the Python side
+
+</li>
+</ul>
+<h3>Bad?</h3>
+<ul>
+<li>Can be tedious to make this stuff
+
+</li>
+<li>You have to write a Python wrapper for every function you want to access
+
+<ul>
+<li>Convert input params
+
+</li>
+<li>Call target function
+
+</li>
+<li>Checking for errors
+
+</li>
+<li>Raising Exceptions
+
+</li>
+<li>Converting the return value to something acceptable in Python
+
+</li>
+</ul>
+</li>
+<li>Create Python versions of C constants
+
+</li>
+<li>C structs, variables, C++ classes
+
+</li>
+<li>Write an initialization function
+
+</li>
+<li>Total yuck. I wonder if there&#8216;s a better way to do this.&#8230;
+
+</li>
+</ul>
+<h2>SWIG</h2>
+<ul>
+<li>OMG!
+
+</li>
+<li>Simplified Wrapper Interface Generator
+
+</li>
+<li>Automates work creating modules, removes tedium
+
+</li>
+<li>Allows you to glue C/C++ to Python, and partition your application to the
+language&#8216;s strengths
+
+</li>
+<li>You can think of it as a compiler, it reads C/C++ declarations and writes C
+code implementing the extension
+
+</li>
+<li>Support for structs, classes, functions, constants, etc.
+
+</li>
+<li>Lots of language extensions
+
+</li>
+<li>Understands the C++ Class heirarchy
+
+</li>
+<li>Does appropriate type checking of input params, etc.
+
+</li>
+<li>Can generate code for C++ templates
+
+</li>
+<li>Can generate code to override C++ virtual methods in Python classes
+
+</li>
+</ul>
+<h3>Many things out of the box</h3>
+<ul>
+<li>You can customize lots of stuff it does
+
+<ul>
+<li>%typemap: controls what C code is generated in wrapper functions that
+receive or return objects of certain types
+
+</li>
+<li>%extend: Can add new methods to a wrapped class that don&#8216;t
+necessarily exist in the C++ class
+
+</li>
+<li>%inline: Add new C functions that will automatically be wrapped
+
+</li>
+<li>%pythoncode: Emit custom Python code into the wrapper for the current
+class, or append ot prepend it to the Python proxy function
+
+</li>
+</ul>
+</li>
+<li>There&#8216;s more too!
+
+</li>
+<li>You can define a macro that&#8216;s multiple lines without doing line
+continuation
+
+</li>
+</ul>
+<h3>Modes of operation for Python targets</h3>
+<ul>
+<li>Generate nothing but the extension module (just creates the C wrapper)
+
+</li>
+<li>Generate the above, and the proxy module. Useful when wrapping C++. Makes
+the Python classes that look and act like the C++ ones.
+
+</li>
+<li>You can make class-based API wrappers for plain old C functions.
+
+</li>
+<li>the .i file makes a python script and a c/cpp file. Then you compile it
+into a shared object
+
+</li>
+</ul>
+<h3>Why not use SWIG</h3>
+<ul>
+<li>It doesn&#8216;t generate optimized code
+
+</li>
+<li>Classes are flattened to a collection of wrapped functions, with OO-ness
+added back on by the Proxy classes. Hand-coded module would probably use
+extension types (classes) instead.
+
+</li>
+</ul>
+<h3>But then again, we should use it</h3>
+<ul>
+<li>Saves time and lets you focus on the good stuff
+
+</li>
+</ul>
+
+
+
+
+
+
+
+<h2>Classes</h2>
+</body>
+</html>
+Files:   1
+Classes: 0
+Modules: 0
+Methods: 0
+Elapsed: 0.166s

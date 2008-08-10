@@ -1,0 +1,457 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>RDoc Documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body>
+<h2>File: ProPostgres.rdoc</h2>
+<table>
+  <tr><td>Path:</td><td>ProPostgres.rdoc</td></tr>
+  <tr><td>Modified:</td><td>Mon Jul 21 13:25:36 -0700 2008</td></tr>
+</table>
+
+<h1>OSCON 2008, Tutorial 1: Pro Postgres</h1>
+<h2>Some useful notes</h2>
+<p>
+Slides: <a
+href="http://www.slideshare.net/xzilla/pro-postgresql-oscon-2008">www.slideshare.net/xzilla/pro-postgresql-oscon-2008</a>
+</p>
+<p>
+Consider Book: Beginning PHP &amp; Postgres 8
+</p>
+<p>
+pgfoundry is a postgres dedicated projects
+</p>
+<p>
+auth methods:
+</p>
+<ul>
+<li>TRUST means you&#8216;re leaving the box pretty open
+
+</li>
+<li>md5 uses hashing (of course)
+
+</li>
+<li>Don&#8216;t use IDENT
+
+</li>
+</ul>
+<h2>Contributed code</h2>
+<p>
+pgcrypto = widely used contrib lib
+</p>
+<h2>Procedural plugins</h2>
+<p>
+plperl apparently rocks your socks off.
+</p>
+<p>
+Transitioning versions of pg:
+</p>
+<ul>
+<li>-Fc is your friend (compressed) (90% compression is avg!)
+
+</li>
+<li>dump with the new version of pg_dump
+
+</li>
+<li>restore form files with pg_restore
+
+</li>
+</ul>
+<p>
+Look into slony for upgrading. Slave-copy system.
+</p>
+<h2>Options</h2>
+<h3>effective_cache_size</h3>
+<ul>
+<li>&quot;here&#8216;s how much fs cache I have to work with.&quot;
+
+</li>
+<li>Maybe 75% of RAM on a dedicated machine.
+
+</li>
+<li>Doesn&#8216;t preallocate.
+
+</li>
+</ul>
+<h3>shared_buffers</h3>
+<p>
+Does preallocate. Read more.
+</p>
+<h3>default_statistics_target</h3>
+<ul>
+<li>samples the tables depending on the size of the table and makes a decision
+on when to index first.
+
+</li>
+<li>&quot;set it to 100 and let it go.&quot;
+
+</li>
+<li>The higher you set it, the more statistics it does.
+
+</li>
+</ul>
+<h3>work_mem</h3>
+<ul>
+<li>amount of memory available IN an SQL query for hashing/sorting.
+
+</li>
+<li>For a big box, set a LOT higher.
+
+</li>
+<li>It defaults to about 1M. It can multiply very fast.
+
+</li>
+<li>Depending on max num of queries, set to something reasonable (10M?).
+
+</li>
+</ul>
+<h3>checkpoint_segments</h3>
+<ul>
+<li>as it&#8216;s going along, it makes checkpoints (flush, check).
+
+</li>
+<li>If you have a lot of writes, turn up this option.
+
+</li>
+<li>Putting it at something like 30 is not unheard of.
+
+</li>
+<li>If there&#8216;s a crash, it takes a long time the higher the number is.
+
+</li>
+</ul>
+<h3>maintenance_work_mem</h3>
+<ul>
+<li>Running vacuum or reindexing.
+
+</li>
+<li>Like work_mem.
+
+</li>
+<li>Big tables it makes a difference. He&#8216;s gone as high as 1G.
+
+</li>
+</ul>
+<h3>update_process_title</h3>
+<p>
+Might remove some overhead&#8230;
+</p>
+<h3>max_fsm_pages</h3>
+<ul>
+<li>Not Flying Spaghetti Monster.
+
+</li>
+<li>Freespace map keeps track of dead rows, and it sizes this.
+
+</li>
+</ul>
+<h3>syncronous_commit</h3>
+<ul>
+<li>New in 8.3. At the end of any commit, we push data to disk.
+
+</li>
+<li>That&#8216;s good, but expensive. This lets you put it into memory for a
+second, and then chunk commits together.
+
+</li>
+<li>Good for lots of fast concurrent transactions.
+
+</li>
+<li>You can lose transactions to crashes, but you don&#8216;t get data
+corruption.
+
+</li>
+</ul>
+<h2>Logging</h2>
+<h3>log_min_error_statement</h3>
+<p>
+Gives the SQL query that caused the error.
+</p>
+<h3>log_line_prefix</h3>
+<p>
+Keeps a PID in the error.
+</p>
+<h2>Vacuuming</h2>
+<p>
+Lazy vacuuming is awesome if you want no downtime.
+</p>
+<h3>Autovacuuming</h3>
+<ul>
+<li>Do it.
+
+</li>
+<li>track_activities and track_counts are your friends
+
+</li>
+<li>autovacuum_max_freeze_age: for n transactions, make sure everything&#8216;s
+cleaned up.
+
+</li>
+<li>pg_autovacuum allows you to set vacuuming per table.
+
+</li>
+</ul>
+<h2>Hardware</h2>
+<p>
+Some general recommendations. He&#8216;s &quot;not a hardware guy.&quot;
+</p>
+<ul>
+<li>Get Lots of (ECC) RAM
+
+</li>
+<li>Prefer SCSI, Accept SATA
+
+</li>
+<li>RAID Z (JBOD) ?
+
+</li>
+<li>Plateau of CPU linear improvement at about 8
+
+</li>
+</ul>
+<h3>Disk</h3>
+<ul>
+<li>Put WAL on it&#8216;s own disk ?
+
+</li>
+<li>More spindles = better
+
+</li>
+<li>More controllers = even better (tablespaces, dedicated disk, insert-only)
+
+</li>
+<li>write cache if you care about crash recovery.
+
+</li>
+<li>NFS = bad
+
+</li>
+<li>RAID 5 no. Not optimal for DB performance. Use RAID 1 or 10.
+
+</li>
+<li>Someone said &quot;after 8 spindles you won&#8216;t notice the diff between
+RAID 5 and RAID 10&quot;
+
+</li>
+</ul>
+<h2>Availability</h2>
+<h3>pg_dump LOL</h3>
+<ul>
+<li>Dump it and copy it to another server
+
+</li>
+<li>constantly run restore
+
+</li>
+<li>large time/IO constraints
+
+</li>
+</ul>
+<h3>bucardo</h3>
+<ul>
+<li>asynchronous multi-master or master-slave
+
+</li>
+<li>low IO, time constraints
+
+</li>
+<li>other benefits - upgrades, scaling
+
+</li>
+<li>fewer people in the community
+
+</li>
+</ul>
+<h3>Shared disk</h3>
+<ul>
+<li>one copy of PGDATA on shared storage
+
+</li>
+<li>standby takes over when db crashes
+
+</li>
+<li>STONITH (Shoot the other node in the head): When the original side comes up
+after the second node takes over, and pwns everything.
+
+</li>
+</ul>
+<h3>Filesys replication</h3>
+<ul>
+<li>drbd is an example
+
+</li>
+<li>Shipping filesystem crap around
+
+</li>
+<li>sync, ordered writes
+
+</li>
+</ul>
+<h3>pg_pool</h3>
+<ul>
+<li>dual-master, statement based
+
+</li>
+<li>bad for random, now, sequences
+
+</li>
+<li>has to run as root
+
+</li>
+</ul>
+<h3>Scaling</h3>
+<ul>
+<li>pg scales well
+
+</li>
+<li>more disks (tablespaces)
+
+</li>
+<li>more cpus, more ram
+
+</li>
+<li>connection pooling
+
+</li>
+<li>1000+ connections, TBs of data
+
+</li>
+</ul>
+<h3>pg_bouncer</h3>
+<ul>
+<li>simple connection pooler (gets rid of process limitations)
+
+</li>
+<li>10/1 - 40/1 ratio of processes
+
+</li>
+<li>caveats: prepared statements, temp tables
+
+</li>
+<li>skype, myyearbook.com
+
+</li>
+</ul>
+<h2>Optimization</h2>
+<h3>Queries</h3>
+<ul>
+<li>pgfouine and pqa
+
+</li>
+<li>command line reports!
+
+</li>
+<li>IO load
+
+</li>
+</ul>
+<h4>explain analyze</h4>
+<ul>
+<li>complicated
+
+</li>
+<li>good for large queries
+
+</li>
+<li><a
+href="http://wiki.postgresql.org/Using_EXPLAIN">wiki.postgresql.org/Using_EXPLAIN</a>
+
+</li>
+</ul>
+<h3>Internal</h3>
+<h4>pg_stat_all_tables</h4>
+<ul>
+<li>number of inserts, update, deletes, hot updates (not too interesting)
+
+</li>
+<li>sequential scans are when the whole table is scanned. BAD.
+
+</li>
+<li>Live and dead tuples. New in 8.3. Need to vacuum/vac_full? Ratio dead/live
+is a good indicator.
+
+</li>
+<li>timestamps of when crap happened
+
+</li>
+</ul>
+<h4>pg_stat_all_indexes</h4>
+<p>
+Good for looking at index perf.
+</p>
+<h4>Other</h4>
+<ul>
+<li>in-memory-joins are nice for dual-col indexing
+
+</li>
+<li>restrain index to rows that are queried a lot (maybe for SB /8, /16, /24)
+
+</li>
+<li>where clause of the index should match the where of the query
+
+</li>
+<li>push expensive functions into your index (it allows a lot)
+
+</li>
+</ul>
+<h3>Fulltext search</h3>
+<ul>
+<li>lexemes, word stemming
+
+</li>
+<li>_looks nice. We should try._
+
+</li>
+<li>gist is oldschool, fast insert/update, slow queries
+
+</li>
+<li>gin is better for query, worse for indexing
+
+</li>
+</ul>
+<h2>Tablespaces</h2>
+<ul>
+<li>logical for locations for object placement
+
+</li>
+<li>point to locations on disk (symlinks)
+
+</li>
+<li>size is by disk size
+
+</li>
+<li>dedicate per db, split on disk
+
+</li>
+<li>_maybe use fast flash for indexes_
+
+</li>
+</ul>
+<h2>Partitioning</h2>
+<ul>
+<li>Look at pgcon talk from 2007.
+
+</li>
+<li><a
+href="http://www.pgcon.org/2007/schedule/events/41.en.html">www.pgcon.org/2007/schedule/events/41.en.html</a>
+
+</li>
+</ul>
+
+
+
+
+
+
+
+<h2>Classes</h2>
+</body>
+</html>
+Files:   1
+Classes: 0
+Modules: 0
+Methods: 0
+Elapsed: 0.213s

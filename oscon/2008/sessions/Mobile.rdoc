@@ -1,0 +1,72 @@
+= OSCON 2008, Session 9: Ubuntu on the Go: Subnotebook and MID technologies
+== UME: Ubuntu Mobile Edition
+=== Customized Ubuntu Mobile
+- Can make things in Flash, HTML, Java, etc.
+
+
+=== OEM services group
+- Massachusetts primarily
+
+=== Contributing to UME
+- To date, very difficulty
+- Samsung Ultra
+- KVM install images
+- In the guide, you can use the Moblin image creator
+- IRC / Mailing list
+
+== Ubuntu Netbook Remix
+- Atom Processors
+- 4GB SSD or hard disk
+- 1024x600 or higher res
+- Screen size: 7" -12.1"
+- WiFi, Bluetooth
+=== Features
+- Low price point
+- Small and light
+- Internet-centric usage model
+- Use things from Ubuntu Desktop and MID
+
+=== Reason
+- eeePC
+- Includes only the appropriate applications
+- Adds a few extra apps
+
+=== Tech
+- No title bars, simply tabs above the application (maximus)
+- There's a little window-picker on the top left.
+- Media shows up on the right
+- Using metacity (metah-sity), and it apparently sortof supports compiz (compeez)
+
+=== Applications
+- Firefox, evolution, Pidgin, rhythmbox, fbreader, liferea, f-spot, openoffice
+- Gimp doesn't work well
+- Flash, PDF reader
+- Codecs: AAC, WMV, MP3
+
+=== Compenents
+- All are open source
+- Go Home applet
+- Maximus
+- Human Notebook theme
+- Window Picker applet
+- Launcher
+
+=== Future work
+- Finger Friendliness
+- Customization
+- WWAN 2009, SIM card slot, working with Intel to make it happen
+
+== Challenges
+- Limited screen, storage
+- Power consumption
+- Network switching
+- Finger touch, application simplicity
+- network-manager doesn't do every applet
+
+== Opportunities
+- $90M by 2012
+- Sync, Backup
+- Web services applications
+  - Integration with web services (Twitter)
+  - Social networking
+- Location-based services

@@ -1,0 +1,127 @@
+= OSCON 2008, Session 5: A History of Failure
+== Ancient Greece
+- More than 2000 years ago
+- Device - position of the stars, sun, planets, and moon
+- First computer, but also first software collaboration
+- Modification of device after created
+  - Bugfixes
+  - Feature Creep
+
+- Plundered by Romans
+- Sank, recovered in 1901.
+- X-ray tomography, 2000 greek characters on the outside
+- (Funny EULA)
+
+== Modern Times
+- First bug: 1947.  A Real Insect
+- 1983: Therac-25 Radiation Treatment Machine
+  - PDP-11
+  - Errors are caused by alpha particles and EM noise
+  - Picks the wrong mode 1 in 250M times, massive radiation overdose
+  - No hardware interlocks, software controlled
+  - Picked wrong mode 6 times in 3 years.
+
+- Overcorrection killed a rocket because of absolute velocity vs. smoothed velocity
+- Self-destruct buttons
+
+<i>"It's possible to make mistakes so large they invalidate your entire worth as a human being"</i>
+
+- Australian = $40,000/year, over lifespan of 80 years, $3.17M
+- Metric = lifetime effort lost
+
+== Bug 1: AT&T 1990
+- Switches fail, tell its neighbors, they remove it from the routing table, bad switch spends 6 seconds trying to fix itself.
+- Coming back up, it would 3way handshake with peers to add them back.
+- Changed, still send fault, still self-fix, then just makes an outgoing call to the other switches.
+- Bug: 1st switch made the call, 2nd switch updating routing table, crashes everyone!
+- 75M calls were lost
+- Lost revenue = $60M, 2300 years of productivity lost.
+
+== 1996: Tiwai Point
+- Aluminum smelter, computer controlled
+- Comalco Australia programmed them
+- 2 hours behind AUS
+- Leap year, computers couldn't take day 366.
+- All computers crash @ midnight.
+- 2 hours pass, same problem happens in AUS
+- Cells melted, had to be replaced.
+- Unknown cost.
+
+== Space vehicles
+=== 1996: Ariane 5
+- Developed bug 37 seconds after launch
+- Veered off course dramatically
+- 64-bit FP to measure launch position
+- Casting to 16-bit int
+- <b>No Exception Handling!</b>
+- Overflow, negative! Rocket turned around!
+- Reused code from Ariane 4, could only move 1/2 the horizontal speed
+- Testing?  The <b>bug showed up perfectly!!!</b>
+- The bug showed up afterwards in simulation
+- $370M lost!
+- 150 lifetimes, 12,000 years
+
+== 1998: Mars Climate Orbiter
+- Plummeted through the atmosphere
+- Part of the code in imperial, some in metric
+- Pound force, newtons :P
+- Testing budget was cut before launch
+- Mars Lander failed as well
+  - Thrusters stopped working
+  - Landing gear started vibrating, thought it was on the ground
+- 8300 years of time lost
+
+== Deeps Space 2: Hit Mars
+- 644+ KM/h
+- Sat in storage
+- Launched it, and it hit mars
+- <b>Battery was dead!</b>
+- $30M, 10 lifetimes
+
+== 2003: North American Blackouts
+- 50M people
+- 2.38 x AUS, 1/6 of USA
+- Who's to blame?
+  - El Nino
+  - Canada blames New York, but was a sunny day
+  - Canada blames a nuclear power plant in Pennsylvania
+  - New York blames Canada
+- Europe was saying USA had 3rd world electric grid
+- 6 weeks later, there was a big blackout
+- First Energy in Ohio
+  - 14:14 Alarm system fails *SILENTLY*
+  - Display said everything was fine
+  - Remained in that state for 27 minutes, crashed
+  - Hot spare failed silent after 13 minutes
+  - 345kV line goes down, alarm system isn't working
+  - Automatic re-route, other lines pick up the load
+  - 2 more lines went down, no one knows
+- 11 more lines go down says MISO
+- MISO calls First Energy to notify, then their own power went out
+
+== Take away
+- Race conditions
+- Test
+- Deploy in New Zealand First
+== 1998: Auckland blackouts
+- LOTR: Where the orcs come from
+- 5 weeks without power
+- 150MWatts of load, 110MW of rated cable :P
+- 4 cables, 1 failed.
+- Bad press recently, so no announcement
+- 150MW of power on 85MW of cable
+- Cable 2 fails -> 150MW of power on 50MW of cable
+- Management willpower vs. physics.  Classic.
+- Blamed it on El Nino
+- Actually a lack of sysadmins, engineers knew cables were overloaded
+- 1980: "We should replace the cables, guys"
+- Cost: $150M to Mercury power, unknown to business
+- Economic gain to Wellington: Priceless
+
+== Sysadmins
+- Hard to get people to listen to you, doomsayers
+- Disk failure, we need raid
+- Power?  UPS
+- Listen to the sysadmins
+
+

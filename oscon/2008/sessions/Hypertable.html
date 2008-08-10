@@ -1,0 +1,414 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>RDoc Documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body>
+<h2>File: Hypertable.rdoc</h2>
+<table>
+  <tr><td>Path:</td><td>Hypertable.rdoc</td></tr>
+  <tr><td>Modified:</td><td>Wed Jul 23 16:33:58 -0700 2008</td></tr>
+</table>
+
+<h1>OSCON 2008, Session 3: Hypertable</h1>
+<h2>GFS</h2>
+<ul>
+<li>Run on 1000 machines, not 1
+
+</li>
+</ul>
+<h3>Filesystem</h3>
+<ul>
+<li>64MB chunk
+
+</li>
+<li>Replicates each chunk across machines
+
+</li>
+<li>By doing so, system is impervious to a whole class of hardware failures
+
+<ul>
+<li>Power supply
+
+</li>
+<li>Power to the rack
+
+</li>
+<li>Network failure
+
+</li>
+</ul>
+</li>
+<li>Map/Reduce
+
+</li>
+<li>Bigtable
+
+</li>
+</ul>
+<h3>Hypertable</h3>
+<ul>
+<li>Not relational
+
+</li>
+<li>Modeled after Google&#8216;s bigtable
+
+</li>
+<li>One big massive primary keyed table
+
+</li>
+<li>No transactions, maybe in the future
+
+</li>
+<li><b>Scalable</b>
+
+</li>
+<li><b>High Random insert, update, and delete rate</b>
+
+</li>
+<li>Loaded 1TB into a 9-node HT cluster, systained random insert @ 1M inserts
+per second (Quad core Intel, 16GB RAM, SATA 3Gb/s).
+
+</li>
+</ul>
+<h3>Data Model</h3>
+<ul>
+<li>Sparse, 2D talbe with cell versions
+
+</li>
+<li>1 table with 2 columns, next one has 1M, that&#8216;s OK
+
+</li>
+<li>4-part key
+
+<ul>
+<li>Row
+
+</li>
+<li>Column Family
+
+</li>
+<li>Column Qualifier
+
+</li>
+<li>Timestamp
+
+</li>
+</ul>
+</li>
+<li><em>Tim O&#8216;Reilly walks in and looks around for a seat, they&#8216;re
+all taken</em>
+
+</li>
+</ul>
+<h3>Anatomy of a key</h3>
+<ul>
+<li>Row key is \0 Terminated
+
+</li>
+<li>Col family is a single-byte (256 possible)
+
+</li>
+<li>Col qualifier is \0 terminated
+
+</li>
+<li>Timestamp is big-endian 1&#8216;s Comp. (memcmp, ordering has more recent
+ahead of older versions)
+
+</li>
+</ul>
+<h3>Concurrency</h3>
+<ul>
+<li>Bigtable uses Copy on write
+
+</li>
+<li>MVCC (like Couch) form in Hypertable. Deletes are inserted as delete
+records. Multiple versions are kept around.
+
+</li>
+</ul>
+<h3>Cellstore</h3>
+<ul>
+<li>65K blocks of compressed KV pairs
+
+</li>
+<li>Bloom Filter - booya!
+
+</li>
+</ul>
+<h3>System Overview</h3>
+<ul>
+<li>Hyperspace has a distributed lock manager, and a small metadata fs (built
+on BDB)
+
+</li>
+<li>Chubby (sp?) is google&#8216;s hyperspace
+
+</li>
+<li>Function of the master is to perform metadata operations (ALTER, CREATE,
+etc.)
+
+</li>
+<li>Clients can communicate with Range servers
+
+</li>
+<li>Master can be down for a while with no one even noticing
+
+</li>
+<li>Hot standby design for availability
+
+</li>
+<li>Range Servers: Responsible for UPDATING and SCANNING
+
+</li>
+<li>All sits on top of HDFS distrubted FS
+
+</li>
+<li>Hadoop, KFS (GFS Clone)
+
+</li>
+</ul>
+<h3>Range server</h3>
+<ul>
+<li>Manages ranges of table data
+
+</li>
+<li>Caches updates in memory (CellCache)
+
+</li>
+<li>Spills (compacts) periodically to update the disk (CellStore)
+
+</li>
+</ul>
+<h4>Write ahead commit log</h4>
+<ul>
+<li>When updates come into a rangeserver, they&#8216;re written to a commit
+log, then the data structures are updated so you can replay the log.
+
+</li>
+</ul>
+<h4>Range meta-operation log</h4>
+<ul>
+<li>When a rangeserver does anything (moves, stops), it&#8216;s written into
+the log
+
+</li>
+</ul>
+<h2>Client API</h2>
+<ul>
+<li>C++ client is the only one supported ATM:
+
+</li>
+<li>You modify a table by creating a mutator
+
+</li>
+<li>You scan a table by creating a scanner
+
+</li>
+<li>Thrift Broker in the works
+
+</li>
+<li>Someone contrib&#8216;d a Hadoop Map/Reduce connector
+
+</li>
+</ul>
+<h2>Compression</h2>
+<ul>
+<li>CellStore: compressed KV pairs
+
+</li>
+<li>Commit log: Compressed blocks (optionally)
+
+</li>
+<li>Supported types
+
+<ul>
+<li>zlib (fastest/best)
+
+</li>
+<li>lzo (high decomp speed)
+
+</li>
+<li>quicklz (fast decomp, high ratio)
+
+</li>
+<li>bmz (longest commons substring, lost of replication)
+
+</li>
+<li>none
+
+</li>
+</ul>
+</li>
+</ul>
+<h2>Caching</h2>
+<h3>Block Cache</h3>
+<ul>
+<li>CellStore blocks of KV pairs configurable
+
+</li>
+</ul>
+<h3>Query cache</h3>
+<ul>
+<li>Not finished implementing
+
+</li>
+<li>Caches results
+
+</li>
+</ul>
+<h3>Bloom Filter (!!)</h3>
+<ul>
+<li>Negative Cache
+
+</li>
+<li>Configurable K
+
+</li>
+<li>Allows you to find out if you definitely *don&#8216;t* have the data
+
+</li>
+</ul>
+<h3>Scaling</h3>
+<ul>
+<li>Session table and crawl table
+
+</li>
+<li>Splits them all up into ranges, go to rangeservers
+
+</li>
+<li>Just add more machines, and the system migrates data equally
+
+</li>
+<li>Balancing is questionable&#8230;
+
+</li>
+</ul>
+<h3>Access Groups</h3>
+<ul>
+<li>Control of physical layout hybrid row/col oriented
+
+</li>
+<li>Improves perf. by minimizing IO
+
+</li>
+<li>Grouping columns allows physical storage control
+
+</li>
+<li>Makes faster updates possible
+
+</li>
+</ul>
+<h3>FS Broker</h3>
+<ul>
+<li>Can run on any distributed FS
+
+</li>
+<li>FUSE hooks
+
+</li>
+</ul>
+<h2>More</h2>
+<ul>
+<li>Comparison to Hbase (Java, yuck), C++ much better
+
+</li>
+<li>System is designed for async communication
+
+</li>
+<li>Hypertable is CPU intensive
+
+</li>
+<li>Java uses 2-3 times the memory for large memmap
+
+</li>
+<li>Poor processor cache perf.
+
+</li>
+</ul>
+<h2>Performance</h2>
+<ul>
+<li>AOL Query logs
+
+</li>
+<li>75,275,825 inserted cells
+
+</li>
+<li>8-node cluster (1 1.8 Ghz Dual Core Opteron)
+
+<ul>
+<li>4GB RAM
+
+</li>
+<li>3x 7200 SATA
+
+</li>
+</ul>
+</li>
+<li>Row Key 7B
+
+</li>
+<li>Avg value 15B
+
+</li>
+<li>Crap. Slide change
+
+</li>
+<li>Another test yielded oveer 1M sustained inserts/s
+
+</li>
+</ul>
+<h2>Weaknesses</h2>
+<ul>
+<li>Range data managed by a single rangeserver
+
+<ul>
+<li>No data loss, but if it goes down, bad bad
+
+</li>
+<li>Can be mitigated with client-side cache or memcached
+
+</li>
+</ul>
+</li>
+</ul>
+<h2>Status</h2>
+<ul>
+<li>Alpha, 0.9.0.7 released
+
+</li>
+<li>Beta at the end of August
+
+</li>
+<li>Waiting on Hadoop JIRA 1700
+
+<ul>
+<li>Bug in Hadoop, don&#8216;t allow appending to existing files
+
+</li>
+</ul>
+</li>
+<li>GPL 2
+
+</li>
+<li>Delete records get flushed in a &quot;major operation&quot;
+
+</li>
+</ul>
+
+
+
+
+
+
+
+<h2>Classes</h2>
+</body>
+</html>
+Files:   1
+Classes: 0
+Modules: 0
+Methods: 0
+Elapsed: 0.170s

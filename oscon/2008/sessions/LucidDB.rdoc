@@ -1,0 +1,36 @@
+= OSCON 2008, Session 4: LucidDB
+- Lucidera
+- LucidDB is and open-source column store
+
+== Why
+- Boatload of data
+- Need to analyze
+- You are Lazy, cheap, smart
+- Not like bigtable or hypertable, vanilla db accelerated for analytics
+- Complex star joins and stuff
+- LucidDB addresses sizes between 10's of GB and terabytes (sweet spot).
+
+== Benchmarks
+=== Assumptions
+- TPC-H Scale Factor 10
+- LucidDB 0.7.4
+  - 6GB Buffer Pool
+  - libaio and O_DIRECT
+- MySQL 5.0.22, MyISAM
+- Scale factor 10 = 10GB flat file data = 60M lineitems
+  - same schema, primary and foreign keys indexed
+- Machine used: AMD64 2Ghz, RHEL5, 2.6.18-8, JRockit R27.4, 8GB RAM, 1MB L2, SATA 10K RPM, ext3
+- Dramatic differences (factors of 2 and better are average)
+- Loading takes more time, Creating indexes a LOT faster
+
+== Architecture
+- Read what you need
+- Aggressive compression
+- Optimal use of IO
+- Larger effective data cache
+- Uses index semijoin to handle star joins
+- Make every disk read count: High selectivity, fragmentation, page reads may by non-contiguous.
+- Java?  What the... "If you're not doing Java, there's not a very good solution"
+- C++ heavy lifting.
+- Never do single-row inserts or updates into a column data store
+

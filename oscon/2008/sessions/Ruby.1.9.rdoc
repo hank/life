@@ -1,0 +1,126 @@
+= OSCON 2008, Session 8: Ruby 1.9: What to Expect
+== Major features
+- Performance, factor of 3 improvement in some cases
+- Real threads!  Also, fibers
+- Encoding support for character sets
+- *gems* is built-in (mostly)
+  - no contribs
+
+=== One lesson
+- if String.method_defined(:encode) for instance allows you to make code that works in all major Ruby versions.  Brilliant
+
+=== CI Efforts
+- He took a bunch of libraries and got them to work in 1.9
+
+== What's Changed?
+=== Single character strings are strings!
+Ruby 1.9:
+  ?c => "c"
+Ruby 1.8.x:
+  ?c => 99
+
+=== String array access
+Ruby 1.9:
+  "cat"[1] => a
+Ruby 1.8.x:
+  "cat"[1] => 99
+
+=== Hash issues
+  {1,2} is now valid, not T_ASSOC error
+
+=== String <tt>to_s</tt>
+  [1,2,3].to_s => "[1, 2, 3]"
+  [1,2,3].to_s => 123
+
+=== Colon is not longer valid in <tt>when</tt> statements
+Ruby 1.9:
+  case 'a'; when /a/: puts 'word'; end  => SyntaxError
+
+=== Dummy variables are not modified in scope
+Ruby 1.9:
+  i=0; [1,2,3].each{|i|}; puts i => 0
+It still happens when you do a <tt>for</tt> loop, which is debatable.
+
+=== to_sym for integers
+- 5.to_sym doesn't work anymore
+- But, you can use "5".to_sym
+- rake breaks on the [] function!
+
+=== Hash Keys "unordered"
+Ruby 1.8.x:
+  {:a=>"a", :b=>"b", :c=>"c"}
+  => {:a=>"a", :c=>"c", :b=>"b"}
+
+Ruby 1.9:
+  {:a=>"a", :b=>"b", :c=>"c"}
+  => {:a=>"a", :b=>"b", :c=>"c"}
+
+- Insertion order is guaranteed apparently
+
+=== Stricter unicode regex
+Ruby 1.9:
+  /\x80/u => SyntaxError
+
+- TR and Regexp are now unicode
+
+=== BasicObject
+- You have to put :: in front of things now inside classes inherited from BasicObject
+
+=== $KCODE produces warnings
+
+=== Instance methods are now arrays of symbols
+Ruby 1.9:
+  {}.methods.sort.last => :zip
+Ruby 1.8.x:
+  {}.methods.sort.last => "zip"
+
+=== <tt>encoding:</tt>
+- You can define encoding at the top of your source file
+
+=== Real threading
+- Race conditions
+- Assumptions
+
+=== Implications
+- Changes are straightforward
+- Cumulative effect is massive
+- Lots of gems are non-maintained, 1.9 breaks them.  Who fixes them?
+
+=== Recommendations
+- Make gems that work with 1.8.x and 1.9
+- use git
+
+- to_enum
+
+=== Lambda shorthand
+Ruby 1.9:
+  p = -> a,b,c {a+b+c}
+  puts p.[1,2,3]
+
+=== Complex is builtin
+Ruby 1.9:
+  Complex(3,4) = 3 + 4.im
+
+=== Splat in the middle
+  def foo(first *middle, last)
+
+== Fibers
+- No blocking IO
+- Lightweight threads
+- Does the equivalent of co-routines
+
+== When you break, you can choose what to return
+  break line if line.match('foo')
+
+== "nested" methods
+  class F
+    def foo
+      def foo
+        "subsequent"
+      end
+      "first"
+    end
+   end
+   f = F.new
+   f.foo => "first"
+   f.foo => "subsequent"

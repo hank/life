@@ -1,0 +1,10 @@
+{% if posts %}
+  {% for post in posts %}
+    <h2><a href="{{ post.link }}">{{ post.title }}</a></h2>
+    <p>
+      {{ post.body }}
+    </p>
+  {% endfor %}
+{% else %}
+  <p>No posts found</p>
+{% endif %}

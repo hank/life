@@ -1,0 +1,119 @@
+= OSCON 2008, Tutorial 3: Ubiquitous Multi-threading in a Multi-core World
+
+== Shift from serial to parallel
+=== Process
+- Find things that can be done almost independendently
+- Analyze communication (dependences)
+- Organize dependences for parallelism
+- <b>Do this early!</b>
+
+=== Generic programming
+- Make assumptions
+- eg. Quicksort -> walk bidirectionally and swap items.
+
+=== Generic iteration
+- Dependences hinder parallel execution
+- STL foreach is a good example, has to check the iterator before calling the function
+
+=== Dealing with Dependences
+- Remove dependences
+- Rearrange dependences to shorten critical path
+- Domain experts are better than programmers since they know where to break rules.
+
+=== Parallel iteration
+- Know number of iterations ahead of time to control dependence
+- Linked-lists/variable length structures suck for what we're talking about
+
+
+== Correctness
+- Make sure you have the sequential version right first
+- <i>"Embarrassing parallelism is good"</i> (big arrays, no dependences)
+
+=== First, define what is Correct
+- Matching a serial program bit-for-bit might be unrealistic
+
+==== Examples
+- Floating point round-off in fluid solvers (iteration process that solves a parameter, inaccuracies of floating point will introduce error)
+- MPEG compression - trading compression for parallelism
+- Search returns one of several acceptable answers
+
+=== Race conditions
+- Shared data, winners and losers
+
+=== Synchronization
+==== Low-level
+- Mutexes, condition variables (wait on condition, no lock), tricky events
+- Atomic operations: guaranteed to happen without interruption
+- Emphasis on a pair of threads
+
+==== Higher-level
+- Parallel loops
+- Pipelines
+- Barriers - serialization after parallel, waiting for parallel to finish
+- Work queues - dynamic scheduling
+
+==== Mutex
+- A lock on a (critical) section of code.
+- We have 2 things (or more) we want to change at the same time
+
+==== Semaphore
+- Let up to N threads in at the same time
+
+==== Reader-writer lock
+- Multiple readers or one writer at a time
+- Useful when there's lots of reading, little writing
+
+==== Condition variables
+- Allow threads to wait for state protected by mutex to change, without holding the mutex and without timing holes (uses signaling)
+
+=== Problems with locks
+==== Composition
+- Locking lower level operations does not guarantee higher level is race free
+
+==== Deadlock
+- Everyone's waiting for a lock that no one can give
+
+==== Convoying
+- Similar to deadlocking, owner of lock is preempted, other threads wait behind it
+- Owner lock crashes, other threads wait forever
+- Minimize convoying with atomics and minimize lock-length time
+
+==== Priority Inversion
+- Can occur with prioritized preemptive scheduling
+  - Low-priority thread is preempted when holding lock
+  - Medium-priority thread runs in preference to low-priority thread
+  - High-priority thread waits forever on a lock, times out, and restarts sys
+- Mars Pathfinder example: http://research.microsoft.com/~mbj/Mars_Pathfinder/Mars_Pathfinder.html
+
+=== Composition problem
+- Multiple threads might append the same thing to a list, for example
+- Move your locks to the outermost invariant
+
+=== Notes on Mutexes
+- Avoid exposing mutexes to other packages
+- Look into invariant-based programming
+- <b>Remember exception handling</b>
+
+=== Exception-safe mutexing using RAII
+- RAII = Resource Acquisition is initialization
+  - Constructor acquires resource
+  - Destructor releases resource
+
+=== Lockless problems
+- Livelock - when everyone gets a lock!
+- ABA problem - When you read a var as A, it then is changed to B, then back to A, then you screw up (linked list example).
+- Memory reclamation - compare and swaps required, so one has to succeed, the rest have to fail.  You might have trouble when freeing memory in case it gets.  See Hazard Pointers: http://www.research.ibm.com/people/m/michael/ieeetpds-2004.pdf
+- Memory Consistency model
+- Lock-free data structures are difficult to understand
+  - Often publishable, even for simple structures
+  - Verification is tricky: consider using Spin to verify (http://www.spinroot.com)
+
+=== Tools for correctness
+- KISS: Keep it simple stupid
+- Use automatic race detectors: Detect races like memory checkers detect leaks
+- Helgrind (part of Valgrind)
+- Intel thread checker: more general race detection based on inter-thread communication
+
+== Scalability tidbits
+- Creating and destroying a thread can take on the order of <b>25,000 clock cycles!</b>
+
