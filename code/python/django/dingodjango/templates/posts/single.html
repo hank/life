@@ -1,6 +1,6 @@
 {% extends 'posts/index.html' %}
-{% load humanize %}
 {% block title %}
   {{ settings.title }}{% if post %}: {{ post.title }}{% endif %}
 {% endblock %}
-{% block post_title %}&raquo; {{ post.title }}{% endblock %}
+
+{% block post_title %}{{ post.title }}{% endblock %}

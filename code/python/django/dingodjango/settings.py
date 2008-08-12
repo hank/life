@@ -4,6 +4,8 @@ import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+APPEND_SLASH = True
+LOCAL_ROOT = "/var/www/django-projects/dingodjango/"
 
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),
@@ -37,7 +39,7 @@ USE_I18N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = '' 
+MEDIA_ROOT = LOCAL_ROOT + 'media' 
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
@@ -47,7 +49,7 @@ MEDIA_URL = ''
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
-ADMIN_MEDIA_PREFIX = '/media/'
+ADMIN_MEDIA_PREFIX = '/dingodjango/media/admin/'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'o!ptp37r%#0d-x!kf1#w6_1h(#efw+3k-yzgca10+m#3@ae@6m'
@@ -72,7 +74,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(string.join(string.split(os.path.basename(__file__), "/")[0:-1], "/"), 'templates'),
+    LOCAL_ROOT + 'templates',
 
 )
 
@@ -89,7 +91,7 @@ INSTALLED_APPS = (
     'dingodjango.posts',
 )
 
-ASSET_PATH = os.path.join(string.join(string.split(os.path.basename(__file__), "/")[0:-1], "/"), 'assets', 'files'),
+ASSET_PATH = LOCAL_ROOT + 'files'
 
 DINGO_DJANGO_SETTINGS={
   'title':'DingoDjango', 
