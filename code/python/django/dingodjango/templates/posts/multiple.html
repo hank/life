@@ -1,10 +1,29 @@
-{% if posts %}
-  {% for post in posts %}
-    <h2><a href="{{ post.link }}">{{ post.title }}</a></h2>
-    <p>
-      {{ post.body }}
-    </p>
-  {% endfor %}
-{% else %}
-  <p>No posts found</p>
-{% endif %}
+{% extends 'index.html' %}
+{% block title %}
+  {{ settings.title }}: {{ settings.subtitle }}{% endif %}
+{% endblock %}
+
+{% block content %}
+  {% load humanize %}
+  {% load markup %}
+  {% if posts.object_list %}
+    {% for post in posts.object_list %}
+      <h1 class="title">
+      {% block post_title %}
+      <a href="{% url posts.views.single_post post.date_created.year,post.date_created.month,post.date_created.day,post.slug %}">
+          {{ post.title }}
+      </a>
+      {% endblock %}
+      </h1>
+      <div class="descr">
+        Posted {{ post.date_created|naturalday|capfirst }} 
+          at {{ post.date_created|date:"h:i A T" }} by {{post.author}}
+      </div>
+      <div>
+        {{ post.renderedbody|safe }}
+      </div>
+    {% endfor %}
+  {% else %}
+    <h3>No Posts found</h3>
+  {% endif %}
+{% endblock %}

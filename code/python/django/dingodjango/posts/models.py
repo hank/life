@@ -2,29 +2,11 @@ from django.db import models
 from django.db.models import permalink
 from django.contrib import admin
 from django.contrib.auth.models import User
+from dingodjango.authors.models import Author
 from django.template.defaultfilters import slugify
 from django import forms
 import textile
 import markdown
-
-class Author(models.Model):
-  user = models.ForeignKey(User, unique=True)
-  first_name = models.CharField(max_length=40)
-  last_name = models.CharField(max_length=60, blank=True)
-  email = models.EmailField()
-  url = models.URLField(blank=True, verify_exists=False)
-  date_created = models.DateField()
-  active = models.BooleanField(default=True)
-  class Meta:
-    ordering = ['first_name']
-  def __unicode__(self):
-    return self.full_name()
-  def full_name(self):
-    return "%s %s" % (self.first_name, self.last_name,)
-
-class AuthorAdmin(admin.ModelAdmin):
-  pass
-admin.site.register(Author, AuthorAdmin)
 
 MARKUP_CHOICES=(
   ('textile', 'Textile'),
@@ -62,9 +44,6 @@ class Post(models.Model):
   def get_absolute_url(self):
     return ('single-post', (), {'slug': self.slug})
 
-class PostAdmin(admin.ModelAdmin):
-  pass
-admin.site.register(Post, PostAdmin)
 
 class Tag(models.Model):
   slug = models.SlugField(
@@ -82,6 +61,3 @@ class Tag(models.Model):
     self.slug = slugify(self.name)
     super(Tag, self).save()
 
-class TagAdmin(admin.ModelAdmin):
-  pass
-admin.site.register(Tag, TagAdmin)

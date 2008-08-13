@@ -64,21 +64,21 @@ h5 { padding-bottom: 4px; }
 .header {
 	background: #111;
 	border-bottom: 1px solid #333;
-	font: normal 2em sans-serif;
+	font: normal 3em sans-serif;
 	height: 120px;
 }
 .header a {
 	color: #888;
-	display: block;
+	/*display: block; */
 	line-height: 120px;
 	text-decoration: none;
 	width: 100%;
 }
-.header span {padding-left: 32px;}
 .header a:hover {
-	background: #191919;
+	/*background: #191919; */
 	color: #BBB;
 }
+.header span {padding-left: 32px;}
 
 /* structure */
 .container {

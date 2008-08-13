@@ -21,6 +21,7 @@ urlpatterns = patterns('',
     #(r'^dingodjango/admin/doc/', include('django.contrib.admindocs.urls')),
     (r'^dingodjango/$', 'dingodjango.posts.views.index'),
     (r'^dingodjango/posts/', include('dingodjango.posts.urls')),
+    (r'^dingodjango/authors/', include('dingodjango.authors.urls')),
 
     # Uncomment the next line for to enable the admin:
     (r'^dingodjango/admin/(.*)', admin.site.root),

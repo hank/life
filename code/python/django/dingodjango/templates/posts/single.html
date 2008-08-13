@@ -1,6 +1,27 @@
-{% extends 'posts/index.html' %}
+{% extends 'index.html' %}
 {% block title %}
   {{ settings.title }}{% if post %}: {{ post.title }}{% endif %}
 {% endblock %}
 
 {% block post_title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+  {% load humanize %}
+  {% load markup %}
+  {% if post %}
+      <h1 class="title">
+      <a href="{% url posts.views.single_post post.date_created.year,post.date_created.month,post.date_created.day,post.slug %}">
+          {{ post.title }}
+      </a>
+      </h1>
+      <div class="descr">
+        Posted {{ post.date_created|naturalday|capfirst }} 
+          at {{ post.date_created|date:"h:i A T" }} by {{post.author}}
+      </div>
+      <div>
+        {{ post.renderedbody|safe }}
+      </div>
+  {% else %}
+    <h3>Post not found</h3>
+  {% endif %}
+{% endblock %}
