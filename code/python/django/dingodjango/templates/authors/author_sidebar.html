@@ -1,0 +1,5 @@
+{% for author in authors %}
+  <li><a href="{% url authors.views.bio author.user.username %}">
+    {{ author.full_name }}
+  </a></li>
+{% endfor %}

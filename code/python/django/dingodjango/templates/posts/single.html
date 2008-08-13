@@ -10,7 +10,6 @@
   {% load markup %}
   {% if post %}
       <h1 class="title">
-      <a href="{% url posts.views.single_post post.date_created.year,post.date_created.month,post.date_created.day,post.slug %}">
           {{ post.title }}
       </a>
       </h1>

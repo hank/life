@@ -200,3 +200,12 @@ h5 { padding-bottom: 4px; }
 	font-size: 1.1em;
 }
 .bottom a {color: #888;}
+
+ul.author-post-list {
+  list-style: none;
+  margin-left: 0;
+}
+
+ul.author-post-list li {
+  list-style: none;
+}

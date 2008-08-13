@@ -34,6 +34,7 @@
 	
 	<div class="nav">
 		<a href="{% url posts.views.index %}">Home</a>
+		<a href="{% url posts.views.random %}">Random</a>
 		{% if posts %}
       {% if posts.has_previous %}
         <a href="?page={{ posts.previous_page_number }}">Newer Posts</a>
@@ -65,16 +66,10 @@
 				<h1>About</h1>
         <p>{% include 'about.html' %}</p>
 
-				<h1>Links</h1>
+				<h1>Authors</h1>
 				<ul>
-          {% for author in authors %}
-					<li><a href="{% url authors.views.bio author.user.username %}">
-            {{ author.full_name }}
-          </a></li>
-          {% endfor %}
-					<li><a href="{% url posts.views.index %}">sem justo</a></li>
-					<li><a href="{% url posts.views.index %}">semper</a></li>
-					<li><a href="{% url posts.views.index %}">magna sed purus</a></li>
+          {% load author_extras %}
+          {% author_sidebar %}
 				</ul>
 
 				<h1>Sapien</h1>

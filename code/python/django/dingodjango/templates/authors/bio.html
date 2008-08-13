@@ -1,11 +1,11 @@
 {% extends 'index.html' %}
+{% load author_extras %}
 {% block title %}
   {{ settings.title }}{% if author %}: {{ author.full_name }}'s Bio{% endif %}
 {% endblock %}
 {% block content %}
-{{ author }}
-{% for post in posts %}
-{% endfor %}
   {# XXX Add Thumbnail and stuff #}
   <p>{{ author.bio }}</p>
+  <h1 class="title">Posts</h1>
+  {% author_posts author %}
 {% endblock %}

@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1"/>
+<meta name="description" content="description"/>
+<meta name="keywords" content="keywords"/> 
+<meta name="author" content="author"/> 
+<link rel="stylesheet" type="text/css" href="/dingodjango/media/default.css" media="screen"/>
+<title>
+  {% block title %}
+    {{ settings.title }}: {{ settings.subtitle }}
+  {% endblock %}
+</title>
+</head>
+
+<!-- zero margin = wide layout -->
+<body style="margin: 0;">
+
+<div class="container">
+
+	<div class="header">
+		<a href="{% url posts.views.index %}">
+{% block header_title %}
+      <span>{{settings.title}}
+        <span style="font-size: 0.8em">{{settings.subtitle}}</span>
+      </span>
+{% endblock %}
+    </a>
+	</div>
+
+	<div class="stripes"><span></span></div>
+	
+	<div class="nav">
+		<a href="{% url posts.views.index %}">Home</a>
+		{% if posts.has_previous %}
+      <a href="?page={{ posts.previous_page_number }}">Newer Posts</a>
+    {% endif %}
+		{% if posts.has_next %}
+      <a href="?page={{ posts.next_page_number }}">Older Posts</a>
+    {% endif %}
+		<div class="clearer"><span></span></div>
+	</div>
+
+	<div class="stripes"><span></span></div>
+
+	<div class="main">
+	
+		<div class="left">
+
+    {% load humanize %}
+    {% load markup %}
+      <div class='content'>
+      {% block content %}{% endblock %}
+			</div>
+
+		</div>
+
+		<div class="right">
+
+			<div class="subnav">
+
+				<h1>About</h1>
+        <p>{% include 'about.html' %}</p>
+
+				<h1>Links</h1>
+				<ul>
+          {% for author in authors %}
+					<li><a href="{% url authors.views.bio author.user.username %}">
+            {{ author.full_name }}
+          </a></li>
+          {% endfor %}
+					<li><a href="{% url posts.views.index %}">sem justo</a></li>
+					<li><a href="{% url posts.views.index %}">semper</a></li>
+					<li><a href="{% url posts.views.index %}">magna sed purus</a></li>
+				</ul>
+
+				<h1>Sapien</h1>
+				<ul>
+					<li><a href="{% url posts.views.index %}">sociis natoque</a></li>
+					<li><a href="{% url posts.views.index %}">magna sed purus</a></li>
+					<li><a href="{% url posts.views.index %}">tincidunt</a></li>
+				</ul>
+
+
+				<h1>Blandit Enim</h1>
+				<ul>
+					<li><a href="{% url posts.views.index %}">consequat molestie</a></li>
+					<li><a href="{% url posts.views.index %}">sem justo</a></li>
+					<li><a href="{% url posts.views.index %}">semper</a></li>
+					<li><a href="{% url posts.views.index %}">magna sed purus</a></li>
+				</ul>
+
+				<h1>Fringilla</h1>
+				<ul>
+					<li><a href="{% url posts.views.index %}">sociis natoque</a></li>
+					<li><a href="{% url posts.views.index %}">magna sed purus</a></li>
+					<li><a href="{% url posts.views.index %}">tincidunt</a></li>
+				</ul>
+
+			</div>
+
+		</div>
+
+		<div class="clearer"><span></span></div>
+
+	</div>
+
+	<div class="footer">
+	
+			<div class="col3">
+
+				<h2>Tincidunt</h2>
+				<ul>
+					<li><a href="{% url posts.views.index %}">consequat molestie</a></li>
+					<li><a href="{% url posts.views.index %}">sem justo</a></li>
+					<li><a href="{% url posts.views.index %}">semper</a></li>
+					<li><a href="{% url posts.views.index %}">magna sed purus</a></li>
+					<li><a href="{% url posts.views.index %}">tincidunt</a></li>
+				</ul>
+
+			</div>
+
+			<div class="col3center">
+				<h2>Sed purus</h2>
+				<ul>
+					<li><a href="{% url posts.views.index %}">consequat molestie</a></li>
+					<li><a href="{% url posts.views.index %}">sem justo</a></li>
+					<li><a href="{% url posts.views.index %}">semper</a></li>
+					<li><a href="{% url posts.views.index %}">magna sed purus</a></li>
+					<li><a href="{% url posts.views.index %}">tincidunt</a></li>
+				</ul>
+			</div>
+
+			<div class="col3">
+				<h2>Praesent</h2>
+				<ul>
+					<li><a href="{% url posts.views.index %}">consequat molestie</a></li>
+					<li><a href="{% url posts.views.index %}">sem justo</a></li>
+					<li><a href="{% url posts.views.index %}">semper</a></li>
+					<li><a href="{% url posts.views.index %}">magna sed purus</a></li>
+					<li><a href="{% url posts.views.index %}">tincidunt</a></li>
+				</ul>
+			</div>
+			<div class="bottom">
+				<span class="left">Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> &amp; <a href="http://validator.w3.org/check?uri=referer">XHTML</a>.</span>
+				<span class="right">Template design by <a href="http://templates.arcsin.se">Arcsin</a></span>
+				<div class="clearer"><span></span></div>
+			</div>
+	</div>
+</div>
+</body>
+</html>

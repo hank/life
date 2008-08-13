@@ -1,0 +1,7 @@
+<ul class="author-post-list">
+{% for post in posts %}
+  <li><a href="{% url posts.views.single_post post.date_created.year,post.date_created.month,post.date_created.day,post.slug %}">{{ post.title }}</a>:
+  <span class="meta">{{ post.date_created|date:"F dS, Y fA T" }}</span>
+  </li>
+{% endfor %}
+</ul>
