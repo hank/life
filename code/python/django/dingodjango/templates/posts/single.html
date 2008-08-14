@@ -18,8 +18,8 @@
           at {{ post.date_created|date:"h:i A T" }} by {{post.author}}<br />
         Filed under 
         {% for tag in post.tags.all %} 
-          <a href="{% url posts.views.tag tag.slug %}">{{ tag.name }}</a>
-          {% if not forloop.last %}, {% endif %}
+          <a href="{% url posts.views.tag tag.slug %}">
+          {{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
         {% endfor %}
       </div>
       <div>
