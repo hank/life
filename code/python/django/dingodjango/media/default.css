@@ -119,6 +119,8 @@ h5 { padding-bottom: 4px; }
 }
 .content a:hover {color: #CCC;}
 .content .descr {
+  clear: left;
+  float: right;
   margin-bottom: 5px;
   text-align: right;
 }

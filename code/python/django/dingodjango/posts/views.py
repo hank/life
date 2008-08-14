@@ -28,3 +28,19 @@ def random(request):
     post = None
     pass
   return render_to_response_with_settings('posts/single.html', {'post':post})
+
+def tag(request, tagslug):
+  page = request.GET.get('page', 1)
+  per_page = settings_or_default('posts_per_page')
+  try:
+    tag = Tag.objects.filter(slug__iexact=tagslug)[0:1].get()
+    paginator = Paginator(tag.post_set.all(), per_page)
+    posts = paginator.page(page)
+  except Tag.DoesNotExist:
+    pass
+  except InvalidPage:
+    posts = paginator.page(1)
+  return render_to_response_with_settings('posts/multiple.html', {
+    'posts':posts,
+    'tag':tag,
+  })
