@@ -22,5 +22,9 @@ def single_post(request, slug, year=0, month=0, day=0):
   return render_to_response_with_settings('posts/single.html', locals())
 
 def random(request):
-  return render_to_response('posts/single.html', 
-      {'post':Post.objects.order_by('?')[0:1].get()})
+  try:
+    post = Post.objects.order_by('?')[0:1].get()
+  except Post.DoesNotExist:
+    post = None
+    pass
+  return render_to_response_with_settings('posts/single.html', {'post':post})
