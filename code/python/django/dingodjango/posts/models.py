@@ -13,6 +13,21 @@ MARKUP_CHOICES=(
   ('markdown', 'Markdown',),
 )
 
+class Tag(models.Model):
+  slug = models.SlugField(
+    primary_key=True,
+    editable=False,
+  )
+  name = models.CharField(max_length=35)
+  description = models.TextField()
+  class Meta:
+    ordering = ['name']
+  def __unicode__(self):
+    return self.name
+  def save(self):
+    self.slug = slugify(self.name)
+    super(Tag, self).save()
+
 class Post(models.Model):
   slug = models.SlugField(
     primary_key=True,
@@ -26,8 +41,12 @@ class Post(models.Model):
   body = models.TextField("Content")
   renderedbody = models.TextField(editable=False, blank=True, null=True)
   markup = models.CharField(max_length=30, choices=MARKUP_CHOICES)
+  tags = models.ManyToManyField(Tag)
   class Meta:
     ordering = ['-date_created', 'title']
+  class Admin:
+    ordering = ('-date_created',)
+    search_fields = ('title','body',)
   def __unicode__(self):
     return self.title
   def save(self):
@@ -43,21 +62,3 @@ class Post(models.Model):
   @permalink
   def get_absolute_url(self):
     return ('single-post', (), {'slug': self.slug})
-
-
-class Tag(models.Model):
-  slug = models.SlugField(
-    primary_key=True,
-    editable=False,
-  )
-  name = models.CharField(max_length=35)
-  posts = models.ManyToManyField(Post)
-  description = models.TextField()
-  class Meta:
-    ordering = ['name']
-  def __unicode__(self):
-    return self.name
-  def save(self):
-    self.slug = slugify(self.name)
-    super(Tag, self).save()
-
