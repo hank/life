@@ -8,7 +8,7 @@
   function getContacts() {
     var params = {};  
     params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;  
-    var url = "http://gadget-doc-examples.googlecode.com/svn/trunk/opensocial-gadgets/Contacts.csv";
+    var url = "http://www.swpc.noaa.gov/ftpdir/latest/wwv.txt";
     gadgets.io.makeRequest(url, response, params);
   };
   // Callback function to process the response
