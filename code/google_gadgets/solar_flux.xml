@@ -1,22 +1,30 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-<ModulePrefs title="hello world example" />
-<Content type="html"><![CDATA[
-<div id="content_div"></div>
-<script type="text/javascript">
-function getHtml() {
-var params = {};
-params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
-var url = "http://www.swpc.noaa.gov/ftpdir/latest/wwv.txt";
-gadgets.io.makeRequest(url, response, params);
-};
-function response(obj) {
-//obj.text contains the text of the page that was requested
-var str = "<pre>"+obj.text+"</pre>";
-document.getElementById('content_div').innerHTML = str;
-};
-gadgets.util.registerOnLoadHandler(getHtml);
-</script>
+  <ModulePrefs title="Solar Flux Index"/>
+  <Content type="html">
+  <![CDATA[
+  <div id="content_div"></div>
+  <script type="text/javascript">
+  function getContacts() {
+    var params = {};  
+    params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;  
+    var url = "http://gadget-doc-examples.googlecode.com/svn/trunk/opensocial-gadgets/Contacts.csv";
+    gadgets.io.makeRequest(url, response, params);
+  };
+  // Callback function to process the response
+  function response(obj) {               
+    var responseText = obj.text;  
+    // Set CSS for div.
+    var html = "<div style='padding: 5px;background-color: #FFFFBF;font-family:Arial, Helvetica;" 
+    + "text-align:left;font-size:90%'>"; 
+    html += responseText;
+    html += "</div>";
 
-]]></Content>
+    document.getElementById('content_div').innerHTML = html;
+  }
+  gadgets.util.registerOnLoadHandler(getContacts);
+
+ </script>
+  ]]>
+  </Content>
 </Module>
