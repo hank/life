@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs title="hello world example" />
+<Content type="html"><![CDATA[
+<div id="content_div"></div>
+<script type="text/javascript">
+function getHtml() {
+var params = {};
+params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
+var url = "http://www.google.com";
+gadgets.io.makeRequest(url, response, params);
+};
+function response(obj) {
+//obj.text contains the text of the page that was requested
+var str = "<pre>"+obj.text+"</pre>";
+document.getElementById('content_div').innerHTML = str;
+};
+gadgets.util.registerOnLoadHandler(getHtml);
+</script>
+
+]]></Content>
+</Module>
