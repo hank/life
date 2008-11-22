@@ -7,7 +7,7 @@
 function getHtml() {
 var params = {};
 params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
-var url = "http://www.google.com";
+var url = "http://www.swpc.noaa.gov/ftpdir/latest/wwv.txt";
 gadgets.io.makeRequest(url, response, params);
 };
 function response(obj) {
