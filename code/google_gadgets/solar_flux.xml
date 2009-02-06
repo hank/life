@@ -9,7 +9,7 @@
     var params = {};  
     params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;  
     var url = "http://www.swpc.noaa.gov/ftpdir/latest/wwv.txt";
-    gadgets.io.makeRequest(url, response, params);
+    alert(gadgets.io.makeRequest(url, response, params));
   };
   // Callback function to process the response
   function response(obj) {               
