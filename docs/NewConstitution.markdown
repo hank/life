@@ -19,8 +19,7 @@ birthday unless a jury of his/her peers decides otherwise.
 
 Infringement of the rights of another is the only incriminating act.
 
-###1. The right of the individual to keep and bear property shall not be
-infringed.
+###1. The right of the individual to keep and bear property shall not be infringed.
 One may own any item for any reason he/she wishes to own it, or without any 
 reason.  Private property may not be taken for public use.
 
