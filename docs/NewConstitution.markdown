@@ -63,13 +63,13 @@ is invalid because it would invalidate the right to property of the proposed
 caregiver.
 
 ###7. Common Law
-  No person shall be held to answer for any capital, or otherwise infamous
+No person shall be held to answer for any capital, or otherwise infamous
 crime, unless on a presentment or indictment by an impartial jury of his/her
 peers; nor shall any person be subject for the same offence to be twice put in
 jeopardy of life or limb; nor shall be compelled in any criminal case to be a
 witness against himself.  
 
-  In all criminal prosecutions, the accused shall enjoy the right to a speedy
+In all criminal prosecutions, the accused shall enjoy the right to a speedy
 and public trial, by an impartial jury of the State and district where in the
 crime shall have been committed, which district shall have been previously
 ascertained by law, and to be informed of the nature and cause of the
@@ -77,10 +77,10 @@ accusation; to be confronted with the witnesses against him; to have compulsory
 process for obtaining witnesses in his favor, and to have the Assistance of
 Counsel for his defense.
 
-  Excessive bail shall not be required, nor excessive fines imposed, nor
+Excessive bail shall not be required, nor excessive fines imposed, nor
 cruel and unusual punishments inflicted. 
 
 ###8. Power of the People
-    The powers not delegated to the state by the Constitution, nor
+The powers not delegated to the state by the Constitution, nor
 prohibited by it to the states, are reserved to the states respectively, or to
 the people. 
