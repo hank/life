@@ -20,8 +20,9 @@ birthday unless a jury of his/her peers decides otherwise.
 Infringement of the rights of another is the only incriminating act.
 
 ###1. The right of the individual to keep and bear property shall not be infringed.
-One may own any item for any reason he/she wishes to own it, or without any 
-reason.  Private property may not be taken for public use.
+One may own any item for any reason he/she wishes to own it, or without any
+reason.  Private property may not be taken for public use, only given.  The use
+of owned property is at the sole discretion of the property owner or owners.
 
 ###2. One's body is his/her own property
 A person may do anything he/she likes with his/her own body.  One may protect
@@ -41,8 +42,19 @@ on probable cause, describing exactly the place to be searched and/or the
 persons/things to be seized.
 
 ###5. One has an unlimited right to contract
-One may form any agreement with any number of other people for any reason.
-Agreements formed under coercion may be invalidated by a jury in a court of
-law.  In the case that any party bound by the contract does not hold up the
-agreed-upon terms, the contract may be challenged in a court of law, and
-appropriate reparations may be decided by a jury.
+One may form any agreement with any number of other people for any reason.  Any
+rights used for bargaining in an agreement may be reclaimed at any time, and no
+legal recourse may be taken to punish this act.  Agreements formed under
+coercion may be invalidated by a jury in a court of law.  In the case that any
+party bound by the contract does not hold up the agreed-upon terms, the
+contract may be challenged in a court of law, and appropriate reparations may
+be decided by a jury.
+
+###6. Rights cannot consist of services or materials
+Any proposed right that demands a service from anyone for any reason is invalid
+because it would invalidate the right to free action of the proposed service 
+provider.  Any proposed right that demands products from anyone for any reason
+is invalid because it would invalidate the right to property of the proposed
+caregiver.
+
+###7. 
