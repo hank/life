@@ -24,7 +24,9 @@ p = 2, q = 5
 * Calculate the secret key
 
     kj = 1 (mod z)
+
     3j = 1 (mod 4)
+
     j = 3
 
 * 9/4 has remainder 1.  Our secret key is:
@@ -35,19 +37,28 @@ p = 2, q = 5
 * Encrypt the message:
 
     P = 2 (message), E = encrypted result
+
     n = 10, k = 3
+
     P^k = E (mod n)
+
     2^3 = E (mod 10)
+
     8 = E (mod 10)
+
     E = 8
 
 ##Decryption
 * Decrypt the message
 
     E = 8, j = 3, n = 10
+
     E^j = P (mod n)
+
     8^3 = P (mod 10)
+
     8^3 = 2^9 = 512
+
     512 = P (mod 10) 
 
 * 512/10 has remainder 2
