@@ -48,7 +48,7 @@ Calculate the secret key
   8^3 = 2^9 = 512
   512 = P (mod 10) 
 
-* 512/10 has remainder 2
+512/10 has remainder 2
 
   P = 2
  
