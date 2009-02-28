@@ -1,38 +1,37 @@
 = RSA in your head
 The following example of RSA is easy enough to do in your head.
 == Key Generation
-* Pick 2 primes `p` and `q`
+Pick 2 primes `p` and `q`
 
   p = 2, q = 5
 
-* Calculate the modulus `n`
+Calculate the modulus `n`
 
   n = pq = 10
 
-* Calculate the totient `z`
+Calculate the totient `z`
 
   z = (p-1)(q-1) = 1*4 = 4
 
-* Choose a prime `k` such that `k` is coprime to `z`.
+Choose a prime `k` such that `k` is coprime to `z`.
 
   k = 3
 
-* Our public key is:
+Our public key is:
 
   n = 10, k = 3
 
-* Calculate the secret key
+Calculate the secret key
 
   kj = 1 (mod z)
   3j = 1 (mod 4)
   j = 3
 
-* 9/4 has remainder 1.  Our secret key is:
+9/4 has remainder 1.  Our secret key is:
 
   j = 3
 
-##Encryption
-* Encrypt the message:
+==Encryption
 
   P = 2 (message), E = encrypted result
   n = 10, k = 3
@@ -41,8 +40,7 @@ The following example of RSA is easy enough to do in your head.
   8 = E (mod 10)
   E = 8
 
-##Decryption
-* Decrypt the message
+==Decryption
 
   E = 8, j = 3, n = 10
   E^j = P (mod n)
@@ -54,6 +52,6 @@ The following example of RSA is easy enough to do in your head.
 
   P = 2
  
-##References
+==References
 * {The RSA Algorithm Explained Using Simple Pencil and Paper Method}[http://sergematovic.tripod.com/rsa1.html]
 * {Wikipedia: RSA}[http://en.wikipedia.org/wiki/RSA]
