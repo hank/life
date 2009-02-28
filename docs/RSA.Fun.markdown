@@ -2,9 +2,8 @@
 The following example of RSA is easy enough to do in your head.
 ##Key Generation
 * Pick 2 primes `p` and `q`
-
 <code>
-    p = 2, q = 5
+p = 2, q = 5
 </code>
 
 * Calculate the modulus `n`
