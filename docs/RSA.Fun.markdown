@@ -3,7 +3,10 @@ The following example of RSA is easy enough to do in your head.
 ##Key Generation
 * Pick 2 primes `p` and `q`
 
+<code><pre>
     p = 2, q = 5
+</code></pre>
+
 * Calculate the modulus `n`
 
     n = pq = 10
