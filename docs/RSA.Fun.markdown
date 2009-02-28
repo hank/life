@@ -2,39 +2,48 @@
 The following example of RSA is easy enough to do in your head.
 ##Key Generation
 * Pick 2 primes `p` and `q`
-  p = 2, q = 5
+
+    p = 2, q = 5
 * Calculate the modulus `n`
-  n = pq = 10
+
+    n = pq = 10
 * Calculate the totient `z`
-  z = (p-1)(q-1) = 1*4 = 4
+
+    z = (p-1)(q-1) = 1*4 = 4
 * Choose a prime `k` such that `k` is coprime to `z`.
-  k = 3
+
+    k = 3
 * Our public key is:
-  n = 10, k = 3
+
+    n = 10, k = 3
 * Calculate the secret key
-  kj = 1 (mod z)
-  3j = 1 (mod 4)
-  j = 3 # 9/4 has remainder 1
+
+    kj = 1 (mod z)
+    3j = 1 (mod 4)
+    j = 3 # 9/4 has remainder 1
 * Our secret key is:
-  j = 3
+
+    j = 3
 
 ##Encryption
 * Encrypt the message:
-  P = 2 (message), E = encrypted result
-  n = 10, k = 3
-  P^k = E (mod n)
-  2^3 = E (mod 10)
-  8 = E (mod 10)
-  E = 8
+
+    P = 2 (message), E = encrypted result
+    n = 10, k = 3
+    P^k = E (mod n)
+    2^3 = E (mod 10)
+    8 = E (mod 10)
+    E = 8
 
 ##Decryption
 * Decrypt the message
-  E = 8, j = 3, n = 10
-  E^j = P (mod n)
-  8^3 = P (mod 10)
-  8^3 = 2^9 = 512
-  512 = P (mod 10) # 512/10 has remainder 2
-  P = 2
+
+    E = 8, j = 3, n = 10
+    E^j = P (mod n)
+    8^3 = P (mod 10)
+    8^3 = 2^9 = 512
+    512 = P (mod 10) # 512/10 has remainder 2
+    P = 2
  
 ##References
 * [The RSA Algorithm Explained Using Simple Pencil and Paper Method](http://sergematovic.tripod.com/rsa1.html)
