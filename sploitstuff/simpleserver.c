@@ -14,8 +14,9 @@ int main(int argc, char ** argv)
   int listen_s;
   int connect_s;
   uint16_t port;
+  uint16_t child_pid;
   struct sockaddr_in servaddr;
-  char buffer[512];
+  char buffer[512]; /* Ruh roh! */
   char *endptr;
 
   if(argc == 2) {
@@ -54,13 +55,22 @@ int main(int argc, char ** argv)
       exit(EXIT_FAILURE);
     }
 
-    endptr = buffer;
-    while(read(connect_s, endptr, 1) == 1) {
-      if(*endptr == 0 || *endptr == '\n') break;
-      endptr++;
+    if((child_pid = fork()) == 0) {
+      if (close(listen_s) < 0) {
+        fprintf(stderr, "Error calling close.\n");
+        exit(EXIT_FAILURE);
+      }
+      while(1) {
+        endptr = buffer;
+        
+        while(read(connect_s, endptr, 1) == 1) {
+          if(*endptr == 0 || *endptr == '\n') break;
+          endptr++;
+        }
+        write(connect_s, buffer, endptr-buffer);
+        write(connect_s, "\r\n", 2);
+      }
     }
-    write(connect_s, "Read: ", 6);
-    write(connect_s, buffer, endptr-buffer);
 
     if (close(connect_s) < 0) {
       fprintf(stderr, "Error calling close.\n");
