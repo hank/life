@@ -1,6 +1,14 @@
 #!/usr/bin/env ruby
+require 'open3'
+require 'cgi'
 require 'rexml/document'
 require 'sqlite3'
+
+wget = "wget"
+wget_options = []
+wget_options.push("-e robots=off")
+wget_options.push("--user-agent=\"Mozilla/5.0 (X11; U; Linux; fr; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6\""); 
+wget_options.push("-P cache -t2 -pkHE -R mpeg,mpg,avi,mov")
 
 puts "So Delicious.."
 begin
@@ -11,6 +19,7 @@ db.execute("CREATE TABLE IF NOT EXISTS bookmarks (
               id INTEGER PRIMARY KEY,
               link varchar(1024),
               name varchar(255),
+              local_url varchar(1024),
               time DATE
               )")
 db.execute("CREATE TABLE IF NOT EXISTS tags (
@@ -27,23 +36,28 @@ rescue
   exit
 end
 
-doc.elements.each("posts/post") do |post|
+omg=0
 
+doc.elements.each("posts/post") do |post|
+   exit if omg > 5
+   omg += 1
    rows = db.execute( "SELECT * FROM bookmarks WHERE link=?", post.attributes['href'] )
-   post.attributes['href'] =~ /:\/\/(.*)/
-   begin
-     puts "Stat-ing #{$1}"
-     File.stat($1)
-     file_not_found = 0
-   rescue
-     file_not_found = 1
-   end
    if rows.size == 0
      puts "Downloading "+post.attributes['description']
-     `wget -R mov,avi -t 5 -pk "#{post.attributes['href']}"`
+     cmd = "#{wget} #{wget_options.join(" ")} \"#{post.attributes['href']}\""
+     #puts "Running: #{cmd}"
+     filename = ""
+     Open3.popen3(cmd) do |stdin, stdout, stderr|
+       err = stderr.read
+       err =~ /Saving to: `(.*)\/(.*?)'$/
+       path = $1
+       filename = path + '/' + CGI.escape($2)
+       
+       puts "SAVED TO: #{filename}"
+     end
 
      # Do bookmark
-     db.execute( "INSERT INTO bookmarks VALUES (NULL,?,?,?)", post.attributes['href'], post.attributes['description'], post.attributes['time'] )
+     db.execute( "INSERT INTO bookmarks VALUES (NULL,?,?,?,?)", post.attributes['href'], post.attributes['description'], filename, post.attributes['time'])
      rows = db.execute( "SELECT * FROM bookmarks WHERE link=?", post.attributes['href'] )
      bid = rows[0][0]
 
@@ -64,10 +78,6 @@ doc.elements.each("posts/post") do |post|
        end
      end
      puts
-   elsif file_not_found == 1
-     # Only download.
-     puts "Downloading "+post.attributes['description']
-     `wget -r -l 1 "#{post.attributes['href']}"`
    else
      puts "Already have #{post.attributes['description']}"
    end
