@@ -1,0 +1,39 @@
+h1. Hamming Code is Awesome
+
+h2. Decoding an encoded string with Single Error Correction
+
+<pre><code>
+Decode: 010101100011
+p1 = 0, even, checks 0+0+0+1+0+1=2=even, CHECK!
+p2 = 0, even, checks 1+0+1+1+0+0=3=odd, WRONG!
+p4 = 1, odd,  checks 1+0+1+1+1=4=even, WRONG!
+p8 = 0, even, checks 0+0+0+1+1=2=even, CHECK!
+  
+Since p2 and p4 are wrong, bit 6 is wrong and correctable!
+Fixed and parity correct string: 010100100011
+Data: 00010011
+</pre></code>
+
+h2. Encoding and Decoding with Single Error Correction
+
+<pre><code>
+Encode: 10011000
+Spaced: __1_001_1000
+
+p1 = 1+0+1+1+0=3, odd, 1
+p2 = 1+0+1+0+0=2, even, 0
+p4 = 0+0+1+0=1, odd, 1
+p8 = 1+0+0+0=1, odd, 1
+
+Final: 101100111000
+A whale attacks, changing it to 101100011000!
+
+p1 = 1, 1+0+0+1+0=2, even, WRONG!
+p2 = 0, 1+0+0+0+0=1, odd, WRONG!
+p4 = 1, 0+0+0+0=0, even, WRONG!
+p8 = 1, 1+0+0+0=1, odd, CORRECT!
+
+1+2+4=7.  7th bit is wrong.
+Corrected string: 101100111000
+Data portion: 10011000
+</pre></code>
