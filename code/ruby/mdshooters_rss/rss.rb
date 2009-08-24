@@ -4,7 +4,7 @@ require 'hpricot'
 require 'rss/maker'
 
 version = "2.0"
-destination = "mdshooters_classifieds.xml"
+destination = ENV['HOME']+"/public_html/mdshooters_classifieds.xml"
 
 content = RSS::Maker.make(version) do |m|
   m.channel.title = "MDShooters Classifieds RSS"
