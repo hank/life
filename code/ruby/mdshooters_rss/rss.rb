@@ -20,7 +20,8 @@ content = RSS::Maker.make(version) do |m|
       i.title = a.inner_html
       i.link = "http://www.mdshooters.com/"+a['href']
       i.date = Time.parse((a.parent/'div[@class=time]/span').inner_html.gsub('-', '/')+" 12:00")
-      i.description = a.parent.parent.inner_html
+      i.description = a.parent.parent.inner_html.gsub(/(vbclassified.php)/, 
+        'http://www.mdshooters.com/\1')
     end
   end
 end
