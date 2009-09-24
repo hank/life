@@ -1,0 +1,1512 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+  <channel>
+    <title>Badass of the Week RSS Feed</title>
+    <link>http://www.ralree.info/badassotw.xml</link>
+    <description>Badass of the week posts about awesome people doing uber-awesome things.  Keep up.</description>
+    <item>
+      <title>Edward Low</title>
+      <link>http://www.badassoftheweek.com/edwardlow.html</link>
+      <pubDate>Fri, 18 Sep 2009 00:00:00 -0400</pubDate>
+      <dc:date>2009-09-18T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Ryan Cooper</title>
+      <link>http://www.badassoftheweek.com/cooper.html</link>
+      <pubDate>Fri, 11 Sep 2009 00:00:00 -0400</pubDate>
+      <dc:date>2009-09-11T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Marie Curie</title>
+      <link>http://www.badassoftheweek.com/curie.html</link>
+      <pubDate>Fri, 04 Sep 2009 00:00:00 -0400</pubDate>
+      <dc:date>2009-09-04T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Zeus</title>
+      <link>http://www.badassoftheweek.com/zeus.html</link>
+      <pubDate>Fri, 28 Aug 2009 00:00:00 -0400</pubDate>
+      <dc:date>2009-08-28T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Evel Knievel</title>
+      <link>http://www.badassoftheweek.com/knievel.html</link>
+      <pubDate>Fri, 21 Aug 2009 00:00:00 -0400</pubDate>
+      <dc:date>2009-08-21T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Knut the Great</title>
+      <link>http://www.badassoftheweek.com/knut.html</link>
+      <pubDate>Fri, 14 Aug 2009 00:00:00 -0400</pubDate>
+      <dc:date>2009-08-14T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Juliane Koepcke</title>
+      <link>http://www.badassoftheweek.com/koepcke.html</link>
+      <pubDate>Fri, 07 Aug 2009 00:00:00 -0400</pubDate>
+      <dc:date>2009-08-07T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Fazal Din</title>
+      <link>http://www.badassoftheweek.com/fazaldin.html</link>
+      <pubDate>Fri, 31 Jul 2009 00:00:00 -0400</pubDate>
+      <dc:date>2009-07-31T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Buzz Aldrin</title>
+      <link>http://www.badassoftheweek.com/aldrin.html</link>
+      <pubDate>Fri, 24 Jul 2009 00:00:00 -0400</pubDate>
+      <dc:date>2009-07-24T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Leonardo Da Vinci</title>
+      <link>http://www.badassoftheweek.com/davinci.html</link>
+      <pubDate>Fri, 17 Jul 2009 00:00:00 -0400</pubDate>
+      <dc:date>2009-07-17T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Amelia Earhart</title>
+      <link>http://www.badassoftheweek.com/earhart.html</link>
+      <pubDate>Fri, 10 Jul 2009 00:00:00 -0400</pubDate>
+      <dc:date>2009-07-10T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Kenneth L. Reusser</title>
+      <link>http://www.badassoftheweek.com/reusser.html</link>
+      <pubDate>Fri, 03 Jul 2009 00:00:00 -0400</pubDate>
+      <dc:date>2009-07-03T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Piye</title>
+      <link>http://www.badassoftheweek.com/piye.html</link>
+      <pubDate>Fri, 26 Jun 2009 00:00:00 -0400</pubDate>
+      <dc:date>2009-06-26T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Blenda</title>
+      <link>http://www.badassoftheweek.com/blenda.html</link>
+      <pubDate>Fri, 19 Jun 2009 00:00:00 -0400</pubDate>
+      <dc:date>2009-06-19T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Tom Wanyandie</title>
+      <link>http://www.badassoftheweek.com/wanyandie.html</link>
+      <pubDate>Fri, 12 Jun 2009 00:00:00 -0400</pubDate>
+      <dc:date>2009-06-12T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Albert Johnson</title>
+      <link>http://www.badassoftheweek.com/albertjohnson.html</link>
+      <pubDate>Fri, 05 Jun 2009 00:00:00 -0400</pubDate>
+      <dc:date>2009-06-05T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Yagyu Jubei Mitsuyoshi</title>
+      <link>http://www.badassoftheweek.com/jubei.html</link>
+      <pubDate>Fri, 29 May 2009 00:00:00 -0400</pubDate>
+      <dc:date>2009-05-29T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Ron Speirs</title>
+      <link>http://www.badassoftheweek.com/speirs.html</link>
+      <pubDate>Fri, 22 May 2009 00:00:00 -0400</pubDate>
+      <dc:date>2009-05-22T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Isabella of France</title>
+      <link>http://www.badassoftheweek.com/isabella.html</link>
+      <pubDate>Thu, 14 May 2009 00:00:00 -0400</pubDate>
+      <dc:date>2009-05-14T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>The Australian Light Horse</title>
+      <link>http://www.badassoftheweek.com/lighthorse.html</link>
+      <pubDate>Fri, 08 May 2009 00:00:00 -0400</pubDate>
+      <dc:date>2009-05-08T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Che Guevara</title>
+      <link>http://www.badassoftheweek.com/che.html</link>
+      <pubDate>Fri, 01 May 2009 00:00:00 -0400</pubDate>
+      <dc:date>2009-05-01T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Hannah Duston</title>
+      <link>http://www.badassoftheweek.com/duston.html</link>
+      <pubDate>Fri, 24 Apr 2009 00:00:00 -0400</pubDate>
+      <dc:date>2009-04-24T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Ben Nyaumbe</title>
+      <link>http://www.badassoftheweek.com/nyaumbe.html</link>
+      <pubDate>Fri, 17 Apr 2009 00:00:00 -0400</pubDate>
+      <dc:date>2009-04-17T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Paul Rusesabagina</title>
+      <link>http://www.badassoftheweek.com/rusesabagina.html</link>
+      <pubDate>Fri, 10 Apr 2009 00:00:00 -0400</pubDate>
+      <dc:date>2009-04-10T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Hayreddin Barbarossa</title>
+      <link>http://www.badassoftheweek.com/barbarossa.html</link>
+      <pubDate>Fri, 03 Apr 2009 00:00:00 -0400</pubDate>
+      <dc:date>2009-04-03T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Seth E. Howard</title>
+      <link>http://www.badassoftheweek.com/sethhoward.html</link>
+      <pubDate>Fri, 27 Mar 2009 00:00:00 -0400</pubDate>
+      <dc:date>2009-03-27T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Mai Bhago</title>
+      <link>http://www.badassoftheweek.com/maibhago.html</link>
+      <pubDate>Fri, 20 Mar 2009 00:00:00 -0400</pubDate>
+      <dc:date>2009-03-20T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>St. Moses the Black</title>
+      <link>http://www.badassoftheweek.com/stmoses.html</link>
+      <pubDate>Fri, 13 Mar 2009 00:00:00 -0400</pubDate>
+      <dc:date>2009-03-13T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Winston Churchill</title>
+      <link>http://www.badassoftheweek.com/winstonchurchill.html</link>
+      <pubDate>Fri, 06 Mar 2009 00:00:00 -0500</pubDate>
+      <dc:date>2009-03-06T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Vassilis Paleokostas</title>
+      <link>http://www.badassoftheweek.com/paleokostas.html</link>
+      <pubDate>Fri, 27 Feb 2009 00:00:00 -0500</pubDate>
+      <dc:date>2009-02-27T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Harriet Tubman</title>
+      <link>http://www.badassoftheweek.com/tubman.html</link>
+      <pubDate>Fri, 20 Feb 2009 00:00:00 -0500</pubDate>
+      <dc:date>2009-02-20T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Jason Voorhees</title>
+      <link>http://www.badassoftheweek.com/voorhees.html</link>
+      <pubDate>Fri, 13 Feb 2009 00:00:00 -0500</pubDate>
+      <dc:date>2009-02-13T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>The Titanoboa</title>
+      <link>http://www.badassoftheweek.com/titanoboa.html</link>
+      <pubDate>Fri, 06 Feb 2009 00:00:00 -0500</pubDate>
+      <dc:date>2009-02-06T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Grigory Rasputin</title>
+      <link>http://www.badassoftheweek.com/rasputin.html</link>
+      <pubDate>Fri, 30 Jan 2009 00:00:00 -0500</pubDate>
+      <dc:date>2009-01-30T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>John L. Sullivan</title>
+      <link>http://www.badassoftheweek.com/sully.html</link>
+      <pubDate>Fri, 23 Jan 2009 00:00:00 -0500</pubDate>
+      <dc:date>2009-01-23T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Geronimo</title>
+      <link>http://www.badassoftheweek.com/geronimo.html</link>
+      <pubDate>Fri, 16 Jan 2009 00:00:00 -0500</pubDate>
+      <dc:date>2009-01-16T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Nikola Tesla</title>
+      <link>http://www.badassoftheweek.com/tesla.html</link>
+      <pubDate>Fri, 09 Jan 2009 00:00:00 -0500</pubDate>
+      <dc:date>2009-01-09T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Liver-Eating Johnson</title>
+      <link>http://www.badassoftheweek.com/livereating.html</link>
+      <pubDate>Fri, 02 Jan 2009 00:00:00 -0500</pubDate>
+      <dc:date>2009-01-02T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>King David</title>
+      <link>http://www.badassoftheweek.com/kingdavid.html</link>
+      <pubDate>Fri, 26 Dec 2008 00:00:00 -0500</pubDate>
+      <dc:date>2008-12-26T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Cloelia the Hostage</title>
+      <link>http://www.badassoftheweek.com/cloelia.html</link>
+      <pubDate>Fri, 19 Dec 2008 00:00:00 -0500</pubDate>
+      <dc:date>2008-12-19T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Ernest A. Smith</title>
+      <link>http://www.badassoftheweek.com/ernestsmith.html</link>
+      <pubDate>Fri, 12 Dec 2008 00:00:00 -0500</pubDate>
+      <dc:date>2008-12-12T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Edwin J. Hill</title>
+      <link>http://www.badassoftheweek.com/edwinhill.html</link>
+      <pubDate>Fri, 05 Dec 2008 00:00:00 -0500</pubDate>
+      <dc:date>2008-12-05T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Michael Groves</title>
+      <link>http://www.badassoftheweek.com/groves.html</link>
+      <pubDate>Fri, 28 Nov 2008 00:00:00 -0500</pubDate>
+      <dc:date>2008-11-28T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Joseph Kittinger</title>
+      <link>http://www.badassoftheweek.com/kittinger.html</link>
+      <pubDate>Fri, 21 Nov 2008 00:00:00 -0500</pubDate>
+      <dc:date>2008-11-21T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Beowulf</title>
+      <link>http://www.badassoftheweek.com/beowulf.html</link>
+      <pubDate>Fri, 14 Nov 2008 00:00:00 -0500</pubDate>
+      <dc:date>2008-11-14T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Vasily Zaitsev</title>
+      <link>http://www.badassoftheweek.com/zaitsev.html</link>
+      <pubDate>Fri, 07 Nov 2008 00:00:00 -0500</pubDate>
+      <dc:date>2008-11-07T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Abraham Van Helsing</title>
+      <link>http://www.badassoftheweek.com/vanhelsing.html</link>
+      <pubDate>Fri, 31 Oct 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-10-31T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Hassan ibn al-Sabbah</title>
+      <link>http://www.badassoftheweek.com/hashashin.html</link>
+      <pubDate>Fri, 24 Oct 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-10-24T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Marcus Cassius Scaeva</title>
+      <link>http://www.badassoftheweek.com/scaeva.html</link>
+      <pubDate>Fri, 17 Oct 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-10-17T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>The Duke of Wellington</title>
+      <link>http://www.badassoftheweek.com/wellington.html</link>
+      <pubDate>Fri, 10 Oct 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-10-10T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Zachary Taylor</title>
+      <link>http://www.badassoftheweek.com/taylor.html</link>
+      <pubDate>Fri, 03 Oct 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-10-03T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Jean de Valette</title>
+      <link>http://www.badassoftheweek.com/valette.html</link>
+      <pubDate>Fri, 26 Sep 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-09-26T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Baba Deep Singh</title>
+      <link>http://www.badassoftheweek.com/babadeepsingh.html</link>
+      <pubDate>Fri, 19 Sep 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-09-19T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Jeanne Hachette</title>
+      <link>http://www.badassoftheweek.com/hachette.html</link>
+      <pubDate>Fri, 12 Sep 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-09-12T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Imi Lichtenfeld</title>
+      <link>http://www.badassoftheweek.com/lichtenfeld.html</link>
+      <pubDate>Fri, 05 Sep 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-09-05T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Josey Wales</title>
+      <link>http://www.badassoftheweek.com/wales.html</link>
+      <pubDate>Fri, 29 Aug 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-08-29T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Eric Pianka</title>
+      <link>http://www.badassoftheweek.com/pianka.html</link>
+      <pubDate>Fri, 22 Aug 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-08-22T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Tiberius Caesar</title>
+      <link>http://www.badassoftheweek.com/tiberius.html</link>
+      <pubDate>Fri, 15 Aug 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-08-15T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Jesse Owens</title>
+      <link>http://www.badassoftheweek.com/owens.html</link>
+      <pubDate>Fri, 08 Aug 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-08-08T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Tsutsui Jomyo Meishu</title>
+      <link>http://www.badassoftheweek.com/tsutsui.html</link>
+      <pubDate>Fri, 01 Aug 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-08-01T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Chuck Yeager</title>
+      <link>http://www.badassoftheweek.com/yeager.html</link>
+      <pubDate>Fri, 25 Jul 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-07-25T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Hiroo Onoda</title>
+      <link>http://www.badassoftheweek.com/onoda.html</link>
+      <pubDate>Thu, 17 Jul 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-07-17T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Marvin Heemeyer</title>
+      <link>http://www.badassoftheweek.com/heemeyer.html</link>
+      <pubDate>Mon, 14 Jul 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-07-14T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>The Marquis de Lafayette</title>
+      <link>http://www.badassoftheweek.com/lafayette.html</link>
+      <pubDate>Fri, 04 Jul 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-07-04T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>James Macrae</title>
+      <link>http://www.badassoftheweek.com/macrae.html</link>
+      <pubDate>Fri, 27 Jun 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-06-27T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Billy Bishop</title>
+      <link>http://www.badassoftheweek.com/bishop.html</link>
+      <pubDate>Fri, 20 Jun 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-06-20T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Justinian II</title>
+      <link>http://www.badassoftheweek.com/justinian.html</link>
+      <pubDate>Fri, 13 Jun 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-06-13T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Attila the Hun</title>
+      <link>http://www.badassoftheweek.com/attila.html</link>
+      <pubDate>Fri, 06 Jun 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-06-06T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Sir Edmund Hillary</title>
+      <link>http://www.badassoftheweek.com/hillary.html</link>
+      <pubDate>Fri, 30 May 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-05-30T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>George S. Patton</title>
+      <link>http://www.badassoftheweek.com/patton.html</link>
+      <pubDate>Fri, 23 May 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-05-23T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>The Viking at Stamford Bridge</title>
+      <link>http://www.badassoftheweek.com/stamfordbridge.html</link>
+      <pubDate>Fri, 16 May 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-05-16T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Osceola</title>
+      <link>http://www.badassoftheweek.com/osceola.html</link>
+      <pubDate>Fri, 09 May 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-05-09T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>F.A. Mitchell Hedges</title>
+      <link>http://www.badassoftheweek.com/hedges.html</link>
+      <pubDate>Fri, 02 May 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-05-02T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Alexander Selkirk</title>
+      <link>http://www.badassoftheweek.com/selkirk.html</link>
+      <pubDate>Fri, 25 Apr 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-04-25T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Chesty Puller</title>
+      <link>http://www.badassoftheweek.com/puller.html</link>
+      <pubDate>Fri, 18 Apr 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-04-18T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Jason Bourne</title>
+      <link>http://www.badassoftheweek.com/bourne.html</link>
+      <pubDate>Fri, 11 Apr 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-04-11T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Alexander Solonik</title>
+      <link>http://www.badassoftheweek.com/solonik.html</link>
+      <pubDate>Fri, 04 Apr 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-04-04T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Adnan bin Saidi</title>
+      <link>http://www.badassoftheweek.com/adnan.html</link>
+      <pubDate>Fri, 28 Mar 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-03-28T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Alvin York</title>
+      <link>http://www.badassoftheweek.com/york.html</link>
+      <pubDate>Fri, 21 Mar 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-03-21T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Chief Lapu-Lapu</title>
+      <link>http://www.badassoftheweek.com/lapulapu.html</link>
+      <pubDate>Fri, 14 Mar 2008 00:00:00 -0400</pubDate>
+      <dc:date>2008-03-14T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Angus MacGyver</title>
+      <link>http://www.badassoftheweek.com/macgyver.html</link>
+      <pubDate>Fri, 07 Mar 2008 00:00:00 -0500</pubDate>
+      <dc:date>2008-03-07T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Benjamin O. Davis, Jr.</title>
+      <link>http://www.badassoftheweek.com/davis.html</link>
+      <pubDate>Fri, 29 Feb 2008 00:00:00 -0500</pubDate>
+      <dc:date>2008-02-29T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>John Barclay Armstrong</title>
+      <link>http://www.badassoftheweek.com/armstrong.html</link>
+      <pubDate>Fri, 22 Feb 2008 00:00:00 -0500</pubDate>
+      <dc:date>2008-02-22T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Agustina de Aragon</title>
+      <link>http://www.badassoftheweek.com/agustina.html</link>
+      <pubDate>Fri, 15 Feb 2008 00:00:00 -0500</pubDate>
+      <dc:date>2008-02-15T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Thor Heyerdahl</title>
+      <link>http://www.badassoftheweek.com/heyerdahl.html</link>
+      <pubDate>Fri, 08 Feb 2008 00:00:00 -0500</pubDate>
+      <dc:date>2008-02-08T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Voytek the Soldier Bear</title>
+      <link>http://www.badassoftheweek.com/voytek.html</link>
+      <pubDate>Fri, 01 Feb 2008 00:00:00 -0500</pubDate>
+      <dc:date>2008-02-01T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Yogender Singh Yadav</title>
+      <link>http://www.badassoftheweek.com/yadav.html</link>
+      <pubDate>Fri, 25 Jan 2008 00:00:00 -0500</pubDate>
+      <dc:date>2008-01-25T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>John Henry</title>
+      <link>http://www.badassoftheweek.com/henry.html</link>
+      <pubDate>Fri, 18 Jan 2008 00:00:00 -0500</pubDate>
+      <dc:date>2008-01-18T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Godzilla</title>
+      <link>http://www.badassoftheweek.com/godzilla.html</link>
+      <pubDate>Fri, 11 Jan 2008 00:00:00 -0500</pubDate>
+      <dc:date>2008-01-11T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>William Wallace</title>
+      <link>http://www.badassoftheweek.com/wallace.html</link>
+      <pubDate>Fri, 04 Jan 2008 00:00:00 -0500</pubDate>
+      <dc:date>2008-01-04T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Alexander the Great</title>
+      <link>http://www.badassoftheweek.com/alexander.html</link>
+      <pubDate>Mon, 31 Dec 2007 00:00:00 -0500</pubDate>
+      <dc:date>2007-12-31T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Elliot Stabler</title>
+      <link>http://www.badassoftheweek.com/stabler.html</link>
+      <pubDate>Fri, 21 Dec 2007 00:00:00 -0500</pubDate>
+      <dc:date>2007-12-21T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Hanzo Hattori</title>
+      <link>http://www.badassoftheweek.com/hanzo.html</link>
+      <pubDate>Fri, 14 Dec 2007 00:00:00 -0500</pubDate>
+      <dc:date>2007-12-14T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Xie Jinyuan</title>
+      <link>http://www.badassoftheweek.com/xie.html</link>
+      <pubDate>Fri, 07 Dec 2007 00:00:00 -0500</pubDate>
+      <dc:date>2007-12-07T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>William Travis</title>
+      <link>http://www.badassoftheweek.com/travis.html</link>
+      <pubDate>Fri, 30 Nov 2007 00:00:00 -0500</pubDate>
+      <dc:date>2007-11-30T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Makoto Nagano</title>
+      <link>http://www.badassoftheweek.com/nagano.html</link>
+      <pubDate>Fri, 23 Nov 2007 00:00:00 -0500</pubDate>
+      <dc:date>2007-11-23T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Roland</title>
+      <link>http://www.badassoftheweek.com/roland.html</link>
+      <pubDate>Thu, 15 Nov 2007 00:00:00 -0500</pubDate>
+      <dc:date>2007-11-15T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Wolf the Quarrelsome</title>
+      <link>http://www.badassoftheweek.com/quarrelsome.html</link>
+      <pubDate>Fri, 02 Nov 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-11-02T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Joe Simpson</title>
+      <link>http://www.badassoftheweek.com/simpson.html</link>
+      <pubDate>Fri, 26 Oct 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-10-26T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Erwin Rommel</title>
+      <link>http://www.badassoftheweek.com/rommel.html</link>
+      <pubDate>Fri, 19 Oct 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-10-19T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Yi Soon Shin</title>
+      <link>http://www.badassoftheweek.com/admiralyi.html</link>
+      <pubDate>Fri, 12 Oct 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-10-12T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>El Cid Campeador</title>
+      <link>http://www.badassoftheweek.com/elcid.html</link>
+      <pubDate>Fri, 05 Oct 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-10-05T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Hector of Troy</title>
+      <link>http://www.badassoftheweek.com/hector.html</link>
+      <pubDate>Thu, 27 Sep 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-09-27T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Toshiro Mifune</title>
+      <link>http://www.badassoftheweek.com/mifune.html</link>
+      <pubDate>Fri, 21 Sep 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-09-21T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Ahmad Shah Massoud</title>
+      <link>http://www.badassoftheweek.com/massoud.html</link>
+      <pubDate>Fri, 14 Sep 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-09-14T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Jack McCoy</title>
+      <link>http://www.badassoftheweek.com/mccoy.html</link>
+      <pubDate>Fri, 07 Sep 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-09-07T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Michael Wittman</title>
+      <link>http://www.badassoftheweek.com/wittman.html</link>
+      <pubDate>Fri, 31 Aug 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-08-31T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Anne Bonny</title>
+      <link>http://www.badassoftheweek.com/bonny.html</link>
+      <pubDate>Fri, 24 Aug 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-08-24T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Pancho Villa</title>
+      <link>http://www.badassoftheweek.com/villa.html</link>
+      <pubDate>Fri, 17 Aug 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-08-17T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Indiana Jones</title>
+      <link>http://www.badassoftheweek.com/indianajones.html</link>
+      <pubDate>Fri, 10 Aug 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-08-10T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Henry Lincoln Johnson</title>
+      <link>http://www.badassoftheweek.com/henryjohnson.html</link>
+      <pubDate>Fri, 03 Aug 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-08-03T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Bear Grylls</title>
+      <link>http://www.badassoftheweek.com/grylls.html</link>
+      <pubDate>Fri, 27 Jul 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-07-27T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Thain MacDowell</title>
+      <link>http://www.badassoftheweek.com/macdowell.html</link>
+      <pubDate>Fri, 20 Jul 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-07-20T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Jean Danjou</title>
+      <link>http://www.badassoftheweek.com/danjou.html</link>
+      <pubDate>Fri, 13 Jul 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-07-13T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>The Predator</title>
+      <link>http://www.badassoftheweek.com/predator.html</link>
+      <pubDate>Fri, 06 Jul 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-07-06T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Lyudmila Pavlichenko</title>
+      <link>http://www.badassoftheweek.com/pavlichenko.html</link>
+      <pubDate>Fri, 29 Jun 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-06-29T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Sir Francis Drake</title>
+      <link>http://www.badassoftheweek.com/drake.html</link>
+      <pubDate>Fri, 22 Jun 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-06-22T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Arthur Du Mosche</title>
+      <link>http://www.badassoftheweek.com/dumosche.html</link>
+      <pubDate>Fri, 15 Jun 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-06-15T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>James T. Kirk</title>
+      <link>http://www.badassoftheweek.com/kirk.html</link>
+      <pubDate>Wed, 06 Jun 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-06-06T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Spartacus</title>
+      <link>http://www.badassoftheweek.com/spartacus.html</link>
+      <pubDate>Fri, 01 Jun 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-06-01T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>The Punisher</title>
+      <link>http://www.badassoftheweek.com/punisher.html</link>
+      <pubDate>Fri, 25 May 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-05-25T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>The A-10 Warthog</title>
+      <link>http://www.badassoftheweek.com/warthog.html</link>
+      <pubDate>Fri, 18 May 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-05-18T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Joan of Arc</title>
+      <link>http://www.badassoftheweek.com/joanofarc.html</link>
+      <pubDate>Fri, 11 May 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-05-11T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Conan of Cimmeria</title>
+      <link>http://www.badassoftheweek.com/conan.html</link>
+      <pubDate>Fri, 04 May 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-05-04T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Snake Eyes</title>
+      <link>http://www.badassoftheweek.com/snakeeyes.html</link>
+      <pubDate>Fri, 27 Apr 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-04-27T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Akbar the Great</title>
+      <link>http://www.badassoftheweek.com/akbar.html</link>
+      <pubDate>Fri, 20 Apr 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-04-20T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Juan Pajota</title>
+      <link>http://www.badassoftheweek.com/pajota.html</link>
+      <pubDate>Fri, 13 Apr 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-04-13T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Jose M. Lopez</title>
+      <link>http://www.badassoftheweek.com/lopez.html</link>
+      <pubDate>Fri, 06 Apr 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-04-06T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>John Paul Jones</title>
+      <link>http://www.badassoftheweek.com/johnpauljones.html</link>
+      <pubDate>Fri, 30 Mar 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-03-30T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Lucius Quinctius Cincinnatus</title>
+      <link>http://www.badassoftheweek.com/cincinnatus.html</link>
+      <pubDate>Fri, 23 Mar 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-03-23T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Ben Thompson</title>
+      <link>http://www.badassoftheweek.com/thompson.html</link>
+      <pubDate>Wed, 14 Mar 2007 00:00:00 -0400</pubDate>
+      <dc:date>2007-03-14T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Samson</title>
+      <link>http://www.badassoftheweek.com/samson.html</link>
+      <pubDate>Fri, 09 Mar 2007 00:00:00 -0500</pubDate>
+      <dc:date>2007-03-09T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Dan Daly</title>
+      <link>http://www.badassoftheweek.com/daly.html</link>
+      <pubDate>Fri, 02 Mar 2007 00:00:00 -0500</pubDate>
+      <dc:date>2007-03-02T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Andrew Jackson</title>
+      <link>http://www.badassoftheweek.com/jackson.html</link>
+      <pubDate>Fri, 23 Feb 2007 00:00:00 -0500</pubDate>
+      <dc:date>2007-02-23T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Jack Churchill</title>
+      <link>http://www.badassoftheweek.com/churchill.html</link>
+      <pubDate>Fri, 16 Feb 2007 00:00:00 -0500</pubDate>
+      <dc:date>2007-02-16T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Odysseus</title>
+      <link>http://www.badassoftheweek.com/odysseus.html</link>
+      <pubDate>Fri, 09 Feb 2007 00:00:00 -0500</pubDate>
+      <dc:date>2007-02-09T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Leigh Ann Hester</title>
+      <link>http://www.badassoftheweek.com/hester.html</link>
+      <pubDate>Tue, 06 Feb 2007 00:00:00 -0500</pubDate>
+      <dc:date>2007-02-06T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Wesley Autry</title>
+      <link>http://www.badassoftheweek.com/autry.html</link>
+      <pubDate>Fri, 26 Jan 2007 00:00:00 -0500</pubDate>
+      <dc:date>2007-01-26T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Beck Weathers</title>
+      <link>http://www.badassoftheweek.com/weathers.html</link>
+      <pubDate>Fri, 26 Jan 2007 00:00:00 -0500</pubDate>
+      <dc:date>2007-01-26T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Eric Nerhus</title>
+      <link>http://www.badassoftheweek.com/nerhus.html</link>
+      <pubDate>Fri, 26 Jan 2007 00:00:00 -0500</pubDate>
+      <dc:date>2007-01-26T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Cuchulainn</title>
+      <link>http://www.badassoftheweek.com/cuchulainn.html</link>
+      <pubDate>Fri, 19 Jan 2007 00:00:00 -0500</pubDate>
+      <dc:date>2007-01-19T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>The Sater&amp;eacute; Maw&amp;eacute;</title>
+      <link>http://www.badassoftheweek.com/sateremawe.html</link>
+      <pubDate>Fri, 12 Jan 2007 00:00:00 -0500</pubDate>
+      <dc:date>2007-01-12T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>John Wayne</title>
+      <link>http://www.badassoftheweek.com/wayne.html</link>
+      <pubDate>Fri, 05 Jan 2007 00:00:00 -0500</pubDate>
+      <dc:date>2007-01-05T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Giuseppe Garibaldi</title>
+      <link>http://www.badassoftheweek.com/garibaldi.html</link>
+      <pubDate>Fri, 22 Dec 2006 00:00:00 -0500</pubDate>
+      <dc:date>2006-12-22T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Rama</title>
+      <link>http://www.badassoftheweek.com/rama.html</link>
+      <pubDate>Fri, 15 Dec 2006 00:00:00 -0500</pubDate>
+      <dc:date>2006-12-15T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Eddie Chapman</title>
+      <link>http://www.badassoftheweek.com/chapman.html</link>
+      <pubDate>Fri, 08 Dec 2006 00:00:00 -0500</pubDate>
+      <dc:date>2006-12-08T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Egil Skallagrimsson</title>
+      <link>http://www.badassoftheweek.com/skallagrimsson.html</link>
+      <pubDate>Fri, 01 Dec 2006 00:00:00 -0500</pubDate>
+      <dc:date>2006-12-01T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Audie Murphy</title>
+      <link>http://www.badassoftheweek.com/murphy.html</link>
+      <pubDate>Wed, 22 Nov 2006 00:00:00 -0500</pubDate>
+      <dc:date>2006-11-22T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Ching Shih</title>
+      <link>http://www.badassoftheweek.com/chingshih.html</link>
+      <pubDate>Fri, 17 Nov 2006 00:00:00 -0500</pubDate>
+      <dc:date>2006-11-17T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>David Bleak</title>
+      <link>http://www.badassoftheweek.com/bleak.html</link>
+      <pubDate>Fri, 17 Nov 2006 00:00:00 -0500</pubDate>
+      <dc:date>2006-11-17T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>The Headless Horseman</title>
+      <link>http://www.badassoftheweek.com/horseman.html</link>
+      <pubDate>Thu, 02 Nov 2006 00:00:00 -0500</pubDate>
+      <dc:date>2006-11-02T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Simo H&amp;auml;yh&amp;auml;</title>
+      <link>http://www.badassoftheweek.com/hayha.html</link>
+      <pubDate>Fri, 27 Oct 2006 00:00:00 -0400</pubDate>
+      <dc:date>2006-10-27T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Imperator Caesar Diui Filius Augustus</title>
+      <link>http://www.badassoftheweek.com/augustus.html</link>
+      <pubDate>Fri, 20 Oct 2006 00:00:00 -0400</pubDate>
+      <dc:date>2006-10-20T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Baroness Anastasia DeCobray</title>
+      <link>http://www.badassoftheweek.com/baroness.html</link>
+      <pubDate>Fri, 13 Oct 2006 00:00:00 -0400</pubDate>
+      <dc:date>2006-10-13T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Zvika Greengold</title>
+      <link>http://www.badassoftheweek.com/greengold.html</link>
+      <pubDate>Fri, 06 Oct 2006 00:00:00 -0400</pubDate>
+      <dc:date>2006-10-06T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Ali ibn Abi Talib</title>
+      <link>http://www.badassoftheweek.com/alitalib.html</link>
+      <pubDate>Fri, 29 Sep 2006 00:00:00 -0400</pubDate>
+      <dc:date>2006-09-29T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Susan Kuhnhausen</title>
+      <link>http://www.badassoftheweek.com/kuhnhausen.html</link>
+      <pubDate>Fri, 22 Sep 2006 00:00:00 -0400</pubDate>
+      <dc:date>2006-09-22T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>The B-2 Bomber</title>
+      <link>http://www.badassoftheweek.com/spirit.html</link>
+      <pubDate>Fri, 15 Sep 2006 00:00:00 -0400</pubDate>
+      <dc:date>2006-09-15T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Steve Irwin</title>
+      <link>http://www.badassoftheweek.com/irwin.html</link>
+      <pubDate>Fri, 08 Sep 2006 00:00:00 -0400</pubDate>
+      <dc:date>2006-09-08T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Larcena Pennington</title>
+      <link>http://www.badassoftheweek.com/pennington.html</link>
+      <pubDate>Fri, 01 Sep 2006 00:00:00 -0400</pubDate>
+      <dc:date>2006-09-01T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Race Bannon</title>
+      <link>http://www.badassoftheweek.com/bannon.html</link>
+      <pubDate>Fri, 25 Aug 2006 00:00:00 -0400</pubDate>
+      <dc:date>2006-08-25T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Crazy Horse</title>
+      <link>http://www.badassoftheweek.com/crazyhorse.html</link>
+      <pubDate>Fri, 18 Aug 2006 00:00:00 -0400</pubDate>
+      <dc:date>2006-08-18T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Australia</title>
+      <link>http://www.badassoftheweek.com/australia.html</link>
+      <pubDate>Fri, 11 Aug 2006 00:00:00 -0400</pubDate>
+      <dc:date>2006-08-11T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Apis Cerana</title>
+      <link>http://www.badassoftheweek.com/apiscerana.html</link>
+      <pubDate>Fri, 04 Aug 2006 00:00:00 -0400</pubDate>
+      <dc:date>2006-08-04T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Segata Sanshiro</title>
+      <link>http://www.badassoftheweek.com/sanshiro.html</link>
+      <pubDate>Fri, 28 Jul 2006 00:00:00 -0400</pubDate>
+      <dc:date>2006-07-28T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Zinedine Zidane</title>
+      <link>http://www.badassoftheweek.com/zidane.html</link>
+      <pubDate>Fri, 14 Jul 2006 00:00:00 -0400</pubDate>
+      <dc:date>2006-07-14T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Lennie Briscoe</title>
+      <link>http://www.badassoftheweek.com/briscoe.html</link>
+      <pubDate>Fri, 07 Jul 2006 00:00:00 -0400</pubDate>
+      <dc:date>2006-07-07T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Perseus</title>
+      <link>http://www.badassoftheweek.com/perseus.html</link>
+      <pubDate>Fri, 30 Jun 2006 00:00:00 -0400</pubDate>
+      <dc:date>2006-06-30T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Toby Wong</title>
+      <link>http://www.badassoftheweek.com/wong.html</link>
+      <pubDate>Fri, 23 Jun 2006 00:00:00 -0400</pubDate>
+      <dc:date>2006-06-23T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Ramesses II</title>
+      <link>http://www.badassoftheweek.com/ramesses.html</link>
+      <pubDate>Thu, 15 Jun 2006 00:00:00 -0400</pubDate>
+      <dc:date>2006-06-15T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Charun</title>
+      <link>http://www.badassoftheweek.com/charun.html</link>
+      <pubDate>Fri, 09 Jun 2006 00:00:00 -0400</pubDate>
+      <dc:date>2006-06-09T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>The Killer Rabbit</title>
+      <link>http://www.badassoftheweek.com/rabbit.html</link>
+      <pubDate>Fri, 02 Jun 2006 00:00:00 -0400</pubDate>
+      <dc:date>2006-06-02T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Kiefer Sutherland</title>
+      <link>http://www.badassoftheweek.com/sutherland.html</link>
+      <pubDate>Fri, 26 May 2006 00:00:00 -0400</pubDate>
+      <dc:date>2006-05-26T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Theodore Roosevelt</title>
+      <link>http://www.badassoftheweek.com/roosevelt.html</link>
+      <pubDate>Fri, 19 May 2006 00:00:00 -0400</pubDate>
+      <dc:date>2006-05-19T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>The S&amp;W .500 Magnum</title>
+      <link>http://www.badassoftheweek.com/500magnum.html</link>
+      <pubDate>Fri, 12 May 2006 00:00:00 -0400</pubDate>
+      <dc:date>2006-05-12T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>The Archangel Michael</title>
+      <link>http://www.badassoftheweek.com/stmichael.html</link>
+      <pubDate>Wed, 03 May 2006 00:00:00 -0400</pubDate>
+      <dc:date>2006-05-03T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Jules Winnfield</title>
+      <link>http://www.badassoftheweek.com/winnfield.html</link>
+      <pubDate>Fri, 28 Apr 2006 00:00:00 -0400</pubDate>
+      <dc:date>2006-04-28T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Ellen Ripley</title>
+      <link>http://www.badassoftheweek.com/ripley.html</link>
+      <pubDate>Fri, 21 Apr 2006 00:00:00 -0400</pubDate>
+      <dc:date>2006-04-21T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Henry Morgan</title>
+      <link>http://www.badassoftheweek.com/morgan.html</link>
+      <pubDate>Fri, 14 Apr 2006 00:00:00 -0400</pubDate>
+      <dc:date>2006-04-14T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Sim&amp;oacute;n Bol&amp;iacute;var</title>
+      <link>http://www.badassoftheweek.com/bolivar.html</link>
+      <pubDate>Fri, 07 Apr 2006 00:00:00 -0400</pubDate>
+      <dc:date>2006-04-07T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>The Emperor</title>
+      <link>http://www.badassoftheweek.com/emperor.html</link>
+      <pubDate>Fri, 31 Mar 2006 00:00:00 -0500</pubDate>
+      <dc:date>2006-03-31T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>General Zod</title>
+      <link>http://www.badassoftheweek.com/zod.html</link>
+      <pubDate>Fri, 24 Mar 2006 00:00:00 -0500</pubDate>
+      <dc:date>2006-03-24T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Inigo Montoya</title>
+      <link>http://www.badassoftheweek.com/montoya.html</link>
+      <pubDate>Fri, 17 Mar 2006 00:00:00 -0500</pubDate>
+      <dc:date>2006-03-17T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Paul Atreides</title>
+      <link>http://www.badassoftheweek.com/atreides.html</link>
+      <pubDate>Fri, 03 Mar 2006 00:00:00 -0500</pubDate>
+      <dc:date>2006-03-03T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Warren G.H. Crecy</title>
+      <link>http://www.badassoftheweek.com/crecy.html</link>
+      <pubDate>Fri, 24 Feb 2006 00:00:00 -0500</pubDate>
+      <dc:date>2006-02-24T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>John Carter of Mars</title>
+      <link>http://www.badassoftheweek.com/johncarter.html</link>
+      <pubDate>Fri, 17 Feb 2006 00:00:00 -0500</pubDate>
+      <dc:date>2006-02-17T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Molly the Cow</title>
+      <link>http://www.badassoftheweek.com/molly.html</link>
+      <pubDate>Fri, 10 Feb 2006 00:00:00 -0500</pubDate>
+      <dc:date>2006-02-10T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Qin Shi Huang Di</title>
+      <link>http://www.badassoftheweek.com/qin.html</link>
+      <pubDate>Fri, 03 Feb 2006 00:00:00 -0500</pubDate>
+      <dc:date>2006-02-03T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Mick Foley</title>
+      <link>http://www.badassoftheweek.com/foley.html</link>
+      <pubDate>Fri, 27 Jan 2006 00:00:00 -0500</pubDate>
+      <dc:date>2006-01-27T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>The Bride</title>
+      <link>http://www.badassoftheweek.com/thebride.html</link>
+      <pubDate>Fri, 20 Jan 2006 00:00:00 -0500</pubDate>
+      <dc:date>2006-01-20T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Mariusz Pudzianowski</title>
+      <link>http://www.badassoftheweek.com/pudzianowski.html</link>
+      <pubDate>Fri, 13 Jan 2006 00:00:00 -0500</pubDate>
+      <dc:date>2006-01-13T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Sir Ernest Henry Shackleton</title>
+      <link>http://www.badassoftheweek.com/shackleton.html</link>
+      <pubDate>Fri, 06 Jan 2006 00:00:00 -0500</pubDate>
+      <dc:date>2006-01-06T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>John McClane</title>
+      <link>http://www.badassoftheweek.com/mcclane.html</link>
+      <pubDate>Fri, 23 Dec 2005 00:00:00 -0500</pubDate>
+      <dc:date>2005-12-23T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Hugh Glass</title>
+      <link>http://www.badassoftheweek.com/glass.html</link>
+      <pubDate>Fri, 16 Dec 2005 00:00:00 -0500</pubDate>
+      <dc:date>2005-12-16T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Zahir-ud-din Mohammad Babur</title>
+      <link>http://www.badassoftheweek.com/babur.html</link>
+      <pubDate>Fri, 09 Dec 2005 00:00:00 -0500</pubDate>
+      <dc:date>2005-12-09T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Charles XII of Sweden</title>
+      <link>http://www.badassoftheweek.com/charles.html</link>
+      <pubDate>Fri, 02 Dec 2005 00:00:00 -0500</pubDate>
+      <dc:date>2005-12-02T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Rupert Murdoch</title>
+      <link>http://www.badassoftheweek.com/murdoch.html</link>
+      <pubDate>Thu, 17 Nov 2005 00:00:00 -0500</pubDate>
+      <dc:date>2005-11-17T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Ron Woods</title>
+      <link>http://www.badassoftheweek.com/woods.html</link>
+      <pubDate>Thu, 10 Nov 2005 00:00:00 -0500</pubDate>
+      <dc:date>2005-11-10T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Moby Dick</title>
+      <link>http://www.badassoftheweek.com/mobydick.html</link>
+      <pubDate>Fri, 04 Nov 2005 00:00:00 -0500</pubDate>
+      <dc:date>2005-11-04T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Maddox the Pirate</title>
+      <link>http://www.badassoftheweek.com/maddox.html</link>
+      <pubDate>Fri, 28 Oct 2005 00:00:00 -0400</pubDate>
+      <dc:date>2005-10-28T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Eugene Jacques Bullard</title>
+      <link>http://www.badassoftheweek.com/bullard.html</link>
+      <pubDate>Fri, 14 Oct 2005 00:00:00 -0400</pubDate>
+      <dc:date>2005-10-14T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>The Four Horsemen of the Apocalypse</title>
+      <link>http://www.badassoftheweek.com/horsemen.html</link>
+      <pubDate>Fri, 07 Oct 2005 00:00:00 -0400</pubDate>
+      <dc:date>2005-10-07T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>The 300 Spartans</title>
+      <link>http://www.badassoftheweek.com/spartans.html</link>
+      <pubDate>Fri, 23 Sep 2005 00:00:00 -0400</pubDate>
+      <dc:date>2005-09-23T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Arminius</title>
+      <link>http://www.badassoftheweek.com/arminius.html</link>
+      <pubDate>Fri, 16 Sep 2005 00:00:00 -0400</pubDate>
+      <dc:date>2005-09-16T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Zydrunas Savickas</title>
+      <link>http://www.badassoftheweek.com/savickas.html</link>
+      <pubDate>Fri, 09 Sep 2005 00:00:00 -0400</pubDate>
+      <dc:date>2005-09-09T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Dirk J. Vlug</title>
+      <link>http://www.badassoftheweek.com/vlug.html</link>
+      <pubDate>Fri, 02 Sep 2005 00:00:00 -0400</pubDate>
+      <dc:date>2005-09-02T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Kefka</title>
+      <link>http://www.badassoftheweek.com/kefka.html</link>
+      <pubDate>Fri, 19 Aug 2005 00:00:00 -0400</pubDate>
+      <dc:date>2005-08-19T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>The PzKpfw V Panther Tank</title>
+      <link>http://www.badassoftheweek.com/panther.html</link>
+      <pubDate>Fri, 12 Aug 2005 00:00:00 -0400</pubDate>
+      <dc:date>2005-08-12T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Han Solo</title>
+      <link>http://www.badassoftheweek.com/solo.html</link>
+      <pubDate>Fri, 05 Aug 2005 00:00:00 -0400</pubDate>
+      <dc:date>2005-08-05T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Muhammad Ali</title>
+      <link>http://www.badassoftheweek.com/ali.html</link>
+      <pubDate>Fri, 29 Jul 2005 00:00:00 -0400</pubDate>
+      <dc:date>2005-07-29T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>The Movie &quot;Starship Troopers&quot;</title>
+      <link>http://www.badassoftheweek.com/starshiptroopers.html</link>
+      <pubDate>Fri, 22 Jul 2005 00:00:00 -0400</pubDate>
+      <dc:date>2005-07-22T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>George Washington</title>
+      <link>http://www.badassoftheweek.com/washington.html</link>
+      <pubDate>Fri, 15 Jul 2005 00:00:00 -0400</pubDate>
+      <dc:date>2005-07-15T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Daniel M'Mburugu</title>
+      <link>http://www.badassoftheweek.com/mmburugu.html</link>
+      <pubDate>Fri, 08 Jul 2005 00:00:00 -0400</pubDate>
+      <dc:date>2005-07-08T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Saladin</title>
+      <link>http://www.badassoftheweek.com/saladin.html</link>
+      <pubDate>Thu, 30 Jun 2005 00:00:00 -0400</pubDate>
+      <dc:date>2005-06-30T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Aron Ralston</title>
+      <link>http://www.badassoftheweek.com/ralston.html</link>
+      <pubDate>Fri, 24 Jun 2005 00:00:00 -0400</pubDate>
+      <dc:date>2005-06-24T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Jackie Chan</title>
+      <link>http://www.badassoftheweek.com/chan.html</link>
+      <pubDate>Fri, 17 Jun 2005 00:00:00 -0400</pubDate>
+      <dc:date>2005-06-17T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>John Matrix</title>
+      <link>http://www.badassoftheweek.com/matrix.html</link>
+      <pubDate>Fri, 10 Jun 2005 00:00:00 -0400</pubDate>
+      <dc:date>2005-06-10T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Ashley J. &quot;Ash&quot; Williams</title>
+      <link>http://www.badassoftheweek.com/ash.html</link>
+      <pubDate>Fri, 27 May 2005 00:00:00 -0400</pubDate>
+      <dc:date>2005-05-27T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Katie Brownell</title>
+      <link>http://www.badassoftheweek.com/brownell.html</link>
+      <pubDate>Fri, 20 May 2005 00:00:00 -0400</pubDate>
+      <dc:date>2005-05-20T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Manfred von Richthofen</title>
+      <link>http://www.badassoftheweek.com/richtofen.html</link>
+      <pubDate>Fri, 13 May 2005 00:00:00 -0400</pubDate>
+      <dc:date>2005-05-13T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Blackbeard</title>
+      <link>http://www.badassoftheweek.com/blackbeard.html</link>
+      <pubDate>Fri, 06 May 2005 00:00:00 -0400</pubDate>
+      <dc:date>2005-05-06T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>The Blues Brothers</title>
+      <link>http://www.badassoftheweek.com/blues.html</link>
+      <pubDate>Fri, 29 Apr 2005 00:00:00 -0400</pubDate>
+      <dc:date>2005-04-29T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Bruce Lee</title>
+      <link>http://www.badassoftheweek.com/brucelee.html</link>
+      <pubDate>Fri, 22 Apr 2005 00:00:00 -0400</pubDate>
+      <dc:date>2005-04-22T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Hannibal Barca</title>
+      <link>http://www.badassoftheweek.com/hannibal.html</link>
+      <pubDate>Fri, 15 Apr 2005 00:00:00 -0400</pubDate>
+      <dc:date>2005-04-15T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Alcibiades</title>
+      <link>http://www.badassoftheweek.com/alcibiades.html</link>
+      <pubDate>Fri, 08 Apr 2005 00:00:00 -0400</pubDate>
+      <dc:date>2005-04-08T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Beef Jerky</title>
+      <link>http://www.badassoftheweek.com/beefjerky.html</link>
+      <pubDate>Fri, 01 Apr 2005 00:00:00 -0500</pubDate>
+      <dc:date>2005-04-01T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Stanislav Petrov</title>
+      <link>http://www.badassoftheweek.com/petrov.html</link>
+      <pubDate>Thu, 24 Mar 2005 00:00:00 -0500</pubDate>
+      <dc:date>2005-03-24T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Genghis Khan</title>
+      <link>http://www.badassoftheweek.com/khan.html</link>
+      <pubDate>Fri, 18 Mar 2005 00:00:00 -0500</pubDate>
+      <dc:date>2005-03-18T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>The Black Death</title>
+      <link>http://www.badassoftheweek.com/blackdeath.html</link>
+      <pubDate>Fri, 11 Mar 2005 00:00:00 -0500</pubDate>
+      <dc:date>2005-03-11T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Lu Bu</title>
+      <link>http://www.badassoftheweek.com/lubu.html</link>
+      <pubDate>Thu, 24 Feb 2005 00:00:00 -0500</pubDate>
+      <dc:date>2005-02-24T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Doc Holliday</title>
+      <link>http://www.badassoftheweek.com/doc.html</link>
+      <pubDate>Fri, 11 Feb 2005 00:00:00 -0500</pubDate>
+      <dc:date>2005-02-11T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Ivan Drago</title>
+      <link>http://www.badassoftheweek.com/drago.html</link>
+      <pubDate>Fri, 04 Feb 2005 00:00:00 -0500</pubDate>
+      <dc:date>2005-02-04T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Sarah Connor</title>
+      <link>http://www.badassoftheweek.com/connor.html</link>
+      <pubDate>Fri, 14 Jan 2005 00:00:00 -0500</pubDate>
+      <dc:date>2005-01-14T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Al Capone</title>
+      <link>http://www.badassoftheweek.com/capone.html</link>
+      <pubDate>Fri, 07 Jan 2005 00:00:00 -0500</pubDate>
+      <dc:date>2005-01-07T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Optimus Prime</title>
+      <link>http://www.badassoftheweek.com/optimusprime.html</link>
+      <pubDate>Mon, 20 Dec 2004 00:00:00 -0500</pubDate>
+      <dc:date>2004-12-20T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Tamerlane</title>
+      <link>http://www.badassoftheweek.com/tamerlane.html</link>
+      <pubDate>Fri, 03 Dec 2004 00:00:00 -0500</pubDate>
+      <dc:date>2004-12-03T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Samuel Toloza</title>
+      <link>http://www.badassoftheweek.com/toloza.html</link>
+      <pubDate>Fri, 26 Nov 2004 00:00:00 -0500</pubDate>
+      <dc:date>2004-11-26T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>The Aggro Crag</title>
+      <link>http://www.badassoftheweek.com/aggrocrag.html</link>
+      <pubDate>Fri, 05 Nov 2004 00:00:00 -0500</pubDate>
+      <dc:date>2004-11-05T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>The Hanta Virus</title>
+      <link>http://www.badassoftheweek.com/hantavirus.html</link>
+      <pubDate>Fri, 29 Oct 2004 00:00:00 -0400</pubDate>
+      <dc:date>2004-10-29T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Gaius Julius Caesar</title>
+      <link>http://www.badassoftheweek.com/caesar.html</link>
+      <pubDate>Fri, 15 Oct 2004 00:00:00 -0400</pubDate>
+      <dc:date>2004-10-15T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Khalid ibn Al-Waleed</title>
+      <link>http://www.badassoftheweek.com/khalid.html</link>
+      <pubDate>Fri, 08 Oct 2004 00:00:00 -0400</pubDate>
+      <dc:date>2004-10-08T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>The Damnatio Memoria</title>
+      <link>http://www.badassoftheweek.com/damnatio.html</link>
+      <pubDate>Fri, 27 Aug 2004 00:00:00 -0400</pubDate>
+      <dc:date>2004-08-27T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Sho'Nuff</title>
+      <link>http://www.badassoftheweek.com/shonuff.html</link>
+      <pubDate>Fri, 13 Aug 2004 00:00:00 -0400</pubDate>
+      <dc:date>2004-08-13T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Chandragupta Maurya</title>
+      <link>http://www.badassoftheweek.com/chandragupta.html</link>
+      <pubDate>Fri, 06 Aug 2004 00:00:00 -0400</pubDate>
+      <dc:date>2004-08-06T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Miyamoto Musashi</title>
+      <link>http://www.badassoftheweek.com/musashi.html</link>
+      <pubDate>Fri, 30 Jul 2004 00:00:00 -0400</pubDate>
+      <dc:date>2004-07-30T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>This Huge-Ass Beetle</title>
+      <link>http://www.badassoftheweek.com/beetle.html</link>
+      <pubDate>Fri, 16 Jul 2004 00:00:00 -0400</pubDate>
+      <dc:date>2004-07-16T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>The Watermelon Monster</title>
+      <link>http://www.badassoftheweek.com/watermelonmonster.html</link>
+      <pubDate>Fri, 25 Jun 2004 00:00:00 -0400</pubDate>
+      <dc:date>2004-06-25T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Brian R. Chontosh</title>
+      <link>http://www.badassoftheweek.com/chrontosh.html</link>
+      <pubDate>Fri, 21 May 2004 00:00:00 -0400</pubDate>
+      <dc:date>2004-05-21T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>The BFG 9000</title>
+      <link>http://www.badassoftheweek.com/bfg9000.html</link>
+      <pubDate>Fri, 14 May 2004 00:00:00 -0400</pubDate>
+      <dc:date>2004-05-14T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Darth Vader</title>
+      <link>http://www.badassoftheweek.com/vader.html</link>
+      <pubDate>Fri, 09 Apr 2004 00:00:00 -0400</pubDate>
+      <dc:date>2004-04-09T00:00:00-04:00</dc:date>
+    </item>
+  </channel>
+</rss>
