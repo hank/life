@@ -18,7 +18,11 @@ content = RSS::Maker.make(version) do |m|
       i = m.items.new_item
       i.title = (item/'span[@class=itemTitle]/a').inner_html
       i.link = "http://www.marylandsuperads.com"+(item/'span[@class=itemTitle]/a')[-1]['href']
+      begin
       i.date = Time.parse(((item/'div[@class=description]/table/tr/td')[-1]/'div').inner_html.gsub(/.*&nbsp;(.*)/, '\1').strip+" 12:00")
+      rescue
+      e.date = Time.now
+      end
       i.description = (item/'div[@class=description]').inner_html
   end
 end
