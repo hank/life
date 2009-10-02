@@ -3,7 +3,54 @@
 #include <stdint.h>
 #include "ekg_sys.h"
 
-int main(int argc, char ** argv) {
+#define CRAZY_SIZE (1<<10)
+
+int bin2hex_main(int argc, char ** argv) {
+  char lt[256][2];
+  unsigned int x,y;
+  union {
+    uint32_t u32;
+    uint8_t u8[4];
+  } random_num;
+  uint16_t i;
+  printf("***************** BIN2HEX *****************\n");
+
+  if(bin2hex_init(lt) == 0) {
+    // Fail.. Leave
+    return 0;
+  }
+
+  printf("Table created: \n");
+  for(i=0; i<256; i++) {
+    printf("%c%c", lt[i][0], lt[i][1]);
+    if(i%15 == 0) printf("\n");
+    else printf(" ");
+  }
+
+  // Initialize crazy binary array
+  uint8_t * crazy_hex = malloc(CRAZY_SIZE);
+  for(i=0; i<CRAZY_SIZE-3; i++) {
+    random_num.u32 = rand();
+    crazy_hex[i] = random_num.u8[0];
+    crazy_hex[i+1] = random_num.u8[1];
+    crazy_hex[i+2] = random_num.u8[2];
+    crazy_hex[i+3] = random_num.u8[3];
+    i += 4;
+  }
+  char hex_dest[2 + 2*CRAZY_SIZE]; 
+  hex_dest[0] = '0';
+  hex_dest[1] = 'x';
+  GET_CYCLES(x);
+  bin2hex(lt, &hex_dest[2], crazy_hex, CRAZY_SIZE);
+  GET_CYCLES(y);
+  printf("time=%u, ", y-x);
+  printf("Output: %.*s\n", 2 + 2*CRAZY_SIZE, hex_dest);
+  printf("***************** BIN2HEX *****************\n");
+
+  return 1;
+}
+
+int fmemcmp_main(int argc, char ** argv) {
   char * buf, * buf2;
   uint32_t buflen, failure = 0, i;
   unsigned int x,y;
@@ -87,14 +134,11 @@ int main(int argc, char ** argv) {
   printf(":: fmemcmp is %g times faster than forloop memcmp.\n", ((float)speed[1])/speed[2]);
 
   printf("***************** FMEMCMP *****************\n");
-  GET_CYCLES(x);
-  if(*(uint32_t *)buf != 0xFFFFFFFF) failure = 1;
-  GET_CYCLES(y);
-  printf("time=%u, ", y-x);
-  GET_CYCLES(x);
-  if((memcmp(buf, buf2, 4)) != 0) failure = 1;
-  GET_CYCLES(y);
-  printf("time=%u, ", y-x);
 
   return 1;
+}
+
+int main(int argc, char ** argv) {
+  //fmemcmp_main(argc, argv);
+  bin2hex_main(argc, argv);
 }
