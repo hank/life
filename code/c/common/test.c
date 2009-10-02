@@ -2,12 +2,14 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include "ekg_sys.h"
+#include "competitor.h"
 
 #define CRAZY_SIZE (1<<10)
 
 int bin2hex_main(int argc, char ** argv) {
   char lt[256][2];
   unsigned int x,y;
+  char * newhex_dest;
   union {
     uint32_t u32;
     uint8_t u8[4];
@@ -46,6 +48,21 @@ int bin2hex_main(int argc, char ** argv) {
   printf("time=%u, ", y-x);
   printf("Output: %.*s\n", 2 + 2*CRAZY_SIZE, hex_dest);
   printf("***************** BIN2HEX *****************\n");
+  printf("***************** BIN2HEX Competition *****************\n");
+
+  size_t hex2ascii_len = 256;
+  char** hex2ascii;
+  hex2ascii = malloc(hex2ascii_len*sizeof(char*));
+  for(i=0; i<hex2ascii_len; i++) {
+    hex2ascii[i] = malloc(3*sizeof(char));
+    snprintf(hex2ascii[i], 3,"%02X", i);
+  }
+  size_t len = 8;
+  GET_CYCLES(x);
+  newhex_dest = char_to_hex((const unsigned char*)crazy_hex, CRAZY_SIZE, (char**)hex2ascii);
+  GET_CYCLES(y);
+  printf("time=%u, ", y-x);
+  printf("Output: 0x%s\n", newhex_dest);
 
   return 1;
 }
