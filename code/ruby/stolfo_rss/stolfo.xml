@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+  <channel>
+    <title>Salvatore Stolfo Paper Feed</title>
+    <link>http://www.ralree.info/stolfo.xml</link>
+    <description>Salvatore Stolfo's Papers scraped from his site, on tap</description>
+    <item>
+      <title>Salvatore J. Stolfo, L. Bui, Shlomo. Hershkop,&quot;Unsupervised Anomaly Detection in Computer Security and an Application to File System Access&quot;, Proc. ISMIS, 2005 </title>
+      <link>http://sneakers.cs.columbia.edu/ids/publications/34880014.pdf</link>
+      <description>
+&lt;td class=&quot;td-select&quot;&gt;&lt;input class=&quot;filecabinet-checkbox&quot; type=&quot;checkbox&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-icon&quot;&gt;&lt;img src=&quot;/system/app/images/cleardot.gif&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-file&quot;&gt;&lt;a href=&quot;http://sneakers.cs.columbia.edu/ids/publications/34880014.pdf&quot;&gt;34880014.pdf&lt;/a&gt;&lt;/td&gt;
+&lt;td dir=&quot;ltr&quot; class=&quot;td-desc filecabinet-desc&quot;&gt;Salvatore J. Stolfo, L. Bui, Shlomo. Hershkop,&quot;Unsupervised Anomaly Detection in Computer Security and an Application to File System Access&quot;, Proc. ISMIS, 2005 &lt;/td&gt;
+&lt;td class=&quot;td-size&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-rev&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-time&quot;&gt;
+&lt;span dir=&quot;ltr&quot;&gt;Sep 8, 2008 8:03 PM&lt;/span&gt;
+&lt;/td&gt;
+&lt;td class=&quot;td-user&quot;&gt;Ang Cui&lt;/td&gt;
+</description>
+      <pubDate>Sat, 03 Oct 2009 12:13:21 -0400</pubDate>
+      <dc:date>2009-10-03T12:13:21.749735-04:00</dc:date>
+    </item>
+    <item>
+      <title>Salvatore J. Stolfo, Eric Johnson, Tomislav Pavlicic, and Stephen Jan. ``Citizen's Attitudes about Privacy While Accessing Government Websites: Results of an Online Study&quot; </title>
+      <link>http://sneakers.cs.columbia.edu/ids/publications/AccessRiskResults-submitted.PDF</link>
+      <description>
+&lt;td class=&quot;td-select&quot;&gt;&lt;input class=&quot;filecabinet-checkbox&quot; type=&quot;checkbox&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-icon&quot;&gt;&lt;img src=&quot;/system/app/images/cleardot.gif&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-file&quot;&gt;&lt;a href=&quot;http://sneakers.cs.columbia.edu/ids/publications/AccessRiskResults-submitted.PDF&quot;&gt;AccessRiskResults-submitted.PDF&lt;/a&gt;&lt;/td&gt;
+&lt;td dir=&quot;ltr&quot; class=&quot;td-desc filecabinet-desc&quot;&gt;Salvatore J. Stolfo, Eric Johnson, Tomislav Pavlicic, and Stephen Jan. ``Citizen's Attitudes about Privacy While Accessing Government Websites: Results of an Online Study&quot; &lt;/td&gt;
+&lt;td class=&quot;td-size&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-rev&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-time&quot;&gt;
+&lt;span dir=&quot;ltr&quot;&gt;Sep 8, 2008 8:10 PM&lt;/span&gt;
+&lt;/td&gt;
+&lt;td class=&quot;td-user&quot;&gt;Ang Cui&lt;/td&gt;
+</description>
+      <pubDate>Sat, 03 Oct 2009 12:13:21 -0400</pubDate>
+      <dc:date>2009-10-03T12:13:21.75288-04:00</dc:date>
+    </item>
+    <item>
+      <title>Ke Wang, Janak J. Parekh, Salvatore J. Stolfo &quot;Anagram: A Content Anomaly Detector Resistant To Mimicry Attack&quot; In Proceedings of the Nineth International Symposium on Recent Advances in Intrusion Detection(RAID 2006) </title>
+      <link>http://sneakers.cs.columbia.edu/ids/publications/anagram-camera-fixed.pdf</link>
+      <description>
+&lt;td class=&quot;td-select&quot;&gt;&lt;input class=&quot;filecabinet-checkbox&quot; type=&quot;checkbox&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-icon&quot;&gt;&lt;img src=&quot;/system/app/images/cleardot.gif&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-file&quot;&gt;&lt;a href=&quot;http://sneakers.cs.columbia.edu/ids/publications/anagram-camera-fixed.pdf&quot;&gt;anagram-camera-fixed.pdf&lt;/a&gt;&lt;/td&gt;
+&lt;td dir=&quot;ltr&quot; class=&quot;td-desc filecabinet-desc&quot;&gt;Ke Wang, Janak J. Parekh, Salvatore J. Stolfo &quot;Anagram: A Content Anomaly Detector Resistant To Mimicry Attack&quot; In Proceedings of the Nineth International Symposium on Recent Advances in Intrusion Detection(RAID 2006) &lt;/td&gt;
+&lt;td class=&quot;td-size&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-rev&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-time&quot;&gt;
+&lt;span dir=&quot;ltr&quot;&gt;Sep 8, 2008 8:01 PM&lt;/span&gt;
+&lt;/td&gt;
+&lt;td class=&quot;td-user&quot;&gt;Ang Cui&lt;/td&gt;
+</description>
+      <pubDate>Sat, 03 Oct 2009 12:13:21 -0400</pubDate>
+      <dc:date>2009-10-03T12:13:21.75605-04:00</dc:date>
+    </item>
+    <item>
+      <title>Gabriela F. Cretu, Janak J. Parekh, Ke Wang, Salvatore J. Stolfo &quot;Intrusion and Anomaly Detection Model Exchange for Mobile Ad-Hoc Networks&quot; In Proceddings of IEEE Consumer Communications and Networking Conference. Jan 2006 </title>
+      <link>http://sneakers.cs.columbia.edu/ids/publications/CCNC2006newformat.pdf</link>
+      <description>
+&lt;td class=&quot;td-select&quot;&gt;&lt;input class=&quot;filecabinet-checkbox&quot; type=&quot;checkbox&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-icon&quot;&gt;&lt;img src=&quot;/system/app/images/cleardot.gif&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-file&quot;&gt;&lt;a href=&quot;http://sneakers.cs.columbia.edu/ids/publications/CCNC2006newformat.pdf&quot;&gt;CCNC2006newformat.pdf&lt;/a&gt;&lt;/td&gt;
+&lt;td dir=&quot;ltr&quot; class=&quot;td-desc filecabinet-desc&quot;&gt;Gabriela F. Cretu, Janak J. Parekh, Ke Wang, Salvatore J. Stolfo &quot;Intrusion and Anomaly Detection Model Exchange for Mobile Ad-Hoc Networks&quot; In Proceddings of IEEE Consumer Communications and Networking Conference. Jan 2006 &lt;/td&gt;
+&lt;td class=&quot;td-size&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-rev&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-time&quot;&gt;
+&lt;span dir=&quot;ltr&quot;&gt;Sep 8, 2008 8:02 PM&lt;/span&gt;
+&lt;/td&gt;
+&lt;td class=&quot;td-user&quot;&gt;Ang Cui&lt;/td&gt;
+</description>
+      <pubDate>Sat, 03 Oct 2009 12:13:21 -0400</pubDate>
+      <dc:date>2009-10-03T12:13:21.759293-04:00</dc:date>
+    </item>
+    <item>
+      <title>Yingbo Song, Michael E. Locasto, Angelos Stavrou, Angelos D. Keromytis and Salvatore J. Stolfo &quot;On the Infeasibility of Modeling Polymorphic Shellcode&quot;&quot; In Proceedings of the 14th ACM Conference on Computer and Communications Security (CCS). October 2007, Alexandria, Virginia, USA. </title>
+      <link>http://sneakers.cs.columbia.edu/ids/publications/ccs07poly.pdf</link>
+      <description>
+&lt;td class=&quot;td-select&quot;&gt;&lt;input class=&quot;filecabinet-checkbox&quot; type=&quot;checkbox&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-icon&quot;&gt;&lt;img src=&quot;/system/app/images/cleardot.gif&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-file&quot;&gt;&lt;a href=&quot;http://sneakers.cs.columbia.edu/ids/publications/ccs07poly.pdf&quot;&gt;ccs07poly.pdf&lt;/a&gt;&lt;/td&gt;
+&lt;td dir=&quot;ltr&quot; class=&quot;td-desc filecabinet-desc&quot;&gt;Yingbo Song, Michael E. Locasto, Angelos Stavrou, Angelos D. Keromytis and Salvatore J. Stolfo &quot;On the Infeasibility of Modeling Polymorphic Shellcode&quot;&quot; In Proceedings of the 14th ACM Conference on Computer and Communications Security (CCS). October 2007, Alexandria, Virginia, USA. &lt;/td&gt;
+&lt;td class=&quot;td-size&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-rev&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-time&quot;&gt;
+&lt;span dir=&quot;ltr&quot;&gt;Sep 8, 2008 8:00 PM&lt;/span&gt;
+&lt;/td&gt;
+&lt;td class=&quot;td-user&quot;&gt;Ang Cui&lt;/td&gt;
+</description>
+      <pubDate>Sat, 03 Oct 2009 12:13:21 -0400</pubDate>
+      <dc:date>2009-10-03T12:13:21.762485-04:00</dc:date>
+    </item>
+    <item>
+      <title>Michael E. Locasto, Janak J. Parekh, Salvatore J. Stolfo, Angelos D. Keromytis, Tal Malkin, Vishal Misra. &quot;Collaborative Distributive Intrusion Detection&quot;. CU Tech Report CUCS-012-04, 2004. </title>
+      <link>http://sneakers.cs.columbia.edu/ids/publications/cucs-012-04.pdf</link>
+      <description>
+&lt;td class=&quot;td-select&quot;&gt;&lt;input class=&quot;filecabinet-checkbox&quot; type=&quot;checkbox&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-icon&quot;&gt;&lt;img src=&quot;/system/app/images/cleardot.gif&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-file&quot;&gt;&lt;a href=&quot;http://sneakers.cs.columbia.edu/ids/publications/cucs-012-04.pdf&quot;&gt;cucs-012-04.pdf&lt;/a&gt;&lt;/td&gt;
+&lt;td dir=&quot;ltr&quot; class=&quot;td-desc filecabinet-desc&quot;&gt;Michael E. Locasto, Janak J. Parekh, Salvatore J. Stolfo, Angelos D. Keromytis, Tal Malkin, Vishal Misra. &quot;Collaborative Distributive Intrusion Detection&quot;. CU Tech Report CUCS-012-04, 2004. &lt;/td&gt;
+&lt;td class=&quot;td-size&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-rev&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-time&quot;&gt;
+&lt;span dir=&quot;ltr&quot;&gt;Sep 8, 2008 8:05 PM&lt;/span&gt;
+&lt;/td&gt;
+&lt;td class=&quot;td-user&quot;&gt;Ang Cui&lt;/td&gt;
+</description>
+      <pubDate>Sat, 03 Oct 2009 12:13:21 -0400</pubDate>
+      <dc:date>2009-10-03T12:13:21.765719-04:00</dc:date>
+    </item>
+    <item>
+      <title>Ke Wang, Salvatore J. Stolfo. &quot;One Class Training for Masquerade Detection &quot;. 3rd IEEE Conf Data Mining Workshop on Data Mining for Computer Security,  Florida, Nov. 19, 2003 </title>
+      <link>http://sneakers.cs.columbia.edu/ids/publications/DMSEC-camera.PDF</link>
+      <description>
+&lt;td class=&quot;td-select&quot;&gt;&lt;input class=&quot;filecabinet-checkbox&quot; type=&quot;checkbox&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-icon&quot;&gt;&lt;img src=&quot;/system/app/images/cleardot.gif&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-file&quot;&gt;&lt;a href=&quot;http://sneakers.cs.columbia.edu/ids/publications/DMSEC-camera.PDF&quot;&gt;DMSEC-camera.PDF&lt;/a&gt;&lt;/td&gt;
+&lt;td dir=&quot;ltr&quot; class=&quot;td-desc filecabinet-desc&quot;&gt;Ke Wang, Salvatore J. Stolfo. &quot;One Class Training for Masquerade Detection &quot;. 3rd IEEE Conf Data Mining Workshop on Data Mining for Computer Security,  Florida, Nov. 19, 2003 &lt;/td&gt;
+&lt;td class=&quot;td-size&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-rev&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-time&quot;&gt;
+&lt;span dir=&quot;ltr&quot;&gt;Sep 8, 2008 8:09 PM&lt;/span&gt;
+&lt;/td&gt;
+&lt;td class=&quot;td-user&quot;&gt;Ang Cui&lt;/td&gt;
+</description>
+      <pubDate>Sat, 03 Oct 2009 12:13:21 -0400</pubDate>
+      <dc:date>2009-10-03T12:13:21.76889-04:00</dc:date>
+    </item>
+    <item>
+      <title>Salvatore J. Stolfo,Shlomo Hershkop, Ke Wang, Olivier Nimeskern and Chia-Wei Hu. &quot;A Behavior-based Approach to Securing Email Systems&quot;.  &quot;Mathematical Methods, Models and Architectures for Computer Networks Security&quot;, Proceedings published by Springer Verlag, Sept. 2003. </title>
+      <link>http://sneakers.cs.columbia.edu/ids/publications/EMT-ACNS03.pdf</link>
+      <description>
+&lt;td class=&quot;td-select&quot;&gt;&lt;input class=&quot;filecabinet-checkbox&quot; type=&quot;checkbox&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-icon&quot;&gt;&lt;img src=&quot;/system/app/images/cleardot.gif&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-file&quot;&gt;&lt;a href=&quot;http://sneakers.cs.columbia.edu/ids/publications/EMT-ACNS03.pdf&quot;&gt;EMT-ACNS03.pdf&lt;/a&gt;&lt;/td&gt;
+&lt;td dir=&quot;ltr&quot; class=&quot;td-desc filecabinet-desc&quot;&gt;Salvatore J. Stolfo,Shlomo Hershkop, Ke Wang, Olivier Nimeskern and Chia-Wei Hu. &quot;A Behavior-based Approach to Securing Email Systems&quot;.  &quot;Mathematical Methods, Models and Architectures for Computer Networks Security&quot;, Proceedings published by Springer Verlag, Sept. 2003. &lt;/td&gt;
+&lt;td class=&quot;td-size&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-rev&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-time&quot;&gt;
+&lt;span dir=&quot;ltr&quot;&gt;Sep 8, 2008 8:09 PM&lt;/span&gt;
+&lt;/td&gt;
+&lt;td class=&quot;td-user&quot;&gt;Ang Cui&lt;/td&gt;
+</description>
+      <pubDate>Sat, 03 Oct 2009 12:13:21 -0400</pubDate>
+      <dc:date>2009-10-03T12:13:21.77207-04:00</dc:date>
+    </item>
+    <item>
+      <title>Salvatore J. Stolfo, Chia-Wei Hu, Wei-Jen Li, Shlomo Hershkop, Ke Wang, and Olivier Nimeskern. &quot;Combining Behavior Models to Secure Email Systems&quot;.  CU Tech Report April 2003. </title>
+      <link>http://sneakers.cs.columbia.edu/ids/publications/EMT-weijen.pdf</link>
+      <description>
+&lt;td class=&quot;td-select&quot;&gt;&lt;input class=&quot;filecabinet-checkbox&quot; type=&quot;checkbox&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-icon&quot;&gt;&lt;img src=&quot;/system/app/images/cleardot.gif&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-file&quot;&gt;&lt;a href=&quot;http://sneakers.cs.columbia.edu/ids/publications/EMT-weijen.pdf&quot;&gt;EMT-weijen.pdf&lt;/a&gt;&lt;/td&gt;
+&lt;td dir=&quot;ltr&quot; class=&quot;td-desc filecabinet-desc&quot;&gt;Salvatore J. Stolfo, Chia-Wei Hu, Wei-Jen Li, Shlomo Hershkop, Ke Wang, and Olivier Nimeskern. &quot;Combining Behavior Models to Secure Email Systems&quot;.  CU Tech Report April 2003. &lt;/td&gt;
+&lt;td class=&quot;td-size&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-rev&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-time&quot;&gt;
+&lt;span dir=&quot;ltr&quot;&gt;Sep 8, 2008 8:09 PM&lt;/span&gt;
+&lt;/td&gt;
+&lt;td class=&quot;td-user&quot;&gt;Ang Cui&lt;/td&gt;
+</description>
+      <pubDate>Sat, 03 Oct 2009 12:13:21 -0400</pubDate>
+      <dc:date>2009-10-03T12:13:21.775234-04:00</dc:date>
+    </item>
+    <item>
+      <title>Wei-Jen Li, Ke Wang, Salvatore J. Stolfo, &quot;Fileprints: Identifying File Types by n-gram Analysis.&quot; 2005 IEEE Information Assurance Workshop. </title>
+      <link>http://sneakers.cs.columbia.edu/ids/publications/FilePrintPaper-revised.pdf</link>
+      <description>
+&lt;td class=&quot;td-select&quot;&gt;&lt;input class=&quot;filecabinet-checkbox&quot; type=&quot;checkbox&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-icon&quot;&gt;&lt;img src=&quot;/system/app/images/cleardot.gif&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-file&quot;&gt;&lt;a href=&quot;http://sneakers.cs.columbia.edu/ids/publications/FilePrintPaper-revised.pdf&quot;&gt;FilePrintPaper-revised.pdf&lt;/a&gt;&lt;/td&gt;
+&lt;td dir=&quot;ltr&quot; class=&quot;td-desc filecabinet-desc&quot;&gt;Wei-Jen Li, Ke Wang, Salvatore J. Stolfo, &quot;Fileprints: Identifying File Types by n-gram Analysis.&quot; 2005 IEEE Information Assurance Workshop. &lt;/td&gt;
+&lt;td class=&quot;td-size&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-rev&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-time&quot;&gt;
+&lt;span dir=&quot;ltr&quot;&gt;Sep 8, 2008 8:04 PM&lt;/span&gt;
+&lt;/td&gt;
+&lt;td class=&quot;td-user&quot;&gt;Ang Cui&lt;/td&gt;
+</description>
+      <pubDate>Sat, 03 Oct 2009 12:13:21 -0400</pubDate>
+      <dc:date>2009-10-03T12:13:21.778384-04:00</dc:date>
+    </item>
+    <item>
+      <title>Shlomo Hershkop, Ryan Ferster, Linh H. Bui, Ke Wang and Salvatore J. Stolfo. &quot;Host-based Anomaly Detection Using Wrapping File Systems&quot;. CU Tech Report April 2004. </title>
+      <link>http://sneakers.cs.columbia.edu/ids/publications/hershkop_bui_ferster_stolfo_04_1.pdf</link>
+      <description>
+&lt;td class=&quot;td-select&quot;&gt;&lt;input class=&quot;filecabinet-checkbox&quot; type=&quot;checkbox&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-icon&quot;&gt;&lt;img src=&quot;/system/app/images/cleardot.gif&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-file&quot;&gt;&lt;a href=&quot;http://sneakers.cs.columbia.edu/ids/publications/hershkop_bui_ferster_stolfo_04_1.pdf&quot;&gt;hershkop_bui_ferster_stolfo_04_1.pdf&lt;/a&gt;&lt;/td&gt;
+&lt;td dir=&quot;ltr&quot; class=&quot;td-desc filecabinet-desc&quot;&gt;Shlomo Hershkop, Ryan Ferster, Linh H. Bui, Ke Wang and Salvatore J. Stolfo. &quot;Host-based Anomaly Detection Using Wrapping File Systems&quot;. CU Tech Report April 2004. &lt;/td&gt;
+&lt;td class=&quot;td-size&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-rev&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-time&quot;&gt;
+&lt;span dir=&quot;ltr&quot;&gt;Sep 8, 2008 8:07 PM&lt;/span&gt;
+&lt;/td&gt;
+&lt;td class=&quot;td-user&quot;&gt;Ang Cui&lt;/td&gt;
+</description>
+      <pubDate>Sat, 03 Oct 2009 12:13:21 -0400</pubDate>
+      <dc:date>2009-10-03T12:13:21.781526-04:00</dc:date>
+    </item>
+    <item>
+      <title>Gabriela F. Cretu, Angelos Stavrou, Salvatore J. Stolfo, Angelos D. Keromytis &quot;Data Sanitization: Improving the Forensic Utility of Anomaly Detection Systems&quot; In the Proceedings of the Third Workshop on Hot Topics in System Dependability, June 2007, Edinburgh, UK </title>
+      <link>http://sneakers.cs.columbia.edu/ids/publications/hotdep.pdf</link>
+      <description>
+&lt;td class=&quot;td-select&quot;&gt;&lt;input class=&quot;filecabinet-checkbox&quot; type=&quot;checkbox&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-icon&quot;&gt;&lt;img src=&quot;/system/app/images/cleardot.gif&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-file&quot;&gt;&lt;a href=&quot;http://sneakers.cs.columbia.edu/ids/publications/hotdep.pdf&quot;&gt;hotdep.pdf&lt;/a&gt;&lt;/td&gt;
+&lt;td dir=&quot;ltr&quot; class=&quot;td-desc filecabinet-desc&quot;&gt;Gabriela F. Cretu, Angelos Stavrou, Salvatore J. Stolfo, Angelos D. Keromytis &quot;Data Sanitization: Improving the Forensic Utility of Anomaly Detection Systems&quot; In the Proceedings of the Third Workshop on Hot Topics in System Dependability, June 2007, Edinburgh, UK &lt;/td&gt;
+&lt;td class=&quot;td-size&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-rev&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-time&quot;&gt;
+&lt;span dir=&quot;ltr&quot;&gt;Sep 8, 2008 7:56 PM&lt;/span&gt;
+&lt;/td&gt;
+&lt;td class=&quot;td-user&quot;&gt;Ang Cui&lt;/td&gt;
+</description>
+      <pubDate>Sat, 03 Oct 2009 12:13:21 -0400</pubDate>
+      <dc:date>2009-10-03T12:13:21.784684-04:00</dc:date>
+    </item>
+    <item>
+      <title>Janak J. Parekh, Ke Wang, Salvatore J. Stolfo &quot; Privacy-Preserving Payload-Based Correlation for Accurate Malicious Traffic Detection &quot;  In SIGCOMM Workshop on Large Scale Attack Defence 2006 </title>
+      <link>http://sneakers.cs.columbia.edu/ids/publications/lsad.pdf</link>
+      <description>
+&lt;td class=&quot;td-select&quot;&gt;&lt;input class=&quot;filecabinet-checkbox&quot; type=&quot;checkbox&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-icon&quot;&gt;&lt;img src=&quot;/system/app/images/cleardot.gif&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-file&quot;&gt;&lt;a href=&quot;http://sneakers.cs.columbia.edu/ids/publications/lsad.pdf&quot;&gt;isad.pdf&lt;/a&gt;&lt;/td&gt;
+&lt;td dir=&quot;ltr&quot; class=&quot;td-desc filecabinet-desc&quot;&gt;Janak J. Parekh, Ke Wang, Salvatore J. Stolfo &quot; Privacy-Preserving Payload-Based Correlation for Accurate Malicious Traffic Detection &quot;  In SIGCOMM Workshop on Large Scale Attack Defence 2006 &lt;/td&gt;
+&lt;td class=&quot;td-size&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-rev&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-time&quot;&gt;
+&lt;span dir=&quot;ltr&quot;&gt;Sep 8, 2008 8:01 PM&lt;/span&gt;
+&lt;/td&gt;
+&lt;td class=&quot;td-user&quot;&gt;Ang Cui&lt;/td&gt;
+</description>
+      <pubDate>Sat, 03 Oct 2009 12:13:21 -0400</pubDate>
+      <dc:date>2009-10-03T12:13:21.787853-04:00</dc:date>
+    </item>
+    <item>
+      <title>Michael Locasto, Ke Wang, Angelos Keromytis, Sal Stolfo. &quot;FLIPS: Hybrid Adaptive Intrusion Prevention&quot;, Recent Advance in Intrusion Detection (RAID), Sept. 2005. </title>
+      <link>http://sneakers.cs.columbia.edu/ids/publications/locasto2005flips.pdf</link>
+      <description>
+&lt;td class=&quot;td-select&quot;&gt;&lt;input class=&quot;filecabinet-checkbox&quot; type=&quot;checkbox&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-icon&quot;&gt;&lt;img src=&quot;/system/app/images/cleardot.gif&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-file&quot;&gt;&lt;a href=&quot;http://sneakers.cs.columbia.edu/ids/publications/locasto2005flips.pdf&quot;&gt;locasto2005flips.pdf&lt;/a&gt;&lt;/td&gt;
+&lt;td dir=&quot;ltr&quot; class=&quot;td-desc filecabinet-desc&quot;&gt;Michael Locasto, Ke Wang, Angelos Keromytis, Sal Stolfo. &quot;FLIPS: Hybrid Adaptive Intrusion Prevention&quot;, Recent Advance in Intrusion Detection (RAID), Sept. 2005. &lt;/td&gt;
+&lt;td class=&quot;td-size&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-rev&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-time&quot;&gt;
+&lt;span dir=&quot;ltr&quot;&gt;Sep 8, 2008 8:05 PM&lt;/span&gt;
+&lt;/td&gt;
+&lt;td class=&quot;td-user&quot;&gt;Ang Cui&lt;/td&gt;
+</description>
+      <pubDate>Sat, 03 Oct 2009 12:13:21 -0400</pubDate>
+      <dc:date>2009-10-03T12:13:21.790979-04:00</dc:date>
+    </item>
+    <item>
+      <title>M. Locasto, J. Parekh, A. Keromytis, S. Stolfo. &quot;Towards Collaborative Security and P2P Intrusion Detection.&quot; In Proceedings of the 2005 IEEE Workshop on Information Assurance and Security, June 2005 </title>
+      <link>http://sneakers.cs.columbia.edu/ids/publications/locasto2005iaw.pdf</link>
+      <description>
+&lt;td class=&quot;td-select&quot;&gt;&lt;input class=&quot;filecabinet-checkbox&quot; type=&quot;checkbox&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-icon&quot;&gt;&lt;img src=&quot;/system/app/images/cleardot.gif&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-file&quot;&gt;&lt;a href=&quot;http://sneakers.cs.columbia.edu/ids/publications/locasto2005iaw.pdf&quot;&gt;locasto2005iaw.pdf&lt;/a&gt;&lt;/td&gt;
+&lt;td dir=&quot;ltr&quot; class=&quot;td-desc filecabinet-desc&quot;&gt;M. Locasto, J. Parekh, A. Keromytis, S. Stolfo. &quot;Towards Collaborative Security and P2P Intrusion Detection.&quot; In Proceedings of the 2005 IEEE Workshop on Information Assurance and Security, June 2005 &lt;/td&gt;
+&lt;td class=&quot;td-size&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-rev&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-time&quot;&gt;
+&lt;span dir=&quot;ltr&quot;&gt;Sep 8, 2008 8:04 PM&lt;/span&gt;
+&lt;/td&gt;
+&lt;td class=&quot;td-user&quot;&gt;Ang Cui&lt;/td&gt;
+</description>
+      <pubDate>Sat, 03 Oct 2009 12:13:21 -0400</pubDate>
+      <dc:date>2009-10-03T12:13:21.794121-04:00</dc:date>
+    </item>
+    <item>
+      <title>Steve Ulfelder. &quot;Spam-busters&quot;. Network World March 22, 2004 </title>
+      <link>http://sneakers.cs.columbia.edu/ids/publications/NetworkWorldFusion-Shlomo.doc</link>
+      <description>
+&lt;td class=&quot;td-select&quot;&gt;&lt;input class=&quot;filecabinet-checkbox&quot; type=&quot;checkbox&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-icon&quot;&gt;&lt;img src=&quot;/system/app/images/cleardot.gif&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-file&quot;&gt;&lt;a href=&quot;http://sneakers.cs.columbia.edu/ids/publications/NetworkWorldFusion-Shlomo.doc&quot;&gt;NetworkWorldFusion-Shlomo.doc&lt;/a&gt;&lt;/td&gt;
+&lt;td dir=&quot;ltr&quot; class=&quot;td-desc filecabinet-desc&quot;&gt;Steve Ulfelder. &quot;Spam-busters&quot;. Network World March 22, 2004 &lt;/td&gt;
+&lt;td class=&quot;td-size&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-rev&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-time&quot;&gt;
+&lt;span dir=&quot;ltr&quot;&gt;Sep 8, 2008 8:06 PM&lt;/span&gt;
+&lt;/td&gt;
+&lt;td class=&quot;td-user&quot;&gt;Ang Cui&lt;/td&gt;
+</description>
+      <pubDate>Sat, 03 Oct 2009 12:13:21 -0400</pubDate>
+      <dc:date>2009-10-03T12:13:21.79722-04:00</dc:date>
+    </item>
+    <item>
+      <title>Gabriela F. Cretu, Angelos Stavrou, Michael E. Locasto, Salvatore J. Stolfo &quot;Extended Abstract: Online Training and Sanitization of AD Systems&quot; NIPS Workshop on Machine Learning in Adversarial Environments for Computer Security, December 2007, Vancouver, B.C., Canada </title>
+      <link>http://sneakers.cs.columbia.edu/ids/publications/nips.pdf</link>
+      <description>
+&lt;td class=&quot;td-select&quot;&gt;&lt;input class=&quot;filecabinet-checkbox&quot; type=&quot;checkbox&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-icon&quot;&gt;&lt;img src=&quot;/system/app/images/cleardot.gif&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-file&quot;&gt;&lt;a href=&quot;http://sneakers.cs.columbia.edu/ids/publications/nips.pdf&quot;&gt;nips.pdf&lt;/a&gt;&lt;/td&gt;
+&lt;td dir=&quot;ltr&quot; class=&quot;td-desc filecabinet-desc&quot;&gt;Gabriela F. Cretu, Angelos Stavrou, Michael E. Locasto, Salvatore J. Stolfo &quot;Extended Abstract: Online Training and Sanitization of AD Systems&quot; NIPS Workshop on Machine Learning in Adversarial Environments for Computer Security, December 2007, Vancouver, B.C., Canada &lt;/td&gt;
+&lt;td class=&quot;td-size&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-rev&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-time&quot;&gt;
+&lt;span dir=&quot;ltr&quot;&gt;Sep 8, 2008 8:00 PM&lt;/span&gt;
+&lt;/td&gt;
+&lt;td class=&quot;td-user&quot;&gt;Ang Cui&lt;/td&gt;
+</description>
+      <pubDate>Sat, 03 Oct 2009 12:13:21 -0400</pubDate>
+      <dc:date>2009-10-03T12:13:21.800362-04:00</dc:date>
+    </item>
+    <item>
+      <title>Salvatore J. Stolfo, Shlomo Hershkop, Ke Wang, Olivier Nimeskern, and Chia-Wei Hu. ``Behavior Profiling of Email&quot; 1st NSF/NIJ Symposium on Intelligence &amp; Security Informatics(ISI 2003). June 2-3,2003,Tucson,Arizona,USA </title>
+      <link>http://sneakers.cs.columbia.edu/ids/publications/nsf-nij-emt.pdf</link>
+      <description>
+&lt;td class=&quot;td-select&quot;&gt;&lt;input class=&quot;filecabinet-checkbox&quot; type=&quot;checkbox&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-icon&quot;&gt;&lt;img src=&quot;/system/app/images/cleardot.gif&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-file&quot;&gt;&lt;a href=&quot;http://sneakers.cs.columbia.edu/ids/publications/nsf-nij-emt.pdf&quot;&gt;nsf-nij-emt.pdf&lt;/a&gt;&lt;/td&gt;
+&lt;td dir=&quot;ltr&quot; class=&quot;td-desc filecabinet-desc&quot;&gt;Salvatore J. Stolfo, Shlomo Hershkop, Ke Wang, Olivier Nimeskern, and Chia-Wei Hu. ``Behavior Profiling of Email&quot; 1st NSF/NIJ Symposium on Intelligence &amp;amp; Security Informatics(ISI 2003). June 2-3,2003,Tucson,Arizona,USA &lt;/td&gt;
+&lt;td class=&quot;td-size&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-rev&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-time&quot;&gt;
+&lt;span dir=&quot;ltr&quot;&gt;Sep 8, 2008 8:10 PM&lt;/span&gt;
+&lt;/td&gt;
+&lt;td class=&quot;td-user&quot;&gt;Ang Cui&lt;/td&gt;
+</description>
+      <pubDate>Sat, 03 Oct 2009 12:13:21 -0400</pubDate>
+      <dc:date>2009-10-03T12:13:21.803476-04:00</dc:date>
+    </item>
+    <item>
+      <title>Katherine A Heller, Krysta M Svore, Angelos D. Keromytis, and Salvatore J. Stolfo. &quot;One Class Support Vector Machines for Detecting Anomalous Window Registry Accesses&quot;. 3rd IEEE Conference Data Mining Workshop on Data Mining for Computer Security, Florida, November 19, 2003. </title>
+      <link>http://sneakers.cs.columbia.edu/ids/publications/ocsvm.pdf</link>
+      <description>
+&lt;td class=&quot;td-select&quot;&gt;&lt;input class=&quot;filecabinet-checkbox&quot; type=&quot;checkbox&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-icon&quot;&gt;&lt;img src=&quot;/system/app/images/cleardot.gif&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-file&quot;&gt;&lt;a href=&quot;http://sneakers.cs.columbia.edu/ids/publications/ocsvm.pdf&quot;&gt;ocsvm.pdf&lt;/a&gt;&lt;/td&gt;
+&lt;td dir=&quot;ltr&quot; class=&quot;td-desc filecabinet-desc&quot;&gt;Katherine A Heller, Krysta M Svore, Angelos D. Keromytis, and Salvatore J. Stolfo. &quot;One Class Support Vector Machines for Detecting Anomalous Window Registry Accesses&quot;. 3rd IEEE Conference Data Mining Workshop on Data Mining for Computer Security, Florida, November 19, 2003. &lt;/td&gt;
+&lt;td class=&quot;td-size&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-rev&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-time&quot;&gt;
+&lt;span dir=&quot;ltr&quot;&gt;Sep 8, 2008 8:10 PM&lt;/span&gt;
+&lt;/td&gt;
+&lt;td class=&quot;td-user&quot;&gt;Ang Cui&lt;/td&gt;
+</description>
+      <pubDate>Sat, 03 Oct 2009 12:13:21 -0400</pubDate>
+      <dc:date>2009-10-03T12:13:21.806618-04:00</dc:date>
+    </item>
+    <item>
+      <title>Ke Wang, Salvatore J. Stolfo. &quot;Anomalous Payload-based Network Intrusion Detection&quot;. RAID, Sept., 2004. </title>
+      <link>http://sneakers.cs.columbia.edu/ids/publications/RAID4.PDF</link>
+      <description>
+&lt;td class=&quot;td-select&quot;&gt;&lt;input class=&quot;filecabinet-checkbox&quot; type=&quot;checkbox&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-icon&quot;&gt;&lt;img src=&quot;/system/app/images/cleardot.gif&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-file&quot;&gt;&lt;a href=&quot;http://sneakers.cs.columbia.edu/ids/publications/RAID4.PDF&quot;&gt;RAID4.PDF&lt;/a&gt;&lt;/td&gt;
+&lt;td dir=&quot;ltr&quot; class=&quot;td-desc filecabinet-desc&quot;&gt;Ke Wang, Salvatore J. Stolfo. &quot;Anomalous Payload-based Network Intrusion Detection&quot;. RAID, Sept., 2004. &lt;/td&gt;
+&lt;td class=&quot;td-size&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-rev&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-time&quot;&gt;
+&lt;span dir=&quot;ltr&quot;&gt;Sep 8, 2008 8:07 PM&lt;/span&gt;
+&lt;/td&gt;
+&lt;td class=&quot;td-user&quot;&gt;Ang Cui&lt;/td&gt;
+</description>
+      <pubDate>Sat, 03 Oct 2009 12:13:21 -0400</pubDate>
+      <dc:date>2009-10-03T12:13:21.809809-04:00</dc:date>
+    </item>
+    <item>
+      <title>Ke Wang, Gabriela Cretu, Salvatore J. Stolfo &quot;Anomalous Payload-based Worm Detection and Signature Generation&quot; Proceedings of the Eighth International Symposium on Recent Advances in Intrusion Detection(RAID 2005) </title>
+      <link>http://sneakers.cs.columbia.edu/ids/publications/raid-camerav.pdf</link>
+      <description>
+&lt;td class=&quot;td-select&quot;&gt;&lt;input class=&quot;filecabinet-checkbox&quot; type=&quot;checkbox&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-icon&quot;&gt;&lt;img src=&quot;/system/app/images/cleardot.gif&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-file&quot;&gt;&lt;a href=&quot;http://sneakers.cs.columbia.edu/ids/publications/raid-camerav.pdf&quot;&gt;raid-camerav.pdf&lt;/a&gt;&lt;/td&gt;
+&lt;td dir=&quot;ltr&quot; class=&quot;td-desc filecabinet-desc&quot;&gt;Ke Wang, Gabriela Cretu, Salvatore J. Stolfo &quot;Anomalous Payload-based Worm Detection and Signature Generation&quot; Proceedings of the Eighth International Symposium on Recent Advances in Intrusion Detection(RAID 2005) &lt;/td&gt;
+&lt;td class=&quot;td-size&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-rev&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-time&quot;&gt;
+&lt;span dir=&quot;ltr&quot;&gt;Sep 8, 2008 8:03 PM&lt;/span&gt;
+&lt;/td&gt;
+&lt;td class=&quot;td-user&quot;&gt;Ang Cui&lt;/td&gt;
+</description>
+      <pubDate>Sat, 03 Oct 2009 12:13:21 -0400</pubDate>
+      <dc:date>2009-10-03T12:13:21.812974-04:00</dc:date>
+    </item>
+    <item>
+      <title>Wei-Jen Li, Shlomo Hershkop, Salvatore J. Stolfo, &quot;Email Archive Analysis Through Graphical Visualization.&quot; ACM CCS VizSEC/DMSEC'04 </title>
+      <link>http://sneakers.cs.columbia.edu/ids/publications/s07-weijen.pdf</link>
+      <description>
+&lt;td class=&quot;td-select&quot;&gt;&lt;input class=&quot;filecabinet-checkbox&quot; type=&quot;checkbox&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-icon&quot;&gt;&lt;img src=&quot;/system/app/images/cleardot.gif&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-file&quot;&gt;&lt;a href=&quot;http://sneakers.cs.columbia.edu/ids/publications/s07-weijen.pdf&quot;&gt;s07-weijen.pdf&lt;/a&gt;&lt;/td&gt;
+&lt;td dir=&quot;ltr&quot; class=&quot;td-desc filecabinet-desc&quot;&gt;Wei-Jen Li, Shlomo Hershkop, Salvatore J. Stolfo, &quot;Email Archive Analysis Through Graphical Visualization.&quot; ACM CCS VizSEC/DMSEC'04 &lt;/td&gt;
+&lt;td class=&quot;td-size&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-rev&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-time&quot;&gt;
+&lt;span dir=&quot;ltr&quot;&gt;Sep 8, 2008 8:05 PM&lt;/span&gt;
+&lt;/td&gt;
+&lt;td class=&quot;td-user&quot;&gt;Ang Cui&lt;/td&gt;
+</description>
+      <pubDate>Sat, 03 Oct 2009 12:13:21 -0400</pubDate>
+      <dc:date>2009-10-03T12:13:21.81609-04:00</dc:date>
+    </item>
+    <item>
+      <title>Gabriela F. Cretu, Angelos Stavrou, Michael E. Locasto, Salvatore J. Stolfo, Angelos D. Keromytis &quot;Casting out Demons: Sanitizing Training Data for Anomaly Sensors&quot; To appear in the Proceedings of the IEEE Symposium on Security &amp; Privacy. May 2008, Oakland, CA. </title>
+      <link>http://sneakers.cs.columbia.edu/ids/publications/SanitizingTrainingData.pdf</link>
+      <description>
+&lt;td class=&quot;td-select&quot;&gt;&lt;input class=&quot;filecabinet-checkbox&quot; type=&quot;checkbox&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-icon&quot;&gt;&lt;img src=&quot;/system/app/images/cleardot.gif&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-file&quot;&gt;&lt;a href=&quot;http://sneakers.cs.columbia.edu/ids/publications/SanitizingTrainingData.pdf&quot;&gt;SanitizingTrainingData.pdf&lt;/a&gt;&lt;/td&gt;
+&lt;td dir=&quot;ltr&quot; class=&quot;td-desc filecabinet-desc&quot;&gt;Gabriela F. Cretu, Angelos Stavrou, Michael E. Locasto, Salvatore J. Stolfo, Angelos D. Keromytis &quot;Casting out Demons: Sanitizing Training Data for Anomaly Sensors&quot; To appear in the Proceedings of the IEEE Symposium on Security &amp;amp; Privacy. May 2008, Oakland, CA. &lt;/td&gt;
+&lt;td class=&quot;td-size&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-rev&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-time&quot;&gt;
+&lt;span dir=&quot;ltr&quot;&gt;Sep 8, 2008 7:55 PM&lt;/span&gt;
+&lt;/td&gt;
+&lt;td class=&quot;td-user&quot;&gt;Ang Cui&lt;/td&gt;
+</description>
+      <pubDate>Sat, 03 Oct 2009 12:13:21 -0400</pubDate>
+      <dc:date>2009-10-03T12:13:21.819313-04:00</dc:date>
+    </item>
+    <item>
+      <title>Seth Robertson, Eric V. Siegel, Matt Miller, and Salvatore J. Stolfo. ``Surveillance Detection in High Bandwidth Environments.''  In Proceedings of the 2003 DARPA DISCEX III Conference. April, 2003. </title>
+      <link>http://sneakers.cs.columbia.edu/ids/publications/SD-DiscexIII.pdf</link>
+      <description>
+&lt;td class=&quot;td-select&quot;&gt;&lt;input class=&quot;filecabinet-checkbox&quot; type=&quot;checkbox&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-icon&quot;&gt;&lt;img src=&quot;/system/app/images/cleardot.gif&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-file&quot;&gt;&lt;a href=&quot;http://sneakers.cs.columbia.edu/ids/publications/SD-DiscexIII.pdf&quot;&gt;SD-DiscexIII.pdf&lt;/a&gt;&lt;/td&gt;
+&lt;td dir=&quot;ltr&quot; class=&quot;td-desc filecabinet-desc&quot;&gt;Seth Robertson, Eric V. Siegel, Matt Miller, and Salvatore J. Stolfo. ``Surveillance Detection in High Bandwidth Environments.''  In Proceedings of the 2003 DARPA DISCEX III Conference. April, 2003. &lt;/td&gt;
+&lt;td class=&quot;td-size&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-rev&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-time&quot;&gt;
+&lt;span dir=&quot;ltr&quot;&gt;Sep 8, 2008 8:11 PM&lt;/span&gt;
+&lt;/td&gt;
+&lt;td class=&quot;td-user&quot;&gt;Ang Cui&lt;/td&gt;
+</description>
+      <pubDate>Sat, 03 Oct 2009 12:13:21 -0400</pubDate>
+      <dc:date>2009-10-03T12:13:21.82251-04:00</dc:date>
+    </item>
+    <item>
+      <title>Wei-Jen Li, Salvatore J. Stolfo, Angelos Stavrou, Elli Androulaki, Angelos Keromytis &quot;A Study of Malcode-Bearing Documents&quot; In the Proceedings of 4th GI International Conference on Detection of Intrusions &amp; Malware, and Vulnerability Assessment, July 2007, Lucerne, Switzerland. </title>
+      <link>http://sneakers.cs.columbia.edu/ids/publications/Sparse.pdf</link>
+      <description>
+&lt;td class=&quot;td-select&quot;&gt;&lt;input class=&quot;filecabinet-checkbox&quot; type=&quot;checkbox&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-icon&quot;&gt;&lt;img src=&quot;/system/app/images/cleardot.gif&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-file&quot;&gt;&lt;a href=&quot;http://sneakers.cs.columbia.edu/ids/publications/Sparse.pdf&quot;&gt;Sparse.pdf&lt;/a&gt;&lt;/td&gt;
+&lt;td dir=&quot;ltr&quot; class=&quot;td-desc filecabinet-desc&quot;&gt;Wei-Jen Li, Salvatore J. Stolfo, Angelos Stavrou, Elli Androulaki, Angelos Keromytis &quot;A Study of Malcode-Bearing Documents&quot; In the Proceedings of 4th GI International Conference on Detection of Intrusions &amp;amp; Malware, and Vulnerability Assessment, July 2007, Lucerne, Switzerland. &lt;/td&gt;
+&lt;td class=&quot;td-size&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-rev&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-time&quot;&gt;
+&lt;span dir=&quot;ltr&quot;&gt;Sep 8, 2008 7:58 PM&lt;/span&gt;
+&lt;/td&gt;
+&lt;td class=&quot;td-user&quot;&gt;Ang Cui&lt;/td&gt;
+</description>
+      <pubDate>Sat, 03 Oct 2009 12:13:21 -0400</pubDate>
+      <dc:date>2009-10-03T12:13:21.826719-04:00</dc:date>
+    </item>
+    <item>
+      <title>Michael E. Locasto, Angelos Stavrou, Gabriela F. Cretu, and Angelos D. Keromytis &quot;From STEM to SEAD: Speculative Execution for Automated Defense&quot; In the Proceedings of the USENIX Annual Technical Conference. June 2007, Santa Clara, CA </title>
+      <link>http://sneakers.cs.columbia.edu/ids/publications/stemsead.pdf</link>
+      <description>
+&lt;td class=&quot;td-select&quot;&gt;&lt;input class=&quot;filecabinet-checkbox&quot; type=&quot;checkbox&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-icon&quot;&gt;&lt;img src=&quot;/system/app/images/cleardot.gif&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-file&quot;&gt;&lt;a href=&quot;http://sneakers.cs.columbia.edu/ids/publications/stemsead.pdf&quot;&gt;stemsead.pdf&lt;/a&gt;&lt;/td&gt;
+&lt;td dir=&quot;ltr&quot; class=&quot;td-desc filecabinet-desc&quot;&gt;Michael E. Locasto, Angelos Stavrou, Gabriela F. Cretu, and Angelos D. Keromytis &quot;From STEM to SEAD: Speculative Execution for Automated Defense&quot; In the Proceedings of the USENIX Annual Technical Conference. June 2007, Santa Clara, CA &lt;/td&gt;
+&lt;td class=&quot;td-size&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-rev&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-time&quot;&gt;
+&lt;span dir=&quot;ltr&quot;&gt;Sep 8, 2008 7:57 PM&lt;/span&gt;
+&lt;/td&gt;
+&lt;td class=&quot;td-user&quot;&gt;Ang Cui&lt;/td&gt;
+</description>
+      <pubDate>Sat, 03 Oct 2009 12:13:21 -0400</pubDate>
+      <dc:date>2009-10-03T12:13:21.830859-04:00</dc:date>
+    </item>
+    <item>
+      <title>Eric Roston. &quot;The Code Warriors&quot;. Time Magazine Nov. 10, 2003 Vol. 162, Iss. 19; pg. S2. </title>
+      <link>http://sneakers.cs.columbia.edu/ids/publications/TIME%20code%20warriors.doc</link>
+      <description>
+&lt;td class=&quot;td-select&quot;&gt;&lt;input class=&quot;filecabinet-checkbox&quot; type=&quot;checkbox&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-icon&quot;&gt;&lt;img src=&quot;/system/app/images/cleardot.gif&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-file&quot;&gt;&lt;a href=&quot;http://sneakers.cs.columbia.edu/ids/publications/TIME%20code%20warriors.doc&quot;&gt;TIME%20code%20warriors.doc&lt;/a&gt;&lt;/td&gt;
+&lt;td dir=&quot;ltr&quot; class=&quot;td-desc filecabinet-desc&quot;&gt;Eric Roston. &quot;The Code Warriors&quot;. Time Magazine Nov. 10, 2003 Vol. 162, Iss. 19; pg. S2. &lt;/td&gt;
+&lt;td class=&quot;td-size&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-rev&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-time&quot;&gt;
+&lt;span dir=&quot;ltr&quot;&gt;Sep 8, 2008 8:08 PM&lt;/span&gt;
+&lt;/td&gt;
+&lt;td class=&quot;td-user&quot;&gt;Ang Cui&lt;/td&gt;
+</description>
+      <pubDate>Sat, 03 Oct 2009 12:13:21 -0400</pubDate>
+      <dc:date>2009-10-03T12:13:21.834013-04:00</dc:date>
+    </item>
+    <item>
+      <title>Salvatore J. Stolfo, Wei-Jen Li, Shlomo Hershkop, Ke Wang, Chia-Wei Hu, Olivier Nimeskern. &quot;Detecting Viral Propagations Using Email Behavior Profiles&quot;. CU Tech Report 2003. </title>
+      <link>http://sneakers.cs.columbia.edu/ids/publications/TOIT-EMT-101603.pdf</link>
+      <description>
+&lt;td class=&quot;td-select&quot;&gt;&lt;input class=&quot;filecabinet-checkbox&quot; type=&quot;checkbox&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-icon&quot;&gt;&lt;img src=&quot;/system/app/images/cleardot.gif&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-file&quot;&gt;&lt;a href=&quot;http://sneakers.cs.columbia.edu/ids/publications/TOIT-EMT-101603.pdf&quot;&gt;TOIT-EMT-101603.pdf&lt;/a&gt;&lt;/td&gt;
+&lt;td dir=&quot;ltr&quot; class=&quot;td-desc filecabinet-desc&quot;&gt;Salvatore J. Stolfo, Wei-Jen Li, Shlomo Hershkop, Ke Wang, Chia-Wei Hu, Olivier Nimeskern. &quot;Detecting Viral Propagations Using Email Behavior Profiles&quot;. CU Tech Report 2003. &lt;/td&gt;
+&lt;td class=&quot;td-size&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-rev&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-time&quot;&gt;
+&lt;span dir=&quot;ltr&quot;&gt;Sep 8, 2008 8:08 PM&lt;/span&gt;
+&lt;/td&gt;
+&lt;td class=&quot;td-user&quot;&gt;Ang Cui&lt;/td&gt;
+</description>
+      <pubDate>Sat, 03 Oct 2009 12:13:21 -0400</pubDate>
+      <dc:date>2009-10-03T12:13:21.837171-04:00</dc:date>
+    </item>
+    <item>
+      <title>Salvatore J. Stolfo, Shlomo Hershkop, Chia-Wei Hu, Wei-Jen Li, Olivier Nimeskern, Ke Wang &quot;Behavior-based Modeling and its Application to Email Analysis&quot;  ACM Transactions on Internet Technology (TOIT) , Feb 2006. </title>
+      <link>http://sneakers.cs.columbia.edu/ids/publications/TOIT-EMT.pdf</link>
+      <description>
+&lt;td class=&quot;td-select&quot;&gt;&lt;input class=&quot;filecabinet-checkbox&quot; type=&quot;checkbox&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-icon&quot;&gt;&lt;img src=&quot;/system/app/images/cleardot.gif&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-file&quot;&gt;&lt;a href=&quot;http://sneakers.cs.columbia.edu/ids/publications/TOIT-EMT.pdf&quot;&gt;TOIT-EMT.pdf&lt;/a&gt;&lt;/td&gt;
+&lt;td dir=&quot;ltr&quot; class=&quot;td-desc filecabinet-desc&quot;&gt;Salvatore J. Stolfo, Shlomo Hershkop, Chia-Wei Hu, Wei-Jen Li, Olivier Nimeskern, Ke Wang &quot;Behavior-based Modeling and its Application to Email Analysis&quot;  ACM Transactions on Internet Technology (TOIT) , Feb 2006. &lt;/td&gt;
+&lt;td class=&quot;td-size&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-rev&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-time&quot;&gt;
+&lt;span dir=&quot;ltr&quot;&gt;Sep 8, 2008 8:02 PM&lt;/span&gt;
+&lt;/td&gt;
+&lt;td class=&quot;td-user&quot;&gt;Ang Cui&lt;/td&gt;
+</description>
+      <pubDate>Sat, 03 Oct 2009 12:13:21 -0400</pubDate>
+      <dc:date>2009-10-03T12:13:21.840275-04:00</dc:date>
+    </item>
+    <item>
+      <title>Salvatore J. Stolfo, Frank Apap, Eleazar Eskin, Katherine Heller, Shlomo Hershkop, Andrew Honig, and Krysta Svore. &quot;A comparative Evaluation of Two Algorithms for Windows Registry Anomaly Detection&quot;. Journal of Computer Security, Vol 13, No. 4, 2005 </title>
+      <link>http://sneakers.cs.columbia.edu/ids/publications/WindowsRegistry2005.pdf</link>
+      <description>
+&lt;td class=&quot;td-select&quot;&gt;&lt;input class=&quot;filecabinet-checkbox&quot; type=&quot;checkbox&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-icon&quot;&gt;&lt;img src=&quot;/system/app/images/cleardot.gif&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-file&quot;&gt;&lt;a href=&quot;http://sneakers.cs.columbia.edu/ids/publications/WindowsRegistry2005.pdf&quot;&gt;WindowsRegistry2005.pdf&lt;/a&gt;&lt;/td&gt;
+&lt;td dir=&quot;ltr&quot; class=&quot;td-desc filecabinet-desc&quot;&gt;Salvatore J. Stolfo, Frank Apap, Eleazar Eskin, Katherine Heller, Shlomo Hershkop, Andrew Honig, and Krysta Svore. &quot;A comparative Evaluation of Two Algorithms for Windows Registry Anomaly Detection&quot;. Journal of Computer Security, Vol 13, No. 4, 2005 &lt;/td&gt;
+&lt;td class=&quot;td-size&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-rev&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-time&quot;&gt;
+&lt;span dir=&quot;ltr&quot;&gt;Sep 8, 2008 8:02 PM&lt;/span&gt;
+&lt;/td&gt;
+&lt;td class=&quot;td-user&quot;&gt;Ang Cui&lt;/td&gt;
+</description>
+      <pubDate>Sat, 03 Oct 2009 12:13:21 -0400</pubDate>
+      <dc:date>2009-10-03T12:13:21.843503-04:00</dc:date>
+    </item>
+    <item>
+      <title>Salvatore J. Stolfo, Frank Apap, Eleazar Eskin, Katherine Heller, Shlomo Hershkop, Andrew Honig, and Krysta Svore. &quot;A comparative Evaluation of Two Algorithms for Windows Registry Anomaly Detection&quot;. CU Tech Report  Feb. 23, 2004 </title>
+      <link>http://sneakers.cs.columbia.edu/ids/publications/A%20comparative%20Evaluation%20of%20Two%20Algorithms%20for%20Windows%20Registry%20Anomaly%20Detection.pdf</link>
+      <description>
+&lt;td class=&quot;td-select&quot;&gt;&lt;input class=&quot;filecabinet-checkbox&quot; type=&quot;checkbox&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-icon&quot;&gt;&lt;img src=&quot;/system/app/images/cleardot.gif&quot; /&gt;&lt;/td&gt;
+&lt;td class=&quot;td-file&quot;&gt;&lt;a href=&quot;http://sneakers.cs.columbia.edu/ids/publications/A%20comparative%20Evaluation%20of%20Two%20Algorithms%20for%20Windows%20Registry%20Anomaly%20Detection.pdf&quot;&gt;WindowsRegistryAnomalyDetection.pdf&lt;/a&gt;&lt;/td&gt;
+&lt;td dir=&quot;ltr&quot; class=&quot;td-desc filecabinet-desc&quot;&gt;Salvatore J. Stolfo, Frank Apap, Eleazar Eskin, Katherine Heller, Shlomo Hershkop, Andrew Honig, and Krysta Svore. &quot;A comparative Evaluation of Two Algorithms for Windows Registry Anomaly Detection&quot;. CU Tech Report  Feb. 23, 2004 &lt;/td&gt;
+&lt;td class=&quot;td-size&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-rev&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;td-time&quot;&gt;
+&lt;span dir=&quot;ltr&quot;&gt;Sep 8, 2008 8:06 PM&lt;/span&gt;
+&lt;/td&gt;
+&lt;td class=&quot;td-user&quot;&gt;Ang Cui&lt;/td&gt;
+</description>
+      <pubDate>Sat, 03 Oct 2009 12:13:21 -0400</pubDate>
+      <dc:date>2009-10-03T12:13:21.846626-04:00</dc:date>
+    </item>
+  </channel>
+</rss>
