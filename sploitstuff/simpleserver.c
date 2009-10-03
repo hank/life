@@ -9,15 +9,25 @@
 
 #define LISTENQ 1024
 
+uint8_t read_in(int sock, char * buffer) {
+  char * endptr = buffer;
+  while(read(sock, endptr, 1) == 1) {
+    if(*endptr == 0 || *endptr == '\n') break;
+    endptr++;
+  }
+  printf("Writing %ld bytes into buffer...\n", endptr-buffer);
+  return endptr-buffer;
+}
+
 int main(int argc, char ** argv)
 {
+  char buffer[512]; /* Ruh roh! */
   int listen_s;
   int connect_s;
+  uint8_t n;
   uint16_t port;
   uint16_t child_pid;
   struct sockaddr_in servaddr;
-  char buffer[512]; /* Ruh roh! */
-  char *endptr;
 
   if(argc == 2) {
     port = atoi(argv[1]);
@@ -61,13 +71,8 @@ int main(int argc, char ** argv)
         exit(EXIT_FAILURE);
       }
       while(1) {
-        endptr = buffer;
-        
-        while(read(connect_s, endptr, 1) == 1) {
-          if(*endptr == 0 || *endptr == '\n') break;
-          endptr++;
-        }
-        write(connect_s, buffer, endptr-buffer);
+        n = read_in(connect_s, buffer);
+        write(connect_s, buffer, n);
         write(connect_s, "\r\n", 2);
       }
     }
