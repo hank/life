@@ -1,3 +1,7 @@
+/* ekg_sys.h
+ * Various niceties for programming.
+ */
+
 #define GET_CYCLES(x) do { \
   unsigned lo, hi; \
   __asm__ __volatile(".byte 0x0f, 0x31" : "=a"(lo), "=d"(hi)); \
@@ -74,7 +78,25 @@ inline uint8_t bin2hex(char lt[256][2], char * destination, uint8_t * source, un
     destination[pos+1] = lt[source[i]][1];
     i++, pos += 2;
   }
-  return 1;
+  return pos-1;
+}
+
+/* Allocating 
+ * ONLY USE IF YOU'RE NOT LOOPING OVER THIS FUNCTION!
+ */
+/* Params are Lookup Table, destination, source, and size of INPUT data */
+inline uint8_t abin2hex(char * destination, uint8_t * source, unsigned int size)
+{
+  unsigned int i = 0;
+  unsigned int pos = 0;
+  char lt[256][2];
+  bin2hex_init(lt);
+  while(i < size) {
+    destination[pos] = lt[source[i]][0];
+    destination[pos+1] = lt[source[i]][1];
+    i++, pos += 2;
+  }
+  return pos-1;
 }
 
 /* ------------------------------------------------------------------- */
