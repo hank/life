@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+  <channel>
+    <title>Angelos Keromytis Paper Feed</title>
+    <link>http://www.ralree.info/angelos.xml</link>
+    <description>Angelos Keromytis' Papers scraped from his site, on tap</description>
+    <item>
+      <title>On the Infeasibility of Modeling Polymorphic Shellcode: Re-thinking the Role of Learning in Intrusion Detection Systems</title>
+      <description>&lt;dl&gt;&lt;dt&gt;&lt;i&gt;&quot;On the Infeasibility of Modeling Polymorphic
+Shellcode: Re-thinking the Role of Learning in Intrusion Detection
+Systems&quot;&lt;/i&gt;&lt;/dt&gt; &lt;dd&gt;&lt;span class=&quot;author student&quot;&gt;Yingbo Song&lt;/span&gt;,
+&lt;span class=&quot;author&quot;&gt;Michael
+E. Locasto&lt;/span&gt;, &lt;span class=&quot;author&quot;&gt;Angelos Stavrou&lt;/span&gt;,
+&lt;span class=&quot;author self&quot;&gt;Angelos D. Keromytis&lt;/span&gt;, and
+&lt;span class=&quot;author&quot;&gt;Salvatore J. Stolfo&lt;/span&gt;. To appear in
+the &lt;i&gt;Machine Learning Journal (MLJ).&lt;/i&gt;&lt;/dd&gt;&lt;/dl&gt;</description>
+      <pubDate>Sat, 03 Oct 2009 12:00:12 -0400</pubDate>
+      <dc:date>2009-10-03T12:00:12.947368-04:00</dc:date>
+    </item>
+    <item>
+      <title>A Market-based Bandwidth Charging Framework</title>
+      <link>http://www1.cs.columbia.edu/~angelos/Papers/2009/bandex.pdf</link>
+      <description>&lt;dl&gt;&lt;dt&gt;&lt;i&gt;&lt;a href=&quot;Papers/2009/bandex.pdf&quot;&gt;&quot;A Market-based
+Bandwidth Charging Framework&quot;&lt;/a&gt;&lt;/i&gt;&lt;/dt&gt;
+&lt;dd&gt;&lt;span class=&quot;author student&quot;&gt;David Michael
+Turner&lt;/span&gt;, &lt;span class=&quot;author&quot;&gt;Vassilis Prevelakis&lt;/span&gt;,
+and &lt;span class=&quot;author self&quot;&gt;Angelos D. Keromytis&lt;/span&gt;. To appear
+in the &lt;i&gt;ACM Transactions on Internet Technology
+(ToIT).&lt;/i&gt;&lt;/dd&gt;&lt;/dl&gt;</description>
+      <pubDate>Sat, 03 Oct 2009 12:00:12 -0400</pubDate>
+      <dc:date>2009-10-03T12:00:12.950644-04:00</dc:date>
+    </item>
+    <item>
+      <title>On The General Applicability of Instruction-Set Randomization</title>
+      <link>http://www1.cs.columbia.edu/~angelos/Papers/2009/general-isr.pdf</link>
+      <description>&lt;dl&gt;&lt;dt&gt;&lt;i&gt;&lt;a href=&quot;Papers/2009/general-isr.pdf&quot;&gt;&quot;On The General
+Applicability of Instruction-Set
+Randomization&quot;&lt;/a&gt;&lt;/i&gt;&lt;/dt&gt; &lt;dd&gt;&lt;span class=&quot;author student&quot;&gt;Stephen
+W. Boyd&lt;/span&gt;, &lt;span class=&quot;author student&quot;&gt;Gaurav S. Kc&lt;/span&gt;,
+&lt;span class=&quot;author student&quot;&gt;Michael
+E. Locasto&lt;/span&gt;, &lt;span class=&quot;author self&quot;&gt;Angelos
+D. Keromytis&lt;/span&gt;, and &lt;span class=&quot;author&quot;&gt;Vassilis
+Prevelakis&lt;/span&gt;. To appear in &lt;i&gt;IEEE Transactions on Dependable and
+Secure Computing (TDSC).&lt;/i&gt;&lt;/dd&gt;&lt;/dl&gt;</description>
+      <pubDate>Sat, 03 Oct 2009 12:00:12 -0400</pubDate>
+      <dc:date>2009-10-03T12:00:12.954044-04:00</dc:date>
+    </item>
+    <item>
+      <title>Designing Host and Network Sensors to Mitigate the Insider Threat</title>
+      <link>http://www1.cs.columbia.edu/~angelos/Papers/2009/DesigningSensorsInsider.pdf</link>
+      <description>&lt;dl&gt;&lt;dt&gt;&lt;i&gt;&lt;a href=&quot;Papers/2009/DesigningSensorsInsider.pdf&quot;&gt;&quot;Designing
+Host and Network Sensors to Mitigate the Insider
+Threat&quot;&lt;/a&gt;&lt;/i&gt;&lt;/dt&gt; &lt;dd&gt;&lt;span class=&quot;author student&quot;&gt;Brian M.
+Bowen&lt;/span&gt;, &lt;span class=&quot;author student&quot;&gt;Malek Ben Salem&lt;/span&gt;,
+&lt;span class=&quot;author&quot;&gt;Shlomo Hershkop&lt;/span&gt;, &lt;span class=&quot;author
+self&quot;&gt;Angelos D. Keromytis&lt;/span&gt;, and &lt;span class=&quot;author&quot;&gt;Salvatore
+J. Stolfo&lt;/span&gt;. To appear in the &lt;i&gt;IEEE Security &amp;amp; Privacy
+Magazine.&lt;/i&gt;&lt;/dd&gt;&lt;/dl&gt;</description>
+      <pubDate>Sat, 03 Oct 2009 12:00:12 -0400</pubDate>
+      <dc:date>2009-10-03T12:00:12.957515-04:00</dc:date>
+    </item>
+    <item>
+      <title>Elastic Block Ciphers: Method, Security and Instantiations</title>
+      <link>http://www1.cs.columbia.edu/~angelos/Papers/2009/ebc-ijis.pdf</link>
+      <description>&lt;dl&gt;&lt;dt&gt;&lt;i&gt;&lt;a href=&quot;Papers/2009/ebc-ijis.pdf&quot;&gt;&quot;Elastic Block
+Ciphers: Method, Security and
+Instantiations&quot;&lt;/a&gt;&lt;/i&gt;&lt;/dt&gt; &lt;dd&gt;&lt;span class=&quot;author&quot;&gt;Debra
+L. Cook&lt;/span&gt;, &lt;span class=&quot;author&quot;&gt;Moti Yung&lt;/span&gt;, and
+&lt;span class=&quot;author self&quot;&gt;Angelos D. Keromytis&lt;/span&gt;.  In &lt;i&gt;Springer
+International Journal of Information Security (IJIS),&lt;/i&gt; vol 8,
+no. 3, pp 211 - 231, June 2009.&lt;/dd&gt;&lt;/dl&gt;</description>
+      <pubDate>Sat, 03 Oct 2009 12:00:12 -0400</pubDate>
+      <dc:date>2009-10-03T12:00:12.96076-04:00</dc:date>
+    </item>
+    <item>
+      <title>On the Deployment of Dynamic Taint Analysis for Application Communities</title>
+      <link>http://www1.cs.columbia.edu/~angelos/Papers/2009/dta_apache_ac.pdf</link>
+      <description>&lt;dl&gt;&lt;dt&gt;&lt;i&gt;&lt;a href=&quot;Papers/2009/dta_apache_ac.pdf&quot;&gt;&quot;On the
+Deployment of Dynamic Taint Analysis for Application
+Communities&quot;&lt;/a&gt;&lt;/i&gt;&lt;/dt&gt; &lt;dd&gt;&lt;span class=&quot;author&quot;&gt;Hyung Chan
+Kim&lt;/span&gt; and &lt;span class=&quot;author self&quot;&gt;Angelos
+D. Keromytis&lt;/span&gt;. In &lt;i&gt;IEICE Transactions,&lt;/i&gt; vol. E92-D, no. 3,
+pp. 548 - 551, March 2009.&lt;/dd&gt;&lt;/dl&gt;</description>
+      <pubDate>Sat, 03 Oct 2009 12:00:12 -0400</pubDate>
+      <dc:date>2009-10-03T12:00:12.96409-04:00</dc:date>
+    </item>
+    <item>
+      <title>Dynamic Trust Management</title>
+      <link>http://www1.cs.columbia.edu/~angelos/Papers/2009/dynamictm.pdf</link>
+      <description>&lt;dl&gt;&lt;dt&gt;&lt;i&gt;&lt;a href=&quot;Papers/2009/dynamictm.pdf&quot;&gt;&quot;Dynamic Trust
+Management&quot;&lt;/a&gt;&lt;/i&gt;&lt;/dt&gt; &lt;dd&gt;&lt;span class=&quot;author&quot;&gt;Matt Blaze&lt;/span&gt;,
+&lt;span class=&quot;author&quot;&gt;Sampath Kannan&lt;/span&gt;, &lt;span class=&quot;author&quot;&gt;Insup
+Lee&lt;/span&gt;, &lt;span class=&quot;author&quot;&gt;Oleg Sokolsky&lt;/span&gt;,
+&lt;span class=&quot;author&quot;&gt;Jonathan M. Smith&lt;/span&gt;, &lt;span class=&quot;author
+self&quot;&gt;Angelos D. Keromytis&lt;/span&gt;, and &lt;span class=&quot;author&quot;&gt;Wenke
+Lee&lt;/span&gt;. In &lt;i&gt;IEEE Computer Magazine,&lt;/i&gt; vol. 42, no. 2, pp. 44 -
+52, February 2009.&lt;/dd&gt;&lt;/dl&gt;</description>
+      <pubDate>Sat, 03 Oct 2009 12:00:12 -0400</pubDate>
+      <dc:date>2009-10-03T12:00:12.967492-04:00</dc:date>
+    </item>
+    <item>
+      <title>Randomized Instruction Sets and Runtime Environments: Past Research and Future Directions</title>
+      <link>http://www1.cs.columbia.edu/~angelos/Papers/2009/isr-ieeesp.pdf</link>
+      <description>&lt;dl&gt;&lt;dt&gt;&lt;i&gt;&lt;a href=&quot;Papers/2009/isr-ieeesp.pdf&quot;&gt;&quot;Randomized
+Instruction Sets and Runtime Environments: Past Research and Future
+Directions&quot;&lt;/a&gt;&lt;/i&gt;&lt;/dt&gt; &lt;dd&gt;&lt;span class=&quot;author self&quot;&gt;Angelos
+D. Keromytis&lt;/span&gt;. In &lt;i&gt;IEEE Security &amp;amp; Privacy Magazine,&lt;/i&gt;
+vol. 7, no. 1, pp. 18 - 25, January/February 2009.&lt;/dd&gt;&lt;/dl&gt;</description>
+      <pubDate>Sat, 03 Oct 2009 12:00:12 -0400</pubDate>
+      <dc:date>2009-10-03T12:00:12.97072-04:00</dc:date>
+    </item>
+    <item>
+      <title>Anonymity in Wireless Broadcast Networks</title>
+      <link>http://www1.cs.columbia.edu/~angelos/Papers/2008/ijns-war.pdf</link>
+      <description>&lt;dl&gt;&lt;dt&gt;&lt;i&gt;&lt;a href=&quot;Papers/2008/ijns-war.pdf&quot;&gt;&quot;Anonymity in
+Wireless Broadcast
+Networks&quot;&lt;/a&gt;&lt;/i&gt;&lt;/dt&gt; &lt;dd&gt;&lt;span class=&quot;author&quot;&gt;Matt
+Blaze&lt;/span&gt;, &lt;span class=&quot;author&quot;&gt;John
+Ioannidis&lt;/span&gt;, &lt;span class=&quot;author self&quot;&gt;Angelos
+D. Keromytis&lt;/span&gt;, &lt;span class=&quot;author&quot;&gt;Tal Malkin&lt;/span&gt;,
+and &lt;span class=&quot;author&quot;&gt;Avi Rubin&lt;/span&gt;. In &lt;i&gt;International Journal
+of Network Security (IJNS),&lt;/i&gt; vol. 8, no. 1, pp. 37 - 51, January
+2009.&lt;/dd&gt;&lt;/dl&gt;</description>
+      <pubDate>Sat, 03 Oct 2009 12:00:12 -0400</pubDate>
+      <dc:date>2009-10-03T12:00:12.974106-04:00</dc:date>
+    </item>
+    <item>
+      <title>Decentralized Access Control in Networked File Systems</title>
+      <link>http://www1.cs.columbia.edu/~angelos/Papers/2008/dfs_survey.pdf</link>
+      <description>&lt;dl&gt;&lt;dt&gt;&lt;i&gt;&lt;a href=&quot;Papers/2008/dfs_survey.pdf&quot;&gt;&quot;Decentralized
+Access Control in Networked File
+Systems&quot;&lt;/a&gt;&lt;/i&gt;&lt;/dt&gt; &lt;dd&gt;&lt;span class=&quot;author student&quot;&gt;Stefan
+Miltchev&lt;/span&gt;, &lt;span class=&quot;author&quot;&gt;Jonathan
+M. Smith&lt;/span&gt;, &lt;span class=&quot;author&quot;&gt;Vassilis
+Prevelakis&lt;/span&gt;, &lt;span class=&quot;author self&quot;&gt;Angelos
+D. Keromytis&lt;/span&gt;, and &lt;span class=&quot;author&quot;&gt;Sotiris
+Ioannidis&lt;/span&gt;. In &lt;i&gt;ACM Computing Surveys,&lt;/i&gt; vol. 40, no. 3,
+pp. 10:1 - 10:30, August 2008. &lt;/dd&gt;&lt;/dl&gt;</description>
+      <pubDate>Sat, 03 Oct 2009 12:00:12 -0400</pubDate>
+      <dc:date>2009-10-03T12:00:12.977512-04:00</dc:date>
+    </item>
+    <item>
+      <title>Robust Reactions to Potential Day-Zero Worms through Cooperation and Validation</title>
+      <link>http://www1.cs.columbia.edu/~angelos/Papers/2007/ijis-coverage.pdf</link>
+      <description>&lt;dl&gt;&lt;dt&gt;&lt;i&gt;&lt;a href=&quot;Papers/2007/ijis-coverage.pdf&quot;&gt;&quot;Robust
+Reactions to Potential Day-Zero Worms through Cooperation and
+Validation&quot;&lt;/a&gt;&lt;/i&gt;&lt;/dt&gt; &lt;dd&gt;&lt;span class=&quot;author&quot;&gt;Kostas
+G. Anagnostakis&lt;/span&gt;, &lt;span class=&quot;author&quot;&gt;Michael Greenwald&lt;/span&gt;,
+&lt;span class=&quot;author student&quot;&gt;Sotiris Ioannidis&lt;/span&gt;, and &lt;span class=&quot;author self&quot;&gt;Angelos D. Keromytis&lt;/span&gt;. In &lt;i&gt;Springer
+International Journal of Information Security (IJIS), ISC 2006 Special
+Issue,&lt;/i&gt; vol.6, no. 6, pp. 361 - 378, October 2007. (Extended
+version of the ISC 2006 paper.)&lt;/dd&gt;&lt;/dl&gt;</description>
+      <pubDate>Sat, 03 Oct 2009 12:00:12 -0400</pubDate>
+      <dc:date>2009-10-03T12:00:12.980952-04:00</dc:date>
+    </item>
+    <item>
+      <title>Requirements for Scalable Access Control and Security Management Architectures</title>
+      <link>http://www1.cs.columbia.edu/~angelos/Papers/2007/toit-access.pdf</link>
+      <description>&lt;dl&gt;&lt;dt&gt;&lt;i&gt;&lt;a href=&quot;Papers/2007/toit-access.pdf&quot;&gt;&quot;Requirements for
+Scalable Access Control and Security Management
+Architectures&quot;&lt;/a&gt;&lt;/i&gt;&lt;/dt&gt; &lt;dd&gt;&lt;span class=&quot;author self&quot;&gt;Angelos
+D. Keromytis&lt;/span&gt; and &lt;span class=&quot;author&quot;&gt;Jonathan
+M. Smith&lt;/span&gt;. In &lt;i&gt;ACM Transactions on Internet Technology
+(ToIT),&lt;/i&gt; vol. 7, no. 2, pp. 1 - 22, May 2007.&lt;/dd&gt;&lt;/dl&gt;</description>
+      <pubDate>Sat, 03 Oct 2009 12:00:12 -0400</pubDate>
+      <dc:date>2009-10-03T12:00:12.984163-04:00</dc:date>
+    </item>
+    <item>
+      <title>Virtual Private Services: Coordinated Policy Enforcement for Distributed Applications</title>
+      <link>http://www1.cs.columbia.edu/~angelos/Papers/2006/ijns.pdf</link>
+      <description>&lt;dl&gt;&lt;dt&gt;&lt;i&gt;&lt;a href=&quot;Papers/2006/ijns.pdf&quot;&gt;&quot;Virtual Private
+Services: Coordinated Policy Enforcement for Distributed
+Applications&quot;&lt;/a&gt;&lt;/i&gt;&lt;/dt&gt; &lt;dd&gt;&lt;span class=&quot;author student&quot;&gt;Sotiris
+Ioannidis&lt;/span&gt;, &lt;span class=&quot;author&quot;&gt;Steven M. Bellovin&lt;/span&gt;,
+&lt;span class=&quot;author&quot;&gt;John Ioannidis&lt;/span&gt;, &lt;span class=&quot;author
+self&quot;&gt;Angelos D. Keromytis&lt;/span&gt;, &lt;span class=&quot;author&quot;&gt;Kostas
+G. Anagnostakis&lt;/span&gt;, and &lt;span class=&quot;author&quot;&gt;Jonathan
+M. Smith&lt;/span&gt;. In &lt;i&gt;International Journal of Network Security
+(IJNS),&lt;/i&gt; vol. 4, no. 1, pp. 69 - 80, January 2007.&lt;/dd&gt;&lt;/dl&gt;</description>
+      <pubDate>Sat, 03 Oct 2009 12:00:12 -0400</pubDate>
+      <dc:date>2009-10-03T12:00:12.987587-04:00</dc:date>
+    </item>
+    <item>
+      <title>Countering DDoS Attacks with Multi-path Overlay Networks</title>
+      <link>http://www1.cs.columbia.edu/~angelos/Papers/2006/Stavrou_Keromytis_v3.pdf</link>
+      <description>&lt;dl&gt;&lt;dt&gt;&lt;i&gt;&lt;a href=&quot;Papers/2006/Stavrou_Keromytis_v3.pdf&quot;&gt;&quot;Countering DDoS Attacks
+with Multi-path Overlay Networks&quot;&lt;/a&gt;&lt;/i&gt;&lt;/dt&gt; &lt;dd&gt;&lt;span class=&quot;author
+student&quot;&gt;Angelos Stavrou&lt;/span&gt; and &lt;span class=&quot;author self&quot;&gt;Angelos
+D. Keromytis&lt;/span&gt;. In &lt;i&gt;Information Assurance Technology Analysis
+Center (IATAC) Information Assurance Newsletter (IAnewsletter),&lt;/i&gt;
+vol. 9, no. 3, pp. 26 - 30, Winter 2006. &lt;i&gt;(Invited paper, based on
+the CCS 2005 paper.)&lt;/i&gt;&lt;/dd&gt;&lt;/dl&gt;</description>
+      <pubDate>Sat, 03 Oct 2009 12:00:12 -0400</pubDate>
+      <dc:date>2009-10-03T12:00:12.990993-04:00</dc:date>
+    </item>
+    <item>
+      <title>Conversion Functions for Symmetric Key Ciphers</title>
+      <link>http://www1.cs.columbia.edu/~angelos/Papers/2006/jias-b4.pdf</link>
+      <description>&lt;dl&gt;&lt;dt&gt;&lt;i&gt;&lt;a href=&quot;Papers/2006/jias-b4.pdf&quot;&gt;&quot;Conversion Functions
+for Symmetric Key Ciphers&quot;&lt;/a&gt;&lt;/i&gt;&lt;/dt&gt; &lt;dd&gt;&lt;span class=&quot;author
+student&quot;&gt;Debra L. Cook&lt;/span&gt; and &lt;span class=&quot;author self&quot;&gt;Angelos
+D. Keromytis&lt;/span&gt;. In &lt;i&gt;Journal of Information Assurance and
+Security (JIAS),&lt;/i&gt; vol. 1, no. 2, pp. 119 - 128, June
+2006. &lt;i&gt;(Extended version of the IAS 2005 paper.)&lt;/i&gt;&lt;/dd&gt;&lt;/dl&gt;</description>
+      <pubDate>Sat, 03 Oct 2009 12:00:12 -0400</pubDate>
+      <dc:date>2009-10-03T12:00:12.994214-04:00</dc:date>
+    </item>
+    <item>
+      <title>Execution Transactions for Defending Against Software Failures: Use and Evaluation</title>
+      <link>http://www1.cs.columbia.edu/~angelos/Papers/2006/trans.pdf</link>
+      <description>&lt;dl&gt;&lt;dt&gt;&lt;i&gt;&lt;a href=&quot;Papers/2006/trans.pdf&quot;&gt;&quot;Execution Transactions
+for Defending Against Software Failures: Use and
+Evaluation&quot;&lt;/a&gt;&lt;/i&gt;&lt;/dt&gt; &lt;dd&gt;&lt;span class=&quot;author student&quot;&gt;Stelios
+Sidiroglou&lt;/span&gt; and &lt;span class=&quot;author self&quot;&gt;Angelos
+D. Keromytis&lt;/span&gt;. In &lt;i&gt;Springer International Journal of
+Information Security (IJIS),&lt;/i&gt; vol. 5, no. 2, pp. 77 - 91, April
+2006. &lt;i&gt;(Extended version of the ISC 2005 paper.)&lt;/i&gt;&lt;/dd&gt;&lt;/dl&gt;</description>
+      <pubDate>Sat, 03 Oct 2009 12:00:12 -0400</pubDate>
+      <dc:date>2009-10-03T12:00:12.997475-04:00</dc:date>
+    </item>
+    <item>
+      <title>Worm Propagation Strategies in an IPv6 Internet</title>
+      <link>http://www1.cs.columbia.edu/~angelos/Papers/2006/ipv6worm.pdf</link>
+      <description>&lt;dl&gt;&lt;dt&gt;&lt;i&gt;&lt;a href=&quot;Papers/2006/ipv6worm.pdf&quot;&gt;&quot;Worm Propagation
+Strategies in an IPv6 Internet&quot;&lt;/a&gt;&lt;/i&gt;&lt;/dt&gt; &lt;dd&gt;&lt;span class=&quot;author&quot;&gt;Steven M. Bellovin&lt;/span&gt;, &lt;span class=&quot;author&quot;&gt;Bill
+Cheswick&lt;/span&gt;, and &lt;span class=&quot;author self&quot;&gt;Angelos
+D. Keromytis&lt;/span&gt;. In &lt;i&gt;USENIX ;login,&lt;/i&gt; vol. 31, no. 1, pp. 70 -
+76, February 2006.&lt;/dd&gt;&lt;/dl&gt;</description>
+      <pubDate>Sat, 03 Oct 2009 12:00:13 -0400</pubDate>
+      <dc:date>2009-10-03T12:00:13.000-04:00</dc:date>
+    </item>
+    <item>
+      <title>Cryptography As An Operating System Service: A Case Study</title>
+      <link>http://www1.cs.columbia.edu/~angelos/Papers/2006/p1-keromytis.pdf</link>
+      <description>&lt;dl&gt;&lt;dt&gt;&lt;i&gt;&lt;a href=&quot;Papers/2006/p1-keromytis.pdf&quot;&gt;&quot;Cryptography As
+An Operating System Service: A Case Study&quot;&lt;/a&gt;&lt;/i&gt;&lt;/dt&gt; &lt;dd&gt;&lt;span class=&quot;author self&quot;&gt;Angelos D. Keromytis&lt;/span&gt;, &lt;span class=&quot;author&quot;&gt;Theo de Raadt&lt;/span&gt;, &lt;span class=&quot;author&quot;&gt;Jason
+Wright&lt;/span&gt;, and &lt;span class=&quot;author student&quot;&gt;Matthew
+Burnside&lt;/span&gt;. In &lt;i&gt;ACM Transactions on Computer Systems
+(ToCS),&lt;/i&gt; vol. 24, no. 1, pp. 1 - 38, February 2006. &lt;i&gt;(Extended
+version of USENIX Technical 2003 paper.)&lt;/i&gt;&lt;/dd&gt;&lt;/dl&gt;</description>
+      <pubDate>Sat, 03 Oct 2009 12:00:13 -0400</pubDate>
+      <dc:date>2009-10-03T12:00:13.0041-04:00</dc:date>
+    </item>
+    <item>
+      <title>Countering Network Worms Through Automatic Patch Generation</title>
+      <link>http://www1.cs.columbia.edu/~angelos/Papers/2005/j6ker3.pdf</link>
+      <description>&lt;dl&gt;&lt;dt&gt;&lt;i&gt;&lt;a href=&quot;Papers/2005/j6ker3.pdf&quot;&gt;&quot;Countering Network
+Worms Through Automatic Patch
+Generation&quot;&lt;/a&gt;&lt;/i&gt;&lt;/dt&gt; &lt;dd&gt;&lt;span class=&quot;author student&quot;&gt;Stelios
+Sidiroglou&lt;/span&gt; and &lt;span class=&quot;author self&quot;&gt;Angelos
+D. Keromytis&lt;/span&gt;. In &lt;i&gt;IEEE Security &amp;amp; Privacy,&lt;/i&gt; vol. 3,
+no. 6, pp. 41 - 49, November/December 2005.&lt;/dd&gt;&lt;/dl&gt;</description>
+      <pubDate>Sat, 03 Oct 2009 12:00:13 -0400</pubDate>
+      <dc:date>2009-10-03T12:00:13.0074-04:00</dc:date>
+    </item>
+    <item>
+      <title>WebSOS: An Overlay-based System For Protecting Web Servers From Denial of Service Attacks</title>
+      <link>http://www1.cs.columbia.edu/~angelos/Papers/2005/websos-jcn.pdf</link>
+      <description>&lt;dl&gt;&lt;dt&gt;&lt;i&gt;&lt;a href=&quot;Papers/2005/websos-jcn.pdf&quot;&gt;&quot;WebSOS: An
+Overlay-based System For Protecting Web Servers From Denial of Service
+Attacks&quot;&lt;/a&gt;&lt;/i&gt;&lt;/dt&gt; &lt;dd&gt;&lt;span class=&quot;author student&quot;&gt;Angelos
+Stavrou&lt;/span&gt;, &lt;span class=&quot;author student&quot;&gt;Debra L. Cook&lt;/span&gt;,
+&lt;span class=&quot;author student&quot;&gt;William G. Morein&lt;/span&gt;, &lt;span class=&quot;author self&quot;&gt;Angelos D. Keromytis&lt;/span&gt;, &lt;span class=&quot;author&quot;&gt;Vishal Misra&lt;/span&gt;, and &lt;span class=&quot;author&quot;&gt;Dan
+Rubenstein&lt;/span&gt;. In &lt;i&gt;Elsevier Journal of Computer Networks,
+special issue on Web and Network Security,&lt;/i&gt; vol. 48, no. 5, pp. 781
+- 807, August 2005. &lt;i&gt;(Extended version of the CCS 2003
+paper.)&lt;/i&gt;&lt;/dd&gt;&lt;/dl&gt;</description>
+      <pubDate>Sat, 03 Oct 2009 12:00:13 -0400</pubDate>
+      <dc:date>2009-10-03T12:00:13.01099-04:00</dc:date>
+    </item>
+    <item>
+      <title>Hardware Support For Self-Healing Software Services</title>
+      <link>http://www1.cs.columbia.edu/~angelos/Papers/2005/comparch-shs.pdf</link>
+      <description>&lt;dl&gt;&lt;dt&gt;&lt;i&gt;&lt;a href=&quot;Papers/2005/comparch-shs.pdf&quot;&gt;&quot;Hardware
+Support For Self-Healing Software Services&quot;&lt;/a&gt;&lt;/i&gt;&lt;/dt&gt; &lt;dd&gt;&lt;span class=&quot;author student&quot;&gt;Stelios Sidiroglou&lt;/span&gt;, &lt;span class=&quot;author
+student&quot;&gt;Michael E. Locasto&lt;/span&gt;, and &lt;span class=&quot;author
+self&quot;&gt;Angelos D. Keromytis&lt;/span&gt;. In &lt;i&gt;ACM SIGARCH Computer
+Architecture News, Special Issue on Workshop on Architectural Support
+for Security and Anti-Virus (WASSA),&lt;/i&gt; vol. 33, no. 1, pp. 42 - 47,
+March 2005. Also appeared in the Proceedings of the &lt;i&gt;Workshop on
+Architectural Support for Security and Anti-Virus (WASSA),&lt;/i&gt; held in
+conjunction with the &lt;i&gt;11&lt;sup&gt;th&lt;/sup&gt; International Conference on
+Architectural Support for Programming Languages and Operating Systems
+(ASPLOS-XI),&lt;/i&gt; pp. 37 - 43. October 2004, Boston, MA.&lt;/dd&gt;&lt;/dl&gt;</description>
+      <pubDate>Sat, 03 Oct 2009 12:00:13 -0400</pubDate>
+      <dc:date>2009-10-03T12:00:13.01439-04:00</dc:date>
+    </item>
+    <item>
+      <title>The Case For Crypto Protocol Awareness Inside The OS Kernel</title>
+      <link>http://www1.cs.columbia.edu/~angelos/Papers/2005/comparch-flowos.pdf</link>
+      <description>&lt;dl&gt;&lt;dt&gt;&lt;i&gt;&lt;a href=&quot;Papers/2005/comparch-flowos.pdf&quot;&gt;&quot;The Case For
+Crypto Protocol Awareness Inside The OS Kernel&quot;&lt;/a&gt;&lt;/i&gt;&lt;/dt&gt; &lt;dd&gt;&lt;span class=&quot;author student&quot;&gt;Matthew Burnside&lt;/span&gt; and &lt;span class=&quot;author
+self&quot;&gt;Angelos D. Keromytis&lt;/span&gt;. In &lt;i&gt;ACM SIGARCH Computer
+Architecture News, Special Issue on Workshop on Architectural Support
+for Security and Anti-Virus (WASSA),&lt;/i&gt; vol. 33, no. 1, pp. 58 - 64,
+March 2005. Also appeared in the Proceedings of the &lt;i&gt;Workshop on
+Architectural Support for Security and Anti-Virus (WASSA),&lt;/i&gt; held in
+conjunction with the &lt;i&gt;11&lt;sup&gt;th&lt;/sup&gt; International Conference on
+Architectural Support for Programming Languages and Operating Systems
+(ASPLOS-XI),&lt;/i&gt; pp. 54 - 60. October 2004, Boston, MA.&lt;/dd&gt;&lt;/dl&gt;</description>
+      <pubDate>Sat, 03 Oct 2009 12:00:13 -0400</pubDate>
+      <dc:date>2009-10-03T12:00:13.01783-04:00</dc:date>
+    </item>
+    <item>
+      <title>Patch-on-Demand Saves Even More Time?</title>
+      <link>http://www1.cs.columbia.edu/~angelos/Papers/r8094.pdf</link>
+      <description>&lt;dl&gt;&lt;dt&gt;&lt;i&gt;&lt;a href=&quot;Papers/r8094.pdf&quot;&gt;&quot;Patch-on-Demand Saves Even
+More Time?&quot;&lt;/a&gt;&lt;/i&gt;&lt;/dt&gt; &lt;dd&gt;&lt;span class=&quot;author self&quot;&gt;Angelos
+D. Keromytis&lt;/span&gt;. In &lt;i&gt;IEEE Computer&lt;/i&gt;, vol. 37, no. 8, pp. 94 -
+96, August 2004.&lt;/dd&gt;&lt;/dl&gt;</description>
+      <pubDate>Sat, 03 Oct 2009 12:00:13 -0400</pubDate>
+      <dc:date>2009-10-03T12:00:13.0214-04:00</dc:date>
+    </item>
+    <item>
+      <title>Just Fast Keying: Key Agreement In A Hostile Internet</title>
+      <link>http://www1.cs.columbia.edu/~angelos/Papers/jfk-tissec.pdf</link>
+      <description>&lt;dl&gt;&lt;dt&gt;&lt;i&gt;&lt;a href=&quot;Papers/jfk-tissec.pdf&quot;&gt;&quot;Just Fast Keying: Key
+Agreement In A Hostile Internet&quot;&lt;/a&gt;&lt;/i&gt;&lt;/dt&gt; &lt;dd&gt;William Aiello,
+&lt;span class=&quot;author&quot;&gt;Steven M. Bellovin&lt;/span&gt;, &lt;span class=&quot;author&quot;&gt;Matt Blaze&lt;/span&gt;, &lt;span class=&quot;author&quot;&gt;Ran
+Canetti&lt;/span&gt;, &lt;span class=&quot;author&quot;&gt;John Ioannidis&lt;/span&gt;, &lt;span class=&quot;author self&quot;&gt;Angelos D. Keromytis&lt;/span&gt;, and &lt;span class=&quot;author&quot;&gt;Omer Reingold&lt;/span&gt;. In &lt;i&gt;ACM Transactions on
+Information and System Security (TISSEC),&lt;/i&gt; vol. 7, no. 2, pp. 1 -
+32, May 2004. &lt;i&gt;(Extended version of the CCS 2002
+paper.)&lt;/i&gt;&lt;/dd&gt;&lt;/dl&gt;</description>
+      <pubDate>Sat, 03 Oct 2009 12:00:13 -0400</pubDate>
+      <dc:date>2009-10-03T12:00:13.02488-04:00</dc:date>
+    </item>
+    <item>
+      <title>SOS: An Architecture for Mitigating DDoS Attacks</title>
+      <link>http://www1.cs.columbia.edu/~angelos/Papers/jsac-sos.pdf</link>
+      <description>&lt;dl&gt;&lt;dt&gt;&lt;i&gt;&lt;a href=&quot;Papers/jsac-sos.pdf&quot;&gt;&quot;SOS: An Architecture for
+Mitigating DDoS Attacks&quot;&lt;/a&gt;&lt;/i&gt;&lt;/dt&gt; &lt;dd&gt;&lt;span class=&quot;author
+self&quot;&gt;Angelos D. Keromytis&lt;/span&gt;, &lt;span class=&quot;author&quot;&gt;Vishal
+Misra&lt;/span&gt;, and &lt;span class=&quot;author&quot;&gt;Dan Rubenstein&lt;/span&gt;. In
+&lt;i&gt;IEEE Journal on Selected Areas in Communications (JSAC), special
+issue on Recent Advances in Service Overlay Networks,&lt;/i&gt; vol. 22,
+no. 1, pp. 176 - 188, January 2004. &lt;i&gt;(Extended version of the
+SIGCOMM 2002 paper.)&lt;/i&gt;&lt;/dd&gt;&lt;/dl&gt;</description>
+      <pubDate>Sat, 03 Oct 2009 12:00:13 -0400</pubDate>
+      <dc:date>2009-10-03T12:00:13.02917-04:00</dc:date>
+    </item>
+    <item>
+      <title>A Secure PLAN</title>
+      <link>http://www1.cs.columbia.edu/~angelos/Papers/plansecurity-tsmc.pdf</link>
+      <description>&lt;dl&gt;&lt;dt&gt;&lt;i&gt;&lt;a href=&quot;Papers/plansecurity-tsmc.pdf&quot;&gt;&quot;A Secure
+PLAN&quot;&lt;/a&gt;&lt;/i&gt;&lt;/dt&gt; &lt;dd&gt;&lt;span class=&quot;author&quot;&gt;Michael Hicks&lt;/span&gt;,
+&lt;span class=&quot;author self&quot;&gt;Angelos D. Keromytis&lt;/span&gt;, and &lt;span class=&quot;author&quot;&gt;Jonathan M. Smith&lt;/span&gt;. In &lt;i&gt;IEEE Transactions on
+Systems, Man, and Cybernetics (T-SMC) Part C: Applications and
+Reviews, Special issue on technologies promoting computational
+intelligence, openness and programmability in networks and Internet
+services: Part I,&lt;/i&gt; vol. 33, no. 3, pp. 413 - 426, August
+2003. &lt;i&gt;(Extended version of the DANCE 2002
+paper.)&lt;/i&gt;&lt;/dd&gt;&lt;/dl&gt;</description>
+      <pubDate>Sat, 03 Oct 2009 12:00:13 -0400</pubDate>
+      <dc:date>2009-10-03T12:00:13.03251-04:00</dc:date>
+    </item>
+    <item>
+      <title>Drop-in Security for Distributed and Portable Computing Elements</title>
+      <link>http://www1.cs.columbia.edu/~angelos/Papers/InternetResearch-Final.pdf</link>
+      <description>&lt;dl&gt;&lt;dt&gt;&lt;i&gt;&lt;a href=&quot;Papers/InternetResearch-Final.pdf&quot;&gt;&quot;Drop-in
+Security for Distributed and Portable Computing Elements&quot;&lt;/a&gt;&lt;/i&gt;&lt;/dt&gt;
+&lt;dd&gt;&lt;span class=&quot;author&quot;&gt;Vassilis Prevelakis&lt;/span&gt; and &lt;span class=&quot;author self&quot;&gt;Angelos D. Keromytis&lt;/span&gt;. In MCB Press
+&lt;i&gt;Emerald Journal of Internet Research: Electronic Networking,
+Applications and Policy,&lt;/i&gt; vol. 13, no. 2, pp. 107 - 115,
+2003. &lt;i&gt;(Extended version of the INC 2002 paper.)&lt;/i&gt;&lt;/dd&gt;&lt;/dl&gt;</description>
+      <pubDate>Sat, 03 Oct 2009 12:00:13 -0400</pubDate>
+      <dc:date>2009-10-03T12:00:13.03578-04:00</dc:date>
+    </item>
+    <item>
+      <title>Trust Management for IPsec</title>
+      <description>&lt;dl&gt;&lt;dt&gt;&lt;a href=&quot;Papers/tmipsec-tissec.pdf&quot;&gt;&lt;i&gt;&quot;Trust Management
+for IPsec&quot;&lt;/i&gt;&lt;/a&gt;&lt;/dt&gt; &lt;dd&gt;&lt;span class=&quot;author&quot;&gt;Matt Blaze&lt;/span&gt;,
+&lt;span class=&quot;author&quot;&gt;John Ioannidis&lt;/span&gt;, and &lt;span class=&quot;author
+self&quot;&gt;Angelos D. Keromytis&lt;/span&gt;.  In &lt;i&gt;ACM Transactions on
+Information and System Security (TISSEC),&lt;/i&gt; vol. 5, no. 2, pp. 1 -
+24, May 2002. &lt;i&gt;(Extended version of the NDSS 2001
+paper.)&lt;/i&gt;&lt;/dd&gt;&lt;/dl&gt;</description>
+      <pubDate>Sat, 03 Oct 2009 12:00:13 -0400</pubDate>
+      <dc:date>2009-10-03T12:00:13.07261-04:00</dc:date>
+    </item>
+    <item>
+      <title>The Price of Safety in an Active Network</title>
+      <description>&lt;dl&gt;&lt;dt&gt;&lt;a href=&quot;Papers/saneimp-jcn.pdf&quot;&gt;&lt;i&gt;&quot;The Price of Safety
+in an Active Network&quot;&lt;/i&gt;&lt;/a&gt;&lt;/dt&gt; &lt;dd&gt;&lt;span class=&quot;author
+student&quot;&gt;D. Scott Alexander&lt;/span&gt;, &lt;span class=&quot;author student&quot;&gt;Paul
+B. Menage&lt;/span&gt;, &lt;span class=&quot;author self student&quot;&gt;Angelos
+D. Keromytis&lt;/span&gt;, &lt;span class=&quot;author student&quot;&gt;William
+A. Arbaugh&lt;/span&gt;, &lt;span class=&quot;author student&quot;&gt;Kostas
+G. Anagnostakis&lt;/span&gt;, and &lt;span class=&quot;author&quot;&gt;Jonathan
+M. Smith&lt;/span&gt;.  In &lt;i&gt;Journal of Communications and Networks (JCN),
+special issue on programmable switches and routers,&lt;/i&gt; vol. 3, no. 1,
+pp. 4 - 18, March 2001.  Older versions are available as &lt;a href=&quot;Papers/saneimp.pdf&quot;&gt;&lt;i&gt;University of Pennsylvania Technical
+Report MS-CIS-99-04&lt;/i&gt;&lt;/a&gt; and &lt;a href=&quot;Papers/saneimp-old.pdf&quot;&gt;&lt;i&gt;University of Pennsylvania Technical
+Report MS-CIS-98-02.&lt;/i&gt;&lt;/a&gt;&lt;/dd&gt;&lt;/dl&gt;</description>
+      <pubDate>Sat, 03 Oct 2009 12:00:13 -0400</pubDate>
+      <dc:date>2009-10-03T12:00:13.07608-04:00</dc:date>
+    </item>
+    <item>
+      <title>Secure Quality of Service Handling (SQoSH)</title>
+      <description>&lt;dl&gt;&lt;dt&gt;&lt;a href=&quot;Papers/sqosh.pdf&quot;&gt;&lt;i&gt;&quot;Secure Quality of Service
+Handling (SQoSH)&quot;&lt;/i&gt;&lt;/a&gt;&lt;/dt&gt; &lt;dd&gt;&lt;span class=&quot;author
+student&quot;&gt;D. Scott Alexander&lt;/span&gt;, &lt;span class=&quot;author
+student&quot;&gt;William A. Arbaugh&lt;/span&gt;, &lt;span class=&quot;author self
+student&quot;&gt;Angelos D. Keromytis&lt;/span&gt;, &lt;span class=&quot;author
+student&quot;&gt;Steve Muir&lt;/span&gt;, and &lt;span class=&quot;author&quot;&gt;Jonathan
+M. Smith&lt;/span&gt;.  In &lt;i&gt;IEEE Communications Magazine,&lt;/i&gt; vol. 38,
+no. 4, pp. 106 - 112, April 2000. An older version is available as &lt;a href=&quot;Papers/sqosh-tech.pdf&quot;&gt;&lt;i&gt;University of Pennsylvania Technical
+Report MS-CIS-99-05.&lt;/i&gt;&lt;/a&gt;&lt;/dd&gt;&lt;/dl&gt;</description>
+      <pubDate>Sat, 03 Oct 2009 12:00:13 -0400</pubDate>
+      <dc:date>2009-10-03T12:00:13.07927-04:00</dc:date>
+    </item>
+    <item>
+      <title>Safety and Security of Programmable Network Infrastructures</title>
+      <description>&lt;dl&gt;&lt;dt&gt;&lt;a href=&quot;Papers/ieeecomms.pdf&quot;&gt;&lt;i&gt;&quot;Safety and Security of
+Programmable Network Infrastructures&quot;&lt;/i&gt;&lt;/a&gt;&lt;/dt&gt; &lt;dd&gt;&lt;span class=&quot;author student&quot;&gt;D. Scott Alexander&lt;/span&gt;, &lt;span class=&quot;author
+student&quot;&gt;William A. Arbaugh&lt;/span&gt;, &lt;span class=&quot;author self
+student&quot;&gt;Angelos D. Keromytis&lt;/span&gt;, and &lt;span class=&quot;author&quot;&gt;Jonathan M. Smith&lt;/span&gt;. In &lt;i&gt;IEEE Communications
+Magazine, issue on Programmable Networks,&lt;/i&gt; vol. 36, no. 10, pp. 84
+- 92, October 1998.&lt;/dd&gt;&lt;/dl&gt;</description>
+      <pubDate>Sat, 03 Oct 2009 12:00:13 -0400</pubDate>
+      <dc:date>2009-10-03T12:00:13.08233-04:00</dc:date>
+    </item>
+    <item>
+      <title>A Secure Active Network Environment Architecture</title>
+      <description>&lt;dl&gt;&lt;dt&gt;&lt;a href=&quot;Papers/sane.pdf&quot;&gt;&lt;i&gt;&quot;A Secure Active Network
+Environment Architecture&quot;&lt;/i&gt;&lt;/a&gt;&lt;/dt&gt; &lt;dd&gt;&lt;span class=&quot;author
+student&quot;&gt;D. Scott Alexander&lt;/span&gt;, &lt;span class=&quot;author
+student&quot;&gt;William A. Arbaugh&lt;/span&gt;, &lt;span class=&quot;author self
+student&quot;&gt;Angelos D. Keromytis&lt;/span&gt;,
+and &lt;span class=&quot;author&quot;&gt;Jonathan M. Smith&lt;/span&gt;. In &lt;i&gt;IEEE Network
+Magazine, special issue on Active and Controllable Networks,&lt;/i&gt;
+vol. 12, no. 3, pp. 37 - 45, May/June 1998.&lt;/dd&gt;&lt;/dl&gt;</description>
+      <pubDate>Sat, 03 Oct 2009 12:00:13 -0400</pubDate>
+      <dc:date>2009-10-03T12:00:13.08544-04:00</dc:date>
+    </item>
+    <item>
+      <title>The SwitchWare Active Network Architecture</title>
+      <description>&lt;dl&gt;&lt;dt&gt;&lt;a href=&quot;Papers/switchware-architecture.pdf&quot;&gt;&lt;i&gt;&quot;The
+SwitchWare Active Network Architecture&quot;&lt;/i&gt;&lt;/a&gt;&lt;/dt&gt; &lt;dd&gt;&lt;span class=&quot;author student&quot;&gt;D. Scott Alexander&lt;/span&gt;, &lt;span class=&quot;author
+student&quot;&gt;William A. Arbaugh&lt;/span&gt;, &lt;span class=&quot;author
+student&quot;&gt;Michael Hicks&lt;/span&gt;, &lt;span class=&quot;author student&quot;&gt;Pankaj
+Kakkar&lt;/span&gt;, &lt;span class=&quot;author self student&quot;&gt;Angelos
+D. Keromytis&lt;/span&gt;, &lt;span class=&quot;author student&quot;&gt;Jonathan
+T. Moore&lt;/span&gt;, &lt;span class=&quot;author&quot;&gt;Carl A. Gunter&lt;/span&gt;, &lt;span class=&quot;author&quot;&gt;Scott M. Nettles&lt;/span&gt;, and &lt;span class=&quot;author&quot;&gt;Jonathan M. Smith&lt;/span&gt;. In &lt;i&gt;IEEE Network Magazine,
+special issue on Active and Programmable Networks,&lt;/i&gt; vol. 12, no. 3,
+pp. 29 - 36, May/June 1998.&lt;/dd&gt;&lt;/dl&gt;</description>
+      <pubDate>Sat, 03 Oct 2009 12:00:13 -0400</pubDate>
+      <dc:date>2009-10-03T12:00:13.08866-04:00</dc:date>
+    </item>
+  </channel>
+</rss>
