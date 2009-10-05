@@ -13,7 +13,7 @@
  */
 
 /* Initialization function for a 256-byte hex string table */
-uint8_t bin2hex_init(char lt[256][2])
+inline uint8_t bin2hex_init(char lt[256][2])
 {
   uint16_t i;
   if(!lt) return 0;
@@ -65,7 +65,7 @@ uint8_t bin2hex_init(char lt[256][2])
 
 /* Non-allocating */
 /* Params are Lookup Table, destination, source, and size of INPUT data */
-uint8_t bin2hex(char lt[256][2], char * destination, uint8_t * source, unsigned int size)
+inline uint8_t bin2hex(char lt[256][2], char * destination, uint8_t * source, unsigned int size)
 {
   unsigned int i = 0;
   unsigned int pos = 0;
