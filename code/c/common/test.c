@@ -2,8 +2,85 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include "ekg_sys.h"
+#include "competitor.h"
 
-int main(int argc, char ** argv) {
+#define CRAZY_SIZE (1<<10)
+
+int bin2hex_main(int argc, char ** argv) {
+  FILE * rand_fh;
+  char lt[256][2];
+  unsigned int x,y;
+  char * newhex_dest;
+  union {
+    uint32_t u32;
+    uint8_t u8[4];
+  } random_num;
+  uint16_t i;
+  printf("***************** BIN2HEX *****************\n");
+
+  if(bin2hex_init(lt) == 0) {
+    // Fail.. Leave
+    fprintf(stderr, "Unable to init lookup table.\n");
+    return EXIT_FAILURE;
+  }
+
+  rand_fh = fopen("/dev/urandom", "r");
+  if(!rand_fh) {
+    fprintf(stderr, "Unable to open random buffer.\n");
+    return EXIT_FAILURE;
+  }
+  
+  printf("Table created: \n");
+  for(i=0; i<256; i++) {
+    printf("%c%c", lt[i][0], lt[i][1]);
+    if(i%15 == 0) printf("\n");
+    else printf(" ");
+  }
+
+  // Initialize crazy binary array
+  uint8_t * crazy_hex = malloc(CRAZY_SIZE);
+  for(i=0; i<CRAZY_SIZE-3; i++) {
+    if((fread(&random_num.u32, 4, 1, rand_fh) == 0)) {
+      fprintf(stderr, "Could not read 4 bytes from file.\n");
+      return EXIT_FAILURE;
+    }
+    crazy_hex[i] = random_num.u8[0];
+    crazy_hex[i+1] = random_num.u8[1];
+    crazy_hex[i+2] = random_num.u8[2];
+    crazy_hex[i+3] = random_num.u8[3];
+    i += 4;
+  }
+  char hex_dest[2 + 2*CRAZY_SIZE]; 
+  hex_dest[0] = '0';
+  hex_dest[1] = 'x';
+  GET_CYCLES(x);
+  bin2hex(lt, &hex_dest[2], crazy_hex, CRAZY_SIZE);
+  GET_CYCLES(y);
+  printf("time=%u, ", y-x);
+  printf("Output: %.*s\n", 2 + 2*CRAZY_SIZE, hex_dest);
+  printf("***************** BIN2HEX *****************\n");
+  printf("***************** BIN2HEX Competition *****************\n");
+
+  size_t hex2ascii_len = 256;
+  char** hex2ascii;
+  hex2ascii = malloc(hex2ascii_len*sizeof(char*));
+  for(i=0; i<hex2ascii_len; i++) {
+    hex2ascii[i] = malloc(3*sizeof(char));
+    snprintf(hex2ascii[i], 3,"%02X", i);
+  }
+  size_t len = 8;
+  GET_CYCLES(x);
+  newhex_dest = char_to_hex((const unsigned char*)crazy_hex, CRAZY_SIZE, (char**)hex2ascii);
+  GET_CYCLES(y);
+  printf("time=%u, ", y-x);
+  printf("Output: 0x%s\n", newhex_dest);
+
+  fclose(rand_fh);
+
+  return EXIT_SUCCESS;
+}
+
+int fmemcmp_main(int argc, char ** argv) {
   char * buf, * buf2;
   uint32_t buflen, failure = 0, i;
   unsigned int x,y;
@@ -14,7 +91,7 @@ int main(int argc, char ** argv) {
     buflen = 1000000;
   } else {
     buflen = atoi(argv[1]);
-    if(buflen == 0) return 0;
+    if(buflen == 0) return EXIT_FAILURE;
   }
 
   if(!(buf = malloc(buflen))) {
@@ -87,14 +164,11 @@ int main(int argc, char ** argv) {
   printf(":: fmemcmp is %g times faster than forloop memcmp.\n", ((float)speed[1])/speed[2]);
 
   printf("***************** FMEMCMP *****************\n");
-  GET_CYCLES(x);
-  if(*(uint32_t *)buf != 0xFFFFFFFF) failure = 1;
-  GET_CYCLES(y);
-  printf("time=%u, ", y-x);
-  GET_CYCLES(x);
-  if((memcmp(buf, buf2, 4)) != 0) failure = 1;
-  GET_CYCLES(y);
-  printf("time=%u, ", y-x);
 
-  return 1;
+  return EXIT_SUCCESS;
+}
+
+int main(int argc, char ** argv) {
+  //fmemcmp_main(argc, argv);
+  bin2hex_main(argc, argv);
 }
