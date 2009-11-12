@@ -74,7 +74,7 @@ main: func {
   printf("The Battle is over.  ")
   match status {
     case 2 => "Both Boats are destroyed!" println()
-    case 1 => printf("%s is the victor", boat_b name)
-    case -1 => printf("%s is the victor", boat_a name)
+    case 1 => printf("%s is the victor\n", boat_b name)
+    case -1 => printf("%s is the victor\n", boat_a name)
   }
 }
