@@ -267,14 +267,15 @@ int main()
          "<form method=\"post\" action=\"save_exchange.php\">"
            "<label>Email</label>"
            "<input type=\"text\" name=\"signer_email\" />"
-           "<input type=\"text\" name=\"signee_email\" />"
+           "<input type=\"text\" name=\"signee_email\" value=\"%s\"/>"
            "<input type=\"text\" name=\"signer_key\" value=\"%s\"/>"
            "<input type=\"text\" name=\"signee_key\" value=\"%s\"/>"
            "<input type=\"submit\" value=\"Notify Me\" />"
          "</form>",
+         primary_email,
+         primary_email,
          strsignkeyid,
-         &import_result->imports[0].fpr[24],
-         primary_email
+         &import_result->imports[0].fpr[24]
   );
 
   /* free data */

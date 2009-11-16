@@ -12,20 +12,20 @@ try {
   $db->exec('CREATE TABLE IF NOT EXISTS key_exchanges (
       signer_key STRING, 
       signee_key STRING,
-      signer_email STRING
-      signee_email STRING,
+      signer_email STRING,
+      signee_email STRING
     )'
   );
 
-  try {
-    $sth = $db->prepare("INSERT INTO key_exchanges 
-                 (signer_key, signee_key, signer_email, signee_email)
-                 VALUES (?, ?, ?, ?)"
-    );
-  } catch(PDOException $e){ 
-              echo $e->getMessage();
-              exit();
-  } 
+  $sth = $db->prepare("INSERT INTO key_exchanges 
+               (signer_key, signee_key, signer_email, signee_email)
+               VALUES (?, ?, ?, ?)"
+  );
+  if($sth == NULL) {
+    echo "Failed to prepare SQL statement";
+    print_r($dbh->errorInfo());
+    exit();
+  }
 
   $result = $sth->execute(
     array($signer_key, $signee_key, $signer_email, $signee_email)
@@ -38,5 +38,6 @@ try {
     echo "Thanks.  We'll let you know when the other party responds.";
   } else {
     echo "Sorry pal.  Something went wrong and failed all over itself in the tater base.";
+    print_r($db->errorInfo());
   }
 ?>
