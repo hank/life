@@ -6,7 +6,7 @@
   <table>
   <tr>
     <td><label>Your key ID</label></td>
-    <td><input type="text" name="signer_id" /></td>
+    <td><input type="text" name="signer_key" /></td>
   </tr>
   <tr>
     <td><label>The signed key of the other party</label></td>

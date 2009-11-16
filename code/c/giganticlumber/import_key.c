@@ -2,6 +2,7 @@
 // Imports a key given in the query string.
 
 #include <gpgme.h>
+#include <time.h>
 #include <stdio.h>   
 #include <string.h>   
 #include <stdlib.h>  
@@ -19,11 +20,12 @@ int initialize_context(gpgme_ctx_t *);
 int main()
 {
   char *bptr, *query_string, *content_len;
-  char *buf, *strkey;
+  char *buf, *strkey, *strsignkeyid;
   int clen, found;
   char * pKey, *pVal, *pEnd;
-  int keylen, vallen;
+  int keylen, vallen, printed = 0;
   size_t read_bytes;
+  char timebuf[60];
 
   /* GPGME Variables */
   gpgme_ctx_t ceofcontext;
@@ -118,11 +120,35 @@ int main()
     for(; *bptr && *bptr != '&'; bptr++);
     vallen = bptr - pVal;
     // Do the magic
-    if(strncmp("key=", pKey, 4) == 0) {
+    if(strncmp("key=", pKey, keylen+1) == 0) {
       strkey = malloc(vallen+1);
-      memcpy(strkey, pKey+4, vallen);
+      memcpy(strkey, pVal, vallen);
       strkey[vallen] == '0';
       URLDecode(strkey);
+    }
+    else if(strncmp("signer_key=", pKey, keylen+1) == 0) {
+      if(pVal[0] == '0' && 
+          (pVal[1] == 'x' || strsignkeyid[1] == 'X')
+        ) {
+         vallen -= 2;
+         pVal += 2; 
+      }
+      if(vallen != 8 && vallen != 16) {
+        printf("<p>Invalid Signer Key ID.  Formatting like any of the following will do:</p>");
+        printf("<ul>");
+        printf("<li>F693F0F246C171A0</li>");
+        printf("<li>46C171A0</li>");
+        printf("<li>0xF693F0F246C171A0</li>");
+        printf("<li>0x46C171A0</li>");
+        printf("</ul>");
+        fflush(stdout);
+        return 0;
+      }
+      strsignkeyid = malloc(vallen+1);
+      memcpy(strsignkeyid, pVal, vallen);
+      strsignkeyid[vallen] == '0';
+      URLDecode(strsignkeyid);
+      printf("</p>Signer Key: %s<p>", strsignkeyid, strlen(strsignkeyid));
     }
     if(*bptr == '\0') {
       // We're done here.  Last value
@@ -130,14 +156,13 @@ int main()
     }
     bptr++;
   }
-  //printf("<pre>%s</pre>", strkey);
 
   err = initialize_context(&ceofcontext);
   if(err != GPG_ERR_NO_ERROR) goto gpg_err;
 
   /* set encoding for the buffer... */
-  err = gpgme_data_set_encoding(rdata,GPGME_DATA_ENCODING_ARMOR);
-  if(err != GPG_ERR_NO_ERROR) goto gpg_err;
+  //err = gpgme_data_set_encoding(rdata,GPGME_DATA_ENCODING_ARMOR);
+  //if(err != GPG_ERR_NO_ERROR) goto gpg_err;
 
   err = gpgme_set_keylist_mode(ceofcontext, GPGME_KEYLIST_MODE_SIGS);
   if(err != GPG_ERR_NO_ERROR) goto gpg_err;
@@ -165,21 +190,68 @@ int main()
 
   uid = key->uids;
   if(!uid) {
-    printf("<p>No UIDs found.  Please check key,</p>");
+    printf("<p>No UIDs found.  Please check key</p>");
     fflush(stdout);
     return 0;
   }
-
+  printf("<ul>");
   do {
-    printf("<p>Found UID: %s</p>", uid->uid);
-    fflush(stdout);
     sig = uid->signatures;
     if(!sig) continue;
     do {
-      printf("<p>Found SIG: %s</p>", sig->keyid);
-      fflush(stdout);
+      if((strcasecmp(sig->keyid, strsignkeyid) == 0) ||
+         (strcasecmp(&sig->keyid[8], strsignkeyid) == 0)
+        ) {
+        // This UID is signed.
+
+        // We don't care about revoked UIDs.
+        if(uid->revoked || uid->invalid) break;
+        if(!printed) {
+          // Print relavent UID information
+          printf("<li>%s ", uid->uid);
+          printf("<ul>");
+          fflush(stdout);
+          printed = 1;
+        }
+        // Print relevent signature information
+        printf("<li>%s ", sig->keyid);
+        switch(sig->sig_class) {
+          case 0x10:
+            printf("Generic Level ");
+            break;
+          case 0x11:
+            printf("Persona Level ");
+            break;
+          case 0x12:
+            printf("Casual Level ");
+            break;
+          case 0x13:
+            printf("Positive Level");
+            break;
+        }
+        if(sig->revoked) printf("<b>Revoked</b> ");
+        if(sig->expired) printf("<b>Expired</b> ");
+        if(sig->invalid) printf("<b>Invalid</b> ");
+        if(!sig->exportable) printf("<b>Non-exportable</b> ");
+        printf("Signature ");
+        if(sig->timestamp != 0 && sig->timestamp != -1) { 
+          strftime(timebuf, 59, "%Y/%m/%d %H:%M:%S %Z", gmtime(&sig->timestamp));
+          printf("Made on %s ", timebuf);
+        } 
+        if(sig->expires != 0) { 
+          strftime(timebuf, 59, "%Y/%m/%d %H:%M:%S %Z", gmtime(&sig->expires));
+          printf("Expires on %s", timebuf);
+        } 
+        printf("</li>");
+        
+        fflush(stdout);
+      }
     } while((sig = sig->next) != NULL);
+    if(printed) printf("</ul></li>");
+    printed = 0;
   } while((uid = uid->next) != NULL);
+  printf("</ul>");
+  fflush(stdout);
 
   /* free data */
   gpgme_data_release(rdata);
@@ -190,7 +262,8 @@ int main()
   return 0;
 
 gpg_err:
-  printf("<p>GPG Error: %s</p>", gpgme_strerror(err)); fflush(stdout);
+  printf("<p>GPG Error</p>");
+  fflush(stdout);
   return 0;
 }
 
@@ -227,8 +300,8 @@ int initialize_context(gpgme_ctx_t * ceofcontext)
   err = gpgme_get_engine_info(&enginfo);
   if(err != GPG_ERR_NO_ERROR) goto gpg_err_2;
 
-  printf("file=%s, home=%s\n",enginfo->file_name,enginfo->home_dir); fflush(stdout);
-  fflush(stdout);
+  //printf("file=%s, home=%s\n",enginfo->file_name,enginfo->home_dir); fflush(stdout);
+  //fflush(stdout);
 
   /* set protocol to use in our context */
   err = gpgme_set_protocol(*ceofcontext,GPGME_PROTOCOL_OpenPGP);
