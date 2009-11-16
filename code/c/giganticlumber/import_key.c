@@ -19,7 +19,7 @@ int initialize_context(gpgme_ctx_t *);
 
 int main()
 {
-  char *bptr, *query_string, *content_len;
+  char *bptr, *query_string, *content_len, *primary_email;
   char *buf, *strkey, *strsignkeyid;
   int clen, found;
   char * pKey, *pVal, *pEnd;
@@ -194,6 +194,9 @@ int main()
     fflush(stdout);
     return 0;
   }
+
+  // Get the primary UID email.
+  primary_email = key->uids[0].email;
   printf("<ul>");
   do {
     sig = uid->signatures;
@@ -208,7 +211,9 @@ int main()
         if(uid->revoked || uid->invalid) break;
         if(!printed) {
           // Print relavent UID information
-          printf("<li>%s ", uid->uid);
+          printf("<li>%s ", uid->name);
+          if(uid->email) printf("&lt;%s&gt; ", uid->email);
+          if(uid->comment) printf("(%s) ", uid->comment);
           printf("<ul>");
           fflush(stdout);
           printed = 1;
@@ -220,13 +225,13 @@ int main()
             printf("Generic Level ");
             break;
           case 0x11:
-            printf("Persona Level ");
+            printf("<span style=\"color: #880000;\">Persona Level</span> ");
             break;
           case 0x12:
-            printf("Casual Level ");
+            printf("<span style=\"color: #000088;\">Casual Level</span> ");
             break;
           case 0x13:
-            printf("Positive Level");
+            printf("<span style=\"color: #008800;\">Positive Level</span> ");
             break;
         }
         if(sig->revoked) printf("<b>Revoked</b> ");
@@ -252,6 +257,25 @@ int main()
   } while((uid = uid->next) != NULL);
   printf("</ul>");
   fflush(stdout);
+
+  // Give the use an offer they can't refuse.
+  printf("<h3>Does this look correct?</h3>"
+         "<p>If not, hit your browser's back button and try again.</p>"
+         "<p>If it does look alright, put in your email and you'll be "
+         "notified when the other party reciprocates. "
+         "We'll also notify the other party via their primary email (%s).</p>"
+         "<form method=\"post\" action=\"save_exchange.php\">"
+           "<label>Email</label>"
+           "<input type=\"text\" name=\"signer_email\" />"
+           "<input type=\"text\" name=\"signee_email\" />"
+           "<input type=\"text\" name=\"signer_key\" value=\"%s\"/>"
+           "<input type=\"text\" name=\"signee_key\" value=\"%s\"/>"
+           "<input type=\"submit\" value=\"Notify Me\" />"
+         "</form>",
+         strsignkeyid,
+         &import_result->imports[0].fpr[24],
+         primary_email
+  );
 
   /* free data */
   gpgme_data_release(rdata);
