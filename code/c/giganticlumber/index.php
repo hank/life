@@ -2,11 +2,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <h2>Exchange key</h2>
 <p>This action requires validation.  Paste the key ASCII-armored below:</p>
-<form action="import_key.cgi" method="post">
+<form action="import_key.rb" method="post">
   <table>
   <tr>
     <td><label>Your key ID</label></td>
-    <td><input type="text" name="signer_key" /></td>
+    <td><input type="text" name="signer_id" /></td>
   </tr>
   <tr>
     <td><label>The signed key of the other party</label></td>
