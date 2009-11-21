@@ -7,6 +7,6 @@ needed for this type of exchange.
 ## Dependencies
 In Ubuntu, it's this:
 
-  sudo apt-get install libsqlite3-dev libgpgme11-dev
+  sudo apt-get install ruby rubygems libsqlite3-ruby libgpgme-ruby
 
 In other OS's, you're on your own.
