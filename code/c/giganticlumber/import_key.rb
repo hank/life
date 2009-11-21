@@ -141,7 +141,7 @@ EOOMG
 <p>If it does look alright, put in your email and you'll be
 notified when the other party reciprocates.
 We'll also notify the other party via their primary email (#{primary_email}).</p>
-<form method="post" action="save_exchange.php">
+<form method="post" action="save_exchange.rb">
   <label>Email</label>
   <input type="text" name="signer_email" />
   <input type="text" name="signee_email" value="#{primary_email}"/>
