@@ -1,5 +1,14 @@
+def get_cgi_link_prefix
+  ENV["REQUEST_URI"] =~ /(.*\/)(.*?)/
+  path = $1
+  if ENV["SERVER_PORT"] != 80 
+    server = ENV["SERVER_NAME"]+":"+ENV["SERVER_PORT"].to_s
+  else
+    server = ENV["SERVER_NAME"]
+  end
+  "http://#{server}#{path}"
+end 
 def key_with_sigs(key, signer_id)
-  target_id = nil
   buf = "<ul>"
   key.uids.each do |uid|
     next if uid.signatures.size == 0
@@ -36,14 +45,14 @@ def key_with_sigs(key, signer_id)
       if sig.expires.to_i != 0
         buf += "Expires on #{sig.expires.to_s}"
       end
-      target_id = sig.keyid if target_id.nil?
+      $target_id = sig.keyid if $target_id.nil?
       buf += "</li>"
     end
     buf += "</ul>"
     buf += "</li>"
   end
   buf += "</ul>"
-  if target_id.nil?
+  if $target_id.nil?
     # We didn't find any signatures
     raise RuntimeError 
   end
