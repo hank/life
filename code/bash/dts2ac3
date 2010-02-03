@@ -1,0 +1,18 @@
+#!/bin/bash
+if [ -z $1 ]; then
+  echo "Usage: $0 <input> <output>"
+  echo "If output is left blank, input extension will be stripped"
+  echo "and output filename will be appended with .ac3."
+  exit
+fi
+input=$1
+if [ -z $2 ]; then
+  # get prefix
+  prefix=${1%.*}
+  output="${prefix}.ac3"
+else
+  output=$2
+fi
+
+echo "Converting $input to $output"
+dcadec -o wavall $input  | aften - $output

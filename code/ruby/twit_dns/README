@@ -1,0 +1,5 @@
+TwitDNS, an implementation of the Twitter API using DNS
+
+Basically, server.rb is a DNS server that changes DNS requests into commands to
+read and write to twitter.  client.rb initiates a post.  One should be able
+to do just about all of it from the command line using dig or nslookup.
