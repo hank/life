@@ -36,11 +36,7 @@ rescue
   exit
 end
 
-omg=0
-
 doc.elements.each("posts/post") do |post|
-   exit if omg > 5
-   omg += 1
    rows = db.execute( "SELECT * FROM bookmarks WHERE link=?", post.attributes['href'] )
    if rows.size == 0
      puts "Downloading "+post.attributes['description']
@@ -50,10 +46,10 @@ doc.elements.each("posts/post") do |post|
      Open3.popen3(cmd) do |stdin, stdout, stderr|
        err = stderr.read
        err =~ /Saving to: `(.*)\/(.*?)'$/
+       next if $1.nil?
        path = $1
        filename = path + '/' + CGI.escape($2)
-       
-       puts "SAVED TO: #{filename}"
+       #puts "SAVED TO: #{filename}"
      end
 
      # Do bookmark
@@ -63,7 +59,8 @@ doc.elements.each("posts/post") do |post|
 
      # Do tags
      post.attributes['tag'].split(" ").each do |tag|
-       print "#{tag} "
+       #print "#{tag} "
+       tag.gsub("\"","")
        rows = db.execute( "SELECT * FROM tags WHERE name=?", tag)
        if rows.size == 0
          db.execute( "INSERT INTO tags VALUES (NULL,?)", tag)
@@ -77,7 +74,6 @@ doc.elements.each("posts/post") do |post|
          db.execute( "INSERT INTO taggings VALUES (?,?)", bid, tid)
        end
      end
-     puts
    else
      puts "Already have #{post.attributes['description']}"
    end
