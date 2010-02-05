@@ -1,0 +1,41 @@
+body {
+  color: #FFF;
+  background-color: #222;
+}
+
+h1 a:visited {
+  color: #FFF;
+}
+
+#menu {
+  list-style: none;
+}
+
+a {
+  color: #FFF;
+}
+
+a:visited {
+  color: #ABB;
+}
+
+table {
+}
+
+table tr {
+  
+}
+
+div.tagcloud {
+  text-align: center;
+  margin-left:200px;
+  margin-right:200px;
+}
+
+a.droplet {
+  padding:2px;
+  margin:0;
+  float:left;
+  display:block;
+}
+
