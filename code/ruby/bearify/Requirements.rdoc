@@ -12,4 +12,4 @@ The following are requirements for the Bearify project.
 1. The system must clearsign output of all successful verifications with its own signature.  It will do this using the GPGME library and Ruby.
 
 == Non-functional requirements
-1. The system must be placed on a computer with the following software packages installed: GPGME, Ruby
+1. The system must be placed on a computer with the following software packages installed: GPGME, Ruby, Ramaze, Haml

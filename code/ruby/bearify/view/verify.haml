@@ -1,0 +1,13 @@
+%p 
+  Pizza!
+  = @pizza
+
+%p= @plain
+
+%ul
+  - if @sigs.nil?
+    Nothing to see here.  Move along!
+  - else
+    - @sigs.each do |sig|
+      %li[sig, :signature]
+        = sig.to_s
