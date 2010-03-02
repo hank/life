@@ -1,13 +1,26 @@
-%p 
-  Pizza!
-  = @pizza
+%h3 Submitted Text
+- if not @plain.nil?
+  %pre= @plain
+- else
+  %pre= @orig_data
 
-%p= @plain
-
-%ul
+- if @error.nil?
   - if @sigs.nil?
-    Nothing to see here.  Move along!
+    Error: 
+    %pre{:class => 'error'} @sigs is nil.
+  - elsif @sigs.empty?
+    %strong No valid signatures found.
   - else
-    - @sigs.each do |sig|
-      %li[sig, :signature]
-        = sig.to_s
+    %ul
+      - @sigs.each do |sig|
+        %li[sig, :signature]
+          - case GPGME::gpgme_err_code(sig.status)
+          - when GPGME::GPG_ERR_NO_ERROR
+          - else
+            %span{:style => 'color: red; font-weight: bold;'} !
+          %strong
+            = sig.to_s
+            = "("+sig.timestamp().strftime("%m/%d/%Y %H:%M:%S")+")"
+- else
+  There was an error when processing your request:
+  %pre{:class => 'code'}= @error

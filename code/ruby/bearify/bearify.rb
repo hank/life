@@ -28,10 +28,16 @@ class MainController < Ramaze::Controller
   # Accepts 'signed' data, which will be tested by GPGME
   def verify
     @sigs = []
-    GPGME::verify(request.params['data'], nil, @plain) do |signature|
-      @sigs << signature
+    @orig_data = request.params['data']
+    begin
+      GPGME::verify(request.params['data'], nil, @plain) do |signature|
+        @sigs << signature
+      end
+    rescue GPGME::Error => e
+      @error = "GPGME Error: #{e.to_s}"
+    #rescue
+    #  @error = "Unspecified Error."
     end
-    @pizza = 'manatee'
   end
 end
 Ramaze.start
