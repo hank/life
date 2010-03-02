@@ -1,6 +1,6 @@
 = Bearify!
 
-https://dl.dropbox.com/u/4541445/bearify.png
+http://dl.dropbox.com/u/4541445/bearify.png
 
 This software is awesome.  It verifies PGP signatures.
 
