@@ -1,0 +1,28 @@
+UserActor->Website: Add Key
+activate Website
+Website-->UserActor: Render Add Key Form
+deactivate Website
+activate UserActor
+UserActor->Website: Add Key Form Submission
+deactivate UserActor
+activate Website
+Website->FormProcessor: Process Form
+deactivate Website
+activate FormProcessor
+FormProcessor-->Website: Form Data
+deactivate FormProcessor
+activate Website
+Website->Key: Create Key
+deactivate Website
+activate Key
+Key-->Website: Key
+deactivate Key
+activate Website
+Website->Database: Insert Key
+deactivate Website
+activate Database
+Database-->Website: Insert success
+deactivate Database
+activate Website
+Website-->UserActor: Success Dialog
+deactivate Website

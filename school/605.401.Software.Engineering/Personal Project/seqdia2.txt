@@ -1,0 +1,40 @@
+UserActor->Website: Revoke Key
+activate Website
+Website-->UserActor: Render Revoke Key Form
+deactivate Website
+activate UserActor
+UserActor->Website: Revoke Key Form Submission
+deactivate UserActor
+activate Website
+Website->FormProcessor: Process Form
+deactivate Website
+activate FormProcessor
+FormProcessor-->Website: Form Data
+deactivate FormProcessor
+activate Website
+Website->Database: Fetch Key
+deactivate Website
+activate Database
+Database-->Website: Key
+deactivate Database
+activate Website
+Website->Key: Revoke
+deactivate Website
+activate Key
+Key-->Website: Revocation Success
+deactivate Key
+activate Website
+Website->Key: Save
+deactivate Website
+activate Key
+Key->Database: Update Key
+deactivate Key
+activate Database
+Database-->Key: Update Success
+deactivate Database
+activate Key
+Key-->Website: Save Success
+deactivate Key
+activate Website
+Website-->UserActor: Success Dialog
+deactivate Website

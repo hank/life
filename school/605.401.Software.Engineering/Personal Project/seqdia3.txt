@@ -1,0 +1,46 @@
+UserActor->Website: Update Profile
+activate Website
+Website-->UserActor: Render Update Profile Form
+deactivate Website
+activate UserActor
+UserActor->Website: Update Profile Form Submission
+deactivate UserActor
+activate Website
+Website->FormProcessor: Process Form
+deactivate Website
+activate FormProcessor
+FormProcessor-->Website: Form Data
+deactivate FormProcessor
+activate Website
+Website->User: Find User
+deactivate Website
+activate User
+User->Database: Fetch User data
+deactivate User
+activate Database
+Database->User: User Data
+deactivate Database
+activate User
+User-->Website: User
+deactivate User
+activate Website
+Website->User: Update User
+deactivate Website
+activate User
+User-->Website: Update Success
+deactivate User
+activate Website
+Website->User: Save
+deactivate Website
+activate User
+User->Database: Update User
+deactivate User
+activate Database
+Database->User: Update Sucess
+deactivate Database
+activate User
+User->Website: Update Success
+deactivate User
+activate Website
+Website->UserActor: Success Dialog
+deactivate Website
