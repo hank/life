@@ -1,11 +1,11 @@
 INCLUDE=googletest-read-only/include
 LIBS=googletest-read-only/mybuild
 UNIT_TESTS=factorial_unittest
-TARGETS=
+TARGETS=factorial
 
 all: ${TARGETS}
 
-factorial: factorial.cc
+factorial: factorial.cpp
 
 test: ${UNIT_TESTS}
 
