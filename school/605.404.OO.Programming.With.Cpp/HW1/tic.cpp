@@ -8,6 +8,9 @@
 #include <boost/random/uniform_int.hpp>
 #include <boost/random/variate_generator.hpp>
 
+// Other RNG stuff
+#include <sys/time.h>
+
 class TicTacToe
 {
   public:
@@ -161,7 +164,11 @@ int main()
   char c;
 
   // BOOST Random generation support
-  boost::mt19937 gen;
+  //boost::mt19937 gen;
+  // Get current microseconds
+  struct timeval tv;
+  gettimeofday(&tv, NULL);
+  boost::mt19937 gen(tv.tv_usec);
   boost::uniform_int<> dist(0, 2);
   boost::variate_generator<boost::mt19937&, boost::uniform_int<> > roll(gen, dist);
 
