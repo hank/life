@@ -1,7 +1,6 @@
-#include <stdio.h>
+#include <iostream>
 #include <stdlib.h>
 #include <stdint.h>
-#include <exception>
 
 // BOOST Random headers
 #include <boost/random/mersenne_twister.hpp>
@@ -16,8 +15,8 @@
 int main()
 {
   TicTacToe t;
+  // Movement variables
   uint8_t x, y;
-  char c;
 
   // BOOST Random generation support
   //boost::mt19937 gen;
@@ -25,7 +24,7 @@ int main()
   struct timeval tv;
   gettimeofday(&tv, NULL);
   boost::mt19937 gen(tv.tv_usec);
-  boost::uniform_int<> dist(0, 2);
+  boost::uniform_int<> dist(1, 3);
   boost::variate_generator<boost::mt19937&, boost::uniform_int<> > roll(gen, dist);
 
   while(1) {
@@ -39,14 +38,17 @@ int main()
       t.move(x,y);
       // Change the active player
       t.change_player();
+      // Print the board
       t.print_board();
     }
     // Game is finished.  Who won?
     t.print_result();
     // Continue?
-    printf("Press Enter to play again!\n");
-    c = getc(stdin);
-    if(c != '\n') break;
+    std::cout << "Press Enter to play again!\n";
+    // Get a single character from the keyboard
+    // If it's not a newline, break out of the while loop
+    if(std::cin.get() != '\n') break;
+    // Otherwise, clear the board and continue to the next game
     t.clear();
   }
   return EXIT_SUCCESS;

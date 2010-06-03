@@ -1,4 +1,3 @@
-#include <stdio.h>
 class TicTacToe
 {
   public:
@@ -14,7 +13,7 @@ class TicTacToe
     char get_winner();
     // Executes a move by the current player
     // Increments the move counter for the current game
-    void move(uint8_t x, uint8_t y);
+    bool move(uint8_t x, uint8_t y);
     // Changes the current player to the other player
     void change_player();
     // Checks to see if the game is in a finished state (win/tie)

@@ -1,7 +1,11 @@
-tic: tic.cpp tictactoe.cpp tictactoe.h
+all: tic_random tic_interactive
+
+tic_random: tic_random.cpp tictactoe.cpp tictactoe.h
 	g++ -o $@ $<
 
-clean: tic
-	rm $<
+tic_interactive: tic_interactive.cpp tictactoe.cpp tictactoe.h
+	g++ -o $@ $<
 
-all: tic 
+clean:
+	rm tic_random tic_interactive
+

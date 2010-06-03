@@ -1,3 +1,4 @@
+#include <iostream>
 #include "tictactoe.h"
 TicTacToe::TicTacToe()
 {
@@ -38,21 +39,34 @@ char TicTacToe::get_winner()
   return winner;
 }
 
-void TicTacToe::move(uint8_t x, uint8_t y)
+// Move
+// Returns true if move was successful
+// Returns false if move was invalid - out of bounds or occupied
+bool TicTacToe::move(uint8_t x, uint8_t y)
 {
-  printf("%c @ (%u, %u)\n", current_player, x, y);
+  //std::cout << current_player << " @ " << 
+  //    (unsigned int)x << ", " << (unsigned int)y << std::endl;
+  // Check bounds
+  if(x == 0 || y == 0 || x > 3 || y > 3)
+  {
+    std::cout << "Move is out of bounds.  Try again.\n";
+    return false;
+  }
+
   // Check current state of board space
-  if(' ' != board[x][y]) 
+  if(' ' != board[x - 1][y - 1]) 
   {
     // If already occupied, get out
     // Do not increment move counter
-    printf("Space was already occupied by %c.  Try again.\n", board[x][y]);
-    return;
+    std::cout << "Space was already occupied by " << board[x - 1][y - 1] << 
+      " Try again.\n";
+    return false;
   }
   // Set the space as owned by X or O
-  board[x][y] = current_player;
+  board[x - 1][y - 1] = current_player;
   // Increment move counter
   moves++;
+  return true;
 }
 
 void TicTacToe::change_player()
@@ -124,30 +138,31 @@ void TicTacToe::print_result()
   // Make sure game is finished
   if(!finflag)
   {
-    printf("The game is not finished.  It's %c's move.", current_player);
+    std::cout << "The game is not finished.  It's " << current_player << "'s move.\n";
   }
   else
   {
     if(winner) 
     {
-      printf("The winner is %c!\n", winner);
+      std::cout << "The winner is " << winner << "!\n";
     }
     else
     {
-      printf("Game was a tie!\n");
+      std::cout << "Game was a tie!\n";
     }
   }
 }
 
 void TicTacToe::print_board()
 {
+  std::cout << "   1 2 3" << std::endl;
   for(int i = 0; i < 3; i++)
   {
-    printf("|");
+    std::cout << i+1 << " |";
     for(int j = 0; j < 3; j++)
     {
-      printf("%c|", board[i][j]);
+      std::cout << board[i][j] << "|";
     }
-    printf("\n");
+    std::cout << "\n";
   }
 }
