@@ -32,16 +32,24 @@ int main()
           ss.str("");
           // Parse the x and y params from the line
           ss << input;
-          std::cout << input.length() << std::endl;
-          exit(1);
           if(ss >> x >> y)
           {
+            // Proper input
+            break;
           }
           else
           {
+            // Bad input
             std::cout << "Bad input.  Try again." << std::endl;
             std::cout << t.get_current_player() << "'s move: ";
           }
+        }
+        // Make sure we haven't received an EOF
+        if(std::cin.eof())
+        {
+          // Exit
+          std::cout << "\nExiting..." << std::endl;
+          exit(EXIT_SUCCESS);
         }
         // Make a move
       }
