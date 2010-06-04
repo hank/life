@@ -1,16 +1,18 @@
 #include <iostream>
+#include <string>
+using std::string;
 #include "tictactoe.h"
 TicTacToe::TicTacToe()
 {
   // Start with a freshly cleared board
-  clear();
+  clearBoard();
 }
 
 TicTacToe::~TicTacToe()
 {
 }
 
-void TicTacToe::clear()
+void TicTacToe::clearBoard()
 {
   // Clear board
   for(uint8_t i = 0; i < 3; i++)
@@ -29,12 +31,12 @@ void TicTacToe::clear()
   finflag = 0;
 }
 
-char TicTacToe::get_current_player()
+char TicTacToe::getCurrentPlayer()
 {
   return current_player;
 }
 
-char TicTacToe::get_winner()
+char TicTacToe::getWinner()
 {
   return winner;
 }
@@ -69,7 +71,7 @@ bool TicTacToe::move(uint8_t x, uint8_t y)
   return true;
 }
 
-void TicTacToe::change_player()
+void TicTacToe::changePlayer()
 {
   // Change current player to other player
   // X is 0x58, O is 0x4F
@@ -133,7 +135,7 @@ bool TicTacToe::finished()
   return false;
 }
 
-void TicTacToe::print_result()
+void TicTacToe::printResult()
 {
   // Make sure game is finished
   if(!finflag)
@@ -153,7 +155,7 @@ void TicTacToe::print_result()
   }
 }
 
-void TicTacToe::print_board()
+void TicTacToe::printBoard()
 {
   std::cout << "   1 2 3" << std::endl;
   for(int i = 0; i < 3; i++)
@@ -165,4 +167,17 @@ void TicTacToe::print_board()
     }
     std::cout << "\n";
   }
+}
+
+const string TicTacToe::getBoard()
+{
+  string s; 
+  for(int i = 0; i < 3; i++)
+  {
+    for(int j = 0; j < 3; j++)
+    {
+      s += board[i][j];
+    }
+  }
+  return s;
 }

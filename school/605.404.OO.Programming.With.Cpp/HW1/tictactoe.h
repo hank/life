@@ -1,3 +1,7 @@
+#include <stdint.h>
+#include <string>
+using std::string;
+
 class TicTacToe
 {
   public:
@@ -5,25 +9,27 @@ class TicTacToe
     ~TicTacToe();
 
     // Sets the board to an initial condition
-    void clear();
+    void clearBoard();
 
     // Returns the current player
-    char get_current_player();
+    char getCurrentPlayer();
     // Returns the game winner, or 0 if there is none.
-    char get_winner();
+    char getWinner();
     // Executes a move by the current player
     // Increments the move counter for the current game
     bool move(uint8_t x, uint8_t y);
     // Changes the current player to the other player
-    void change_player();
+    void changePlayer();
     // Checks to see if the game is in a finished state (win/tie)
     // Returns true when game is over, sets winner, sets finished flag.
     // Returns false if game needs to continue.
     bool finished();
     // Prints the result of a finished game.
-    void print_result();
+    void printResult();
     // Prints the current state of the board
-    void print_board();
+    void printBoard();
+    // Returns a string containing the board for testing.
+    const string getBoard();
 
   private:
     char board[3][3];

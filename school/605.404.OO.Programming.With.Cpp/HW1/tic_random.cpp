@@ -25,31 +25,35 @@ int main()
   gettimeofday(&tv, NULL);
   boost::mt19937 gen(tv.tv_usec);
   boost::uniform_int<> dist(1, 3);
-  boost::variate_generator<boost::mt19937&, boost::uniform_int<> > roll(gen, dist);
+  boost::variate_generator<boost::mt19937&, boost::uniform_int<> > 
+    roll(gen, dist);
 
   while(1) {
     // Until we finish a game
     while(false == t.finished()) 
     {
-      // use PRNG for testing.
-      x = roll();
-      y = roll();
-      // Make a move
-      t.move(x,y);
+      do 
+      {
+        // Move with PRNG
+        x = roll();
+        y = roll();
+        // Make a move
+      }
+      while(!t.move(x,y));
       // Change the active player
-      t.change_player();
+      t.changePlayer();
       // Print the board
-      t.print_board();
+      t.printBoard();
     }
     // Game is finished.  Who won?
-    t.print_result();
+    t.printResult();
     // Continue?
     std::cout << "Press Enter to play again!\n";
     // Get a single character from the keyboard
     // If it's not a newline, break out of the while loop
     if(std::cin.get() != '\n') break;
     // Otherwise, clear the board and continue to the next game
-    t.clear();
+    t.clearBoard();
   }
   return EXIT_SUCCESS;
 }

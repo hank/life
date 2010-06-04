@@ -15,14 +15,15 @@ int main()
 
   while(1) {
     // Until we finish a game
-    std::cout << "To move, put row (1-3) then column (1-3) like so: 1 3" << std::endl;
+    std::cout << "To move, put row (1-3) then column (1-3) like so: 1 3" 
+              << std::endl;
     std::cout << "Then press Enter." << std::endl;
     while(false == t.finished()) 
     {
-      t.print_board();
+      t.printBoard();
       do 
       {
-        std::cout << t.get_current_player() << "'s move: ";
+        std::cout << t.getCurrentPlayer() << "'s move: ";
         // Read X and Y from command line
         while(getline(std::cin, input))
         {
@@ -41,7 +42,7 @@ int main()
           {
             // Bad input
             std::cout << "Bad input.  Try again." << std::endl;
-            std::cout << t.get_current_player() << "'s move: ";
+            std::cout << t.getCurrentPlayer() << "'s move: ";
           }
         }
         // Make sure we haven't received an EOF
@@ -56,18 +57,18 @@ int main()
       while(!t.move(x,y));
       // Successful move!
       // Change the active player
-      t.change_player();
+      t.changePlayer();
     }
     // Game is finished.  Who won?
-    t.print_result();
-    t.print_board();
+    t.printResult();
+    t.printBoard();
     // Continue?
     std::cout << "Press Enter to play again!\n";
     // Get a single character from the keyboard
     // If it's not a newline, break out of the while loop
     if(std::cin.get() != '\n') break;
     // Otherwise, clear the board and continue to the next game
-    t.clear();
+    t.clearBoard();
   }
   return EXIT_SUCCESS;
 }
