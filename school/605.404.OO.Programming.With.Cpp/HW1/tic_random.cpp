@@ -37,6 +37,11 @@ int main()
         // Move with PRNG
         x = roll();
         y = roll();
+        if(t.occupied(x, y))
+        {
+          std::cout << "Space was already occupied.  Try again.\n";
+          continue;
+        }
         // Make a move
       }
       while(!t.move(x,y));

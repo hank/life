@@ -36,7 +36,15 @@ int main()
           if(ss >> x >> y)
           {
             // Proper input
-            break;
+            if(t.occupied(x, y))
+            {
+              std::cout << "Space was already occupied.  Try again.\n";
+              continue;
+            }
+            else
+            {
+              break;
+            }
           }
           else
           {

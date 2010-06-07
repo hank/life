@@ -2,6 +2,7 @@
 #include <string>
 using std::string;
 #include "tictactoe.h"
+
 TicTacToe::TicTacToe()
 {
   // Start with a freshly cleared board
@@ -19,7 +20,7 @@ void TicTacToe::clearBoard()
   {
     for(uint8_t j = 0; j < 3; j++)
     {
-      board[i][j] = ' ';
+      this->board[i][j] = ' ';
     }
   }
   // Clear winner
@@ -31,14 +32,19 @@ void TicTacToe::clearBoard()
   finflag = 0;
 }
 
-char TicTacToe::getCurrentPlayer()
+char TicTacToe::getCurrentPlayer() const
 {
   return current_player;
 }
 
-char TicTacToe::getWinner()
+char TicTacToe::getWinner() const
 {
   return winner;
+}
+
+bool TicTacToe::occupied(uint8_t x, uint8_t y) const
+{
+  return (' ' != this->board[x - 1][y - 1]);
 }
 
 // Move
@@ -56,16 +62,14 @@ bool TicTacToe::move(uint8_t x, uint8_t y)
   }
 
   // Check current state of board space
-  if(' ' != board[x - 1][y - 1]) 
+  if(occupied(x, y)) 
   {
     // If already occupied, get out
     // Do not increment move counter
-    std::cout << "Space was already occupied by " << board[x - 1][y - 1] << 
-      " Try again.\n";
     return false;
   }
   // Set the space as owned by X or O
-  board[x - 1][y - 1] = current_player;
+  this->board[x - 1][y - 1] = current_player;
   // Increment move counter
   moves++;
   return true;
@@ -87,22 +91,22 @@ bool TicTacToe::finished()
   // Check to see if board is a win
   // Check rows
   for(uint8_t i = 0; i < 2; i++) {
-    if(board[i][0] != ' ' &&
-        board[i][0] == board[i][1] &&
-        board[i][0] == board[i][2]
+    if(this->board[i][0] != ' ' &&
+        this->board[i][0] == this->board[i][1] &&
+        this->board[i][0] == this->board[i][2]
       )
     {
       // Row is a win!
-      winner = board[i][0];
+      winner = this->board[i][0];
       finflag = 1;
       return true;
     }
   }
   // Check columns
   for(uint8_t i = 0; i < 2; i++) {
-    if(board[0][i] != ' ' &&
-        board[0][i] == board[1][i] &&
-        board[0][i] == board[2][i]
+    if(this->board[0][i] != ' ' &&
+        this->board[0][i] == this->board[1][i] &&
+        this->board[0][i] == this->board[2][i]
       )
     {
       // Column is a win!
@@ -114,13 +118,16 @@ bool TicTacToe::finished()
   // Check cross
   if(board[1][1] != ' ' &&
       (
-       (board[0][0] == board[1][1] && board[1][1] == board[2][2]) ||
-       (board[0][2] == board[1][1] && board[1][1] == board[2][0])
+       (this->board[0][0] == this->board[1][1] && 
+        this->board[1][1] == this->board[2][2]) ||
+
+       (this->board[0][2] == this->board[1][1] && 
+        this->board[1][1] == this->board[2][0])
       )
     )
   {
     // Cross is a win!
-    winner = board[1][1];
+    winner = this->board[1][1];
     finflag = 1;
     return true;
   }
@@ -135,7 +142,7 @@ bool TicTacToe::finished()
   return false;
 }
 
-void TicTacToe::printResult()
+void TicTacToe::printResult() const
 {
   // Make sure game is finished
   if(!finflag)
@@ -155,7 +162,7 @@ void TicTacToe::printResult()
   }
 }
 
-void TicTacToe::printBoard()
+void TicTacToe::printBoard() const
 {
   std::cout << "   1 2 3" << std::endl;
   for(int i = 0; i < 3; i++)
@@ -163,20 +170,20 @@ void TicTacToe::printBoard()
     std::cout << i+1 << " |";
     for(int j = 0; j < 3; j++)
     {
-      std::cout << board[i][j] << "|";
+      std::cout << this->board[i][j] << "|";
     }
     std::cout << "\n";
   }
 }
 
-const string TicTacToe::getBoard()
+const string TicTacToe::getBoard() const
 {
   string s; 
   for(int i = 0; i < 3; i++)
   {
     for(int j = 0; j < 3; j++)
     {
-      s += board[i][j];
+      s += this->board[i][j];
     }
   }
   return s;
