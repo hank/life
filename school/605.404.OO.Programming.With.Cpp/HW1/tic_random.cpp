@@ -45,8 +45,7 @@ int main()
         // Make a move
       }
       while(!t.move(x,y));
-      // Change the active player
-      t.changePlayer();
+      // A move succeeded!
       // Print the board
       t.printBoard();
     }

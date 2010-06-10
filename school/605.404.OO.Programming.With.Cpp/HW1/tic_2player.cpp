@@ -71,8 +71,7 @@ int main()
       }
       while(!t.move(x,y));
       // Successful move!
-      // Change the active player
-      t.changePlayer();
+      // Loop until finished!
     }
     // Game is finished.  Who won?
     t.printResult();

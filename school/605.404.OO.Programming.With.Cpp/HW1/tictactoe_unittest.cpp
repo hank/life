@@ -12,7 +12,7 @@ TEST(TicTacToe, Move)
   t.move(1,3);
   t.move(3,1);
   string s = t.getStringBoard();
-  ASSERT_STREQ("X X   X  ", s.c_str());
+  ASSERT_STREQ("X O   X  ", s.c_str());
 }
 
 TEST(TicTacToe, TakenSpace)
@@ -27,7 +27,7 @@ TEST(TicTacToe, ChangePlayer)
   TicTacToe t;
   char p = t.getCurrentPlayer();
   ASSERT_EQ('X', p);
-  t.changePlayer();
+  t.move(1, 1);
   p = t.getCurrentPlayer();
   ASSERT_EQ('O', p);
 }
@@ -44,18 +44,22 @@ TEST(TicTacToe, BoundsCheck)
 TEST(TicTacToe, Finished)
 {
   TicTacToe t;
-  t.move(1, 1);
-  t.move(2, 1);
-  t.move(3, 1);
+  t.move(1, 1); // X
+  t.move(3, 2); // O
+  t.move(2, 1); // X
+  t.move(3, 3); // O
+  t.move(3, 1); // X
   ASSERT_TRUE(t.finished());
 }
 
 TEST(TicTacToe, Winner)
 {
   TicTacToe t;
-  t.move(1, 1);
-  t.move(2, 1);
-  t.move(3, 1);
+  t.move(1, 1); // X
+  t.move(3, 2); // O
+  t.move(2, 1); // X
+  t.move(3, 3); // O
+  t.move(3, 1); // X
   ASSERT_TRUE(t.finished());
   ASSERT_EQ(t.getWinner(), 'X');
 }

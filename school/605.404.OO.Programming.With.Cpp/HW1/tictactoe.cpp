@@ -71,6 +71,8 @@ bool TicTacToe::move(uint8_t x, uint8_t y)
   setBoard(x, y, getCurrentPlayer());
   // Increment move counter
   setMoves(this->moves + 1);
+  // Change the player
+  changePlayer();
   return true;
 }
 
