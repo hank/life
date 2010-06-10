@@ -5,21 +5,6 @@
 using std::string;
 #include "tictactoe.h"
 
-// Default Constructor
-//   Initializes a fresh game for us.
-TicTacToe::TicTacToe()
-{
-  // Start with a freshly cleared board
-  clearBoard();
-}
-
-// Destructor
-//   Currently does nothing.
-TicTacToe::~TicTacToe()
-{
-  // Destructor is blank.
-}
-
 // clearBoard
 //   Clears the board
 //   Sets all the board spaces the the space character.
@@ -37,12 +22,12 @@ void TicTacToe::clearBoard()
     }
   }
   // Clear winner
-  winner = '\0';
+  setWinner('\0');
   // Player 1 always starts
-  current_player = 'X';
+  setCurrentPlayer('X');
   // Reset move counter
-  moves = 0;
-  finflag = false;
+  setMoves(0);
+  setFinished(false);
 }
 
 // isInBounds
@@ -83,7 +68,7 @@ bool TicTacToe::move(uint8_t x, uint8_t y)
     return false;
   }
   // Set the space as owned by X or O
-  setBoard(x, y, current_player);
+  setBoard(x, y, getCurrentPlayer());
   // Increment move counter
   setMoves(this->moves + 1);
   return true;

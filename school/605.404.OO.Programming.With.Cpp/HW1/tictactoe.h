@@ -9,8 +9,18 @@ using std::string;
 class TicTacToe
 {
   public:
-    TicTacToe();
-    ~TicTacToe();
+    // Default Constructor
+    //   Initializes a fresh game for us.
+    TicTacToe()
+    {
+      // Start with a freshly cleared board
+      clearBoard();
+    }
+
+    // Destructor
+    virtual ~TicTacToe()
+    { // Does nothing, but it's virtual!
+    }
 
     // Sets the board to an initial condition
     void clearBoard();
@@ -56,9 +66,11 @@ class TicTacToe
     void setMoves(uint8_t moves);
     // Set the winner - also sets the finflag to true
     void setWinner(char winner);
+    // Set the winner - also sets the finflag to true
+    void setCurrentPlayer(char currentPlayer);
 
     char board[3][3];
-    char current_player;
+    char currentPlayer;
     char winner;
     uint8_t moves;
     bool finflag;
@@ -72,13 +84,13 @@ class TicTacToe
 //   XOR with 0x17 to swap.
 inline void TicTacToe::changePlayer()
 {
-  this->current_player ^= 0x17;
+  this->currentPlayer ^= 0x17;
 }
 
 // getCurrentPlayer
 inline char TicTacToe::getCurrentPlayer() const
 {
-  return this->current_player;
+  return this->currentPlayer;
 }
 
 // getMoves
@@ -108,7 +120,7 @@ inline char TicTacToe::getBoard(uint8_t x, uint8_t y) const
   return this->board[x - 1][y - 1];
 }
 
-// getBoard 
+// setBoard 
 // Converts from 1-indexed to 0-indexed array subscript
 // Sets value at given offset
 // WARNING: MUST CHECK BOUNDS BEFORE CALLING!
@@ -117,20 +129,29 @@ inline void TicTacToe::setBoard(uint8_t x, uint8_t y, char player)
   this->board[x - 1][y - 1] = player;
 }
 
+// setMoves
 inline void TicTacToe::setMoves(uint8_t moves)
 {
   this->moves = moves;
 }
 
+// setWinner
 inline void TicTacToe::setWinner(char winner)
 {
   this->winner = winner;
   this->finflag = true;
 }
 
+// setFinished
 inline void TicTacToe::setFinished(bool finished)
 {
   this->finflag = finished;
+}
+
+// setCurrentPlayer
+inline void TicTacToe::setCurrentPlayer(char currentPlayer)
+{
+  this->currentPlayer = currentPlayer;
 }
 
 #endif // TICTACTOE_H
