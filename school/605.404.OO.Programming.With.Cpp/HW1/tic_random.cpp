@@ -25,8 +25,8 @@ int main()
   gettimeofday(&tv, NULL);
   boost::mt19937 gen(tv.tv_usec);
   boost::uniform_int<> dist(1, 3);
-  boost::variate_generator<boost::mt19937&, boost::uniform_int<> > 
-    roll(gen, dist);
+  boost::variate_generator<boost::mt19937&, 
+                           boost::uniform_int<> > roll(gen, dist);
 
   while(1) {
     // Until we finish a game
