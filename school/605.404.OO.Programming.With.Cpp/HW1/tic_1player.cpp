@@ -1,3 +1,5 @@
+// TicTacToe 1-player game
+// A version of TicTacToe with a computer opponent.
 #include <iostream>
 #include <sstream>
 #include <string>
