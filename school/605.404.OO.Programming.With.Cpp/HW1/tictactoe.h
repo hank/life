@@ -1,3 +1,7 @@
+// TicTacToe Class
+// Provides an implementation of TicTacToe
+#ifndef TICTACTOE_H
+#define TICTACTOE_H
 #include <stdint.h>
 #include <string>
 using std::string;
@@ -10,10 +14,6 @@ class TicTacToe
 
     // Sets the board to an initial condition
     void clearBoard();
-    // Returns the current player
-    char getCurrentPlayer() const;
-    // Returns the game winner, or 0 if there is none.
-    char getWinner() const;
     // Executes a move by the current player
     // Increments the move counter for the current game
     bool move(uint8_t x, uint8_t y);
@@ -26,16 +26,111 @@ class TicTacToe
     // Returns false if game needs to continue.
     bool finished();
     // Prints the result of a finished game.
-    void printResult() const;
+    // Not const because it calls finished, which may permute members
+    void printResult();
     // Prints the current state of the board
     void printBoard() const;
     // Returns a string containing the board for testing.
-    const string getBoard() const;
+    const string getStringBoard() const;
+    // Returns the current number of moves
+    char getMoves() const;
+    // Returns the current player
+    char getCurrentPlayer() const;
+    // Returns the game winner, or 0 if there is none.
+    char getWinner() const;
+    // Finds if a space is in bounds
+    bool isInBounds(uint8_t x, uint8_t y) const;
 
   private:
+    // Returns the given space on the board
+    // Warning: offsets must be between 1 and 3.
+    char getBoard(uint8_t x, uint8_t y) const;
+    // Set a place on the board to a given player
+    // Warning: offsets must be between 1 and 3.
+    void setBoard(uint8_t x, uint8_t y, char player);
+    // Returns the finished flag - should only be called inside finished()
+    bool getFinFlag() const;
+    // Set the finished flag
+    void setFinished(bool finished);
+    // Set the number of moves
+    void setMoves(uint8_t moves);
+    // Set the winner - also sets the finflag to true
+    void setWinner(char winner);
+
     char board[3][3];
     char current_player;
     char winner;
     uint8_t moves;
     bool finflag;
 };
+
+// Inlines
+
+// changePlayer
+//   Change current player to other player
+//   ASCII X is 0x58, ASCII O is 0x4F
+//   XOR with 0x17 to swap.
+inline void TicTacToe::changePlayer()
+{
+  this->current_player ^= 0x17;
+}
+
+// getCurrentPlayer
+inline char TicTacToe::getCurrentPlayer() const
+{
+  return this->current_player;
+}
+
+// getMoves
+inline char TicTacToe::getMoves() const
+{
+  return this->moves;
+}
+
+// getWinner
+inline char TicTacToe::getWinner() const
+{
+  return this->winner;
+}
+
+// getFinFlag
+inline bool TicTacToe::getFinFlag() const
+{
+  return this->finflag;
+}
+
+// getBoard 
+// Converts from 1-indexed to 0-indexed array subscript
+// Returns value at given offset
+// WARNING: MUST CHECK BOUNDS BEFORE CALLING!
+inline char TicTacToe::getBoard(uint8_t x, uint8_t y) const
+{
+  return this->board[x - 1][y - 1];
+}
+
+// getBoard 
+// Converts from 1-indexed to 0-indexed array subscript
+// Sets value at given offset
+// WARNING: MUST CHECK BOUNDS BEFORE CALLING!
+inline void TicTacToe::setBoard(uint8_t x, uint8_t y, char player)
+{
+  this->board[x - 1][y - 1] = player;
+}
+
+inline void TicTacToe::setMoves(uint8_t moves)
+{
+  this->moves = moves;
+}
+
+inline void TicTacToe::setWinner(char winner)
+{
+  this->winner = winner;
+  this->finflag = true;
+}
+
+inline void TicTacToe::setFinished(bool finished)
+{
+  this->finflag = finished;
+}
+
+#endif // TICTACTOE_H

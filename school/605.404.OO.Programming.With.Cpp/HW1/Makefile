@@ -7,13 +7,13 @@ tictactoe_unittest: tictactoe_unittest.cpp tictactoe.h
 	g++ -O3 -o $@ $< -I${INCLUDE} -L${LIBS} -lgtest -lgtest_main -lpthread
 
 tic_random: tic_random.cpp tictactoe.cpp tictactoe.h
-	g++ -O3 -o $@ $<
+	g++ -O3 -o $@ $< tictactoe.cpp
 
 tic_2player: tic_2player.cpp tictactoe.cpp tictactoe.h
-	g++ -O3 -o $@ $<
+	g++ -O3 -o $@ $< tictactoe.cpp
 
 tic_1player: tic_1player.cpp tictactoe.cpp tictactoe.h
-	g++ -O3 -o $@ $<
+	g++ -O3 -o $@ $< tictactoe.cpp
 
 clean:
 	rm tic_1player tic_2player tic_random tictactoe_unittest

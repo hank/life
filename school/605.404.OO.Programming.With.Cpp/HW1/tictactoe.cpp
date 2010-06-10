@@ -1,26 +1,39 @@
+// TicTacToe implementation
+// Implements functions of the TicTacToe class.
 #include <iostream>
 #include <string>
 using std::string;
 #include "tictactoe.h"
 
+// Default Constructor
+//   Initializes a fresh game for us.
 TicTacToe::TicTacToe()
 {
   // Start with a freshly cleared board
   clearBoard();
 }
 
+// Destructor
+//   Currently does nothing.
 TicTacToe::~TicTacToe()
 {
+  // Destructor is blank.
 }
 
+// clearBoard
+//   Clears the board
+//   Sets all the board spaces the the space character.
+//   Resets the winner to 0
+//   Sets the starting player to X
+//   Resets move counter and finished flag
 void TicTacToe::clearBoard()
 {
   // Clear board
-  for(uint8_t i = 0; i < 3; i++)
+  for(uint8_t i = 1; i <= 3; i++)
   {
-    for(uint8_t j = 0; j < 3; j++)
+    for(uint8_t j = 1; j <= 3; j++)
     {
-      this->board[i][j] = ' ';
+      setBoard(i, j, ' ');
     }
   }
   // Clear winner
@@ -29,22 +42,29 @@ void TicTacToe::clearBoard()
   current_player = 'X';
   // Reset move counter
   moves = 0;
-  finflag = 0;
+  finflag = false;
 }
 
-char TicTacToe::getCurrentPlayer() const
+// isInBounds
+// Checks to see if the given offsets are inside the board
+// Must be used for safety before dereferencing sections of the board.
+bool TicTacToe::isInBounds(uint8_t x, uint8_t y) const
 {
-  return current_player;
+  // Check bounds
+  if(x == 0 || y == 0 || x > 3 || y > 3)
+  {
+    return false;
+  }
+  return true;
 }
 
-char TicTacToe::getWinner() const
-{
-  return winner;
-}
-
+// Occupied
+// Finds if a given space is occupied on the board.
 bool TicTacToe::occupied(uint8_t x, uint8_t y) const
 {
-  return (' ' != this->board[x - 1][y - 1]);
+  if(!isInBounds(x, y)) return false;
+  // If that succeeds, check the space.
+  return (' ' != getBoard(x, y));
 }
 
 // Move
@@ -52,14 +72,8 @@ bool TicTacToe::occupied(uint8_t x, uint8_t y) const
 // Returns false if move was invalid - out of bounds or occupied
 bool TicTacToe::move(uint8_t x, uint8_t y)
 {
-  //std::cout << current_player << " @ " << 
-  //    (unsigned int)x << ", " << (unsigned int)y << std::endl;
   // Check bounds
-  if(x == 0 || y == 0 || x > 3 || y > 3)
-  {
-    std::cout << "Move is out of bounds.  Try again.\n";
-    return false;
-  }
+  if(!isInBounds(x, y)) return false;
 
   // Check current state of board space
   if(occupied(x, y)) 
@@ -69,91 +83,75 @@ bool TicTacToe::move(uint8_t x, uint8_t y)
     return false;
   }
   // Set the space as owned by X or O
-  this->board[x - 1][y - 1] = current_player;
+  setBoard(x, y, current_player);
   // Increment move counter
-  moves++;
+  setMoves(this->moves + 1);
   return true;
-}
-
-void TicTacToe::changePlayer()
-{
-  // Change current player to other player
-  // X is 0x58, O is 0x4F
-  // XOR with 0x17 to swap.
-  current_player ^= 0x17;
 }
 
 bool TicTacToe::finished()
 {
   // Maybe we've already set the finished flag
-  if(finflag) return true;
+  if(true == getFinFlag()) return true;
 
   // Check to see if board is a win
   // Check rows
-  for(uint8_t i = 0; i < 2; i++) {
-    if(this->board[i][0] != ' ' &&
-        this->board[i][0] == this->board[i][1] &&
-        this->board[i][0] == this->board[i][2]
+  for(uint8_t i = 1; i <= 3; i++) {
+    if(' ' != getBoard(i, 1) && 
+              getBoard(i, 1) == getBoard(i, 2) &&
+              getBoard(i, 1) == getBoard(i, 3)
       )
     {
       // Row is a win!
-      winner = this->board[i][0];
-      finflag = 1;
-      return true;
+      setWinner(getBoard(i, 1));
     }
   }
   // Check columns
-  for(uint8_t i = 0; i < 2; i++) {
-    if(this->board[0][i] != ' ' &&
-        this->board[0][i] == this->board[1][i] &&
-        this->board[0][i] == this->board[2][i]
+  for(uint8_t i = 1; i <= 3; i++) {
+    if(' ' != getBoard(1, i) &&
+              getBoard(1, i) == getBoard(2, i) && 
+              getBoard(1, i) == getBoard(3, i)
       )
     {
       // Column is a win!
-      winner = board[0][i];
-      finflag = 1;
-      return true;
+      setWinner(getBoard(1, i));
     }
   }
   // Check cross
-  if(board[1][1] != ' ' &&
-      (
-       (this->board[0][0] == this->board[1][1] && 
-        this->board[1][1] == this->board[2][2]) ||
-
-       (this->board[0][2] == this->board[1][1] && 
-        this->board[1][1] == this->board[2][0])
+  if(' ' != getBoard(2, 2) &&
+      ( (getBoard(1, 1) == getBoard(2, 2) && getBoard(2, 2) == getBoard(3, 3)) ||
+        (getBoard(1, 3) == getBoard(2, 2) && getBoard(2, 2) == getBoard(3, 1))
       )
     )
   {
     // Cross is a win!
-    winner = this->board[1][1];
-    finflag = 1;
-    return true;
+    setWinner(getBoard(2, 2));
   }
 
   // Check for a tie
-  if(moves == 9) {
-    finflag = 1;
-    return true;
+  if(9 == getMoves()) {
+    setFinished(true);
   }
 
-  // Otherwise, no win yet.
-  return false;
+  // Return true only if we've finished
+  return getFinFlag();
 }
 
-void TicTacToe::printResult() const
+// printResult()
+//   Prints a one-line result of the current game.
+//   Not const because it calls finished()
+void TicTacToe::printResult()
 {
   // Make sure game is finished
-  if(!finflag)
+  if(!finished())
   {
-    std::cout << "The game is not finished.  It's " << current_player << "'s move.\n";
+    std::cout << "The game is not finished.  It's " << getCurrentPlayer() << "'s move.\n";
   }
   else
   {
-    if(winner) 
+    if(getWinner()) 
     {
-      std::cout << "The winner is " << winner << "!\n";
+      std::cout << "The winner is " << getWinner() << "!\n";
     }
     else
     {
@@ -162,28 +160,33 @@ void TicTacToe::printResult() const
   }
 }
 
+// printBoard()
+//   Prints the board to the screen in a nice square layout
 void TicTacToe::printBoard() const
 {
   std::cout << "   1 2 3" << std::endl;
-  for(int i = 0; i < 3; i++)
+  for(int i = 1; i <= 3; i++)
   {
-    std::cout << i+1 << " |";
-    for(int j = 0; j < 3; j++)
+    std::cout << i << " |";
+    for(int j = 1; j <= 3; j++)
     {
-      std::cout << this->board[i][j] << "|";
+      std::cout << getBoard(i, j) << "|";
     }
     std::cout << "\n";
   }
 }
 
-const string TicTacToe::getBoard() const
+// getStringBoard()
+//   Used for unit testing purposes
+//   Converts the board array to a std::string
+const string TicTacToe::getStringBoard() const
 {
   string s; 
-  for(int i = 0; i < 3; i++)
+  for(int i = 1; i <= 3; i++)
   {
-    for(int j = 0; j < 3; j++)
+    for(int j = 1; j <= 3; j++)
     {
-      s += this->board[i][j];
+      s += getBoard(i, j);
     }
   }
   return s;

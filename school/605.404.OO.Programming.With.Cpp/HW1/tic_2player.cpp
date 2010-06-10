@@ -3,7 +3,7 @@
 #include <string>
 #include <stdlib.h>
 #include <stdint.h>
-#include "tictactoe.cpp"
+#include "tictactoe.h"
 
 int main()
 {
@@ -36,9 +36,16 @@ int main()
           if(ss >> x >> y)
           {
             // Proper input
+            if(!t.isInBounds(x, y))
+            {
+              std::cout << "Space was out of bounds.  Try again." << std::endl
+                        << t.getCurrentPlayer() << "'s move: ";
+              continue;
+            }
             if(t.occupied(x, y))
             {
-              std::cout << "Space was already occupied.  Try again.\n";
+              std::cout << "Space was already occupied.  Try again." << std::endl
+                        << t.getCurrentPlayer() << "'s move: ";
               continue;
             }
             else

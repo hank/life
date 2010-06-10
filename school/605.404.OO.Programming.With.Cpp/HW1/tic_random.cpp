@@ -10,7 +10,7 @@
 // Other RNG stuff
 #include <sys/time.h>
 
-#include "tictactoe.cpp"
+#include "tictactoe.h"
 
 int main()
 {
@@ -37,9 +37,9 @@ int main()
         // Move with PRNG
         x = roll();
         y = roll();
+        // Keep rolling until a proper space is found
         if(t.occupied(x, y))
         {
-          std::cout << "Space was already occupied.  Try again.\n";
           continue;
         }
         // Make a move
