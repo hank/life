@@ -8,7 +8,7 @@ using std::string;
 // Boost
 #include <boost/array.hpp>
 
-#include "poker.h"
+#include "pokerhand.h"
 // Use the local Poker namespaces.
 using namespace CardRank;
 using namespace Suit;
@@ -73,6 +73,24 @@ TEST(Poker, CardValueComparisons)
   c = KING + CLUBS;
   d = KING + SPADES;
   ASSERT_EQ(c, d);
+}
+
+TEST(Poker, CalculateHighCard)
+{
+  boost::array<Card,5> cards = {
+    {
+      Card(THREE, SPADES),
+      Card(KING, DIAMONDS),
+      Card(QUEEN, HEARTS),
+      Card(ACE, SPADES),
+      Card(FOUR, CLUBS),
+    }
+  };
+  PokerHand t(cards);
+  // Make sure we have a pair.
+  ASSERT_EQ(t.getRank(), HandRanking::HIGH_CARD);
+  // Make sure high card is an Ace
+  ASSERT_EQ((int)t.getHighCard().getCardRank(), ACE);
 }
 
 TEST(Poker, CalculatePair)
