@@ -1,7 +1,7 @@
 INCLUDE=../../../code/cpp/testing/googletest-read-only/include
 LIBS=../../../code/cpp/testing/googletest-read-only/mybuild
 
-all: test
+all: poker_unittest
 
 test: test.cpp poker.h
 	g++ -O3 -o $@ $<

@@ -3,6 +3,10 @@ using std::cout;
 using std::endl;
 #include <string>
 using std::string;
+
+// Boost
+#include <boost/array.hpp>
+
 #include "poker.h"
 
 int main()
