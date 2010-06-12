@@ -13,47 +13,20 @@ using std::string;
 using namespace CardRank;
 using namespace Suit;
 
-TEST(Poker, CreateHand)
-{
-  // Initialize Seven High Straight
-  Card card1 = Card(SEVEN + HEARTS);
-  Card card2 = Card(SIX, HEARTS);
-  Card card3 = Card(FIVE + SPADES);
-  Card card4 = Card(FOUR + HEARTS);
-  Card card5 = Card(THREE + HEARTS);
-  PokerHand p(card1, card2, card3, card4, card5);
-}
-
-TEST(Poker, CreateHandBoostArray)
-{
-  boost::array<Card,5> cards = {
-    {
-      Card(TWO, SPADES),
-      Card(KING, DIAMONDS),
-      Card(QUEEN, HEARTS),
-      Card(ACE, SPADES),
-      Card(THREE, CLUBS),
-    }
-  };
-  PokerHand t(cards);
-  // Expect it to be sorted by card value
-  ASSERT_EQ((string)t, "2S 3C QH KD AS");
-}
-
-TEST(Poker, CardIntEqualsOperator)
+TEST(Card, CardIntEqualsOperator)
 {
   Card c(SEVEN, SPADES);
   ASSERT_EQ((int)c, SEVEN + SPADES);
 }
 
-TEST(Poker, CardEqualsOperator)
+TEST(Card, CardEqualsOperator)
 {
   Card c(QUEEN, SPADES);
   Card d(QUEEN, HEARTS);
   ASSERT_EQ(c, d);
 }
 
-TEST(Poker, CardValueComparisons)
+TEST(Card, CardValueComparisons)
 {
   // AD > 7S
   Card c(SEVEN, SPADES);
@@ -75,7 +48,34 @@ TEST(Poker, CardValueComparisons)
   ASSERT_EQ(c, d);
 }
 
-TEST(Poker, CalculateHighCard)
+TEST(PokerHand, CreateHand)
+{
+  // Initialize Seven High Straight
+  Card card1 = Card(SEVEN + HEARTS);
+  Card card2 = Card(SIX, HEARTS);
+  Card card3 = Card(FIVE + SPADES);
+  Card card4 = Card(FOUR + HEARTS);
+  Card card5 = Card(THREE + HEARTS);
+  PokerHand p(card1, card2, card3, card4, card5);
+}
+
+TEST(PokerHand, CreateHandBoostArray)
+{
+  boost::array<Card,5> cards = {
+    {
+      Card(TWO, SPADES),
+      Card(KING, DIAMONDS),
+      Card(QUEEN, HEARTS),
+      Card(ACE, SPADES),
+      Card(THREE, CLUBS),
+    }
+  };
+  PokerHand t(cards);
+  // Expect it to be sorted by card value
+  ASSERT_EQ((string)t, "2S 3C QH KD AS");
+}
+
+TEST(PokerHand, CalculateHighCard)
 {
   boost::array<Card,5> cards = {
     {
@@ -93,7 +93,7 @@ TEST(Poker, CalculateHighCard)
   ASSERT_EQ((int)t.getHighCard().getCardRank(), ACE);
 }
 
-TEST(Poker, CalculatePair)
+TEST(PokerHand, CalculatePair)
 {
   boost::array<Card,5> cards = {
     {
@@ -111,7 +111,7 @@ TEST(Poker, CalculatePair)
   ASSERT_EQ((int)t.getHighCard().getCardRank(), ACE);
 }
 
-TEST(Poker, CalculateTwoPair)
+TEST(PokerHand, CalculateTwoPair)
 {
   boost::array<Card,5> cards = {
     {
@@ -129,7 +129,7 @@ TEST(Poker, CalculateTwoPair)
   ASSERT_EQ((int)t.getHighCard().getCardRank(), KING);
 }
 
-TEST(Poker, CalculateThreeOfAKind)
+TEST(PokerHand, CalculateThreeOfAKind)
 {
   boost::array<Card,5> cards = {
     {
@@ -147,7 +147,7 @@ TEST(Poker, CalculateThreeOfAKind)
   ASSERT_EQ((int)t.getHighCard().getCardRank(), QUEEN);
 }
 
-TEST(Poker, CalculateStraight)
+TEST(PokerHand, CalculateStraight)
 {
   boost::array<Card,5> cards = {
     {
@@ -165,7 +165,7 @@ TEST(Poker, CalculateStraight)
   ASSERT_EQ((int)t.getHighCard().getCardRank(), QUEEN);
 }
 
-TEST(Poker, CalculateFlush)
+TEST(PokerHand, CalculateFlush)
 {
   boost::array<Card,5> cards = {
     {
@@ -183,7 +183,7 @@ TEST(Poker, CalculateFlush)
   ASSERT_EQ((int)t.getHighCard().getCardRank(), QUEEN);
 }
 
-TEST(Poker, CalculateFullHouse)
+TEST(PokerHand, CalculateFullHouse)
 {
   boost::array<Card,5> cards = {
     {
@@ -201,7 +201,7 @@ TEST(Poker, CalculateFullHouse)
   ASSERT_EQ((int)t.getHighCard().getCardRank(), JACK);
 }
 
-TEST(Poker, CalculateFourOfAKind)
+TEST(PokerHand, CalculateFourOfAKind)
 {
   boost::array<Card,5> cards = {
     {
@@ -219,7 +219,7 @@ TEST(Poker, CalculateFourOfAKind)
   ASSERT_EQ((int)t.getHighCard().getCardRank(), JACK);
 }
 
-TEST(Poker, CalculateStraightFlush)
+TEST(PokerHand, CalculateStraightFlush)
 {
   boost::array<Card,5> cards = {
     {
@@ -235,4 +235,36 @@ TEST(Poker, CalculateStraightFlush)
   ASSERT_EQ(t.getRank(), HandRanking::STRAIGHT_FLUSH);
   // Make sure high card is a King
   ASSERT_EQ((int)t.getHighCard().getCardRank(), QUEEN);
+}
+
+TEST(PokerHand, AssignmentTestCaseA)
+{
+  boost::array<Card,5> cards1 = {
+    {
+      Card(SEVEN, HEARTS),
+      Card(SIX, HEARTS),
+      Card(FIVE, HEARTS),
+      Card(FOUR, HEARTS),
+      Card(THREE, HEARTS),
+    }
+  };
+
+  boost::array<Card,5> cards2 = {
+    {
+      Card(FIVE, SPADES),
+      Card(FOUR, SPADES),
+      Card(THREE, SPADES),
+      Card(TWO, SPADES),
+      Card(ACE, SPADES),
+    }
+  };
+
+  PokerHand hand1(cards1);
+  ASSERT_EQ(hand1.getRank(), HandRanking::STRAIGHT_FLUSH);
+  ASSERT_EQ((int)hand1.getHighCard().getCardRank(), SEVEN);
+  PokerHand hand2(cards2);
+  ASSERT_EQ(hand2.getRank(), HandRanking::STRAIGHT_FLUSH);
+  ASSERT_EQ((int)hand2.getHighCard().getCardRank(), FIVE);
+  // Hand 1 beats Hand 2
+  //ASSERT_GT(hand1, hand2);
 }
