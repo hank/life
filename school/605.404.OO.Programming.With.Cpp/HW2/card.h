@@ -1,5 +1,8 @@
 #ifndef CARD_H
 #define CARD_H
+#include <iostream>
+using std::cout;
+using std::endl;
 #include <stdint.h>
 #include <string>
 using std::string;
@@ -151,6 +154,12 @@ inline Card::operator uint8_t() const
 // Precedes
 inline bool Card::precedes(Card& card) const
 {
-  return (this->value % 13) == (static_cast<uint8_t>(card.value % 13)) - 1;
+  if ( ((this->value + 1) % 13) == (card.value % 13) )
+  {
+    // Normal success.  Card value is one more.
+    return true;
+  }
+  // Otherwise, return false indicating no precession
+  return false;
 }
 #endif // CARD_H

@@ -12,7 +12,7 @@ using std::string;
 #include <boost/array.hpp>
 
 // Hand ranks, in order of awesomeness.
-namespace HandRanking
+namespace HandRank
 {
   enum Enum
   {
@@ -41,18 +41,21 @@ public:
   PokerHand(Card& card1, Card& card2, Card& card3, 
             Card& card4, Card& card5);
 
-  bool operator > (PokerHand& otherHand);
-  bool operator >= (PokerHand& otherHand);
-  bool operator < (PokerHand& otherHand);
-  bool operator <= (PokerHand& otherHand);
-  bool operator == (PokerHand& otherHand);
+  bool operator > (const PokerHand& otherHand) const;
+  bool operator >= (const PokerHand& otherHand) const;
+  bool operator < (const PokerHand& otherHand) const;
+  bool operator <= (const PokerHand& otherHand) const;
+  bool operator == (const PokerHand& otherHand) const;
+  bool operator != (const PokerHand& otherHand) const;
 
-  // Set the rank of the hand to a specific value
-  void setRank(const HandRanking::Enum& rank);
-  // getRank returns the current rank of the hand
-  const HandRanking::Enum getRank() const;
+  // getHandRank returns the current rank of the hand
+  const HandRank::Enum getHandRank() const;
   // getHighCard returns the current overall high card
   const Card& getHighCard() const;
+  // getFirstRank returns the high card for the first rank
+  const CardRank::Enum getFirstRank() const;
+  // getSecondRankHighCard returns the high card for the second rank
+  const CardRank::Enum getSecondRank() const;
   // Simply return the requested card
   const Card& getCard(uint8_t index) const;
   // Simply return a writable version of the card
@@ -61,6 +64,12 @@ public:
   operator string();
 
 private:
+  // Set the rank of the hand to a specific value
+  void setHandRank(const HandRank::Enum& rank);
+  // Set the rank of the first part
+  void setFirstRank(const Card& card);
+  // Set the rank of the second part, if necessary.
+  void setSecondRank(const Card& card);
   // Calculates the hand rank based on the cards in hand.
   // Simply calls the ranking methods in order.
   void calculateRank();
@@ -80,37 +89,52 @@ private:
   // Possible outcomes: HIGH_CARD, PAIR, THREE_OF_A_KIND,
   //   TWO_PAIR, FOUR_OF_A_KIND, FULL_HOUSE
   void checkPairs();
+  // Compare
+  // Compares with another hand and returns a result indicating
+  // which is superior.
+  int8_t compare(const PokerHand& otherHand) const;
   
   static const uint8_t numCards = 5; // We've got 5 cards
-  HandRanking::Enum rank; // Holds the rank of the hand
-  uint8_t rank_high_index; // Holds the index of the high card for the rank.
+  HandRank::Enum handRank; // Holds the rank of the hand
+  CardRank::Enum firstRank; // Holds the first rank
+  CardRank::Enum secondRank; // Holds the second rank
   Card cards[numCards]; // Holds cards for the hand
 };
 
-// Equality
-inline bool PokerHand::operator == (PokerHand& otherHand)
+// setHandRank
+inline void PokerHand::setHandRank(const HandRank::Enum& handRank) 
 {
-  for(int i = 0; i < numCards; ++i)
-  {
-    if(getCard(i) != otherHand.getCard(i))
-    {
-      return false;
-    }
-  }
-  // All comparisons succeeded
-  return true;
+  this->handRank = handRank;
 }
 
-// setRank
-inline void PokerHand::setRank(const HandRanking::Enum& rank) 
+// setFirstRank
+inline void PokerHand::setFirstRank(const Card& card) 
 {
-  this->rank = rank;
+  this->firstRank = card.getCardRank();
+}
+
+// setSecondRank
+inline void PokerHand::setSecondRank(const Card& card) 
+{
+  this->secondRank = card.getCardRank();
 }
 
 // getRank
-inline const HandRanking::Enum PokerHand::getRank() const
+inline const HandRank::Enum PokerHand::getHandRank() const
 {
-  return this->rank;
+  return this->handRank;
+}
+
+// getFirstRank
+inline const CardRank::Enum PokerHand::getFirstRank() const
+{
+  return this->firstRank;
+}
+
+// getSecondRank
+inline const CardRank::Enum PokerHand::getSecondRank() const
+{
+  return this->secondRank;
 }
 
 // getHighCard
@@ -131,6 +155,7 @@ inline Card& PokerHand::getCard(uint8_t index)
   return this->cards[index];
 }
 
+// calculateRank
 inline void PokerHand::calculateRank()
 {
   checkPairs();
