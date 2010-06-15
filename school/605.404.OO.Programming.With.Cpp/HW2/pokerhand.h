@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 using std::string;
-#include <algorithm>
+#include <algorithm> // for std::sort
 #include <stdint.h>
 #include "card.h"
 
@@ -28,12 +28,54 @@ namespace HandRank
   };
 }
 
+// PokerHand Class
+//   Provides a structure for storing 5 cards and various routines to evaluate
+//   Poker gameplay.
+//
+//   The PokerHand contains 5 Card objects which must be given either as a
+//   Boost.Array or as 5 parameters upon initialization.  The Cards are then
+//   stored in an array and sorted in ascending order.  The hand is then
+//   evaluated for all the possible Poker HandRanks.  Comparison operations
+//   are offered for comparing to other PokerHand objects.  Basic printing
+//   functions are also available.
+//
+//   Copyright (c) 2010, Erik Gregg
+//   All rights reserved.
+//   Redistribution and use in source and binary forms, with or without
+//   modification, are permitted provided that the following conditions are
+//   met:
+//   
+//       * Redistributions of source code must retain the above copyright
+//       notice, this list of conditions and the following disclaimer.
+//
+//       * Redistributions in binary form must reproduce the above copyright 
+//       notice, this list of conditions and the following disclaimer in the
+//       documentation and/or other materials provided with the distribution.
+//
+//       * Neither the name of Erik Gregg nor the names of its contributors
+//       may be used to endorse or promote products derived from this software
+//       without specific prior written permission.
+//   
+//   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+//   IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+//   THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+//   PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+//   CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+//   EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+//   PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+//   PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+//   LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+//   NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+//   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+//
+//   Author: Erik Gregg
+//   Date: Tue Jun 15 00:18:02 EDT 2010
 class PokerHand
 {
 public:
 
   // Boost.Array constructor
-  // The Boost Array template parameters guarantee the size.
+  // The Boost.Array template parameters guarantee the size.
   // Misuse will result in a compile error.
   PokerHand(boost::array<Card, 5>& array);
 
@@ -41,57 +83,64 @@ public:
   PokerHand(Card& card1, Card& card2, Card& card3, 
             Card& card4, Card& card5);
 
+  // Comparison operations
+  // Greater Than
   bool operator > (const PokerHand& otherHand) const;
+  // Greater Than or Equal
   bool operator >= (const PokerHand& otherHand) const;
+  // Less Than
   bool operator < (const PokerHand& otherHand) const;
+  // Less Than or Equal
   bool operator <= (const PokerHand& otherHand) const;
+  // Equal
   bool operator == (const PokerHand& otherHand) const;
+  // Not Equal
   bool operator != (const PokerHand& otherHand) const;
 
   // getHandRank returns the current rank of the hand
+  // These may be compared such that the higher the HandRank, the stronger the
+  // hand.  Defaults to HIGH_CARD, since that is always the base case.
   const HandRank::Enum getHandRank() const;
-  // getHighCard returns the current overall high card
+  // getHighCard returns the current overall high card.  This is the highest
+  // card in the hand regardless of HandRank.
   const Card& getHighCard() const;
-  // getFirstRank returns the high card for the first rank
-  const CardRank::Enum getFirstRank() const;
-  // getSecondRankHighCard returns the high card for the second rank
-  const CardRank::Enum getSecondRank() const;
   // Simply return the requested card
   const Card& getCard(uint8_t index) const;
   // Simply return a writable version of the card
   Card& getCard(uint8_t index);
   // String cast operator
-  operator string();
+  operator string() const;
 
 private:
-  // Set the rank of the hand to a specific value
+  // getFirstRank returns the high card for the first rank.  For PokerHands
+  // with multiple ranks, such as TWO_PAIR or FULL_HOUSE, this is the stronger
+  // of the two parts.  That is to say, the higher pair or the three-of-a-kind
+  // respectively for the afore-mentioned HandRanks.
+  const CardRank::Enum getFirstRank() const;
+  // getSecondRank returns the high card for the second rank.  This is only
+  // used by PokerHands that have more than one rank, and has undefined
+  // behavior if used outside those bounds.
+  const CardRank::Enum getSecondRank() const;
+  // Set the rank of the hand to a specific value.  May only be used
+  // internally.
   void setHandRank(const HandRank::Enum& rank);
-  // Set the rank of the first part
+  // Set the first rank.  Takes a Card object argument, and extracts the
+  // CardRank.
   void setFirstRank(const Card& card);
-  // Set the rank of the second part, if necessary.
+  // Set the second rank.  Takes a Card object argument, and extracts the
+  // CardRank.
   void setSecondRank(const Card& card);
-  // Calculates the hand rank based on the cards in hand.
-  // Simply calls the ranking methods in order.
+  // Calculates the hand rank based on the cards in hand.  This calls all the
+  // routines for ranking decisions.
   void calculateRank();
-  // Flush
-  // See if we have 5 of a given suit.
-  // Possible outcomes: STRAIGHT, STRAIGHT FLUSH
+  // checkFlush checks if all cards have the same suit.
   void checkFlush();
-  // Straight
-  // Just compare numeric value of this card to the next
-  // Use equality operator, which compares just values
-  // If it's always increasing by one, we've got a straight.
-  // Possible outcomes: STRAIGHT
+  // checkStraight iteratively deduces if a straight exists in the PokerHand
   void checkStraight();
-  // Pair
-  // Just compare numeric value of this card to the next
-  // Use equality operator, which compares just values
-  // Possible outcomes: HIGH_CARD, PAIR, THREE_OF_A_KIND,
-  //   TWO_PAIR, FOUR_OF_A_KIND, FULL_HOUSE
+  // checkPairs finds any numerically matching subsets of the PokerHand
   void checkPairs();
-  // Compare
-  // Compares with another hand and returns a result indicating
-  // which is superior.
+  // compare compares this object to another PokerHand and deduces
+  // superiority.
   int8_t compare(const PokerHand& otherHand) const;
   
   static const uint8_t numCards = 5; // We've got 5 cards

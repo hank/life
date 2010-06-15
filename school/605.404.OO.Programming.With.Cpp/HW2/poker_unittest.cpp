@@ -261,10 +261,8 @@ TEST(PokerHand, AssignmentA)
 
   PokerHand hand1(cards1);
   ASSERT_EQ(hand1.getHandRank(), HandRank::STRAIGHT_FLUSH);
-  ASSERT_EQ(hand1.getFirstRank(), SEVEN);
   PokerHand hand2(cards2);
   ASSERT_EQ(hand2.getHandRank(), HandRank::STRAIGHT_FLUSH);
-  ASSERT_EQ((int)hand2.getFirstRank(), FIVE);
   ASSERT_EQ((int)hand2.getHighCard(), ACE);
   // Hand 1 beats Hand 2
   ASSERT_TRUE(hand1 > hand2);
@@ -294,10 +292,8 @@ TEST(PokerHand, AssignmentB)
 
   PokerHand hand1(cards1);
   ASSERT_EQ(hand1.getHandRank(), HandRank::STRAIGHT_FLUSH);
-  ASSERT_EQ(hand1.getFirstRank(), JACK);
   PokerHand hand2(cards2);
   ASSERT_EQ(hand2.getHandRank(), HandRank::STRAIGHT_FLUSH);
-  ASSERT_EQ(hand1.getFirstRank(), JACK);
   // A tie.
   ASSERT_TRUE(hand1 == hand2);
 }

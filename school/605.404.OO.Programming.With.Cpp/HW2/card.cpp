@@ -2,6 +2,9 @@
 using std::string;
 #include "card.h"
 // String cast operator
+// Produces something that looks like this:
+//    2H 3D 4S 5C JD
+// Suits are C = Clubs, D = Diamonds, H = Hearts, S = Spades
 Card::operator string() const
 {
   std::string s;

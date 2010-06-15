@@ -3,6 +3,10 @@
 using std::string;
 #include "card.h"
 #include "pokerhand.h"
+
+// Boost
+#include <boost/array.hpp>
+
 // Boost.Array constructor
 PokerHand::PokerHand(boost::array<Card, 5>& array)
   : handRank(HandRank::HIGH_CARD)
@@ -24,6 +28,7 @@ PokerHand::PokerHand(boost::array<Card, 5>& array)
 }
 
 // Initialize a new poker hand with 5 cards
+// Prefer to use Boost.Array constructor.
 PokerHand::PokerHand(Card& card1, Card& card2, Card& card3, 
                      Card& card4, Card& card5)
 {
@@ -40,7 +45,9 @@ PokerHand::PokerHand(Card& card1, Card& card2, Card& card3,
   calculateRank();
 }
 
-PokerHand::operator string()
+// operator string()
+// Converts the PokerHand to a string
+PokerHand::operator string() const
 {
   string s;
   // For all but the last card
@@ -49,11 +56,15 @@ PokerHand::operator string()
   {
     s += static_cast<string>(getCard(i)) + " ";
   }
-  // Now i == numCards - 1
+  // Now i == numCards - 1 (the last Card)
+  // Don't append a space after the last one.
   s += static_cast<string>(getCard(i));
   return s;
 }
 
+// checkFlush
+// Checks to see if the PokerHand contains a flush
+// Run after all other analyses.
 void PokerHand::checkFlush()
 {
   bool failed = false;
@@ -77,34 +88,24 @@ void PokerHand::checkFlush()
       // Rank high card already set from straight.
       setHandRank(HandRank::STRAIGHT_FLUSH);
     }
-    // Make sure we don't have four-of-a-kind or a full house.
-    else if(HandRank::FOUR_OF_A_KIND != getHandRank() ||
-            HandRank::FULL_HOUSE     != getHandRank()
-           )
+    else
     {
       // Too bad we don't have those hands.  Set to flush.
       setHandRank(HandRank::FLUSH);
       // Must set rankHighCard to highCard
       setFirstRank(getHighCard());
     }
-    
   }
 }
 
+// checkStraight
+// Checks to see if the PokerHand contains a straight
+// Run after pair checking.
 void PokerHand::checkStraight()
 {
   uint8_t inARow = 1; // Number of cards we've seen in a row
-
-  // Check if the high card is an ace.  This is to handle the special case
-  // where we have an ace low straight, like AD 2H 3D 4H 5H
-  if(CardRank::ACE == getHighCard().getCardRank() &&
-     CardRank::TWO == getCard(0).getCardRank()
-    )
-  {
-    // Simply increment inARow to deal with the problem.
-    // This makes up for the last precedes() call failing.
-    ++inARow;
-  }
+                      // One in a row is the base case.
+  bool aceIsLow = false; // Ace-low straight.
 
   for(int i = 0; i < numCards - 1; i++)
   {
@@ -115,6 +116,19 @@ void PokerHand::checkStraight()
       ++inARow;
     }
   }
+
+  // Check if the high card is an ace.  This is to handle the special case
+  // where we have an ace low straight, like AD 2H 3D 4H 5H
+  if(CardRank::ACE == getHighCard().getCardRank() &&
+     CardRank::TWO == getCard(0).getCardRank()
+    )
+  {
+    // Simply increment inARow to deal with the problem.
+    // This makes up for the last precedes() call returning false.
+    ++inARow;
+    aceIsLow = true;
+  }
+
   // If all 4 comparisons succeed, we have a straight
   if(5 == inARow)
   {
@@ -122,9 +136,7 @@ void PokerHand::checkStraight()
     // Must set rankHighCard to the appropriate card.
     // This can be tricky because it might not be the last card
     // In the ace-low straight, we must set it to one less than the top.
-    if(CardRank::ACE == getHighCard().getCardRank() &&
-       CardRank::TWO == getCard(0).getCardRank()
-      )
+    if(aceIsLow)
     {
       // Set to one before the high card.
       setFirstRank(getCard(numCards - 2));
@@ -138,18 +150,21 @@ void PokerHand::checkStraight()
   }
 }
 
+// checkPairs
+// Run before everything else.  Checks for any subset combinations.
 void PokerHand::checkPairs()
 {
   int i = 0;
-  const Card* card = &getCard(i);
+  const Card* card = NULL; // Card pointer for iteration
   while(i < numCards - 1)
   {
     // Set j to index of next card
     int numAlike;
-    card = &getCard(i);
+    card = &getCard(i); // Get the next card
     int originalCardIdx = i + 1;
     int j = originalCardIdx;
     // Find how many alike cards follow
+    // Use the Card class == operator for comparisons
     while(j < numCards && *card == getCard(j))
     {
       ++j;
@@ -162,10 +177,12 @@ void PokerHand::checkPairs()
     // Calculate Hand Rank
     switch(numAlike)
     {
-      case 0: // None
-        // Do nothing.
+      case 0: 
+        // None
+        // Do nothing.  No pair.
         break;
-      case 1: // Pair
+      case 1: 
+        // Check for First Pair
         if(HandRank::PAIR == getHandRank())
         {
           // We already have a pair!  2 pair now.
@@ -184,6 +201,8 @@ void PokerHand::checkPairs()
             setSecondRank(originalCard.getCardRank());
           }
         }
+
+        // Check for Three of a Kind
         else if(HandRank::THREE_OF_A_KIND == getHandRank())
         {
           // We already have three of a kind!  Full House
@@ -192,9 +211,11 @@ void PokerHand::checkPairs()
           // The first rank is always the three of a kind.
           setSecondRank(originalCard.getCardRank());
         }
+
+        // This is the first pair.
         else
         {
-          // Otherwise, just set one pair.
+          // Just set one pair.
           setHandRank(HandRank::PAIR);
           // Set our first rank
           setFirstRank(originalCard.getCardRank());
@@ -235,13 +256,15 @@ void PokerHand::checkPairs()
 // Negative result means other hand is less than this.
 // Zero means equal.
 // Positive result means other hand is greater than this.
+// Used for all comparisons to adhere to DRY principle.
 int8_t PokerHand::compare(const PokerHand& otherHand) const
 {
   // Use a signed int to store the result.  This way, we can go negative.
   int8_t result = 0;
-  // First, check that the hand rank matches
+  // First, check if the hand rank matches
   if(getHandRank() != otherHand.getHandRank())
   {
+    // The rank did not match.  Return the difference of the ranks.
     result = (otherHand.getHandRank() - getHandRank());
   }
   else
@@ -256,7 +279,7 @@ int8_t PokerHand::compare(const PokerHand& otherHand) const
         // Our first ranks match!  Compare the second ranks.
         if(getSecondRank() == otherHand.getSecondRank())
         {
-          // Check the high card
+          // All else failed.  Check the high card
           return (otherHand.getHighCard() - getHighCard());
         }
         else
@@ -273,10 +296,10 @@ int8_t PokerHand::compare(const PokerHand& otherHand) const
     }
     else
     {
-        // Applies to: HIGH_CARD, PAIR, THREE_OF_A_KIND, STRAIGHT, FLUSH,
-        //             FOUR_OF_A_KIND, and STRAIGHT_FLUSH
-        // Simple comparison of the first rank of the hand.
-        result = (otherHand.getFirstRank() - getFirstRank());
+      // Applies to: HIGH_CARD, PAIR, THREE_OF_A_KIND, STRAIGHT, FLUSH,
+      //             FOUR_OF_A_KIND, and STRAIGHT_FLUSH
+      // Simple comparison of the first rank of the hand.
+      result = (otherHand.getFirstRank() - getFirstRank());
     }
   }
   return result;
