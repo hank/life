@@ -1,3 +1,5 @@
+// pokerhand.cpp
+// Contains implementation of PokerHand
 #include <string>
 using std::string;
 #include "card.h"

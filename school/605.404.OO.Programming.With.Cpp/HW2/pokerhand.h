@@ -1,3 +1,5 @@
+// pokerhand.h
+// Contains PokerHand class
 #ifndef POKER_HAND
 #define POKER_HAND
 
