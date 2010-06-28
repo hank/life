@@ -33,8 +33,10 @@ int main()
    // Set up streams and strings for date parsing
    std::string line;
    std::stringstream ss;
-   ss.exceptions(std::ios_base::failbit);
-   gregorian::date_input_facet * inputFacet = new gregorian::date_input_facet("%e-%b-%y");
+   // Error checking
+   //ss.exceptions(std::ios_base::failbit);
+   gregorian::date_input_facet * inputFacet = 
+         new gregorian::date_input_facet("%e-%b-%y");
    ss.imbue(std::locale(std::locale::classic(), inputFacet));
 
    ifstream myfile("BZ.csv");
