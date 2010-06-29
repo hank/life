@@ -21,7 +21,7 @@ namespace ascii = boost::spirit::ascii;
 namespace phoenix = boost::phoenix;
 
 // Store all currency values in cents.
-struct StockSnapshot
+class StockSnapshot
 {
    std::string snapDate;
    int open;
@@ -29,16 +29,6 @@ struct StockSnapshot
    int low;
    int close;
 };
-
-// Adapt the struct to Boost.Fusion
-BOOST_FUSION_ADAPT_STRUCT(
-    StockSnapshot,
-    (std::string, snapDate)
-    (int, open)
-    (int, high)
-    (int, low)
-    (int, close)
-)
 
 class Stock
 {
@@ -49,34 +39,34 @@ public:
 
 
 template <typename Iterator>
-struct StockSnapshotParser : qi::grammar<Iterator, StockSnapshot(), ascii::space_type>
+bool parse_snapshot(Iterator begin, Iterator end, StockSnapshot& snapshot)
 {
-   StockSnapshotParser() : StockSnapshotParser::base_type(start)
-   {
-      using qi::double_;
-      using qi::int_;
-      using ascii::char_;
+   using qi::double_;
+   using qi::int_;
+   using ascii::char_;
+   using ascii::space;
+   using boost::spirit::omit;
 
-      // Grammar must parse the following:
-      // 25-Jun-10,15.13,15.97,14.74,15.57,1560610
-      start %= 
-            //  Begin grammar
-            (   +(char_ - ',') >> ','
-                >> double_ >> ','
-                >> double_ >> ','
-                >> double_ >> ','
-                >> double_ >> ','
-                >> int_
-            )
-            //  End grammar
-            ;
-   }
+   // Grammar must parse the following:
+   // 25-Jun-10,15.13,15.97,14.74,15.57,1560610
+   bool r = parse_phrase(begin, end,
+      //  Begin grammar
+      (   +(char_ - ',')[ref(snapshot.)] >> ','
+          >> double_ >> ','
+          >> double_ >> ','
+          >> double_ >> ','
+          >> double_ >> ','
+          >> omit[int_]
+      ),
+      //  End grammar
+      space
+   );
+   if(!r || begin != end) // Fail, no full match
+      return false;
+   snapshot.
+}
 
-   qi::rule<Iterator, StockSnapshot(), ascii::space_type> start;
-};
-
-int
-main()
+int main()
 {
     using boost::spirit::ascii::space;
     StockSnapshotParser<std::string::const_iterator> ss_parser;
