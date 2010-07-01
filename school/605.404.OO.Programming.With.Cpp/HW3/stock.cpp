@@ -1,3 +1,5 @@
+// stock.cpp
+// Contains the Stock implementation
 #include "stockutil.h"
 #include "stock.h"
 

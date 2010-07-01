@@ -1,3 +1,5 @@
+// stocksnapshot.cpp
+// Contains the StockSnapshot implementation
 #include <iostream>
 using std::cout;
 using std::endl;
@@ -12,7 +14,9 @@ namespace gregorian = boost::gregorian;
 
 #include "stocksnapshot.h"
 
+// Sets valid to true, and sets to false if anything bad happens.
 StockSnapshot::StockSnapshot(std::string& line, std::stringstream& ss)
+  : valid(true)
 {
    gregorian::date date;
    std::vector<std::string> inStrings;
@@ -27,21 +31,28 @@ StockSnapshot::StockSnapshot(std::string& line, std::stringstream& ss)
    ss << inStrings[0];
    // Output it into new date object
    ss >> date;
-   // Check to make sure we have a valid date
-   if(date.is_not_a_date())
-   {
-      // Throw generic exception.
-      throw;
-   }
    // Set our date with the date object
    setDate(date);
+   if(getDate().is_not_a_date())
+   {
+      // Skip this one and move on.
+      this->valid = false;
+   }
    // Create a stock snapshot
    // Immediately converts to cents as to avoid later arithmetic errors.
    // Double precision is good enough to hold 2-digit decimal.
-   setOpen (100 * boost::lexical_cast<double>(inStrings[1]));
-   setHigh (100 * boost::lexical_cast<double>(inStrings[2]));
-   setLow  (100 * boost::lexical_cast<double>(inStrings[3]));
-   setClose(100 * boost::lexical_cast<double>(inStrings[4]));
+   try 
+   {
+      setOpen (100 * boost::lexical_cast<double>(inStrings[1]));
+      setHigh (100 * boost::lexical_cast<double>(inStrings[2]));
+      setLow  (100 * boost::lexical_cast<double>(inStrings[3]));
+      setClose(100 * boost::lexical_cast<double>(inStrings[4]));
+   }
+   catch(boost::bad_lexical_cast& e)
+   {
+      // Set object validity to false
+      this->valid = false;
+   }
 }
 
 // Print to stdout
