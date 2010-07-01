@@ -48,9 +48,8 @@ class Stock
 {
 public:
    Stock()
-   {
-      this->close_vector = NULL;
-   }
+      : close_vector(NULL)
+   {}
    
    void addSnapshot(StockSnapshot& snapshot)
    {
