@@ -1,3 +1,5 @@
+// p2.cpp
+// Main program for finding MACD slope
 #include <iostream>
 using std::cout;
 using std::endl;
