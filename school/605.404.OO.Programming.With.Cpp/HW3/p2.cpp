@@ -26,8 +26,8 @@ namespace bfs = boost::filesystem;
 // P2
 // Finds the stock in the CSVs directory with the best MACD slope.
 // The main function simply opens all the CSV files, turns them into
-// StockSnapshot and then Stock objects, then runs algorithms to determine the MACD.
-// It then calculates the slope, and finds the most positive one.
+// StockSnapshot and then Stock objects, then runs algorithms to determine the
+// MACD.  It then calculates the slope, and finds the most positive one.
 //
 // Copyright (c) 2010, Erik Gregg
 // All rights reserved.
@@ -124,8 +124,20 @@ int main()
                uint32_t num_days = 2;
                double slope = macd[0] - macd[num_days - 1];
                // Add slope to our vector.
-               std::string stock_name = boost::algorithm::erase_tail_copy(name, 4);
-               slopes.push_back(std::pair<double, std::string>(slope, stock_name));
+               std::string stock_name = boost::algorithm::erase_tail_copy(name,
+                                                                          4);
+               slopes.push_back(std::pair<double, std::string>(slope,   
+                                                               stock_name));
+               // Output the MACDs, slope, and the ending date
+               cout << stock_name << ":\n\tMACD for " 
+                    << (mystock.getSnapshots().front()).getDate() 
+                                                            // Last Day
+                    << ": " << macd[0]
+                    << "\n\tMACD for " 
+                    << (mystock.getSnapshots().begin() + 1)->getDate() 
+                                                            // 2nd to Last Day
+                    << ": " << macd[num_days - 1]
+                    << endl;
             }
          }
       }
