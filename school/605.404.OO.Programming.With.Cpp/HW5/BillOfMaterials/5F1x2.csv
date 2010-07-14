@@ -1,0 +1,55 @@
+Weber 5F1x2 Amp Kit,,
+Bill of Materials,,
+
+Qty,Part Number,Description
+1,CAB-5F1x2,"Cabinet, 5F1x2, complete"
+1, 5F1KT,"5F1 Chassis kit. Chassis. brass plate, modified fiber board"
+1,AlNiCo Sig 10S4,"Speaker, Signature Series, 10"", 4 ohm, AlNiCo,  S type"
+1,W022772 (EU),"Transformer, Power    USA  EU"
+1,W404248,"Transformer, output"
+2,6V6GT,Vacuum tube
+1,12AX7B,Vacuum tube
+1,PC-CUT,"Power cord, cut end"
+4,Nut-#8-32,"Nut, #8-32 with integral washer (for mounting speaker)"
+,,
+1,CCW-5F1,"Kit, cloth covered wire, 5F1"
+,"( 8 ft. Red, Yellow, Green, 3 ft. Black, White)",
+1,CHK-11,"Knob, black, chicken head, flat top"
+1,CF-2,"Fuse, 2 amp"
+,,
+2,SKT8,"Tube socket, octal"
+1,SKT9,"Tube socket, 9 pin"
+2,TR-8 ,"Clamp, octal"
+8,Bolt-SKT,"Bolt, machine, #4-40x5/16, with nut and star washer"
+4,Spacer-SKT   ,"Spacer, nylon, for SKT8"
+,,
+1,RJP-2,"RCA jack, chassis mount, diamond fiber base"
+1,RP-C,"RCA plug, male, cable mount"
+1,FH-2,Fuseholder
+2,CB-1.5,"Bolt, chassis, tweed style, chrome"
+1,PL-2,"Pilot light, red"
+1,6N-4,Strain relief
+2,PJP-S,"Chassis mount phone jack, shorting"
+2,Small Grommet,"9/16"" OD  Chassis Grommets"
+1,Wire Nut,"Wire Nut, small"
+2,#8 sheet metal screw,Fiber Board Mounting Screws
+1,WP105AS,"Potentiometer, 1 meg audio with switch"
+,,
+1,RES10K-5,"Resistor, 10K,  5 watt"
+1,RES250-10,"Resistor, 250 ohms, 10 watt"
+2,MFR1500-.5,"Resistor, 1.5K, 1/2 watt"
+1,MFR56K-.5,"Resistor, 56K, 1/2 watt"
+2,MFR68K-.5,"Resistor, 68K, 1/2 watt"
+2,MFR100K-.5,"Resistor, 100K, 1/2 watt"
+1,MFR220K-.5,"Resistor, 220K, 1/2 watt"
+1,MFR1M-.5,"Resistor, 1M ohm, 1/2 watt"
+1,MFR5.1K-2,"Resistor, 5.1K,  2 watt"
+1,MFR22K-2,"Resistor, 22K, 2 watt"
+1,MFR180-5,"Resistor, 180, 5 watt"
+1,BR-W,Bridge Rectifier module
+2,PEC332-630,"Capacitor, .0033uF, 630 volts"
+2,PEC223-630,"Capacitor, .022uF, 630 volts"
+2,EC256-25,"Capacitor, 25uF, 25 volts"
+1,EC805-450,"Capacitor, 8uF, 450 volts"
+1,EC166-450,"Capacitor, 16uF, 450 volts"
+1,EC406-450,"Capacitor, 40uF, 450 volts"

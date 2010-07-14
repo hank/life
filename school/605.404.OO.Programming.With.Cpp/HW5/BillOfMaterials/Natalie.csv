@@ -1,0 +1,79 @@
+Weber Natalie Amp Kit,,
+Bill of Materials,,
+
+Qty,Part Number,Description
+1,CAB-6M45,"Cabinet, 6M45 Head, covering color chosen by customer"
+1,NatalieKT,"Natalie Chassis kit. Chassis. brass plate, fiber board"
+1,Natalie_plexi,"Plexi panels, front and rear, chosen by customer"
+1,6M45-lamp, Red  White  Green (Customer selected)
+1,WOT45 LHR or HHR,Output Transformer    WOT45HHR
+1,W022798 (EU),"Transformer, power   USA  EU"
+1,W022699,Choke
+4,6V6GT,Vacuum tube
+1,WZ34,Copper Cap Rectifier
+3,12AX7B,Vacuum tube
+1,Natalie-Standoff,"Natalie Standoff Kit - 2 #8 standoffs, 2 #8 screws, 4 #4 (3/4"") standoffs, 8 #4 screws"
+1,PC-IEC,Power cord IEC end
+,,,,
+1,CCW-6M45,"Kit, cloth covered wire, 6M45",,
+,"( 12 ft. Red, Yellow, Green)",,,
+8,WKW,"Knob, round, white",,
+1,CF-.5,"Fuse, .5 amp NOTE: This fuse is .5  NOT  5",,
+1,CF-3,"Fuse,  3 amp",,
+,,,,
+3,SKT9,"Tube socket, 9 pin",,
+5,SKT-8A,"Tube socket, 8 pin",,
+5,TR-8,"Tube clamp, octal, for copper cap",,
+19,Bolt-SKT,"Bolt, machine, #4-40x5/16, with nut and star washer",,
+,,,,
+2,PJ-P-CL,"Chassis mount phone jack, Cliff type",,
+1,IEC-1,"IEC Plug, chassis mount",, 
+2,FH-2,Fuseholder,,
+4,CB-6M45,"8-32 x 3/4"" Chassis bolt with finshing washer",,
+2,PJP,"Chassis mount phone jack, non shorting"
+3,Large Grommet,"5/8"" OD  Chassis Grommet"
+2,WSW-DPDT-F5,"Switch, toggle, panel mount, DPDT"
+1,KXM-5-2x3,Impedance Selector (sections paralleled)
+3,TS-2,Terminal Strip
+1,Terminal,"Terminal, #8, solder lug"
+1,WP103L,"Potentiometer, 10K Linear"
+1,WP253L,"Potentiometer, 25K Linear"
+1,WP254L         ,"Potentiometer, 250K Linear"
+3,WP105A,"Potentiometer, 1 meg Audio"
+1,WP105AD,"Potentiometer, 1 meg Audio, dual"
+1,WP503L-slot,"Potentiometer, 50K, linear, screwdriver slot"
+,,
+1,MFR47-.5,"Resistor, 47, 1/2 watt"
+1,MFR470-.5,"Resistor, 470, 1/2 watt"
+2,MFR820-.5,"Resistor, 820, 1/2 watt"
+1,MFR2.7K-.5,"Resistor, 2.7K, 1/2 watt"
+1,MFR4.7K-.5,"Resistor, 4.7K, 1/2 watt"
+4,MFR5.6K-.5,"Resistor, 5.6K, 1/2 watt"
+1,MFR6.8K-.5,"Resistor, 6.8K, 1/2 watt"
+1,MFR10K-.5,"Resistor, 10K, 1/2 watt "
+1,MFR22K-.5,"Resistor, 22K, 1/2 watt"
+1,MFR33K-.5,"Resistor, 33K, 1/2 watt"
+2,MFR68K-.5,"Resistor, 68K, 1/2 watt"
+1,MFR82K-.5,"Resistor, 82K, 1/2 watt"
+7,MFR100K-.5,"Resistor, 100K, 1/2 watt"
+2,MFR270K-.5,"Resistor, 270K, 1/2 watt"
+4,MFR1M-.5,"Resistor, 1M ohm, 1/2 watt"
+4,MFR1K-5,"Resistor, 1K, 5 watt"
+1,MFR8.2K-1,"Resistor, 8.2K, 1 watt"
+1,MFR180K-1,"Resistor, 180K, 1 watt"
+3,MFR10K-2,"Resistor, 10K, 2 watt"
+2,MFR220K-2,"Resistor, 220K, 2 watt"
+1,1N4007,Diode
+2,SMC251-500,"Capacitor, 250pF, 500 volts"
+1,SMC501-500,"Capacitor, 500pF, 500 volts"
+5,PEC223-630,"Capacitor, .022uF, 630 volts"
+4,PEC473-630,"Capacitor, .047uF, 630 volts"
+1,PEC683-630,"Capacitor, .068uF, 630 volts"
+1,PEC104-630,"Capacitor, .1uF, 630 volts"
+1,EC256-25,"Capacitor, 25uF, 25 volts"
+1,EC337-25,"Capacitor, 330uF, 25 volts"
+2,EC684-50,"Capacitor, .68uF, 50 volts"
+1,EC106-50,"Capacitor, 10uF, 50 volts"
+1,EC107-150,"Capacitor, 100uF, 150 volts"
+4,EC406-450,"Capacitor, 40uF, 450 volts"
+2,EC107-450,"Capacitor, 100uF, 450 volts"
