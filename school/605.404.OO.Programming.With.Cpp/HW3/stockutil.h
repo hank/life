@@ -2,6 +2,9 @@
 // Contains the StockUtil class
 #ifndef StockUtil_h
 #define StockUtil_h
+#include <iostream>
+using std::cout;
+using std::endl;
 #include <vector>
 // StockUtil Class
 // Singleton class the provides utility algorithms for technical
@@ -150,6 +153,8 @@ void StockUtil::calculateEMASeries(std::vector<double>& emas,
          --iter;
       }
    }
+   cout << "EMA" << period << ": " << emas.front() 
+        << ", " << emas[1] << endl;
 }
 
 // Finds the EMA for various periods, then takes the vector difference
