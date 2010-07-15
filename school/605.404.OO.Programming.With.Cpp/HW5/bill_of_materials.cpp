@@ -8,13 +8,11 @@ using std::endl;
 #include <iterator>
 #include <utility>
 #include <fstream>
-#include <locale>
 #include <unordered_map>
-#include <sstream>
 using std::ifstream;
 #include <string>
 #include <boost/cstdint.hpp>
-#include <boost/lexical_cast.hpp>
+#include <boost/unordered_map.hpp>
 #include <boost/algorithm/string.hpp>
 #include <boost/algorithm/string/predicate.hpp>
 #include <boost/algorithm/string/classification.hpp>
@@ -24,7 +22,8 @@ using std::ifstream;
 namespace bfs = boost::filesystem;
 #include <boost/regex.hpp>
 
-#include <boost/tokenizer.hpp>
+#include "kit.h"
+#include "part.h"
 
 // Bill of Materials
 // Processes all the files in the BillOfMaterials Directory
@@ -61,121 +60,12 @@ namespace bfs = boost::filesystem;
 //
 // Author: Erik Gregg
 // Date: Thu Jul 1 01:10:06 EDT 2010
-
-class Kit
-{
-   public:
-      Kit(std::string name)
-      : name(name)
-      {}
-      
-      std::string getName() const
-      {
-         return this->name;
-      }
-
-   private:
-      std::string name;
-};
-
-class BadPartException : public boost::exception, public std::exception
-{
-   // Intentionally blank
-   // Using the standard boost::exception properties
-};
-
-class Part
-{
-   public:
-      Part(const std::string& line)
-      {
-         // Simple validation
-         // Line must have characters
-         // and first ones need to be numbers
-         // Short-circuits to avoid dereferencing line[0] when invalid
-         if(line.length() <= 1 ||
-               !std::isdigit(line[0])
-           )
-         {
-            BOOST_THROW_EXCEPTION(BadPartException());
-         }
-         // Use Boost.Tokenizer to parse the line
-         boost::tokenizer< boost::escaped_list_separator< char > > tok(line);
-         boost::tokenizer< boost::escaped_list_separator< char > >::iterator 
-            iter = tok.begin();
-
-         try
-         {
-            // First field is Quantity
-            setQuantity(boost::lexical_cast<int>(*iter++));
-         }
-         catch(boost::bad_lexical_cast& exception)
-         {
-            // We've tried to do a bad cast.
-            // Simply throw our custom exception
-            BOOST_THROW_EXCEPTION(BadPartException());
-         }
-         // Next is the part number
-         setNumber(*iter++);
-         // Finally, set the name
-         // Trim off any whitespace at the end
-         std::string trimmed_name = *iter++;
-         boost::trim(trimmed_name);
-         setName(trimmed_name);
-      }
-
-      std::string getName() const
-      {
-         return this->name;
-      }
-
-      void setName(const std::string& name)
-      {
-         this->name = name;
-      }
-
-      std::string getNumber() const
-      {
-         return this->number;
-      }
-
-      void setNumber(const std::string& number)
-      {
-         this->number = number;
-      }
-
-      int getQuantity() const
-      {
-         return this->quantity;
-      }
-
-      void setQuantity(const uint64_t& quantity)
-      {
-         this->quantity = quantity;
-      }
-
-   private:
-      std::string name;
-      std::string number;
-      int quantity;
-};
-
-std::ostream& operator<< (std::ostream &stream, Part& part)
-{
-   stream << "Part { "
-          << part.getQuantity() << ", "
-          << part.getNumber() << ", "
-          << part.getName() << " }";
-
-   return stream;
-}
-
-
 int main()
 {
    // A multimap keyed by part containing Kit and Quantity for each
-   std::unordered_multimap<std::string, 
-                                std::pair<Kit, uint64_t> > PartMap;
+   typedef boost::unordered_multimap<Part, 
+                                   std::pair<Kit, uint64_t> > umulmap_type;
+   umulmap_type PartMap;
 
    // Open all csv files in the directory.
    bfs::path current_dir("./BillOfMaterials/");
@@ -183,6 +73,8 @@ int main()
    bfs::directory_iterator iter(current_dir);
    bfs::directory_iterator end; // Defaults to past end.
    // For each member
+   uint32_t parts_processed = 0;
+   uint32_t kits_processed = 0;
    for (; iter != end; ++iter)
    {
       // Get filename
@@ -195,18 +87,23 @@ int main()
          if(myfile.is_open())
          {
             std::string line;
-            cout << "Processing " << name << "... " << endl;
+            //cout << "Processing " << name << "... " << endl;
             // Delete the .csv and copy the Kit name
             std::string kit_name = boost::algorithm::erase_tail_copy(name, 4);
             Kit mykit(kit_name);
-            uint32_t parts_processed = 0;
             while(false == myfile.eof())
             {
                std::getline(myfile, line);
                try
                {
                   Part mypart(line);
-                  cout << mypart << endl;
+                  //cout << mypart << endl;
+                  // Try to add Part to multimap
+
+                  umulmap_type::mapped_type mypair(mykit, 
+                                                   mypart.getQuantity());
+                  PartMap.insert(umulmap_type::value_type(mypart,
+                                                          mypair));
                }
                catch(const BadPartException& exception)
                {
@@ -218,27 +115,57 @@ int main()
                }
                ++parts_processed;
             }
+            ++kits_processed;
             myfile.close();
-            // Clear our stringstream
-            cout << parts_processed << " parts." << endl;
          }
       }
    }
+   cout << "Processed " << kits_processed << " kits; "
+        << parts_processed << " parts" << endl;
 
    // Files are processed.  Start the menu system
    while(cin.good())
    {
       // Read a part name
-      std::string part_name;
-      cout << "Input Part Name: ";
-      cin >> part_name;
+      std::string part_number;
+      cout << "Input Part Number: ";
+      std::getline(cin, part_number);
       if(cin.bad() || cin.eof())
       {
          cout << endl << "Exiting..." << endl;
          break;
       }
       // Find the relevant Part
-      
+      // First, trim whitespace from the string
+      boost::trim(part_number);
+      // Make a dummy part for searching
+      Part search_part;
+      search_part.setNumber(part_number);
+
+      // Create a pair of iterators for the kits
+      // and call equal_range on our part to assign
+      std::pair<umulmap_type::const_iterator, 
+                umulmap_type::const_iterator> iter_pair = 
+                     PartMap.equal_range(search_part);
+
+      if(iter_pair.first != iter_pair.second)
+      {
+         cout << "Found!" << endl;
+         // Output Part Information
+         cout << iter_pair.first->first << endl;
+         while(iter_pair.first != iter_pair.second)
+         {
+            // A bit tricky.  A pair of iterators, pointing to a
+            // key/value pair, with a value of a pair!
+            cout << "\tKit: " << iter_pair.first->second.first
+                 << ", Quantity: " << iter_pair.first->second.second << endl;
+            ++iter_pair.first;
+         }
+      }
+      else
+      {
+         cout << "Not Found..." << endl;
+      }
    }
    return EXIT_SUCCESS;
 }
