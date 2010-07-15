@@ -1,31 +1,5 @@
 // bill_of_materials.cpp
 // Main program for processing a bill of materials
-#include <iostream>
-using std::cin;
-using std::cout;
-using std::endl;
-#include <vector>
-#include <iterator>
-#include <utility>
-#include <fstream>
-#include <unordered_map>
-using std::ifstream;
-#include <string>
-#include <boost/cstdint.hpp>
-#include <boost/unordered_map.hpp>
-#include <boost/algorithm/string.hpp>
-#include <boost/algorithm/string/predicate.hpp>
-#include <boost/algorithm/string/classification.hpp>
-#include <boost/throw_exception.hpp>
-#include <boost/exception/diagnostic_information.hpp>
-#include <boost/filesystem.hpp>
-namespace bfs = boost::filesystem;
-#include <boost/regex.hpp>
-
-#include "kit.h"
-#include "part.h"
-
-// Bill of Materials
 // Processes all the files in the BillOfMaterials Directory
 //
 // Copyright (c) 2010, Erik Gregg
@@ -59,7 +33,32 @@ namespace bfs = boost::filesystem;
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 // Author: Erik Gregg
-// Date: Thu Jul 1 01:10:06 EDT 2010
+// Date: Wed Jul 14 21:23:52 EDT 2010
+#include <iostream>
+using std::cin;
+using std::cout;
+using std::endl;
+#include <vector>
+#include <iterator>
+#include <utility>
+#include <fstream>
+#include <unordered_map>
+using std::ifstream;
+#include <string>
+#include <boost/cstdint.hpp>
+#include <boost/unordered_map.hpp>
+#include <boost/algorithm/string.hpp>
+#include <boost/algorithm/string/predicate.hpp>
+#include <boost/algorithm/string/classification.hpp>
+#include <boost/throw_exception.hpp>
+#include <boost/exception/diagnostic_information.hpp>
+#include <boost/filesystem.hpp>
+namespace bfs = boost::filesystem;
+#include <boost/regex.hpp>
+
+#include "kit.h"
+#include "part.h"
+
 int main()
 {
    // A multimap keyed by part containing Kit and Quantity for each
