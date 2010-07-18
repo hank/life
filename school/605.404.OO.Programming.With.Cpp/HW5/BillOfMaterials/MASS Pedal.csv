@@ -1,0 +1,58 @@
+Weber MASS Pedal Kit,,
+
+Bill of Materials,,
+
+Qty,Part Number,Description
+1,HPLD_ENC_MP,"GP Enclosure, modified for MASS Pedal, with front and rear panels."
+4,Rubber Feet,Rubber feet
+1,MassPedal_FB,Fiber board 
+1,WMM25-8,"MASS Motor, assembled, 8 ohms, pre-installed"
+1,FS-1,"Footswitch, single button"
+1,WPDLXFMR_2,"Transformer, 12V to 280V"
+2,#6 Nut and Bolt,for WPDLXFMR_2
+1,W022921,"Transformer, output"
+2,#4 Nut and bolt,for W022921
+1,WW_12VAC_1A,"Wall wart, 12VAC, 1A"
+1,WW_Plug,Plug for wall wart
+1,12AX7B,Vacuum tube
+1,12AT7,Vacuum tube
+1,Chansw-LP,"Channel switch board, assembled, low power"
+,,
+3,WKW,"Knob, white"
+1,CBL-GP,"Length of shielded cable, unterminated"
+1,CF,Fuse
+6ft,1017/red,"Wire, #22 solid, red"
+,,
+1,SKT9_Bracket,Bracket for mounting SKT9
+2,SKT9,9 pin ceramic socket with sheild
+1,2.1mm-P,"Power connector, 2.1mm, panel mount"
+1,FH-3,"Fuseholder, GMA type, with 1A SB fuse"
+2,PJP,"Phone jack, non shorting"
+1,PJP-S,"Phone jack, shorting"
+1,WSW-DPDT-M,"Switch, DPDT Mini toggle, for speaker out/line out option"
+3,TS-2,"Terminal strip, 2 position"
+9,#4-40 Bolt/Nut,#4-40 Bolt and nut with star washer
+5,#8 Term,#8 ground lug with screw and nut
+1,Washer.375x1.25,"Washer, fender, metal, .400ID, 1.25OD. For mounting footswitch jack"
+2,Nylon Standoff,2 #6 nylon standoff with 4 bolts
+1,WP105AS,"Pot, 1M-A, w/rotary switch"
+2,WP105A ,"Pot, 1M-A"
+8,Buttonhead Screw,#8-32 button head screw for enclosure
+,,
+4,1N4007,Diode
+2,EC406-450,"Capacitor, 40uF@450VDC"
+1,EC256-25,"Capacitor, 25uF@25VDC"
+1,EC257-25,"Capacitor, 250uF@25VDC"
+1,PEC222-630,"Capacitor, Polyester, .0022uF@630V"
+1,PEC103-630,"Capacitor, Polyester, .01uF@630V"
+2,PEC223-630,"Capacitor, Polyester, .022uF@630V"
+1,PEC683-630,"Capacitor, Polyester, .068uF@630V"
+1,MFR16-1,"Metal film resistor, 16 ohm, 1 watt"
+2,MFR820-.5,"Metal film resistor, 820 ohm, 1/2 watt"
+1,MFR1K-.5,"Metal film resistor, 1K, 1/2 watt"
+1,MFR5.6K-.5,"Metal film resistor, 5.6K ohm, 1/2 watt"
+2,MFR10K-.5,"Metal film resistor, 10K ohm, 1/2 watt"
+1,MFR68K-.5,"Metal film resistor, 68K ohm, 1/2 watt"
+3,MFR100K-.5,"Metal film resistor, 100K ohm, 1/2 watt"
+1,MFR1M-.5,"Metal film resistor, 1M ohm, 1/2 watt"
+,,

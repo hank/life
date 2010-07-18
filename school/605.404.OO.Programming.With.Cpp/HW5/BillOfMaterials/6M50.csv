@@ -1,0 +1,78 @@
+Weber 6M50TMB Head and Combo Kit,,,,,,
+Bill of Materials,,,,,,
+
+Qty,Part Number,Description,,,,
+1,6M50KT,"6M50 Chassis kit. chassis, brass plate, fiber board, ",,,,
+,,"TMB plexi panel, pilot lamp chosen by customer. ",,,,
+1,6M45-lamp, Red  White  Green (Customer selected),,,,
+1,Cabinet, Combo     Head  (Customer selected),,,,
+1,6M18 standoff kit,"Kit, standoff, 6M18. 4 nylon standoff, 8 each 4-40x3/8 screw, ",,,,
+,,8 each #4 internal tooth lockwasher ,,,,
+,Speakers,Customer selected for combo version,,,,
+1,WPT100,"Transformer, power",,,,
+1,WOT100HHR,"Transformer, output",,,,
+1,WZ34,Copper Cap Rectifier,,,,
+6,EL84,Vacuum tube,,,,
+1,12AT7,Vacuum tube,,,,
+3,12AX7B,Vacuum tube
+1,WCC-6M36,"Weber Cap Can,  3x40uF at 450 volts w/2 #4-40 bolts and nuts"
+1,PC-IEC,"Power cord, IEC end"
+,,
+1,CCW-6M50,"Kit, cloth covered wire, 6M50"
+,"( 14 ft. Red, Yellow, Green)",
+6,MRK,"Knob, brown, Marshall Style"
+1,CHK-11,"Knob, chicken head, flat top, black (for Z select)"
+1,CF-.5,"Fuse, 500 mA    NOTE: This fuse is .5  NOT 5"
+1,CF-2,"Fuse, 2 amp"
+,,
+4,SKT9,"Tube socket, 9 pin"
+6,SKT9A,"Tube socket assembly, 9 pin"
+1,SKT8A,"Tube socket, octal"
+1,TR-8,Tube Retainer
+6,TR-84,Tube Retainer
+20,Bolt-SKT,"Bolt, machine, #4-40x5/16, with nut and star washer"
+,,
+4,PJ-P-CL,"Chassis mount phone jack, Cliff type"
+1,IEC-1,IEC snap-in plug
+2,FH-2,Fuseholder
+4,CB-6M45,"8-32 x 3/4"" Chassis bolt with finshing washer"
+2,WSW-SPST-1,"Switch, toggle, panel mount, SPST"
+2,PJ-P,"Phone Jack, Panel Mount"
+3,Large Grommet,"5/8"" OD Chassis Grommets"
+1,KXM-5-2x3,Impedance Selector (sections paralleled)
+1,Wire Nut,"Wire Nut, small"
+1,WP253L,"Potentiometer, 25K Linear"
+1,WP254L         ,"Potentiometer, 250K Linear"
+3,WP504A,"Potentiometer, 500K Audio"
+1,WP105A,"Potentiometer, 1M Audio"
+1,WP503L-PCB,"50K-L linear bias pot, PC mount"
+,,
+1,MFR820-.5,"Resistor, 820, 1/2 watt"
+3,MFR1500-.5,"Resistor, 1.5K, 1/2 watt"
+6,MFR5.6K-.5,"Resistor, 5.6K, 1/2 watt"
+1,MFR15K-.5,"Resistor, 15K, 1/2 watt"
+3,MFR56K-.5,"Resistor, 56K, 1/2 watt"
+4,MFR68K-.5,"Resistor, 68K, 1/2 watt"
+6,MFR100K-.5,"Resistor, 100K, 1/2 watt"
+1,MFR220K-.5,"Resistor, 220K, 1/2 watt"
+5,MFR470K-.5,"Resistor, 470K, 1/2 watt"
+2,MFR1M-.5,"Resistor, 1M ohm, 1/2 watt"
+1,MFR10K-1,"Resistor, 10K, 1 watt"
+1,MFR6.8K-2,"Resistor, 6.8K, 2 watt"
+6,MFR1K-5,"Resistor, 1K, 5 watt"
+2,RES470-5,"Resistor, 470, 5 watt"
+1,1N4007,Diode Rectifier
+1,SMC251-500,"Capacitor, 250pF, 500 volts"
+2,PEC472-630,"Capacitor, .0047uF, 630 volts"
+1,PEC103-630,"Capacitor, .01uF, 630 volts"
+5,PEC223-630,"Capacitor, .022uF, 630 volts"
+1,PEC473-630,"Capacitor, .047uF, 630 volts"
+1,PEC104-630,"Capacitor, .1uF, 630 volts"
+4,EC506-150,"Capacitor, 50uF, 150 volts"
+1,EC406-450,"Capacitor, 40uF, 450 volts"
+,,
+,,
+,,
+,,
+,,
+,,

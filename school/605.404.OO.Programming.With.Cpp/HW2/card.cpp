@@ -1,3 +1,5 @@
+// card.cpp
+// Contains implementation of Card
 #include <string>
 using std::string;
 #include "card.h"

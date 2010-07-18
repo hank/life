@@ -1,0 +1,58 @@
+Weber Lauren Amp Kit,,
+Bill of Materials,,
+
+Qty ,Part Number,Description
+1,CAB-5F2A ,"Cabinet, 5F2A, complete"
+1,5F2MaxKT,"5F2Max Chassis kit. Chassis. brass plate, fiber boards"
+1,30 watt 10A125,Speaker
+1,W025130 (EU),Power Transformer    USA  EU
+1,WSE25,"Transformer, output"
+1,W014684,Choke
+1,WS1,Copper Cap Rectifier
+1,807,Vacuum tube
+1,Plate cap-807,Plate cap for 807 tube
+1,12AX7B,Vacuum tube
+1,PC-CUT,"Power cord, cut end"
+4,Nut-#8-32,"Nut, #8-32 with integral washer (for mounting speaker)"
+,,
+1,CCW-5F2A,"Kit, cloth covered wire, 5F2A"
+,"( 8 ft. Red, Yellow, Green, 3 ft. Black, White)",
+2,CHK-11,"Knob, black, chicken head, flat top"
+1,CF-2,"Fuse, 2 amp"
+,,
+1,SKT8,"Tube socket, octal"
+1,SKT-807,"Tube socket, for 807 tube, with #6-32x5/8 screw and nut"
+1,SKT9,"Tube socket, 9 pin"
+1,TR-8,"Clamp, octal"
+6,Bolt-SKT,"Bolt, machine, #4-40x5/16, with nut and star washer"
+2,Spacer-SKT   ,"Spacer, nylon, for SKT8"
+,,
+1,RJP-2,"RCA jack, chassis mount, diamond fiber base"
+1,RP-C,"RCA plug, male, cable mount"
+1,FH-2,Fuseholder
+2,CB-1.5,"Bolt, chassis, tweed style, chrome, with nut"
+1,PL-2,"Pilot light, red"
+1,6N-4,Strain relief
+1,WSW-SPST-1,"Switch, toggle, panel mount, SPST"
+2,PJP-S,"Chassis mount phone jack, shorting"
+2,Small Grommet,"9/16"" OD  Chassis Grommets"
+1,Wire Nut,"Wire Nut, small"
+2,#8 sheet metal screw,Fiber Board Mounting Screws
+2,WP105A,"Potentiometer, 1 meg audio"
+,,
+1,RES300-10,"Resistor, 300 ohms, 10 watt"
+1,MFR1K-.5,"Resistor, 1K, 1/2 watt"
+1,MFR1500-.5,"Resistor, 1.5K, 1/2 watt"
+1,MFR20K-.5,"Resistor, 20K, 1/2 watt"
+2,MFR68K-.5,"Resistor, 68K, 1/2 watt"
+2,MFR100K-.5,"Resistor, 100K, 1/2 watt"
+1,MFR220K-.5,"Resistor, 220K, 1/2 watt"
+1,MFR1M-.5,"Resistor, 1M ohm, 1/2 watt"
+1,MFR10K-2,"Resistor, 10K, 2 watt"
+1,MFR22K-2,"Resistor, 22K, 2 watt"
+1,SMC501-500,"Capacitor, 500pF, 500 volts"
+1,PEC472-630,"Capacitor, .0047uF, 630 volts"
+2,PEC223-630,"Capacitor, .022uF, 630 volts"
+2,EC256-25,"Capacitor, 25uF, 25 volts"
+2,EC206-450,"Capacitor, 20uF, 450 volts"
+2,EC406-450,"Capacitor, 40uF, 450 volts"

@@ -1,0 +1,96 @@
+Weber 6A80 Head Amp Kit,,
+Bill of Materials,,
+
+Qty,Part Number,Description
+1,CAB-6A80 Head,"Cabinet, 6A80, complete, covering per customer spec."
+1,6A80KT,"6A80 Chassis kit. Chassis, brass plate, fiber boards"
+1,6A80FB_PS,cap fiber board assembly
+1,W022756 (or EU),Power Transformer    USA  EU
+1,W022889,"Transformer, output"
+1,W022921,"Transformer, reverb"
+1,W022699,Choke
+4,6L6GCR,Vacuum tube
+4,12AX7B,Vacuum tube
+2,12AT7,Vacuum tube
+1,4AB3C1B,Reverb pan
+1,FS-FEN-2 ,"Footswitch,  2 button, Fender type, with phono plugs "
+2,CBL-RVB-1,"Cable, reverb, 1', straight plug on both ends"
+1,PC-CUT,"Power cord,  cut end"
+,,
+1,CCW-5A40H,"Kit, cloth covered wire, 5A40H"
+,"( 16 ft. Red, Yellow, Green)",
+11,FK-skirt-blk,"Knob, black, 1-10, skirt"
+1,CF-4,"Fuse, 4 amp"
+,,
+4,SKT8,"Tube socket, octal"
+6,SKT9,"Tube socket, 9 pin"
+4,TR-8,"Clamp, octal"
+20,Bolt-SKT,"Bolt, machine, #4-40x5/16, with nut and star washer"
+8,Spacer-SKT ,"Spacer, nylon, for SKT8"
+,,
+6,RJ-P,"Phono jack, chassis mount."
+12,BF-Washer,Washer for mounting RJ-P on BF amps rear panel
+1,AUX1,Auxiliary power socket
+1,FH-2,Fuseholder
+4,CB-3,"Bolt, chassis, chrome, with nut"
+2,CS-5,"Chassis Strap, 5"""
+1,PL-2,"Pilot light, red"
+1,6N-4,Strain relief
+3,WSW-SPST-1,"Switch, toggle, panel mount, SPST"
+1,PJP,"Chassis mount phone jack, non shorting"
+5,PJP-S,"Chassis mount phone jack, shorting"
+19,Small Grommet,"9/16"" OD  Chassis Grommets"
+2,WSW-DPDT-SL,Slide Switch for use as bright switch. With screws
+1,Wire Nut,"Wire Nut, small"
+8,#8 sheet metal screw,Fiber Board Mounting Screws
+4,T-Nut,T-Nut for mounting reverb pan
+4,"2"" drywall screw","2"" black drywall screw for mounting reverb pan"
+8,Spring,Reverb mounting spring
+1,WP103L-slot,"Potentiometer, 10K linear with screwdriver slot"
+2,WP253A,"Potentiometer, 25K audio"
+1,WP503RAS,Potentiometer 50K reverse audio with switch
+1,WP104L,"Potentiometer, 100K linear"
+4,WP254A,"Potentiometer, 250K audio"
+2,WP105A,"Potentiometer, 1 meg audio"
+1,WP305RA,"Potentiometer, 3 meg reverse audio"
+,,
+1,MFR100-.5,"Resistor, 100, 1/2 Watt"
+1,MFR470-.5,"Resistor, 470, 1/2 watt"
+3,MFR820-.5,"Resistor, 820, 1/2 watt"
+6,MFR1500-.5,"Resistor, 1.5K, 1/2 watt"
+1,MFR2.2K-.5,"Resistor, 2.2K, 1/2 watt"
+1,MFR2.7K-.5,"Resistor, 2.7K, 1/2 watt"
+1,MFR6.8K-.5,"Resistor, 6.8K, 1/2 watt"
+1,MFR22K-.5,"Resistor, 22K, 1/2 watt"
+1,MFR27K-.5,"Resistor, 27K, 1/2 watt"
+4,MFR68K-.5,"Resistor, 68K, 1/2 watt"
+1,MFR82K-.5,"Resistor, 82K, 1/2 watt"
+12,MFR100K-.5,"Resistor, 100K, 1/2 Watt"
+7,MFR220K-.5,"Resistor, 220K, 1/2 watt"
+1,MFR470K-.5,"Resistor, 470K, 1/2 watt"
+1,MFR820K-.5,"Resistor, 820K, 1/2 watt"
+7,MFR1M-.5,"Resistor, 1M, 1/2 watt"
+1,MFR2.2M-.5,"Resistor, 2.2M, 1/2 watt"
+1,MFR3.3M-.5,"Resistor, 3.3M, 1/2 watt"
+1,MFR10M-.5,"Resistor, 10M, 1/2 watt"
+5,MFR470-1,"Resistor, 470, 1 watt"
+1,MFR1K-1,"Resistor, 1K, 1 watt"
+1,MFR4.7K-1,"Resistor, 4.7K, 1 watt"
+2,MFR220K-1,"Resistor, 220K, 1 watt"
+6,1N5408,Diode rectifier
+1,1N4007,Diode rectifier
+7,EC256-25,"Capacitor, 25uF, 25 volts"
+1,EC506-150,"Capacitor, 50uF, 150 volts"
+3,EC206-450,"Capacitor, 20uF, 450 volts"
+2,EC107-450,"Capacitor, 100uF, 450 volts"
+1,PEC102-630,"Capacitor, .001uF, 630 volts"
+1,PEC332-630,"Capacitor, .0033uF, 630 Volts"
+2,PEC103-630,"Capacitor, .01uF, 630 volts"
+2,PEC223-630,"Capacitor, .022uF, 630 volts"
+3,PEC473-630,"Capacitor, .047uF, 630 volts"
+6,PEC104-630,"Capacitor, .1uF, 630 volts"
+1,SMC100-500,"Capacitor, 10pF, 500 volts"
+2,SMC121-500,"Capacitor, 120pF, 500 volts"
+2,SMC251-500,"Capacitor, 250pF, 500 volts"
+1,SMC501-500,"Capacitor, 500pF, 500 volts"
+1,OPT-1,Optocoupler

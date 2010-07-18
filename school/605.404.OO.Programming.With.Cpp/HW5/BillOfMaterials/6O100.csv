@@ -1,0 +1,81 @@
+Weber 6O100 Amp Kit,,
+Bill of Materials,,
+
+Qty,Part Number,Description
+1,CAB-6M45,"Cabinet, 6M45, covering chosen by customer "
+1,6O100KT,"6O100 Chassis kit. Chassis. brass plate, fiber board, plexi panel"
+1,6M45-lamp, Red  White  Green
+1,WOT100 LHR or HHR,"Transformer, output, per customer spec.  WOT100HHR                 WOT100LHR"
+1,WPT100,"Transformer, power"
+1,W022699,Choke
+4,KT66   ,Vacuum tube
+4,EL34   ,Vacuum tube
+2,12AX7B,Vacuum tube
+1,5G15 Standoff Kit,"6 nylon standoffs and 12 screws, to mount fiber board."
+1,PC-IEC,"Power cord, IEC end"
+,,
+1,CCW-6M100,"Kit, cloth covered wire, 6M100",,
+,"( 12 ft. Red, Yellow, Green)",,,
+1,CHK-11,"Knob, chicken head, flat top, black",,
+8,MRK,"Knob, brown, Marshall type",,
+1,CF-1,"Fuse, 1 amp",,
+1,CF-4,"Fuse, 4 amp",,
+,,,,
+2,SKT9,"Tube socket, 9 pin",,
+4,SKT-8A,"Tube socket, 8 pin",,
+1,TR-8,"Tube clamp, octal, for copper cap",,
+4,TR-34 or TR-8,Depends on output tubes chosen    EL34/TR-34  KT66/TR-8,,
+12,Bolt-SKT,"Bolt, machine, #4-40x5/16, with nut w/integral star washer",,
+,,,,
+1,IEC-1,"IEC Plug, Chassis mount",, 
+2,FH-2,Fuseholder,,
+4,CB-6M45,"8-32 x 3/4"" Chassis bolt with finshing washer",,
+2,WSW-SPST-1,"Switch, toggle, panel mount, SPST",
+3,PJP,"Chassis mount phone jack, non shorting",
+1,PJP-S,"Chassis mount phone jack, shorting",
+2,PJP-CL,"Chassis mount phone jack, shorting, Clliff type",
+5,Large Grommet,"5/8"" OD  Chassis Grommets",
+1,KXM-5-2x3,Impedance Selector (sections paralleled),
+1,KXM-1-1x6,"TDS selector, 1 deck, 6 position",
+1,Wire Nut,"Wire Nut, small",
+1,Terminal,"Terminal, #8, solder lug",
+1,WP102L,"Potentiometer, 1K Linear",
+1,WP103A,"Potentiometer, 10K Audio",
+1,WP503L,"Potentiometer, 50K Linear",
+2,WP105A,"Potentiometer, 1 meg audio",
+1,WP105AD,"Potentiometer, 1 meg audio, dual",
+1,WP503L-PCB,"Potentiometer, 50K, linear, fiber board mount",
+,,,
+1,MFR1500-.5,"Resistor, 1.5K, 1/2 watt"
+2,MFR2.2K-.5,"Resistor, 2.2K, 1/2 watt"
+5,MFR5.6K-.5,"Resistor, 5.6K, 1/2 watt"
+2,MFR15K-.5,"Resistor, 15K, 1/2 watt"
+1,MFR56K-.5,"Resistor, 56K, 1/2 watt"
+2,MFR68K-.5,"Resistor, 68K, 1/2 watt"
+7,MFR100K-.5,"Resistor, 100K, 1/2 watt"
+5,MFR220K-.5,"Resistor, 220K, 1/2 watt"
+3,MFR1M-.5,"Resistor, 1M ohm, 1/2 watt"
+1,MFR10K-2,"Resistor, 10K, 2 watt"
+1,MFR22K-2,"Resistor, 22K, 2 watt"
+4,MFR220K-2,"Resistor, 220K, 2 watt"
+4,MFR1K-5,"Resistor, 1K, 5 watt"
+1,1N4007,Diode
+4,1N5403,Diode
+2,SMC250-500,"Capacitor, 250pF, 500 volts"
+3,PEC102-630,"Capacitor, .001uf, 630 volts",,,
+1,PEC152-630,"Capacitor, .0015uf, 630 volts",,,
+2,PEC222-630,"Capacitor, .0022uf, 630 volts",,,
+2,PEC472-630,"Capacitor, .0047uf, 630 volts",,,
+1,PEC103-630,"Capacitor, .01uF, 630 volts",,,
+1,PEC223-630,"Capacitor, .022uF, 630 volts",,,
+2,PEC473-630,"Capacitor, .047uF, 630 volts",,,
+3,PEC683-630,"Capacitor, .068uF, 630 volts",,,
+4,PEC104-630,"Capacitor, .1uF, 630 volts",,,
+1,FK28X5R1A474K(M),"Capacitor, .47uF, 10 volts, ceramic",,,
+2,EC506-25,"Capacitor, 50uF, 25 volts",,,
+2,EC166-150,"Capacitor, 16uF, 150 volts",,,
+2,EC406-450,"Capacitor, 40uF, 450 volts",,,
+4,EC107-450,"Capacitor, 100uF, 450 volts",,,
+1,CMT908-V1(M),"Inductor, 2mH",,,
+,,,,,
+,

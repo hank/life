@@ -1,9 +1,11 @@
 INCLUDE=../../../code/cpp/testing/googletest-read-only/include
 LIBS=../../../code/cpp/testing/googletest-read-only/mybuild
-hugeint_unittest: hugeint_unittest.cpp hugeint.h
-	g++ -g -O0 -o $@ $< -I${INCLUDE} -L${LIBS} -lgtest -lgtest_main -lpthread
+SOURCES=hugeint_unittest.cpp hugeint.cpp
 
-test: test.cpp hugeint.h
-	g++ -o $@ $<
+#hugeint_unittest: hugeint_unittest.cpp hugeint.h hugeint.cpp
+#	g++ -g -O0 -o $@ $(SOURCES) -I${INCLUDE} -L${LIBS} -lgtest -lgtest_main -lpthread
 
-all: test hugeint_unittest
+test: test.cpp hugeint.h hugeint.cpp
+	g++ -o $@ hugeint.cpp $<
+
+all: test

@@ -1,0 +1,3 @@
+Import('env')
+for i in Glob("*.cpp"):
+   env.Program(i, LIBS=['boost_system'])
