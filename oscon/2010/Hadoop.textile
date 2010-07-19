@@ -5,7 +5,6 @@ h2. How it works
 * Master node (JobTracker) accepts the job from the client
 * Manages the scheduling of tasks for the job on the other nodes
 * Each node is running a TaskTracker, which can spawn task instances.
-
 * *new Java forked for each instance*
 
 h2. Anatomy of a Job
@@ -26,4 +25,22 @@ h2. MR Programs
 * Why?  New API is not entirely ready yet, but functional.
 * Libraries haven't been ported over yet.  In version 21 it will be better.
 * JobConf specifies a job you want to run.
-  * It's serialized and distributed before running the job.
+** It's serialized and distributed before running the job.
+
+h2. What happens in MapReduce: Depth First
+
+h3. Make a new JobConf Object
+
+* Specify a new mapper class
+* Specify a new reducer class
+* Specify inputs and outputs
+* Other options
+
+h3. Run the job
+
+* Pass JobConf into runJob or submitJob
+** runJob blocks, submitJob does not.
+
+* Store things in HDFS and have jobs refer to there too.  It's perfect.
+* In contrast to MPI, the main method is entirely provided by Hadoop
+** You don't have to do all that junk to figure out who you are.

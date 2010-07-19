@@ -96,5 +96,3 @@ h2. printf is expensive
 
 * printf executes 2048 function calls.
 * He found out with dtrace
-
-
