@@ -17,6 +17,7 @@ It's everyone else but me.
 h2. Dynamic Tracing
 
 bq. Put in printfs anywhere in your code
+
 * Probes can go anywhere, go on and off dynamically, collect arbitrary data
 * Overhead of probing is small
 * No overhead for disabled probes!
