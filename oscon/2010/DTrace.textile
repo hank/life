@@ -1,0 +1,89 @@
+h1. DTrace
+h2. Why Dynamic Tracing
+* You don't have a way to find bottlenecks in the current process stack.
+
+h2. Traditional Tools
+* Too tightly bound to language
+* truss pstack?  Apparently not a "production tool"
+* mdb/gdb don't do live analysis in a production environment
+
+h2. The Blame Game
+It's everyone else but me.
+
+h2. Dynamic Tracing
+bq. Put in printfs anywhere in your code
+* Probes can go anywhere, go on and off dynamically, collect arbitrary data
+* Overhead of probing is small
+* No overhead for disabled probes!
+* 2 forms: scripting and command line
+
+h3. D-Scripts
+* A Probe (the *where*)
+* A Predicate (the *when*)
+* Actions (the *what*)
+
+h3. Command Line
+<pre>
+dtrace -l | wc -l
+#Prints 50000 or so
+</pre>
+
+<pre>
+dtrace -P syscall
+#Looks at all the system calls.
+</pre>
+
+<pre>
+dtrace -P syscall'{trace(execname)}' | more
+# Tell us who made the system call.
+</pre>
+
+<pre>
+dtrace -P syscall'{trace(uid)}' | more
+# Tell us the UID of the process
+</pre>
+
+<pre>
+dtrace -P syscall'{trace(cpu)}' | more
+# Tell us the CPU the process is running on
+</pre>
+
+<pre>
+dtrace -P syscall'{@[execname]=count()}'
+# Count how many time an executable runs a system call
+</pre>
+
+<pre>
+dtrace -P syscall'/execname=="java"/{@[execname]=count()}'
+# Pick on java only using a predicate
+</pre>
+
+<pre>
+dtrace -P syscall'/execname=="java"/{@[probefunc]=count()}'
+# Tell us what system call java is doing and how many times for each
+</pre>
+
+<pre>
+dtrace -n syscall::stat64:entry'/execname=="java"/{@[copyinstr(arg0)]=count()}'
+# Show us the arguments and a count of each for the given function call
+</pre>
+
+<pre>
+dtrace -n syscall::stat64:entry'/strstr(copyinstr(arg0), "ROOT")/{@[jstack(arg0)]=count()}'
+# Filter using strstr in the predicate
+</pre>
+
+h2. DTrace Providers
+* A bunch of these, grouped into core providers and other providers
+* Some network providers - ip/tcp/udp!
+* You can make your own provider - if you have an application, and you want to expose some debug API, you can do that with dtrace.
+
+h2. DTrace toolkit
+* Collection of DScripts.
+* Lots of examples
+
+h2. printf is expensive
+* printf executes 2048 function calls.
+* He found out with dtrace
+
+
