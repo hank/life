@@ -1,0 +1,29 @@
+h1. Hadoop
+
+h2. How it works
+
+* Master node (JobTracker) accepts the job from the client
+* Manages the scheduling of tasks for the job on the other nodes
+* Each node is running a TaskTracker, which can spawn task instances.
+
+* *new Java forked for each instance*
+
+h2. Anatomy of a Job
+
+* HDFS must be available
+* JAR file and an XML file form a program
+* Running the job notifies the TaskTrackers where the file is on HDFS.
+* Jobs have a priority that you can set
+* It uses a priority queue to manage the jobs
+* You can explicitly kill jobs
+* Nodes implicitly have local data if HDFS is working properly
+* map is applied to local data, or HDFS moves data locally to work on
+
+h2. MR Programs
+
+* More than one API to MapReduce
+* New and old API
+* Why?  New API is not entirely ready yet, but functional.
+* Libraries haven't been ported over yet.  In version 21 it will be better.
+* JobConf specifies a job you want to run.
+  * It's serialized and distributed before running the job.
