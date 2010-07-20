@@ -80,4 +80,7 @@ h2. Cassandra
 bq. Or you can have Soooooper columns!
 
 * Super columns allow you to join columns together and give them a name
+* Tunable consistency knobs - you can either care about transactional writes and reads, or not.
+** *Good for them!*
+
 
