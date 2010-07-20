@@ -1,0 +1,19 @@
+h1. Building a NOSQL Data Cloud
+
+* OSI Layer 8: Legal & Politics
+* OSI Layer 9: Tecnology Religion
+
+h2. NOSQL is a feature set
+
+* Implemented in Cassandra, HBase, etc.
+* Append-only at runtime
+* Search patterns using *Bloom Filters*, whatever those are...
+* Solve specific problems very well, general problems to a certain extent
+
+h2. Types of NOSQL
+
+|KV Stores|Column|Document|Graph|
+|MapReduce and others|Cassandra|CouchDB|FlockDB|
+||BigTable|MongoDB|InfiniteGraph|
+||HBase|||
+
