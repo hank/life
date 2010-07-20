@@ -17,3 +17,67 @@ h2. Types of NOSQL
 ||BigTable|MongoDB|InfiniteGraph|
 ||HBase|||
 
+h2. Examples
+
+h3. Bit.ly 
+
+* uses MongoDB
+* 1.25B shortens per month
+
+h3. Wordnik
+
+* MySQL crapped out at 4B rows
+* used MongoDB
+* Read from Mongo was so good, memcached was not necessary.
+
+h3. LHC @ CERN!
+
+* Called DAS(Data Aggregation System)
+* Uses MongoDB
+* Distributed 2-6 petabytes! of data
+* Combine info from different metadata sources
+* Query without knowing their existence
+* User has domain knowledge, but doesn't deal with various formats, interfaces, semantics
+* Returns JSON documents
+
+h2. Differences
+
+* Most of this stuff is read-centric.  We're more write-centric.
+
+h2. MongoDB
+
+* Totally awesome Javascript functions right in there.
+* DBs can just be created like jelly beans
+
+<pre>
+> person={"name":"Bob", "phone":"555-2323"}
+> use test
+> db.persons.insert(person)
+</pre>
+
+Used the database test to create a table persons and inserted our person!
+
+<pre>
+> db.persons.find()
+# Returns a JSON dude.
+</pre>
+
+You can actually index 2 columns using ensureIndex.
+You can do some hot mapreduce action.
+
+h2. Cassandra
+
+* Started at Facebook
+* Now apache top-level product
+* Symmetric - 10 instances for instance are all equal.
+** You write on one, and it appears on others....
+* Always writable
+* High write throughput
+** MySQL: ~300ms/Write, ~350ms/Read
+** Cassandra: ~0.12ms/Write, ~15ms/Read
+* Java...
+
+bq. Or you can have Soooooper columns!
+
+* Super columns allow you to join columns together and give them a name
+
