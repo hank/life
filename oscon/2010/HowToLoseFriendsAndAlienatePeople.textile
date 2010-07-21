@@ -139,10 +139,10 @@ h2. Managing your manager
 * Improve relations with your manager
 
 # Act like a grown-up
-* Encourage people to take responsibility
+** Encourage people to take responsibility
 # Pursue Responsibility
-* Cut down the tree like you're told
-* But also come up with a plan to cut down the whole forest.
+** Cut down the tree like you're told
+** But also come up with a plan to cut down the whole forest.
 # Allow Mistakes
 # Communicate
 # Point out problems
