@@ -3,7 +3,7 @@ h1. How To Lose Friends and Alienate People
 bq. Even though I no longer have a beard, I'm still Aaron Colunsusma(sp?)
 
 * Accidental Leader Phenomenon
-* They're from *subversion*!  /Take every word with a grain of salt!/
+* They're from *subversion*!  _Take every word with a grain of salt!_
 * Classical management Works great for managing morons, works poorly for managing creative people.
 
 *What does it mean to be a good leader?*
@@ -42,4 +42,114 @@ h3. Ignore low performers
 ** You'll lose your best people if you keep the stragglers
 * *Set an objective velocity for team members, and hold employees to it.*
 
+bq. People are a giant pile of intermittent bugs
 
+h3. Compliment Sandwich
+
+* Happy with your work
+* Your code has been bad and sucks
+* But I like your glasses
+
+Be Straightforward.
+
+h2. Patterns
+
+* Guy who was technically strong, everything was a battle
+* Pick your battles
+
+h3. Be a Zen master
+
+* Guide people to find answers themselves
+* Don't solve people's problems for them
+
+h3. Lose the ego
+
+* You don't need it
+* Trust the boots on the ground
+* Accept criticism
+* Apologize
+* Humility != Passivity
+
+h3. Get your hands dirty
+
+* Builds team trust/empathy
+
+h3. Delegate
+
+* Let people figure it out even though it will take a lot longer
+
+h3. Look to replace yourself
+
+* Let people who are capable of leading lead
+
+bq. At the time you most want to make waves, is the time when you're not making waves
+
+h3. Shield your team from Bureaucracy
+
+* They don't need to know because their morale will suffer
+
+h3. Succeed and fail as a team
+
+* Public praise
+* Private criticism
+* Don't single people out publicly in a success or a failure
+
+h3. Be a teacher and mentor
+
+* Assimilate people
+* Hook people up with good people
+
+h3. Set Goals
+
+* Make sure everyone agrees on the roadmap
+* You can point to it when you're getting drive-by-managed or derailed
+
+h3. Track Happiness
+
+* Figure out what people are considering for their career future
+* "What do you need?"
+* Rotate crap tasks with fun tasks like chores
+
+* People are like plants
+** Some need more light
+** Some need more water
+** Some need more bullshit
+
+Direct people until they're self-sufficient.
+
+h2. Intrinsic vs. Extrinsic Motivations
+
+* Extrinsic motivations don't work
+** Help you if you succeed, hurt you if your fail
+* Intrinsic motivations are good
+** Allow people to have autonomy
+*** Coming in on own schedule
+*** 20% time like Google's done
+*** It's all about trust unless it negatively effects others
+** Mastery
+*** Companies look for the sharp knife
+*** Grind it against the sidewalk
+*** Throw it away and look for a new one
+*** Hire knives that may not be the sharpest, but have potential sharpness
+*** Give them a chance to sharpen themselves
+
+h2. Managing your manager
+
+* How to make yourself easier to manage
+* Improve relations with your manager
+
+# Act like a grown-up
+* Encourage people to take responsibility
+# Pursue Responsibility
+* Cut down the tree like you're told
+* But also come up with a plan to cut down the whole forest.
+# Allow Mistakes
+# Communicate
+# Point out problems
+# *Argue!*
+
+h2. Take-away
+
+# Serve your team
+# Respect People
+# Motivate People
