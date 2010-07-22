@@ -1,22 +1,27 @@
 #ifndef Floor_H
 #define Floor_H
 
-#include <queue>
+#include <list>
 #include <boost/cstdint.hpp>
 
-#include "passenger.h"
 #include "elevator.h"
 
 class Floor
 {
    public:
+      // Default constructor
+      // Need to assign a floor after initialization
+      // Used for arrays of Floors
+      Floor()
+      {}
+
       // Single-param constructor
       // Must take a number for the floor
       Floor(const uint8_t number)
       : number(number)
       {}
 
-      std::queue<Passenger>& getPassengers()
+      std::list<Passenger>& getPassengers()
       {
          return this->passengers;
       }
@@ -26,32 +31,27 @@ class Floor
          return this->number;
       }
 
+      void setNumber(const uint16_t& number)
+      {
+         this->number = number;
+      }
+
       // Boards as many passengers as possible on the elevator
       // Modifies Elevator
-      void boardPassengers(Elevator& elevator)
-      {
-         uint8_t i = 0;
-         uint8_t max_passengers = elevator.getMaxPassengers();
-         while(i < max_passengers)
-         {
-            // Add the front
-            elevator.addPassenger(getPassengers().front()); 
-            // Remove the front
-            getPassengers().pop();
-            ++i;
-         }
-         // All aboard.
-      }
+      void boardPassengers(Elevator& elevator);
 
       // addPassenger: adds a passenger to the floor
       void addPassenger(const Passenger& passenger)
       {
-         getPassengers().push(passenger);
+         getPassengers().push_back(passenger);
       }
+
+      bool hasPassengersGoingUp();
+      bool hasPassengersGoingDown();
 
    private:
       uint8_t number;
-      std::queue<Passenger> passengers;
+      std::list<Passenger> passengers;
 };
 
 #endif

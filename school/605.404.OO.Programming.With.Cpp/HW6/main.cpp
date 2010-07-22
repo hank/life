@@ -12,18 +12,15 @@ using std::endl;
 #include <boost/algorithm/string.hpp>
 #include <boost/array.hpp>
 
+#include "elevator.h"
+#include "building.h"
 #include "passenger.h"
 #include "floor.h"
 
 int main()
 {
-   std::queue<Passenger> passengers;
-   boost::array<Elevator, 4> elevators =
-   {
-      {
-         Elevator(), Elevator(), Elevator(), Elevator()
-      }
-   };
+   std::list<Passenger> passengers;
+   Building* building = Building::getInstance();
    // Open the file
    std::ifstream myfile("HW6-Elevators.csv");
    std::string line;
@@ -56,20 +53,30 @@ int main()
          uint16_t end_floor = boost::lexical_cast<uint16_t>(*iter++);
          // Add it to the list
          Passenger p(time, start_floor, end_floor);
-         passengers.push(p);
+         passengers.push_back(p);
       }
    }
 
    // Start ticker
    uint64_t ticker = 0;
-   while(ticker < 20000) // Elevators should be done by 20000
+   while(!passengers.empty())
    {
       if(passengers.front().getTime() == ticker)
       {
-         // A new passenger walks up to the elevators
-         cout << passengers.front() << endl;
-         passengers.pop();
+         // Process until all passengers for this timestamp are through
+         while(passengers.front().getTime() == ticker)
+         {
+            cout << "Processing " << passengers.front() << endl;
+            Floor& floor = building->getFloor(passengers.front().getStartFloor());
+            floor.addPassenger(passengers.front());
+            // When we add a passenger, trigger an alert to the elevators
+            // Each one will then respond to the request
+            building->alertElevators(floor.getNumber());
+            passengers.pop_front();
+         }
       }
+      // Step the elevators
+      building->stepElevators();
       ++ticker;
    }
 }

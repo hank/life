@@ -1,4 +1,4 @@
 all: elevator
 
-elevator: main.cpp
-	g++ -o elevator main.cpp -g -Wall
+elevator: floor.cpp building.cpp elevator.cpp main.cpp
+	g++ -o $@ floor.cpp building.cpp elevator.cpp main.cpp -g -Wall

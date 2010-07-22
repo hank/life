@@ -1,10 +1,10 @@
 #ifndef Elevator_H
 #define Elevator_H
 
-#include <queue>
+#include <list>
 #include <boost/cstdint.hpp>
 
-#include "floor.h"
+#include "passenger.h"
 
 class Elevator
 {
@@ -12,11 +12,11 @@ class Elevator
       Elevator()
       : state(STOPPED)
       , state_counter(0)
-      , direction(NONE)
+      , floor_number(1)
       {}
 
       // getPassengers: gets the passengers list
-      std::queue<Passenger>& getPassengers()
+      std::list<Passenger>& getPassengers()
       {
          return this->passengers;
       }
@@ -24,7 +24,7 @@ class Elevator
       // addPassenger: adds a passenger to the elevator
       void addPassenger(const Passenger& passenger)
       {
-         getPassengers().push(passenger);
+         getPassengers().push_back(passenger);
       }
 
       uint8_t getMaxPassengers()
@@ -32,13 +32,18 @@ class Elevator
          return this->max_passengers;
       }
 
-
-      enum MovementDirection
+      uint16_t getDestinationFloor()
       {
-         NONE,
-         UP,
-         DOWN
-      }; 
+         return this->destination_floor;
+      }
+
+      void setDestinationFloor(uint16_t destination_floor)
+      {
+         this->destination_floor = destination_floor;
+      }
+
+      // Main state machine stepping function
+      void step();
 
       enum MovementState
       {
@@ -49,10 +54,13 @@ class Elevator
       };
 
    private:
-      std::queue<Passenger> passengers;
+      std::list<Passenger> passengers;
       MovementState state;
+      // Used for tracking number of seconds in state
       uint8_t state_counter;
-      MovementDirection direction;
+      // Current floor number
+      uint16_t floor_number;
+      uint16_t destination_floor;
       static const uint8_t max_passengers = 8;
 };
 
