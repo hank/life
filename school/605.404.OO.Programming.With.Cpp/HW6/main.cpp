@@ -85,4 +85,6 @@ int main()
 
    // Show the average wait time
    cout << "The average wait time was: " << building->averageWaitTime() << endl;
+   // Show the average travel time
+   cout << "The average travel time was: " << building->averageTravelTime() << endl;
 }

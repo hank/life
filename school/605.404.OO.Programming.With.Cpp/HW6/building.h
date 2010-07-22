@@ -47,9 +47,20 @@ class Building
          ++this->wait_count;
       }
 
+      void addTravelTime(const uint64_t& travel_time)
+      {
+         this->travel_total += travel_time;
+         ++this->travel_count;
+      }
+
       double averageWaitTime()
       {
          return static_cast<double>(this->wait_total) / this->wait_count;
+      }
+
+      double averageTravelTime()
+      {
+         return static_cast<double>(this->travel_total) / this->travel_count;
       }
 
       // Keeps track of the number of passengers in the building
@@ -97,6 +108,8 @@ class Building
 
       uint64_t wait_total;
       uint16_t wait_count;
+      uint64_t travel_total;
+      uint16_t travel_count;
 };
 
 #endif

@@ -37,9 +37,20 @@ class Passenger
       {
          return this->time;
       }
+
+      uint16_t getTravelStart() const
+      {
+         return this->travel_start;
+      }
+
+      void setTravelStart(const uint16_t& travel_start)
+      {
+         this->travel_start = travel_start;
+      }
       
    private:
       uint16_t time;
+      uint16_t travel_start;
       uint16_t start_floor; 
       uint16_t end_floor; 
 };

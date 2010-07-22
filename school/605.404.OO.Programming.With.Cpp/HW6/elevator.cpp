@@ -35,7 +35,9 @@ void Elevator::letPassengersOff()
               << static_cast<unsigned int>(building->getTicker() - to_erase->getTime()) 
               << endl;
          // Keep a running sum and count of wait times in building
-         building->addWaitTime(building->getTicker() - to_erase->getTime());
+         building->addWaitTime(to_erase->getTravelStart() - to_erase->getTime());
+         // Also keep travel times
+         building->addTravelTime(building->getTicker() - to_erase->getTravelStart());
          getPassengers().erase(to_erase);
          erase_passenger = false;
          building->decrementPassengerNumber();
@@ -73,8 +75,11 @@ void Elevator::collectPassengers()
          {
             // Pick them up!
             cout << "Boarding Passenger " << *iter << endl;
-            this->getPassengers().push_back(*iter);
+            // Set the travel time
+            Building* building = Building::getInstance();
             addDestinationFloor(iter->getEndFloor());
+            iter->setTravelStart(building->getTicker());
+            this->getPassengers().push_back(*iter);
             to_erase = iter;
             erase_passenger = true;
          }
@@ -219,7 +224,7 @@ void Elevator::step()
          {
             // Otherwise, just keep moving right along
             // Takes 10 seconds to move between floors.
-            if(this->state_counter < 5)
+            if(this->state_counter < 10)
             {
                ++this->state_counter;
             }
