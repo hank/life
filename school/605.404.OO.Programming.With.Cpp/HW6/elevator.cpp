@@ -64,7 +64,10 @@ void Elevator::collectPassengers()
          if(this->getPassengers().size() == getMaxPassengers())
          {
             // We can't take any more.
-            // Continue moving
+            // Continue moving, but alert other elevators to the condition
+            // We can assume the passengers pushed the button again
+            Building* building = Building::getInstance();
+            building->alertElevators(this->floor_number);
             break;
          }
          if( (this->destination_floors.front() < this->floor_number && 

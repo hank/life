@@ -1,3 +1,5 @@
+// building.h
+// Contains Building class
 #ifndef Building_H
 #define Building_H
 
@@ -9,22 +11,30 @@
 #include "passenger.h"
 #include "floor.h"
 
-// Singleton!
+// Building class 
+// A singleton that contains the floors and elevators in a building.  Serves
+// as a link for the elevators and floors to query and communicate passenger
+// information.
 class Building
 {
    public:
 
       // Mutable getFloor
+      // Returns a floor with a give identifier
       Floor& getFloor(uint8_t number)
       {
          return this->floors[number];
       }
 
+      // Mutable getElevator
+      // Returns an elevator with a give identifier
       Elevator& getElevator(uint8_t number)
       {
          return this->elevators[number];
       }
 
+      // Tells the first free elevator (or a random one) about a new passenger
+      // on a given floor
       void alertElevators(uint16_t floor_number);
 
       void stepElevators();
