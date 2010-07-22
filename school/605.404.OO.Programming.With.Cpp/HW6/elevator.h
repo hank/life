@@ -34,13 +34,38 @@ class Elevator
 
       uint16_t getDestinationFloor()
       {
-         return this->destination_floor;
+         return this->destination_floors.front();
       }
 
-      void setDestinationFloor(uint16_t destination_floor)
+      std::list<uint16_t>& getDestinationFloors()
       {
-         this->destination_floor = destination_floor;
+         return this->destination_floors;
       }
+
+      void addDestinationFloor(uint16_t destination_floor)
+      {
+         this->destination_floors.push_back(destination_floor);
+      }
+
+      // Start moving depending on destination
+      void startMovement()
+      {
+         if(this->destination_floors.front() > this->floor_number)
+         {
+            this->state = MOVING_UP;
+         }
+         else if(this->destination_floors.front() < this->floor_number)
+         {
+            this->state = MOVING_DOWN;
+         }
+         this->state_counter = 0;
+      }
+
+      bool idle()
+      {
+         return getState() == STOPPED && getDestinationFloors().size() == 0;
+      }
+
 
       // Main state machine stepping function
       void step();
@@ -53,14 +78,24 @@ class Elevator
          MOVING_DOWN
       };
 
+      const MovementState getState()
+      {
+         return this->state;
+      }
+
    private:
+      void letPassengersOff();
+      void collectPassengers();
+      bool reachedDestination();
+      void removeDestination(const uint16_t& floor_number);
+
       std::list<Passenger> passengers;
       MovementState state;
       // Used for tracking number of seconds in state
       uint8_t state_counter;
       // Current floor number
       uint16_t floor_number;
-      uint16_t destination_floor;
+      std::list<uint16_t> destination_floors;
       static const uint8_t max_passengers = 8;
 };
 

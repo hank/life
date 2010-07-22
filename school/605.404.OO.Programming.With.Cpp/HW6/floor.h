@@ -36,13 +36,10 @@ class Floor
          this->number = number;
       }
 
-      // Boards as many passengers as possible on the elevator
-      // Modifies Elevator
-      void boardPassengers(Elevator& elevator);
-
       // addPassenger: adds a passenger to the floor
       void addPassenger(const Passenger& passenger)
       {
+         cout << "Adding Passenger " << passenger << endl;
          getPassengers().push_back(passenger);
       }
 

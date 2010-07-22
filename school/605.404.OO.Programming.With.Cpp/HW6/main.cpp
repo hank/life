@@ -53,30 +53,36 @@ int main()
          uint16_t end_floor = boost::lexical_cast<uint16_t>(*iter++);
          // Add it to the list
          Passenger p(time, start_floor, end_floor);
+         cout << p << endl;
          passengers.push_back(p);
       }
    }
 
-   // Start ticker
-   uint64_t ticker = 0;
-   while(!passengers.empty())
+   // If every elevator is idle, and passengers is empty, we're done
+   while(1) // Run forever until internal break triggers
    {
-      if(passengers.front().getTime() == ticker)
+      if(!passengers.empty() && passengers.front().getTime() == building->getTicker())
       {
          // Process until all passengers for this timestamp are through
-         while(passengers.front().getTime() == ticker)
+         while(passengers.front().getTime() == building->getTicker())
          {
-            cout << "Processing " << passengers.front() << endl;
             Floor& floor = building->getFloor(passengers.front().getStartFloor());
             floor.addPassenger(passengers.front());
+            building->incrementPassengerNumber();
             // When we add a passenger, trigger an alert to the elevators
-            // Each one will then respond to the request
             building->alertElevators(floor.getNumber());
             passengers.pop_front();
          }
       }
       // Step the elevators
       building->stepElevators();
-      ++ticker;
+      if(passengers.empty() && building->elevatorsIdle())
+      {
+         break;
+      }
+      ++building->getTicker();
    }
+
+   // Show the average wait time
+   cout << "The average wait time was: " << building->averageWaitTime() << endl;
 }

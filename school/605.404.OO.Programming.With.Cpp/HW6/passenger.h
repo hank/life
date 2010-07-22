@@ -1,7 +1,14 @@
 #ifndef Passenger_H
 #define Passenger_H
+#include <iostream>
+using std::cout;
+using std::endl;
 #include <fstream>
 #include <boost/cstdint.hpp>
+
+class Passenger;
+
+std::ostream& operator<< (std::ostream& stream, const Passenger& passenger);
 
 class Passenger
 {
@@ -16,13 +23,15 @@ class Passenger
       , end_floor(end_floor)
       {}
 
+      ~Passenger();
+
       uint16_t getStartFloor() const
       {
          return this->start_floor;
       }
       uint16_t getEndFloor() const
       {
-         return this->start_floor;
+         return this->end_floor;
       }
       uint16_t getTime() const
       {
@@ -34,7 +43,5 @@ class Passenger
       uint16_t start_floor; 
       uint16_t end_floor; 
 };
-
-std::ostream& operator<< (std::ostream& stream, const Passenger& passenger);
 
 #endif
