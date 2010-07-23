@@ -1,3 +1,5 @@
+// building.cpp
+// Contains the Building singleton implementation
 // BOOST Random headers
 #include <boost/random/mersenne_twister.hpp>
 #include <boost/random/uniform_int.hpp>
@@ -8,6 +10,9 @@
 
 #include "building.h"
 
+// alertElevators
+// Simply loops through the elevators, and if none are free, it
+// assigns the floor as a destination to a random elevator
 void Building::alertElevators(uint16_t floor_number)
 {
    bool finished = false;
@@ -37,6 +42,7 @@ void Building::alertElevators(uint16_t floor_number)
    }
 }
 
+// stepElevators
 void Building::stepElevators()
 {
    for(uint16_t i = 0; i < 4; ++i)
@@ -45,6 +51,7 @@ void Building::stepElevators()
    }
 }
 
+// elevatorsIdle
 bool Building::elevatorsIdle()
 {
    bool val = true;

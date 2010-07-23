@@ -1,4 +1,5 @@
 // elevator.cpp
+// Contains the elevator implementation
 #include <iostream>
 using std::cout;
 using std::endl;
@@ -6,6 +7,9 @@ using std::endl;
 #include "passenger.h"
 #include "building.h"
 
+// letPassengersOff
+// Does a safe erase (copies the list iterator) of any passengers
+// that have an EndFloor on this floor.
 void Elevator::letPassengersOff()
 {
    std::list<Passenger>::iterator iter = this->getPassengers().begin();
@@ -44,6 +48,10 @@ void Elevator::letPassengersOff()
       }
    }
 }
+
+// collectPassengers
+// Gets any passengers on this floor, and safely removes them from the floor
+// list
 void Elevator::collectPassengers()
 {
    Building* building = Building::getInstance();
@@ -96,6 +104,8 @@ void Elevator::collectPassengers()
    }
 }
 
+// reachedDestination
+// Simply returns whether we've reached any of our destinations
 bool Elevator::reachedDestination()
 {
    bool val = false;
@@ -112,6 +122,8 @@ bool Elevator::reachedDestination()
    return val;
 }
 
+// removeDestination
+// Safely removes a destination from our list
 void Elevator::removeDestination(const uint16_t& floor_number)
 {
    std::list<uint16_t>::iterator iter = getDestinationFloors().begin();
@@ -133,6 +145,7 @@ void Elevator::removeDestination(const uint16_t& floor_number)
    }
 }
 
+// Main state-machine step function
 void Elevator::step()
 {
    // Main state machine functionality

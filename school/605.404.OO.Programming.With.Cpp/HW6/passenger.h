@@ -1,3 +1,5 @@
+// passenger.h
+// Contains the Passenger class
 #ifndef Passenger_H
 #define Passenger_H
 #include <iostream>
@@ -6,10 +8,16 @@ using std::endl;
 #include <fstream>
 #include <boost/cstdint.hpp>
 
+// Forward declared for ostream operator declaration
 class Passenger;
 
 std::ostream& operator<< (std::ostream& stream, const Passenger& passenger);
 
+// Passenger class
+// Contains a passengers with a starting time, a beginning floor, and an ending
+// floor.
+// Passengers also have a travel start time to allow calculation of both
+// travel and wait times.  
 class Passenger
 {
    public:
