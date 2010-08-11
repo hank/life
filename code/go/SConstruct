@@ -3,5 +3,11 @@ import os
 
 # Build programs
 # Modify this to suit your program
-main_package = go_env.Go(target='echo.out', source='echo.go')
-program = go_env.GoProgram(target='echo', source=[main_package])
+echo = go_env.Go(source='echo.go')
+go_env.GoProgram(target='echo', source=[echo])
+primes = go_env.Go(source='primes.go')
+go_env.GoProgram(target='primes', source=[primes])
+card = go_env.Go(source='card.go')
+go_env.GoLib(target='card.a', source=[card])
+poker = go_env.Go(source='poker.go')
+go_env.GoProgram(target='poker', source=[poker])

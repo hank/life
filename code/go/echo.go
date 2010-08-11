@@ -15,7 +15,7 @@ const (
 func main() {
    flag.Parse()  // Scans the arg list and sets up the flags
    var s string = ""
-   for i:=0; i < flag.NArg(); i++ {
+   for i := 0; i < flag.NArg(); i++ {
       if i > 0 {
          s += Space
       }
