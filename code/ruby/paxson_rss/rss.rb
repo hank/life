@@ -4,8 +4,8 @@ require 'hpricot'
 require 'rss/maker'
 
 version = "2.0"
-#destination = ENV['HOME']+"/public_html/badassotw.xml"
-destination = "paxson.xml"
+destination = ENV['HOME']+"/public_html/paxson.xml"
+#destination = "paxson.xml"
 $MONTHS="January|February|March|April|May|June|July|August|September|October|November|December"
 
 content = RSS::Maker.make(version) do |m|
