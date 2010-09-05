@@ -1,0 +1,9 @@
+#!/bin/bash
+HOST=$1
+PORT=$2
+PASSWD=
+if [ -z $HOST -o -z $PORT]; then
+  echo "Usage: $0 <host> <port>";
+  exit
+fi
+sudo $HOME/tmp/Sources/PingTunnel/ptunnel -p ralree.dyndns.org -lp 8000 -x $PASSWD -da $1 -dp $2

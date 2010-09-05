@@ -1,0 +1,4 @@
+*.o
+asio.http.1
+asio.http.2
+asio.http.yahoofinance

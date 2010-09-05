@@ -1,0 +1,12 @@
+= Bearify!
+
+http://dl.dropbox.com/u/4541445/bearify.png
+
+This software is awesome.  It verifies PGP signatures.
+
+=== Requirements
+* libgpgme11 and libgpgme11-dev
+* rack
+* ramaze
+* ruby
+* haml

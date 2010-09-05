@@ -1,3 +1,9 @@
+<html>
+<head>
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<? include("header.php"); ?>
 <?
 // create a SQLite3 database file with PDO and return a database handle (Object Oriented)
 try
@@ -15,10 +21,13 @@ $bmks = $result->fetchAll(); // store result in array
 echo "<table>";
 foreach($bmks as $bm) {
   echo "<tr>";
-  echo "<td>{$bm['id']}</td>";
-  echo "<td>{$bm['link']}</td>";
+  #echo "<td>{$bm['id']}</td>";
+  #echo "<td>{$bm['link']}</td>";
+  echo "<td>{$bm['time']}</td>";
   echo "<td><a href=\"{$bm['local_url']}\">{$bm['name']}</a></td>";
   echo "</tr>";
 }
 echo "</table>";
 ?>
+</body>
+</html>

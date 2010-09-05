@@ -1,3 +1,3 @@
 all:
-	gcc -O3 -funroll-loops -o test test.c
+	gcc -O3 -funroll-loops -o test test.c competitor.c
 

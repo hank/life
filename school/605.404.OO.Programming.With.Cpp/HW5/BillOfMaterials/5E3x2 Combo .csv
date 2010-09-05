@@ -1,0 +1,63 @@
+Weber 5E3x2 Amp Kit,,
+Bill of Materials,,
+
+Qty,Part Number,Description
+1,CAB-5E3x2,"Cabinet, 5E3x2 complete"
+1,5E3x2KT,"5E3x2 Chassis kit. Chassis. brass plate, fiber boards"
+2,AlNiCo Sig 12,"Speaker, Signature Series, 12"", 8 ohm, AlNiCo"
+1,W022798 (EU),Power Transformer    USA  EU
+1,W404248,"Transformer, output"
+1,WZ34,Copper Cap Rectifier
+4,6V6GT,Vacuum tube
+2,12AX7B,Vacuum tube
+1,CBL-GP,"Shielded cable, for shielding volume control lead."
+1,PC-CUT,"Power cord, cut end"
+8,Nut-#8-32 ,"Nut, #8-32 with integral washer (for mounting speaker)"
+,,
+1,CCW-5E3x2,"Kit, cloth covered wire, 5E3x2"
+,"( 10 ft. Red, Yellow, Green, 4 ft. Black, White)",
+3,CHK-11,"Knob, black, chicken head, flat top"
+1,CF-2,"Fuse, 2 amp"
+,,
+5,SKT8,"Tube socket, octal"
+2,SKT9,"Tube socket, 9 pin"
+5,TR-8,"Clamp, octal"
+16,Bolt-SKT,"Bolt, machine, #4-40x5/16, with nut and star washer"
+10,Spacer-SKT,"Spacer, nylon, for SKT8"
+1,CP9,"Cover plate, 9 pin"
+,,
+1,PP-C,"Phone plug, cable mount"
+1,FH-2,Fuseholder
+2,CB-1.5,"Bolt, chassis, tweed style, chrome, with nut"
+1,PL-2,"Pilot light, red"
+1,6N-4,Strain relief
+2,WSW-SPST-1,"Switch, toggle, panel mount, SPST"
+2,PJP,"Chassis mount phone jack, non shorting"
+4,PJP-S,"Chassis mount phone jack, shorting"
+2,Large Grommet,"5/8"" OD  Chassis Grommets"
+1,Wire Nut,"Wire Nut, small"
+2,#8 sheet metal screw,Fiber Board Mounting Screws
+1,#8 Solder Lug,Solder lug
+3,WP105A,"Potentiometer, 1 meg audio"
+,,
+1,RES150-10,"Resistor, 150, 10 watt"
+1,RES100-25,"Resistor, 100, 25 watt"
+1,MFR100-.5,"Resistor, 100, 1/2 watt"
+1,MFR820-.5,"Resistor, 820, 1/2 watt"
+6,MFR1500-.5,"Resistor, 1.5K, 1/2 watt"
+2,MFR56K-.5,"Resistor, 56K, 1/2 watt"
+4,MFR68K-.5,"Resistor, 68K, 1/2 watt"
+3,MFR100K-.5,"Resistor, 100K, 1/2 watt"
+2,MFR220K-.5,"Resistor, 220K, 1/2 watt"
+3,MFR1M-.5,"Resistor, 1M ohm, 1/2 watt"
+1,MFR2.7K-2,"Resistor, 2.7K, 2 watt"
+1,MFR22K-2,"Resistor, 22K, 2 watt"
+1,SMC501-500,"Capacitor, 500pF, 500 volts"
+1,PEC472-630,"Capacitor, .0047uF, 630 volts"
+1,PEC223-630,"Capacitor, .022uF, 630 volts"
+4,PEC104-630,"Capacitor, .1uF, 630 volts"
+2,EC256-25,"Capacitor, 25uF, 25 volts"
+1,EC506-150,"Capacitor, 50uF, 150 volts"
+1,EC166-450,"Capacitor, 16uF, 450 volts"
+1,EC206-450,"Capacitor, 20uF, 450 volts"
+1,EC406-450,"Capacitor, 40uF, 450 volts"

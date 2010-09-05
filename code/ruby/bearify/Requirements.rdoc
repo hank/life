@@ -1,0 +1,15 @@
+= Requirements
+The following are requirements for the Bearify project.
+== Business Requirements
+1. Facilitate PGP signature verification.  Upon receipt of text signed with a PGP key, the user will be able to receive information about the signer and the validity of the signature.
+
+== User Requirements
+1. The user must be able to input text in a box on a web form, and click a button to initiate the verification process.
+
+== Functional Requirements
+1. The system must be able to take PGP signed or clearsigned data from the CGI environment and safely process it using the GPGME library and the Ruby programming language.  Upon successful processing, it must generate a webpage containing the result and send it to the user.
+1. The system must be robust to invalid input and generate an error page if any invalid input is encountered.
+1. The system must clearsign output of all successful verifications with its own signature.  It will do this using the GPGME library and Ruby.
+
+== Non-functional requirements
+1. The system must be placed on a computer with the following software packages installed: GPGME, Ruby, Ramaze, Haml

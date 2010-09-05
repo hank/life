@@ -1,0 +1,71 @@
+Weber 5H15T Kit  (Tore Vibe),,
+Bill of Materials,,
+
+Qty,Part Number,Description
+1,CAB-RVB,"Cabinet, covering and grillcloth customer chosen  "
+1,5H15KT,"5H15 Chassis kit. Chassis. brass plate, fiber board "
+1,WRVBPT (EU),Power Transformer    USA  EU
+1,W022905 ,Output transformer
+1,W022699,Choke
+1,6V6GT,Vacuum tube
+3,12AX7B,Vacuum tube
+1,12AT7,Vacuum tube
+1,WSW-FS-2,"Footswitch, 2 button, with stereo plug"
+1,4AB3C1B ,"Reverb Pan, 4 #8-32 nuts."
+1,5H15 Standoff Kit,"6 nylon standoffs, 12 screws, 1 small spacer"
+2,CBL-RVB-1,"Cable, shielded, 10"", phono plug on each end"
+1,PC-CUT,"Power cord, cut end"
+,,
+1,CCW-5H15,"Kit, cloth covered wire, 5H15"
+,"( 10 ft. Red, Yellow, Green )",
+1,CBL-GP,"Cable, shielded, 10', unterminated"
+5,CHK-9,"Knob, cream, chicken head"
+1,CF-1,"Fuse, 1 amp"
+,,
+1,SKT8,"Tube socket, octal"
+4,SKT9,"Tube socket, 9 pin"
+1,TR8,"Clamp, octal"
+14,Bolt-SKT,"Bolt, machine, #4-40x5/16, with nut and star washer"
+2,Spacer-SKT   ,"Spacer, nylon, for SKT8"
+,,
+2,RJ-P-2,"RCA Jack, black diamond fiber base"
+1,FH-2,Fuseholder
+2,CB-1.5,"Bolt, chassis, tweed style, chrome, with nut"
+1,PL-2,"Pilot light, red"
+1,6N-4,Strain relief
+1,WSW-SPST-1,"Switch, toggle, panel mount, SPST"
+1,PJP,Chassis mount phone jack
+1,PJP-S,"Chassis mount phone jack, shorting"
+1,PJP-ST,"Chassis mount phone jack, TRS (tip-ring-sleeve)"
+10,Small Grommet,"9/16"" OD  Chassis Grommets"
+2,Large Grommet,"5/8"" OD Chasis Grommets"
+8,Nut-#8-32,"Nut, #8-32 w/integral washer (for mounting reverb pan, double nut to secure)"
+1,Wire Nut,"Wire Nut, small"
+1,WP253L,"Potentiometer, 25K Linear"
+2,WP254L,"Potentiometer, 250K Linear"
+1,WP104A,"Potentiometer, 100K Audio"
+1,WP305RA,"Potentiometer, 3M RA"
+,,
+1,MFR1K-.5,"Resistor, 1K, 1/2 watt"
+4,MFR1500-.5,"Resistor, 1.5K, 1/2 watt"
+1,MFR4.7K-.5,"Resistor, 4.7K, 1/2 watt"
+1,MFR10K-.5,"Resistor, 10K, 1/2 watt"
+1,MFR15K-.5,"Resistor, 15K, 1/2 watt"
+1,MFR68K-.5,"Resistor, 68K, 1/2 watt"
+9,MFR100K-.5,"Resistor, 100K, 1/2 watt"
+3,MFR220K-.5,"Resistor, 220K, 1/2 watt"
+1,MFR470K-.5,"Resistor, 470K, 1/2 watt"
+4,MFR1M-.5,"Resistor, 1 Meg, 1/2 watt"
+4,MFR2.2M-.5,"Resistor, 2.2 Meg, 1/2 watt"
+2,MFR10K-2,"Resistor, 10K, 2 watt"
+1,WTH-1,Weber Thermistor
+1,BR-W,Bridge Rectifier module
+1,SMC251-500,"Capacitor, Silver Mica, 250pF, 500 volts"
+1,PEC222-630,"Capacitor, .0022uF, 630 volts"
+4,PEC103-630,"Capacitor, .01uF, 630 volts"
+3,PEC223-630,"Capacitor, .022uF, 630 volts"
+2,PEC473-630,"Capacitor, .047uF, 630 volts"
+5,PEC104-630,"Capacitor, .1uF, 630 volts"
+5,EC256-50  ,"Capacitor, Electrolytic, 25uF, 50 volts"
+2,EC406-450 ,"Capacitor, Electrolytic, 40uF, 450 volts"
+2,EC107-450 ,"Capacitor, Electrolytic, 100uF, 450 volts"

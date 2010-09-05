@@ -1,0 +1,43 @@
+h1. Hadoop and Pig @ Twitter
+
+h2. Hadoop
+
+17 billion tweets
+number of tweets per user
+SQL - count/group by
+
+# Input: key doesn't matter, tweet info value
+# Map: output key=user_id, value 1
+# Shuffle: sort by user_id, groups by the output key, sends that crap around
+# Reduce: foreach user_id, sum
+# Output: user_id: sum
+
+Linear scaling.
+
+h2. But...
+
+* Analysis in Java - *ewwww*
+* Rigid data-flow
+* custom code
+
+h2. Pig
+* High-level language on Hadoop
+* Compiles down to mapreduce jobs
+* Pain happens down below
+* Focus on the dataflow
+** Not writing Java code _yay!_
+* Operates on Tuples, not k/v pairs
+** *Interesting!*
+* Process data one step at a time
+
+bq. In a lot of ways, it's easier than SQL
+
+Top-level Apache project!  Twitter, LinkedIn, etc.
+
+* Evaluate Hive and Pig, pick one (pigs are funner to pick than hives)
+
+So simple, you will _literally_ shard in your pants.
+
+Pig is so awesome.  Within 25% of the execution time of Java.  Wow.
+
+

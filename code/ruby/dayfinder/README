@@ -1,0 +1,19 @@
+Finds the days of the week of death penalties.  Sparked by a question in
+Aardvark: http://vark.com/r/iALcK
+
+The results are as follows:
+
+
+Fri: 186
+Sun: 3
+Sat: 7
+Mon: 56
+Tue: 288
+Wed: 368
+Thu: 270
+
+Interestingly enough, many people have been executed at the end of the week,
+but only a few on the weekend.  Yet, Saturday and Sunday executions are
+extremely rare.
+
+Data obtained from http://deathpenaltyinfo.org/executions on 1 Nov 2009

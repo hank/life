@@ -1,2 +1,12 @@
 You need:
-  * PHP Sqlite
+  * PHP 5
+  * PHP PDO Sqlite
+  * A webserver (I used apache 2)
+  * Ruby
+
+# Get your bookmarks
+curl --user your_username:your_password -o myDelicious.xml -O https://api.del.icio.us/v1/posts/all
+
+# Run the script
+mkdir cache
+./so_delicious.rb

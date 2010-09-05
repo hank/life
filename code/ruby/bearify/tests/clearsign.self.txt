@@ -1,0 +1,11 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Cheers!
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (GNU/Linux)
+
+iEYEARECAAYFAkuMkooACgkQ9pPw8kbBcaCB5ACfd/vaoz5UmXrH6FgLFHKdDSyG
+yecAnRcQmWGRnjdVMJ0gOojlX07XxSHB
+=NO74
+-----END PGP SIGNATURE-----
