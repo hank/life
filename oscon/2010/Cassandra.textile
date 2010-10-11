@@ -1,0 +1,13 @@
+h1. Cassandra
+
+* Crossed out MongoDB - "not designed for high throughput"
+* Group projects into Dynamo or Bigtable influence
+* Dynamo-BigTable lovechild
+* CAP theorem
+* Keyspace is the uppermost namespace
+** Typically one per application
+* A ColumnFamily is a loose association of column types
+* A column is a basic unit of storage
+* Column is a name, value, and timestamp
+
+The rest of this talk was basically hands-on.

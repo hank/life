@@ -1,5 +1,5 @@
-INCLUDE=googletest-read-only/include
-LIBS=googletest-read-only/mybuild
+INCLUDE=../googletest-read-only/include
+LIBS=../googletest-read-only/scons/build/dbg/scons
 UNIT_TESTS=factorial_unittest
 TARGETS=factorial
 
@@ -14,3 +14,4 @@ factorial_unittest: factorial_unittest.cc
 
 clean: ${UNIT_TESTS} ${TARGETS}
 	rm $<
+

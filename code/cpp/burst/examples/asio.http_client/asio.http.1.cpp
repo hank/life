@@ -10,6 +10,7 @@ int main(int argc, char* argv[])
    {
       // Initialize a boost.org HTTP client
       burst::asio::http::client client;
+      client.print_request(cout);
       // Send the request to boost.org
       client.send_request();
       // Print the response into the cout stream
