@@ -1,0 +1,7 @@
+table#quote {
+  padding: 10px;
+}
+
+table#quote tr td {
+  padding: 3px;
+}

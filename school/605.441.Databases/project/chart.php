@@ -2,7 +2,6 @@
   ob_start('ob_gzhandler');
   error_reporting(E_ALL);
 
-
   function curl_get_file_contents($URL)
   {
       $c = curl_init();
@@ -51,11 +50,21 @@
     $statement->execute(array(':ticker' => $ticker));
     if(($stock = $statement->fetch()) == false)
     {
-      //echo "Error: Ticker does not exist.";
-      //exit;
       // Download the information and insert it in the database
 
-      // First, download the CSV into a tmpfile
+      // We have to get the name of the stock.
+      $yahoodata = curl_get_file_contents("http://download.finance.yahoo.com/d/quotes.csv?s=$ticker&f=ne1");
+      $arr = explode(',', $yahoodata);
+      $name = $arr[0];
+      $err = $arr[1];
+      if(preg_match("/No such ticker/", $err))
+      {
+        echo "Error: Ticker $ticker does not exist.";
+        exit;
+      }
+      $name = trim($name, "\" \t\n\r");
+
+      // Download the CSV into a tmpfile
       $tf = tempnam('/tmp', '5charts');
       $ticket = $dbh->quote($ticker);
       $csv = curl_get_file_contents("http://www.google.com/finance/historical?q=$ticker&output=csv");
@@ -64,9 +73,6 @@
       fclose($handle);
       chmod($tf, 0777);
 
-      // Now, we have to get the name of the stock.
-      $name = curl_get_file_contents("http://download.finance.yahoo.com/d/quotes.csv?s=$ticker&f=n");
-      $name = trim($name, "\" \t\n\r");
       try
       {
         // Now, make the stock and get the id.
@@ -83,6 +89,8 @@
             SET Stock_id = :id, date = STR_TO_DATE(@in_date, '%d-%b-%y')"
         );
         $statement->execute(array(':tf' => $tf, ':id' => $id));
+        // Unlink temp file
+        unlink($tf);
 
       }
       catch(PDOException $e)
@@ -136,21 +144,6 @@
     echo $e->getMessage();
   }
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-
-    <title>5charts</title>
-
-    <script src="RGraph/libraries/RGraph.common.core.js" ></script>
-    <script src="RGraph/libraries/RGraph.common.context.js" ></script>
-    <script src="RGraph/libraries/RGraph.common.annotate.js" ></script>
-    <script src="RGraph/libraries/RGraph.common.zoom.js" ></script>
-    <script src="RGraph/libraries/RGraph.common.tooltips.js" ></script>
-    <script src="RGraph/libraries/RGraph.scatter.js" ></script>
-    <!--[if IE 8]><script src="../excanvas/excanvas.compressed.js"></script>
-    <![endif]-->
     <script>
         window.onload = function ()
         {
@@ -263,7 +256,7 @@ else $diff = "<span>$diffnum ($diffpct%)</span>";
 <? include_once('header.php') ?>
 <h2><?= $stock['ticker'] ?>: <?= $stock['name'] ?></h2>
 <p>Latest Update: <?= "$mon/{$date['tm_mday']}/$year"?>
-<table>
+<table id='quote'>
 <tr>
   <td>Open: <?= $open ?></td>
   <td>High: <?= $high ?></td>
@@ -277,7 +270,7 @@ else $diff = "<span>$diffnum ($diffpct%)</span>";
 </tr>
 </table>
 <div>
-<canvas id="scatter1" width="1200" height="800">[No canvas support]</canvas>
+<canvas id="scatter1" width="1000" height="800">[No canvas support]</canvas>
 </div>
 
 <? include_once('footer.php') ?>

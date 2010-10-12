@@ -12,7 +12,7 @@
   {
     // Connect to database
     $dbh = new PDO("mysql:host=$hostname;dbname=5charts", $username, $password);
-    $statement = "SELECT * FROM Stock LIMIT 5";
+    $statement = "SELECT * FROM Stock ORDER BY id DESC LIMIT 5";
     $results = $dbh->query($statement);
   }
   catch(PDOException $e)
@@ -20,15 +20,9 @@
     echo $e->getMessage();
   }
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-
-    <title>5charts</title>
-</head>
 <body>
 <? include_once('header.php'); ?>
+<h3>Our 5 most recently added tickers</h3>
 <?php
     foreach($results as $row)
     {
