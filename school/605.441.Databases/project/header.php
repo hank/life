@@ -23,7 +23,6 @@
 <script src="styleswitch.js" type="text/javascript"></script>
 </head>
 <body>
-
 <div id="header">
 
 	<div id="header_inner" class="fixed">
@@ -35,7 +34,10 @@
 		
 		<div id="menu">
 			<ul>
-				<li><a href="#" class="active">Home</a></li>
+				<li><a href="/stockproject">Home</a></li>
+<? if(preg_match("/chart.php/", $_SERVER['SCRIPT_NAME'])) { ?>
+				<li><a href="#" class="active">Chart</a></li>
+<? } ?>
 			</ul>
 		</div>
 		

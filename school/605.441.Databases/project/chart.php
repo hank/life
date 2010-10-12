@@ -270,7 +270,7 @@ else $diff = "<span>$diffnum ($diffpct%)</span>";
 </tr>
 </table>
 <div>
-<canvas id="scatter1" width="1000" height="800">[No canvas support]</canvas>
+<canvas id="scatter1" width="1000" height="600">[No canvas support]</canvas>
 </div>
 
 <? include_once('footer.php') ?>
