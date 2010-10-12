@@ -29,6 +29,7 @@
     echo $e->getMessage();
   }
   $dbh->setAttribute (PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $id = 0;
 
   if(array_key_exists('id', $_GET))
   {
@@ -44,7 +45,7 @@
   }
   else if(array_key_exists('ticker', $_GET))
   {
-    $ticker = $_GET['ticker'];
+    $ticker = strtoupper($_GET['ticker']);
     // Get our stock
     $statement = $dbh->prepare("SELECT * FROM Stock WHERE ticker = :ticker");
     $statement->execute(array(':ticker' => $ticker));
@@ -82,11 +83,24 @@
             SET Stock_id = :id, date = STR_TO_DATE(@in_date, '%d-%b-%y')"
         );
         $statement->execute(array(':tf' => $tf, ':id' => $id));
+
       }
       catch(PDOException $e)
       {
         echo $e->getMessage();
       }
+    }
+    else
+    {
+      $id = $stock['id'];
+    }
+    // Finally, select the stock!
+    $statement = $dbh->prepare("SELECT * FROM Stock WHERE id = :id");
+    $statement->execute(array(':id' => $id));
+    if(($stock = $statement->fetch()) == false)
+    {
+      echo "Error: ID does not exist.";
+      exit;
     }
   }
   else
@@ -187,8 +201,6 @@
 
     ++$count;
   }
-  $ohlc->closeCursor();
-  //$bound['high'];
   
 ?>
             ];
@@ -240,6 +252,7 @@ $mon = $date['tm_mon'] + 1;
 
 $diffnum = floatval($close) - floatval($open);
 $diffpct = round($diffnum / floatval($open) * 100, 2);
+$diffnum = round($diffnum, 2);
 if($diffnum < 0) $diff = "<span style='color: red;'>$diffnum ($diffpct%)</span>";
 else if($diffnum > 0) $diff = "<span style='color: green;'>$diffnum ($diffpct%)</span>";
 else $diff = "<span>$diffnum ($diffpct%)</span>";

@@ -28,7 +28,7 @@
     <title>5charts</title>
 </head>
 <body>
-
+<? include_once('header.php'); ?>
 <?php
     foreach($results as $row)
     {
@@ -42,5 +42,6 @@ EOSTOCK;
     }
 ?>
 
+<? include_once('footer.php'); ?>
 </body>
 </html>
