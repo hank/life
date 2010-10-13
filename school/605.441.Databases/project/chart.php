@@ -123,8 +123,7 @@
     // Get the associated OHLC data for the past year.
     $year_ago_date = strtotime("1 year ago");
     $ohlc = $dbh->prepare(
-      "SELECT *
-         FROM OHLC WHERE Stock_id = :id
+      "SELECT * FROM OHLC WHERE Stock_id = :id
          AND date >= FROM_UNIXTIME(:date)
          ORDER BY date ASC"
     );
