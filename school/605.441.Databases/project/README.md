@@ -10,3 +10,6 @@ and comments on the charts.
 1. Create the database using the SQL in sql/schema.sql.
 1. Load in the RSS feeds: sql/load_feeds.sql
 1. Go to the site and play!
+
+## Screenshots
+![A Screenshot](images/chart.jpg)
