@@ -1,12 +1,5 @@
 <?php 
-  ob_start('ob_gzhandler');
-
-  // Define password for use in database connections
-  $password = rtrim(file_get_contents('credentials.txt'));
-
-  error_reporting(E_ALL);
-  $hostname = 'localhost';
-  $username = 'root';
+  include_once("support.inc.php");
 
   try
   {
@@ -34,6 +27,7 @@
 </li>
 EOSTOCK;
     }
+
 ?>
 
 <? include_once('footer.php'); ?>

@@ -34,10 +34,16 @@
 		
 		<div id="menu">
 			<ul>
-				<li><a href="/stockproject">Home</a></li>
-<? if(preg_match("/chart.php/", $_SERVER['SCRIPT_NAME'])) { ?>
-				<li><a href="#" class="active">Chart</a></li>
+				<li><a href="index.php">Home</a></li>
+				<li><a href="#">Chart</a></li>
+<? if(!logged_in()) { ?>
+				<li><a href="login.php">Login</a></li>
+				<li><a href="register.php">Register</a></li>
+<? } else { ?>
+				<li><a href="mycharts.php">My Charts</a></li>
+				<li><a href="logout.php">Logout</a></li>
 <? } ?>
+
 			</ul>
 		</div>
 		
@@ -48,6 +54,7 @@
 
 	<div id="main_inner" class="fixed">
 
+    <? if(logged_in()) { ?>Logged in as <?=$_SESSION['username'] ?> <? } ?>
 		<div id="primaryContent_columnless">
 
 			<div id="columnA_columnless">

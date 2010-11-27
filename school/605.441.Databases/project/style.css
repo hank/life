@@ -5,3 +5,12 @@ table#quote {
 table#quote tr td {
   padding: 3px;
 }
+
+table.mycharts {
+  border: 1px dotted black;
+  font-family: Helvetica, Arial;
+}
+table.mycharts tr, table.mycharts tr td {
+  border: 1px solid black;
+  padding: 10px;
+}

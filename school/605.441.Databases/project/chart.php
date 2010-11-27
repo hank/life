@@ -1,25 +1,9 @@
 <?php 
-  ob_start('ob_gzhandler');
-  error_reporting(E_ALL);
-
-  function curl_get_file_contents($URL)
-  {
-      $c = curl_init();
-      curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
-      curl_setopt($c, CURLOPT_URL, $URL);
-      $contents = curl_exec($c);
-      curl_close($c);
-
-      if ($contents) return $contents;
-          else return FALSE;
-  }
+  include_once("support.inc.php");
+  include_once('header.php');
 
   try
   {
-    // Define password for use in database connections
-    $password = rtrim(file_get_contents('credentials.txt'));
-    $hostname = 'localhost';
-    $username = 'root';
     // Connect to database
     $dbh = new PDO("mysql:host=$hostname;dbname=5charts", $username, $password);
   }
@@ -28,87 +12,54 @@
     echo $e->getMessage();
   }
   $dbh->setAttribute (PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  $id = 0;
+  $id = null;
 
   if(array_key_exists('id', $_GET))
   {
     $id = $_GET['id'];
+    if(strlen($id) == 0)
+    {
+      echo "You must supply an id";
+      exit;
+    }
     // Get our stock
     $statement = $dbh->prepare("SELECT * FROM Stock WHERE id = :id");
     $statement->execute(array(':id' => $id));
     if(($stock = $statement->fetch()) == false)
     {
-      echo "Error: ID does not exist.";
+      echo "Error: ID $id does not exist.";
       exit;
+    }
+    // Find out if our data is dated (over a day old at 4PM)
+    $ticker = strtoupper($stock['ticker']);
+    $sql = "SELECT COUNT(*) FROM OHLC WHERE Stock_id = :sid 
+            AND (date + 0) > (NOW() - (3600 * 41))";
+    $statement = $dbh->prepare($sql);
+    $statement->execute(array(':sid' => $id));
+    if($statement->fetchColumn() == 0) {
+      // Download the information and insert it in the database
+      download_stock_info($ticker);
     }
   }
   else if(array_key_exists('ticker', $_GET))
   {
     $ticker = strtoupper($_GET['ticker']);
+    if(strlen($ticker) == 0)
+    {
+      echo "You must supply a ticker";
+      exit;
+    }
     // Get our stock
     $statement = $dbh->prepare("SELECT * FROM Stock WHERE ticker = :ticker");
     $statement->execute(array(':ticker' => $ticker));
     if(($stock = $statement->fetch()) == false)
     {
       // Download the information and insert it in the database
-
-      // We have to get the name of the stock.
-      $yahoodata = curl_get_file_contents("http://download.finance.yahoo.com/d/quotes.csv?s=$ticker&f=ne1");
-      $arr = explode(',', $yahoodata);
-      $name = $arr[0];
-      $err = $arr[1];
-      if(preg_match("/No such ticker/", $err))
-      {
-        echo "Error: Ticker $ticker does not exist.";
-        exit;
-      }
-      $name = trim($name, "\" \t\n\r");
-
-      // Download the CSV into a tmpfile
-      $tf = tempnam('/tmp', '5charts');
-      $ticket = $dbh->quote($ticker);
-      $csv = curl_get_file_contents("http://www.google.com/finance/historical?q=$ticker&output=csv");
-      $handle = fopen($tf, 'w');
-      fwrite($handle, $csv);
-      fclose($handle);
-      chmod($tf, 0777);
-
-      try
-      {
-        // Now, make the stock and get the id.
-        $statement = $dbh->prepare("INSERT INTO Stock (id, ticker, name) 
-          VALUES (NULL, :ticker, :name)"
-        );
-        $statement->execute(array(':ticker' => $ticker, ":name" => $name));
-
-        // Now, load the file with LOAD DATA
-        $id = $dbh->lastInsertId();
-        $statement = $dbh->prepare("LOAD DATA LOCAL INFILE :tf INTO TABLE OHLC 
-            FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '\"' 
-            IGNORE 1 LINES (@in_date, open, high, low, close, volume) 
-            SET Stock_id = :id, date = STR_TO_DATE(@in_date, '%d-%b-%y')"
-        );
-        $statement->execute(array(':tf' => $tf, ':id' => $id));
-        // Unlink temp file
-        unlink($tf);
-
-      }
-      catch(PDOException $e)
-      {
-        echo $e->getMessage();
-      }
+      $id = download_stock_info($ticker);
     }
     else
     {
       $id = $stock['id'];
-    }
-    // Finally, select the stock!
-    $statement = $dbh->prepare("SELECT * FROM Stock WHERE id = :id");
-    $statement->execute(array(':id' => $id));
-    if(($stock = $statement->fetch()) == false)
-    {
-      echo "Error: ID does not exist.";
-      exit;
     }
   }
   else
@@ -120,6 +71,14 @@
 
   try
   {
+    // Finally, select the stock!
+    $statement = $dbh->prepare("SELECT * FROM Stock WHERE id = :id");
+    $statement->execute(array(':id' => $id));
+    if(($stock = $statement->fetch()) == false)
+    {
+      echo "Error: ID $id does not exist.";
+      exit;
+    }
     // Get the associated OHLC data for the past year.
     $year_ago_date = strtotime("1 year ago");
     $ohlc = $dbh->prepare(
@@ -250,10 +209,8 @@ else if($diffnum > 0) $diff = "<span style='color: green;'>$diffnum ($diffpct%)<
 else $diff = "<span>$diffnum ($diffpct%)</span>";
 
 ?>
-</head>
-<body>
-<? include_once('header.php') ?>
 <h2><?= $stock['ticker'] ?>: <?= $stock['name'] ?></h2>
+<p><a href="add.php?id=<?=$stock['id']?>">Add to My Charts</a></p>
 <p>Latest Update: <?= "$mon/{$date['tm_mday']}/$year"?>
 <table id='quote'>
 <tr>
