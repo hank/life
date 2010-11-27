@@ -136,7 +136,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `5charts`.`Feeds` ;
 
 CREATE  TABLE IF NOT EXISTS `5charts`.`Feeds` (
-  `id` INT NOT NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(45) NULL ,
   `link` VARCHAR(45) NULL ,
   PRIMARY KEY (`id`) )

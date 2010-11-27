@@ -71,6 +71,11 @@
       echo "Error: ID $id does not exist.";
       exit;
     }
+    // We have our stock.  Increment access count
+    $statement = $dbh->prepare("UPDATE Stock 
+                                SET num_accesses = num_accesses + 1 
+                                WHERE id = :id");
+    $statement->execute(array(':id' => $id));
     // Get the associated OHLC data for the past year.
     $year_ago_date = strtotime("1 year ago");
     $ohlc = $dbh->prepare(
@@ -220,6 +225,11 @@ else $diff = "<span>$diffnum ($diffpct%)</span>";
 <div>
 <canvas id="scatter1" width="1000" height="600">[No canvas support]</canvas>
 </div>
+
+<script>
+// Special tab append for charting
+$('#menu ul').append('<li><a href="#" class="active"><?=$stock['ticker']?></a></li>');
+</script>
 
 <? include_once('footer.php') ?>
 </body>

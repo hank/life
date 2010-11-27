@@ -26,6 +26,15 @@
     exit();
   }
 
+  function array_flatten($a,$f=array()){
+    if(!$a||!is_array($a))return '';
+    foreach($a as $k=>$v){
+      if(is_array($v))$f=array_flatten($v,$f);
+      else $f[$k]=$v;
+    }
+    return $f;
+  }
+
   function curl_get_file_contents($URL)
   {
       $c = curl_init();
@@ -103,6 +112,55 @@
     }
     return $id;
   }
+
+  function get_index(&$item, $key, $index) {
+    $item = $item[$index];
+  }
+
+  // Print Ticker Cloud
+  function printTagCloud($tags) {
+    $max_size = 42; // max font size in pixels
+    $min_size = 12; // min font size in pixels
+  
+    // largest and smallest array values
+    $count_array = $tags;
+    array_walk($count_array, "get_index", 0);
+    $max_qty = max(array_values($count_array));
+    $min_qty = min(array_values($count_array));
+  
+    // find the range of values
+    $spread = $max_qty - $min_qty;
+    if ($spread == 0) { // we don't want to divide by zero
+        $spread = 1;
+    }
+  
+    // set the font-size increment
+    $step = ($max_size - $min_size) / ($spread);
+  
+    // loop through the tag array
+    foreach ($tags as $key => $value) {
+        // calculate font-size
+        // find the $value in excess of $min_qty
+        // multiply by the font-size increment ($size)
+        // and add the $min_size set above
+        $count = $value[0];
+        $diff = round($value[1], 2);
+        $size = round($min_size + (($count - $min_qty) * $step));
+        $times = $count == 1 ? "Time" : "Times";
+        $green = (int)($diff * 102);
+        $red = (int)($diff * -102);
+        if($green > 255) $green = 255;
+        else if($green < 0) $green = 0;
+        if($red > 255) $red = 255;
+        else if($red < 0) $red = 0;
+        if($diff >= 0) $diff = "+$diff";
+        echo "<a class=\"cloud\" href=\"chart.php?ticker=$key\" 
+                 style=\"font-size: {$size}px;color: rgb($red, $green, 0);\" 
+                 title=\"Accessed $count $times, {$diff}%\">$key</a>
+";
+    }
+  }
+
 
   // Define password for use in database connections
   $password = rtrim(file_get_contents('credentials.txt'));

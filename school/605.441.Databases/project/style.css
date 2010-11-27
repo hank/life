@@ -47,3 +47,13 @@ span#ticker_search input {
 span#ticker_search a {
   color: black;
 }
+
+a.cloud {
+  padding: 10px;
+  text-decoration: none;
+}
+
+div#symbol_cloud {
+  padding: 20px;
+  text-align: center;
+}
