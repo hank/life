@@ -6,6 +6,7 @@
 <title>5charts</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
+<link rel="shortcut icon" href="favicon.ico">
 <link rel="stylesheet" type="text/css" href="style.css" />
 <link rel="stylesheet" type="text/css" title="Red" href="style_red.css" />
 <link rel="alternate stylesheet" type="text/css" title="Blue" 
