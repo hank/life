@@ -14,3 +14,36 @@ table.mycharts tr, table.mycharts tr td {
   border: 1px solid black;
   padding: 10px;
 }
+
+span#ticker_search {
+  border-radius: 4px;
+  color: black;
+  position: absolute;
+  right: 0px;
+  top: 12px;
+  padding: 10px;
+  /* Fallback for web browsers that doesn't support RGBa */
+  background: rgb(255, 255, 255);
+  /* RGBa with 0.6 opacity */
+  background: rgba(255, 255, 255, 0.4);
+  /* For IE 5.5 - 7*/
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+  /* For IE 8*/
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+}
+span#ticker_search label {
+  font-family: Helvetica, Arial;
+  font-size: 1.3em;
+}
+span#ticker_search input {
+  border: 1px solid #781351;
+  background: #922;
+  color: white;
+  font-family: Helvetica, Arial;
+  font-weight: bold;
+  font-size: 1.3em;
+  width: 4em;
+}
+span#ticker_search a {
+  color: black;
+}

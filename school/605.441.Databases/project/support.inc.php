@@ -1,8 +1,20 @@
 <?php
   // THIS FILE MUST NOT PRINT ANYTHING.
   ob_start('ob_gzhandler');
-
   session_start();
+
+  $dbname = '5charts';
+  $hostname = 'localhost';
+  $username = 'root';
+
+  function db_connect()
+  {
+    global $dbh, $dbname, $hostname, $username, $password;
+    $dbh = new PDO("mysql:host=$hostname;dbname=$dbname", $username, 
+            $password);
+    $dbh->setAttribute (PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  }
+
   function logged_in()
   {
     if(array_key_exists('username', $_SESSION)) return true;
@@ -96,7 +108,5 @@
   $password = rtrim(file_get_contents('credentials.txt'));
 
   error_reporting(E_ALL);
-  $hostname = 'localhost';
-  $username = 'root';
 
 ?>

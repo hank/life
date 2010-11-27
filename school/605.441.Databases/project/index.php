@@ -4,7 +4,7 @@
   try
   {
     // Connect to database
-    $dbh = new PDO("mysql:host=$hostname;dbname=5charts", $username, $password);
+    db_connect();
     $statement = "SELECT * FROM Stock ORDER BY id DESC LIMIT 5";
     $results = $dbh->query($statement);
   }

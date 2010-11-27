@@ -3,7 +3,7 @@
 
   if(logged_in())
   {
-        redirect("index");
+        redirect("mycharts");
         exit();
   }
 
@@ -16,8 +16,7 @@
     try
     {
       // Connect to database
-      $dbh = new PDO("mysql:host=$hostname;dbname=5charts", $username, 
-              $password);
+      db_connect();
       $sql = "SELECT * FROM User WHERE username = :username 
           AND password_hash = :hash";
       $sth = $dbh->prepare($sql);
@@ -29,7 +28,7 @@
         $_SESSION['userid'] = $results[0]['id'];
         $_SESSION['username'] = $un;
         $_SESSION['time'] = time();
-        redirect("index");
+        redirect("mycharts");
       }
       else
       {

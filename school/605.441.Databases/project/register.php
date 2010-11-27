@@ -16,8 +16,7 @@
         throw new Exception("Password must be at least 6 characters.");
       $hash = hash('sha256', 'ITSATRAP!'.$pw);
       // Connect to database
-      $dbh = new PDO("mysql:host=$hostname;dbname=5charts", $username, 
-              $password);
+      db_connect();
       $sql = "INSERT INTO User (username, password_hash, last_name, first_name)
               VALUES (:username, :hash, :ln, :fn)";
       $sth = $dbh->prepare($sql);

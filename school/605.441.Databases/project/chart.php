@@ -2,16 +2,6 @@
   include_once("support.inc.php");
   include_once('header.php');
 
-  try
-  {
-    // Connect to database
-    $dbh = new PDO("mysql:host=$hostname;dbname=5charts", $username, $password);
-  }
-  catch(PDOException $e)
-  {
-    echo $e->getMessage();
-  }
-  $dbh->setAttribute (PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   $id = null;
 
   if(array_key_exists('id', $_GET))
@@ -23,6 +13,7 @@
       exit;
     }
     // Get our stock
+    db_connect();
     $statement = $dbh->prepare("SELECT * FROM Stock WHERE id = :id");
     $statement->execute(array(':id' => $id));
     if(($stock = $statement->fetch()) == false)
@@ -50,6 +41,7 @@
       exit;
     }
     // Get our stock
+    db_connect();
     $statement = $dbh->prepare("SELECT * FROM Stock WHERE ticker = :ticker");
     $statement->execute(array(':ticker' => $ticker));
     if(($stock = $statement->fetch()) == false)
@@ -210,7 +202,7 @@ else $diff = "<span>$diffnum ($diffpct%)</span>";
 
 ?>
 <h2><?= $stock['ticker'] ?>: <?= $stock['name'] ?></h2>
-<p><a href="add.php?id=<?=$stock['id']?>">Add to My Charts</a></p>
+<p><a href="mycharts_add.php?id=<?=$stock['id']?>">Add to My Charts</a></p>
 <p>Latest Update: <?= "$mon/{$date['tm_mday']}/$year"?>
 <table id='quote'>
 <tr>

@@ -11,8 +11,7 @@
   {
     $stockid = $_GET['id'];
     // Connect to database
-    $dbh = new PDO("mysql:host=$hostname;dbname=5charts", $username, 
-            $password);
+    db_connect();
     $sql = "DELETE FROM Owns WHERE User_id = :uid AND Stock_id = :sid";
     $sth = $dbh->prepare($sql);
     $sth->execute(array(':uid' => $_SESSION['userid'], ':sid' => $stockid));
