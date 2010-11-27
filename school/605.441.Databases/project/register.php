@@ -26,7 +26,7 @@
       ))
       {
         // Win!  Go back to home
-        redirect("index");
+        redirect("login");
       }
       else {
         $error_message = "Error registering.  Try again.";

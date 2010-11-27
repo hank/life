@@ -30,6 +30,13 @@
 <body>
 <? include_once('header.php'); ?>
 <h3>My Charts</h3>
+<?php
+if(count($results) == 0) {
+  echo "<p>You need to add some charts!
+        Type in a ticker on the top right to begin.</p>";
+}
+else{
+?>
 <table class="mycharts">
 <tr>
   <th>Symbol</th>
@@ -73,6 +80,7 @@
 </tr>
 <?php
    }
+}
 ?>
 </table>
 
