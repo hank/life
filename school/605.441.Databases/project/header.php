@@ -55,6 +55,7 @@ $(document).ready(function() {
 				<li><a href="register.php">Register</a></li>
 <? } else { ?>
 				<li><a href="mycharts.php">My Charts</a></li>
+				<li><a href="myfeeds.php">My Feeds</a></li>
 				<li><a href="logout.php">Logout</a></li>
                 <li><a href="#">Logged in as <i><?=$_SESSION['username'] ?></i></a></li>
 <? } ?>

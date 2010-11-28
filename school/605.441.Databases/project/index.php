@@ -9,7 +9,7 @@
     $statement = "SELECT * FROM Stock";
     $results = $dbh->query($statement);
     // Get RSS entries
-    $statement = "SELECT * FROM Feeds";
+    $statement = "SELECT * FROM Feed";
     $rss_results = $dbh->query($statement);
     // Get OHLC data
     // This query finds the most recent 2 rows per Stock
