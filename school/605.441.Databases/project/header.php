@@ -17,9 +17,14 @@
     href="style_brown.css" />
 <link rel="alternate stylesheet" type="text/css" title="Magenta" 
     href="style_magenta.css" />
+<link rel="stylesheet" type="text/css" href="js/markitup/skins/markitup/style.css" />
+<link rel="stylesheet" type="text/css" href="js/markitup/sets/html/style.css" />
 
-<script src="js/jquery-1.4.4.min.js"></script>
-<script src="js/jquery.jeditable.mini.js"></script>
+<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="js/jquery.jeditable.mini.js"></script>
+<script type="text/javascript" src="js/markitup/jquery.markitup.js"></script>
+<script type="text/javascript" src="js/markitup/sets/html/html.js"></script>
+<script type="text/javascript" src="js/jquery.jeditable.markitup.js"></script>
 
 <script src="RGraph/libraries/RGraph.common.core.js"></script>
 <script src="RGraph/libraries/RGraph.common.context.js"></script>

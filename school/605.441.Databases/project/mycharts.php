@@ -62,7 +62,7 @@ else{
     $(document).ready(function() {
       $(".editable_textarea").editable("mycharts_comment.php", { 
         name : 'text',
-        type   : 'textarea',
+        type : 'markitup',
         submitdata: function(value, settings) {
                 return { _method: "post", 
                          ralree : value.id
@@ -73,6 +73,8 @@ else{
         cancel : 'Cancel',
         cssclass : "editable",
         tooltip : "Click to Edit",
+        onblur : "ignore",
+        markitup : markitupHTML
       });
     });
     </script>

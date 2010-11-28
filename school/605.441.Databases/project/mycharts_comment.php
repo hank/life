@@ -1,5 +1,7 @@
 <?php
   include_once("support.inc.php");
+  include_once("htmlpurifier/library/HTMLPurifier.standalone.php");
+
 
   if(!logged_in())
   {
@@ -19,6 +21,8 @@
   try
   {
     $text = $_POST['text'];
+    $purifier = new HTMLPurifier();
+    $clean_html = $purifier->purify($text);
     $stockid = $_POST['id'];
     // Connect to database
     db_connect();
@@ -27,7 +31,7 @@
             ON DUPLICATE KEY UPDATE date = NOW(), text = :text";
     $sth = $dbh->prepare($sql);
     $sth->execute(array(':uid' => $_SESSION['userid'], ':sid' => $stockid, 
-                        ':text' => $text));
+                        ':text' => $clean_html));
 
     // Handle mood, if any
     if(array_key_exists('mood', $_POST))
@@ -37,7 +41,7 @@
         $sth = $dbh->prepare($sql);
         $sth->execute(array(':id' => $last_id, ':mood' => $_POST['mood']));
     } 
-    echo $text;
+    echo $clean_html;
   }
   catch(PDOException $e)
   {
