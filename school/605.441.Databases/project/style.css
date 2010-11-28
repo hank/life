@@ -15,6 +15,16 @@ table.mycharts tr, table.mycharts tr td {
   padding: 10px;
 }
 
+table.mycharts tr td p {
+    margin-bottom: 1em !important;
+    text-align: left !important;
+}
+table.mycharts tr td ul {
+    float: none;
+    padding-left: 1.5em;
+    margin-bottom: 1em !important;
+}
+
 span#ticker_search {
   border-radius: 4px;
   color: black;

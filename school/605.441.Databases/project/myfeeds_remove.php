@@ -9,12 +9,12 @@
 
   try
   {
-    $id = $_GET['id'];
+    $link = $_GET['link'];
     // Connect to database
     db_connect();
-    $sql = "DELETE FROM User_Feed WHERE User_id = :uid AND id = :id";
+    $sql = "DELETE FROM User_Feed WHERE User_id = :uid AND link = :link";
     $sth = $dbh->prepare($sql);
-    $sth->execute(array(':uid' => $_SESSION['userid'], ':id' => $id));
+    $sth->execute(array(':uid' => $_SESSION['userid'], ':link' => $link));
     if($sth->rowCount() > 0)
     {
       // Insert Success!

@@ -28,6 +28,7 @@
         $_SESSION['userid'] = $results[0]['id'];
         $_SESSION['username'] = $un;
         $_SESSION['time'] = time();
+        $_SESSION['admin'] = $results[0]['admin'];
         redirect("mycharts");
       }
       else

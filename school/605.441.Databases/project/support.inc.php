@@ -20,6 +20,14 @@
     if(array_key_exists('username', $_SESSION)) return true;
     else return false;
   }
+
+  function is_admin()
+  {
+    if(array_key_exists('admin', $_SESSION) and $_SESSION['admin'] == 1) 
+            return true;
+    else return false;
+  }
+
   function redirect($page)
   {
     header("Location: $page.php\r\n");
