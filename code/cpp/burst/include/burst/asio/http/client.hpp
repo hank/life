@@ -7,6 +7,7 @@
 #ifndef Burst_Asio_HTTP_Client
 #define Burst_Asio_HTTP_Client
 #include <boost/asio.hpp>
+#include <iostream>
 namespace burst
 {
    namespace asio
@@ -73,6 +74,12 @@ namespace burst
             // Send GET request explicitly sends a GET
             bool send_get_request() const
             {
+               std::cout << path;
+               *(this->stream) << "GET " << path << " HTTP/1.0\r\n"
+                      << "Host: " << host << "\r\n"
+                      << "User-Agent: " << user_agent << "\r\n"
+                      << "\r\n";
+               this->stream->flush();
                return print_get_request(*(this->stream));
             }
 
@@ -108,6 +115,19 @@ namespace burst
             const std::string getAccept() const
             {
                return this->accept;
+            }
+
+            void print_response_content(std::ostream& stream)
+            {
+               std::string response_line;
+               bool output = false;
+               while(false == this->stream->eof()) {
+                  std::getline(*(this->stream), response_line);
+                  if(output) stream << response_line << endl;
+                  else {
+                     if(response_line == "\r\n") output = true;
+                  }
+               }
             }
 
             void setPath(const std::string& path)
