@@ -93,6 +93,16 @@
     );
     $bq->execute(array(':id' => $id, ':date' => $year_ago_date));
     $bound = $bq->fetch();
+
+    if(logged_in()) {
+      // Log that we've seen the chart
+      $sql = $dbh->prepare("INSERT INTO Recent_Views
+                            (User_id, table, foreign_id)
+                            VALUES (:uid, 'Stock', :sid)");
+      );
+      $sql->execute(array(':sid' => $id, ':uid' => $_SESSION['userid']));
+      
+    }
   }
   catch(PDOException $e)
   {

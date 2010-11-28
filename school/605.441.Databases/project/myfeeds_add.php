@@ -11,6 +11,7 @@
   try
   {
     $url = $_POST['url'];
+    $url_hash = hash('sha256', $url);
     // Connect to database
     db_connect();
     // Get the channel name from the RSS itself
@@ -22,11 +23,11 @@
     // Using INSERT IGNORE since when we add a duplicate we don't care
     // if it conflicts.
     $sql = "INSERT IGNORE INTO User_Feed 
-                (User_id, name, link)
-            VALUES (:uid, :name, :link)";
+                (User_id, name, link_hash, link)
+            VALUES (:uid, :name, :hash, :link)";
     $sth = $dbh->prepare($sql);
     $sth->execute(array(':uid' => $_SESSION['userid'], ':name' => $name, 
-                        ':link' => $url));
+                        ':hash' => $url_hash, ':link' => $url));
     redirect('myfeeds');
   }
   catch(PDOException $e)
