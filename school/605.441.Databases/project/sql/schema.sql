@@ -154,9 +154,10 @@ DROP TABLE IF EXISTS `5charts`.`User_Feed` ;
 
 CREATE  TABLE IF NOT EXISTS `5charts`.`User_Feed` (
   `User_id` INT NOT NULL ,
+  `link_hash` VARCHAR(128) NOT NULL ,
   `link` VARCHAR(768) NOT NULL ,
   `name` VARCHAR(45) NULL ,
-  PRIMARY KEY (`User_id`, `link`) ,
+  PRIMARY KEY (`User_id`, `link_hash`) ,
   INDEX `fk_User_Feed_User1` (`User_id` ASC) ,
   CONSTRAINT `fk_User_Feed_User1`
     FOREIGN KEY (`User_id` )
