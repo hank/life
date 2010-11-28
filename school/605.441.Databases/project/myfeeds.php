@@ -46,7 +46,6 @@
     $results = $sth->fetchAll();
 
     // Get Yahoo! feeds for all stocks in Owns
-http://finance.yahoo.com/rss/headline?s=NFLX
     $sql = "SELECT ticker FROM Stock, Owns
             WHERE Stock.id = Owns.Stock_id AND User_id = :uid";
     $sth = $dbh->prepare($sql);

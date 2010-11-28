@@ -128,10 +128,9 @@ DROP TABLE IF EXISTS `5charts`.`Prediction` ;
 CREATE  TABLE IF NOT EXISTS `5charts`.`Prediction` (
   `User_id` INT NOT NULL ,
   `Stock_id` INT NOT NULL ,
-  `id` INT NOT NULL AUTO_INCREMENT ,
-  `date` DATETIME NOT NULL ,
+  `date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ,
   `text` TEXT NOT NULL ,
-  PRIMARY KEY (`User_id`, `Stock_id`, `id`) ,
+  PRIMARY KEY (`User_id`, `Stock_id`, `date`) ,
   INDEX `fk_Prediction_User1` (`User_id` ASC) ,
   INDEX `fk_Prediction_Stock1` (`Stock_id` ASC) ,
   CONSTRAINT `fk_Prediction_User1`
@@ -211,7 +210,7 @@ DROP TABLE IF EXISTS `5charts`.`Friend` ;
 CREATE  TABLE IF NOT EXISTS `5charts`.`Friend` (
   `User_from` INT NOT NULL ,
   `User_to` INT NOT NULL ,
-  `added` DATETIME NOT NULL DEFAULT NOW() ,
+  `added` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
   PRIMARY KEY (`User_from`, `User_to`) ,
   INDEX `fk_Friend_User2` (`User_to` ASC) ,
   CONSTRAINT `fk_Friend_User1`
@@ -227,6 +226,43 @@ CREATE  TABLE IF NOT EXISTS `5charts`.`Friend` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `5charts`.`Recent_Views`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `5charts`.`Recent_Views` ;
+
+CREATE  TABLE IF NOT EXISTS `5charts`.`Recent_Views` (
+  `User_id` INT NOT NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `table` ENUM('User', 'Stock') NOT NULL ,
+  `foreign_id` INT NOT NULL ,
+  PRIMARY KEY (`User_id`, `id`) ,
+  INDEX `fk_Recent_Views_User1` (`User_id` ASC) ,
+  CONSTRAINT `fk_Recent_Views_User1`
+    FOREIGN KEY (`User_id` )
+    REFERENCES `5charts`.`User` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = MyISAM;
+
+
+-- -----------------------------------------------------
+-- procedure clean_Recent_Views
+-- -----------------------------------------------------
+
+USE `5charts`;
+DROP procedure IF EXISTS `5charts`.`clean_Recent_Views`;
+
+DELIMITER $$
+USE `5charts`$$
+CREATE PROCEDURE `5charts`.`clean_Recent_Views` ()
+READS SQL DATA
+COMMENT 'Cleans the Recent_Views table so it contains only up to 15 views per user'
+BEGIN
+  SET @s = CONCAT('SELECT id from Recent_Views WHERE 
+END$$$$
+
+DELIMITER ;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
