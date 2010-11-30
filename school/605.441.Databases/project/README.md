@@ -7,6 +7,7 @@ from Yahoo and Google, with user accounts that let you keep a chart list
 and comments on the charts.
 
 ## Setup
+1. Change the db name, host, and username at the top of **support.inc.php**.
 1. Create a file called **credentials.txt** and put your sql password in there.
 1. Create the database using the SQL in **sql/schema.sql**.
 1. Load in the RSS feeds: **sql/load_feeds.sql**

@@ -96,9 +96,9 @@
 
     if(logged_in()) {
       // Log that we've seen the chart
-      $sql = $dbh->prepare("INSERT INTO Recent_Views
-                            (User_id, table, foreign_id)
-                            VALUES (:uid, 'Stock', :sid)");
+      $sql = $dbh->prepare("INSERT IGNORE INTO `Recently_Viewed_Stocks`
+                            (`User_id`, `Stock_id`)
+                            VALUES (:uid, :sid)"
       );
       $sql->execute(array(':sid' => $id, ':uid' => $_SESSION['userid']));
       

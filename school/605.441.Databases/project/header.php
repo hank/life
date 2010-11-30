@@ -62,7 +62,7 @@ $(document).ready(function() {
 				<li><a href="mycharts.php">My Charts</a></li>
 				<li><a href="myfeeds.php">My Feeds</a></li>
 				<li><a href="logout.php">Logout</a></li>
-                <li><a href="#">Logged in as <i><?=$_SESSION['username'] ?></i></a></li>
+        <li><a href="profile.php">Logged in as <i><?=$_SESSION['username'] ?></i></a></li>
     <? if(is_admin()) { ?>
 				<li><a href="sectors.php">Edit Sectors</a></li>
     <? } ?>

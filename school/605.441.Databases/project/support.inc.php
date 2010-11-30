@@ -3,9 +3,9 @@
   ob_start('ob_gzhandler');
   session_start();
 
-  $dbname = '5charts';
+  $dbname = 'ralreein_5charts';
   $hostname = 'localhost';
-  $username = 'root';
+  $username = 'ralreein_5charts';
 
   function db_connect()
   {

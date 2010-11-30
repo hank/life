@@ -43,8 +43,13 @@
             ((float)$pair[0]['close'] - (float)$pair[1]['close']) / 
                 (float)$pair[1]['close'] * 100;
     }
-    // Get tickers => count
-    printTagCloud($tickers);
+    if(count($tickers) == 0) {
+      echo "No symbols yet.";
+    }
+    else {
+      // Get tickers => count
+      printTagCloud($tickers);
+    }
 ?>
 </div>
 <h3>RSS Feeds</h3>
@@ -57,11 +62,17 @@ foreach($rss_results as $feed) {
 <?
     $i = 0;
     foreach ($rss->items as $item) {
-        $title = $item['title'];
-        $url   = $item['link'];
-        if(strlen($title) == 0 or strlen($url) == 0) continue;
+        if(array_key_exists('title', $item)) $title = $item['title'];
+        else $title = "Title not specified";
         if(strlen($title) > 150) $title = substr($title, 0, 150)."...";
-        echo "<a href=$url>$title</a><br/>";
+        if(array_key_exists('link', $item)) {
+          $url = $item['link'];
+          if(strlen($title) == 0 or strlen($url) == 0) continue;
+          echo "<a href=$url>$title</a><br/>";
+        }
+        else {
+          echo "$title<br />";
+        }
         $i++;
         if($i > 4) break;
     }

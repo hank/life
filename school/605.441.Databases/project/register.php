@@ -1,12 +1,17 @@
 <?php
   include_once("support.inc.php");
 
-  $un = $_POST['un'];
-  $pw = $_POST['pw'];
-  $fn = $_POST['fn'];
-  $ln = $_POST['ln'];
+  $un = null;
+  $pw = null;
+  $fn = null;
+  $ln = null;
+
   if($_SERVER['REQUEST_METHOD'] == "POST")
   {
+    $un = $_POST['un'];
+    $pw = $_POST['pw'];
+    $fn = $_POST['fn'];
+    $ln = $_POST['ln'];
     try
     {
       // Check login
