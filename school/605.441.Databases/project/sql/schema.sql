@@ -18,6 +18,7 @@ CREATE  TABLE IF NOT EXISTS `5charts`.`User` (
   `verified` TINYINT(1)  NOT NULL DEFAULT FALSE ,
   `password_hash` VARCHAR(1024) NOT NULL ,
   `admin` TINYINT(1)  NULL ,
+  `created` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ,
   PRIMARY KEY (`id`) ,
   UNIQUE INDEX `username_UNIQUE` (`username` ASC) )
 ENGINE = InnoDB;
