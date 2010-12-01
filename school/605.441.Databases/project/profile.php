@@ -44,6 +44,7 @@
     $pre = $dbh->prepare("SELECT * FROM Prediction JOIN Stock
                           ON Stock.id = Prediction.Stock_id
                           WHERE User_id = :uid
+                          ORDER BY date DESC
     ");
     $pre->execute(array(':uid' => $uid));
     $predictions = $pre->fetchAll();
@@ -155,7 +156,7 @@ else {
 ?>
     <div class="prediction">
       <span class="date"><?= $p['date'] ?></span>
-      <span class="user">
+      <span class="ticker">
         <a href="chart.php?id=<?= $p['id'] ?>"><?= $p['ticker'] ?></a>
       </span>
     <?= $p['text'] ?>

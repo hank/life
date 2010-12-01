@@ -20,6 +20,14 @@
                          AND OHLC.date < OHLC2.date) < 2 
                   ORDER BY ticker, date DESC;";
     $ohlc_results = $dbh->query($statement);
+    // Fetch predictions
+    $pre = $dbh->prepare("SELECT * FROM Prediction, Stock, User
+                          WHERE Stock.id = Prediction.Stock_id 
+                            AND User.id = Prediction.User_id
+                          ORDER BY date DESC
+    ");
+    $pre->execute();
+    $predictions = $pre->fetchAll();
   }
   catch(PDOException $e)
   {
@@ -78,6 +86,31 @@ foreach($rss_results as $feed) {
     }
 }
 ?>
+
+<h3>Community Predictions</h3>
+<div>
+<?php
+if(count($predictions) == 0) {
+  echo "<p>{$user['username']} hasn't made any predictions yet</p>";
+}
+else {
+  foreach($predictions as $p) {
+?>
+    <div class="prediction">
+      <span class="date"><?= $p['date'] ?></span>
+      <span class="ticker">
+        <a href="chart.php?id=<?= $p['Stock_id'] ?>"><?= $p['ticker'] ?></a>
+      </span>
+      <span class="user">
+        <a href="profile.php?id=<?= $p['User_id'] ?>"><?= $p['username'] ?></a>
+      </span>
+    <?= $p['text'] ?>
+    </div>
+<?
+  }
+}
+?>
+</div>
 
 <? include_once('footer.php'); ?>
 </body>
