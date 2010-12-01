@@ -103,8 +103,8 @@ CREATE  TABLE IF NOT EXISTS `5charts`.`Comment` (
   CONSTRAINT `fk_Comment_Owns1`
     FOREIGN KEY (`Owns_Stock_id` , `Owns_User_id` )
     REFERENCES `5charts`.`Owns` (`Stock_id` , `User_id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
