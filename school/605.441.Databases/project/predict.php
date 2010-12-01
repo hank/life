@@ -1,6 +1,6 @@
 <?php 
 include_once("support.inc.php");
-include_once("rss_fetch.inc");
+include_once("htmlpurifier/library/HTMLPurifier.standalone.php");
 
 if(!logged_in())
 {
@@ -13,12 +13,16 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
   {
     // Connect to database
     db_connect();
+    $text = $_POST['text'];
+    $purifier = new HTMLPurifier();
+    $clean_html = $purifier->purify($text);
+
     $statement = $dbh->prepare("INSERT INTO Prediction
                                 (User_id, Stock_id, text)
                                 VALUES (:uid, :sid, :text)");
     $statement->execute(array(':uid' => $_SESSION['userid'],
                               ':sid' => $_POST['id'],
-                              ':text' => $_POST['text']
+                              ':text' => $text
       ));
 
     redirect("chart", "id={$_POST['id']}");
