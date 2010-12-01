@@ -14,9 +14,9 @@
     // Get all our stock information with associated comments.
     $sql = "SELECT * FROM Owns LEFT OUTER JOIN Comment 
                 ON (Owns.Stock_id = Comment.Owns_Stock_id 
-                    AND Owns.User_id = Comment.Owns_User_id 
-                    AND Owns.User_id = :uid)
+                    AND Owns.User_id = Comment.Owns_User_id)
                 JOIN Stock ON Stock.id = Owns.Stock_id 
+                WHERE User_id = :uid
                 ORDER BY date_added DESC";
     $sth = $dbh->prepare($sql);
     $sth->execute(array(':uid' => $_SESSION['userid']));

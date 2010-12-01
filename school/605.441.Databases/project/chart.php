@@ -21,16 +21,9 @@
       echo "Error: ID $id does not exist.";
       exit;
     }
-    // Find out if our data is dated (over a day old at 4PM)
     $ticker = strtoupper($stock['ticker']);
-    $sql = "SELECT COUNT(*) FROM OHLC WHERE Stock_id = :sid 
-            AND (date + 0) > (NOW() - (3600 * 41))";
-    $statement = $dbh->prepare($sql);
-    $statement->execute(array(':sid' => $id));
-    if($statement->fetchColumn() == 0) {
-      // Download the information and insert it in the database
-      download_stock_info($ticker);
-    }
+    // Download the information and insert it in the database
+    download_stock_info($ticker);
   }
   else if(array_key_exists('ticker', $_GET))
   {
@@ -93,6 +86,14 @@
     );
     $bq->execute(array(':id' => $id, ':date' => $year_ago_date));
     $bound = $bq->fetch();
+
+    // Fetch predictions for this stock
+    $pre = $dbh->prepare("SELECT * FROM Prediction JOIN User
+                          ON User.id = Prediction.User_id
+                          WHERE Stock_id = :sid
+    ");
+    $pre->execute(array(':sid' => $id));
+    $predictions = $pre->fetchAll();
 
     if(logged_in()) {
       // Log that we've seen the chart
@@ -217,7 +218,8 @@ else $diff = "<span>$diffnum ($diffpct%)</span>";
 
 ?>
 <h2><?= $stock['ticker'] ?>: <?= $stock['name'] ?></h2>
-<p><a href="mycharts_add.php?id=<?=$stock['id']?>">Add to My Charts</a></p>
+<p><a href="mycharts_add.php?id=<?=$stock['id']?>">Add to My Charts</a><br />
+<a href="predict.php?id=<?=$stock['id']?>">Make a Prediction</a></p>
 <p>Latest Update: <?= "$mon/{$date['tm_mday']}/$year"?>
 <table id='quote'>
 <tr>
@@ -236,6 +238,22 @@ else $diff = "<span>$diffnum ($diffpct%)</span>";
 <canvas id="scatter1" width="1000" height="600">[No canvas support]</canvas>
 </div>
 
+<h3>Predictions</h3>
+<div>
+<?
+  foreach($predictions as $p) {
+?>
+    <div class="prediction">
+      <span class="date"><?= $p['date'] ?></span>
+      <span class="user">
+        <a href="profile.php?id=<?= $p['id'] ?>"><?= $p['username'] ?></a>
+      </span>
+    <?= $p['text'] ?>
+    </div>
+<?
+  }
+?>
+</div>
 <script>
 // Special tab append for charting
 $('#menu ul').append('<li><a href="#" class="active"><?=$stock['ticker']?></a></li>');

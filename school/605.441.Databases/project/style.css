@@ -67,3 +67,24 @@ div#symbol_cloud {
   padding: 20px;
   text-align: center;
 }
+
+div.prediction {
+  padding: 2px;
+  padding-left: 0;
+  margin: 2px;
+  border: 1px dotted #ccc;
+}
+
+div.prediction span.date {
+  background: #CCE;
+  padding: 3px;
+  margin: 0;
+}
+
+div.prediction span.user {
+  background: #CCE;
+  padding: 3px;
+  margin: 0;
+  background: #EDD;
+  margin-right: 10px;
+}

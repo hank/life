@@ -28,9 +28,13 @@
     else return false;
   }
 
-  function redirect($page)
+  function redirect($page, $args=null)
   {
-    header("Location: $page.php\r\n");
+    if($args == null) {
+      header("Location: $page.php\r\n");
+    } else {
+      header("Location: $page.php?$args\r\n");
+    }
     exit();
   }
 
