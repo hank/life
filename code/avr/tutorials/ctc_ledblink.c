@@ -1,4 +1,4 @@
-/* LED Blink.
+/* CTC (Clear on Timer Compare) LED Blink.
  */
 #ifndef F_CPU
     // A reasonable default clock speed
@@ -18,6 +18,9 @@ int main()
 
     // Set timer to count with F_CPU
     SET_HIGH(TCCR0B, CS10);
+
+    // Turn on CTC
+    SET_WGM_85(TCCR0, 0, 1, 0);
     // Set timer prescale to 101 (F/1024)
     TCCR0B |= _BV(CS00) | _BV(CS02);
     for(;;)

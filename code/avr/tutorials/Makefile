@@ -2,7 +2,7 @@ MCU=attiny85
 F_CPU=8000000# 8 MHz
 CC=avr-gcc
 OBJCOPY=avr-objcopy
-CFLAGS=-Os -I. -Wall
+CFLAGS=-Os -I. -I../include -Wall
 AVRFLAGS=-U lfuse:w:0xe2:m -U hfuse:w:0xdf:m -U efuse:w:0xff:m
 
 TARGETS=$(patsubst %.c, %.hex, $(wildcard *.c))
@@ -15,6 +15,7 @@ TARGETS=$(patsubst %.c, %.hex, $(wildcard *.c))
 
 all: $(TARGETS)
 
+# You can do `make install some.hex` to just done one, of course
 install: $(TARGETS)
 	sudo avrdude $(AVRFLAGS) -c usbtiny -p t85 -e -U flash:w:$<
 
