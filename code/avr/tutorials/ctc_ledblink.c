@@ -1,19 +1,9 @@
 /* CTC (Clear on Timer Compare) LED Blink.
  */
-#ifndef F_CPU
-    // A reasonable default clock speed
-    #warning No F_CPU Defined, using 8Mhz
-    #define F_CPU 8000000UL
-#endif
-
+#include "basic_functions.h"
 #include <avr/io.h>
 #include <avr/sleep.h>
-
 #include <util/delay.h>
-
-#include <stdio.h>
-
-#include "basic_functions.h"
 
 /*
  * This demonstrate how to use the avr_mcu_section.h file

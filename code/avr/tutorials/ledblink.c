@@ -1,14 +1,8 @@
 /* LED Blink.
  */
-#ifndef F_CPU
-    // A reasonable default clock speed
-    #define F_CPU 8000000UL
-#endif
-
+#include "basic_functions.h"
 #include <avr/io.h>
 #include <util/delay.h>
-
-#include "basic_functions.h"
 
 int main()
 {

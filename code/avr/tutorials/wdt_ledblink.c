@@ -1,15 +1,9 @@
 /* LED Blink with a watchdog timer.
  */
-#ifndef F_CPU
-    // A reasonable default clock speed
-    #define F_CPU 8000000UL
-#endif
-
+#include "basic_functions.h"
 #include <avr/io.h>
 #include <avr/interrupt.h>
-#include <util/delay.h>
-
-#include "basic_functions.h"
+#include <avr/sleep.h>
 
 ISR(WDT_vect)
 {
@@ -33,6 +27,9 @@ int main()
     // Turn on interrupts!
     sei();
 
-    for(;;);
+    // Use the Power Down sleep mode
+    set_sleep_mode(SLEEP_MODE_PWR_DOWN);
+
+    for(;;) sleep_mode();
     return 0;
 }
