@@ -10,9 +10,9 @@
 // Bits spread over 2 registers is annoying.
 // NOTE: Only tested with Attiny85!
 #define SET_WGM_85(reg, b1, b2, b3) \
-  if(b1) SET_HIGH(reg##A, WGM02); \
+  if(b1) SET_HIGH(reg##B, WGM02); \
   else SET_LOW(reg##A, WGM02); \
-  if(b2) SET_HIGH(reg##B, WGM01); \
+  if(b2) SET_HIGH(reg##A, WGM01); \
   else SET_LOW(reg##A, WGM01); \
-  if(b3) SET_HIGH(reg##B, WGM00); \
+  if(b3) SET_HIGH(reg##A, WGM00); \
   else SET_LOW(reg##A, WGM00);
