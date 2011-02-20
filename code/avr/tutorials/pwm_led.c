@@ -43,11 +43,16 @@ int main()
     OCR0A = 0x80;
     //TCNT0 = 0;
 
-    uint16_t count = 1000;
+    sei();
+
+    uint16_t count = 10;
+    uint8_t i;
     for(;;) 
     {
         tcnt = TCNT0;
-        if(--count == 0) sleep_cpu();
+        i = tcnt;
+        if(--count == 0) cli();
+        sleep_cpu();
     }
     return 0;
 }
