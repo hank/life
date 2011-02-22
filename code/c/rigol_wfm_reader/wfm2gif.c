@@ -9,6 +9,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
 #include <inttypes.h>
 
 uint8_t chan_offsets[][3] = {
@@ -35,7 +36,7 @@ char * trigger_modes[] = {
     "Duration",
 };
 
-int main()
+int main(int argc, char ** argv)
 {
     union {
         uint8_t u8;
@@ -62,6 +63,18 @@ int main()
     char * trigger_source;
     FILE * out;
     char * filename;
+    char * file_prefix;
+    char * tmpstr = NULL;
+
+    if(argc < 2)
+    {
+        fprintf(stderr, "Usage: %s <wfm file>\nMakes a gif file.\n", argv[0]);
+        return 0;
+    }
+
+    tmpstr = strdup(argv[1]);
+    file_prefix = strtok(tmpstr, ".");
+    printf("HORRAY %s!\n", file_prefix);
 
     FILE * f = fopen("test2.wfm", "r");
     if(!f) fprintf(stderr, "Error opening file.\n");
@@ -213,7 +226,7 @@ int main()
     {
         if(channels & i)
         {
-            fprintf(stderr, "Reading Channel %u data points...\n", i);
+            fprintf(stderr, ":: Reading Channel %u data points...\n", i);
             data_points[i-1] = malloc(num_data_points * sizeof(uint8_t));
             
             if(fread(data_points[i-1], 1, num_data_points, f) < num_data_points)
@@ -264,12 +277,19 @@ int main()
     // Make the GNUPlot file
     f = fopen("test2.gp", "w");
     fprintf(f, "set title \"test2.wfm\"\n");
-    fprintf(f, "set xlabel \"Seconds\"\n");
+    fprintf(f, "set xlabel \"Samples\"\n");
     fprintf(f, "set ylabel \"V\"\n");
     fprintf(f, "set key right nobox\n");
     fprintf(f, "set term gif\n");
+    fprintf(f, "set grid\n");
     fprintf(f, "set output \"test2.gif\"\n");
-    fprintf(f, "plot \"tmp.1.data\" with lines, \"tmp.2.data\" with lines\n");
+    fprintf(f, "plot");
+    if(channels & 0x01)
+        fprintf(f, " \"tmp.1.data\" with lines ti \"CH1\"");
+    if((channels & 0x03) == 0x03) fprintf(f, ", ");
+    if(channels & 0x02)
+        fprintf(f, " \"tmp.2.data\" with lines ti \"CH2\"");
+    fprintf(f, "\n");
     fclose(f);
 
     // Run gnuplot
@@ -283,12 +303,14 @@ int main()
     // Cleanup
     if(data_points[0]) free(data_points[0]);
     if(data_points[1]) free(data_points[1]);
+    if(tmpstr) free(tmpstr);
     return 0;
 
 premature_eof:
     fprintf(stderr, "Error: Premature end of file.\n");
     if(data_points[0]) free(data_points[0]);
     if(data_points[1]) free(data_points[1]);
+    if(tmpstr) free(tmpstr);
     fclose(f);
     return 1;
 }
