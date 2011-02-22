@@ -5,4 +5,4 @@
 1. Profit!
 
 ## Example
-![](rigol_wfm_reader/test2.gif)
+![](/hank/life/raw/master/code/c/rigol_wfm_reader/test2.gif)
