@@ -5,4 +5,4 @@
 1. Profit!
 
 ## Example
-![](test2.gif)
+![](./test2.gif)
