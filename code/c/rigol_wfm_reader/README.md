@@ -5,4 +5,4 @@
 1. Profit!
 
 ## Example
-![](./test2.gif)
+![](rigol_wfm_reader/test2.gif)
