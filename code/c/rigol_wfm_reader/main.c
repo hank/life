@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include <inttypes.h>
 
 uint8_t chan_offsets[][3] = {
@@ -228,7 +229,9 @@ int main()
             out = fopen(filename, "w");
             while(j < num_data_points)
             {
-                fprintf(out, "%d\n", 125 - (int)(data_points[i-1][j]));
+                fprintf(out, "%g\n", 
+                    ((float)(125 - (int)(data_points[i-1][j]))) / 250 * 10 * 
+                        vertical_scaling[i-1]);
                 ++j;
             }
             fclose(out);
@@ -255,9 +258,31 @@ int main()
 
     fprintf(stderr, "\tSource: %s\n", trigger_source);
 
+    // We're finally done reading the file!
+    fclose(f);
+
+    // Make the GNUPlot file
+    f = fopen("test2.gp", "w");
+    fprintf(f, "set title \"test2.wfm\"\n");
+    fprintf(f, "set xlabel \"Seconds\"\n");
+    fprintf(f, "set ylabel \"V\"\n");
+    fprintf(f, "set key right nobox\n");
+    fprintf(f, "set term gif\n");
+    fprintf(f, "set output \"test2.gif\"\n");
+    fprintf(f, "plot \"tmp.1.data\" with lines, \"tmp.2.data\" with lines\n");
+    fclose(f);
+
+    // Run gnuplot
+    fprintf(stderr, "Running GNUPlot!\n");
+    if(system("gnuplot test2.gp") == -1)
+    {
+        fprintf(stderr, "Error running system()\n");
+        _exit(1);
+    }
+
+    // Cleanup
     if(data_points[0]) free(data_points[0]);
     if(data_points[1]) free(data_points[1]);
-    fclose(f);
     return 0;
 
 premature_eof:
