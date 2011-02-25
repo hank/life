@@ -25,6 +25,7 @@
 #include <inttypes.h>
 #include <avr/io.h>
 #include <avr/pgmspace.h>
+#include <util/delay.h>
 #include "lcd.h"
 
 
@@ -476,18 +477,12 @@ void lcd_putc(char c)
 }/* lcd_putc */
 
 
-/*************************************************************************
-Display string without auto linefeed 
-Input:    string to be displayed
-Returns:  none
-*************************************************************************/
 void lcd_puts(const char *s)
 /* print string on lcd (no auto linefeed) */
 {
-    register char c;
-
-    while ( (c = *s++) ) {
-        lcd_putc(c);
+    while (*s) {
+        lcd_putc(*s++);
+        _delay_ms(1000);
     }
 
 }/* lcd_puts */
