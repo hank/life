@@ -12,18 +12,15 @@ int main(void)
     lcd_command(LCD_FUNCTION_4BIT_2LINES );
     lcd_clrscr();
 
+    // Testing if x,y are set wrong
+    lcd_gotoxy(3, 1);
+
     // Load character
     lcd_custom_char_p(0x00, c_1);
 
-    uint8_t i = 0;
-    //lcd_command(_BV(LCD_CGRAM));  /* set CG RAM start address 0 */
-    //for (; i<8; ++i) {
-    //    lcd_data(pgm_read_byte_near(&c_1[i]));
-    //}
-    //lcd_gotoxy(0,1);
+    // We better still be at 3, 1
+    lcd_putc(0);
+    lcd_putc(255);
 
-    for(i=0;;++i)
-    {
-        i % 2 == 0 ? lcd_putc(0) : lcd_putc(255);
-    }
+    for(;;);
 }

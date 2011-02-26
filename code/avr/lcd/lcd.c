@@ -512,7 +512,9 @@ void lcd_puts_p(const char *progmem_s)
 void lcd_custom_char_p(unsigned char c, const char *data) {
     uint8_t i = 0;
     int xy = lcd_getxy(); // Save position in DDRAM
-    lcd_command(_BV(LCD_CGRAM));  /* set CG RAM start address 0 */
+    // Tricky line.  Basically, we're taking the character code lower 3 bits
+    // and multiplying by 8 to get the byte offset into CGRAM
+    lcd_command(_BV(LCD_CGRAM) | ((c&0x07)<<3)); 
     for (; i<8; ++i) {
         lcd_data(pgm_read_byte_near(&data[i]));
     }
