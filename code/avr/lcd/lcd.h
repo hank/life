@@ -83,21 +83,27 @@
  *  ports by adapting the LCD_DATAx_PORT and LCD_DATAx_PIN definitions.
  *  
  */
-#define LCD_PORT         PORTB        /**< port for the LCD lines   */
-#define LCD_DATA0_PORT   LCD_PORT     /**< port for 4bit data bit 0 */
-#define LCD_DATA1_PORT   LCD_PORT     /**< port for 4bit data bit 1 */
-#define LCD_DATA2_PORT   LCD_PORT     /**< port for 4bit data bit 2 */
-#define LCD_DATA3_PORT   LCD_PORT     /**< port for 4bit data bit 3 */
-#define LCD_DATA0_PIN    4            /**< pin for 4bit data bit 0  */
-#define LCD_DATA1_PIN    5            /**< pin for 4bit data bit 1  */
-#define LCD_DATA2_PIN    6            /**< pin for 4bit data bit 2  */
-#define LCD_DATA3_PIN    7            /**< pin for 4bit data bit 3  */
-#define LCD_RS_PORT      PORTD        /**< port for RS line         */
-#define LCD_RS_PIN       4            /**< pin  for RS line         */
-#define LCD_RW_PORT      LCD_RS_PORT  /**< port for RW line         */
-#define LCD_RW_PIN       5            /**< pin  for RW line         */
-#define LCD_E_PORT       LCD_RS_PORT  /**< port for Enable line     */
-#define LCD_E_PIN        6            /**< pin  for Enable line     */
+#define LCD_PORT         PORTB        /**< port for the LCD lines     */
+#define LCD_DATA0_PORT   LCD_PORT     /**< port for 4bit data bit 0   */
+#define LCD_DATA1_PORT   LCD_PORT     /**< port for 4bit data bit 1   */
+#define LCD_DATA2_PORT   LCD_PORT     /**< port for 4bit data bit 2   */
+#define LCD_DATA3_PORT   LCD_PORT     /**< port for 4bit data bit 3   */
+#define LCD_DATA0_PIN    4            /**< pin for 4bit data bit 0    */
+#define LCD_DATA1_PIN    5            /**< pin for 4bit data bit 1    */
+#define LCD_DATA2_PIN    6            /**< pin for 4bit data bit 2    */
+#define LCD_DATA3_PIN    7            /**< pin for 4bit data bit 3    */
+#define LCD_CG_PORT      PORTB        /**< port for the LCD CG load   */
+#define LCD_CG0_PIN      0            /**< pin for 5bit CGRAM load 0  */
+#define LCD_CG1_PIN      1            /**< pin for 5bit CGRAM load 1  */
+#define LCD_CG2_PIN      2            /**< pin for 5bit CGRAM load 2  */
+#define LCD_CG3_PIN      3            /**< pin for 5bit CGRAM load 3  */
+#define LCD_CG4_PIN      4            /**< pin for 5bit CGRAM load 4  */
+#define LCD_RS_PORT      PORTD        /**< port for RS line           */
+#define LCD_RS_PIN       4            /**< pin  for RS line           */
+#define LCD_RW_PORT      LCD_RS_PORT  /**< port for RW line           */
+#define LCD_RW_PIN       5            /**< pin  for RW line           */
+#define LCD_E_PORT       LCD_RS_PORT  /**< port for Enable line       */
+#define LCD_E_PIN        6            /**< pin  for Enable line       */
 
 #elif defined(__AVR_AT90S4414__) || defined(__AVR_AT90S8515__) || defined(__AVR_ATmega64__) || \
       defined(__AVR_ATmega8515__)|| defined(__AVR_ATmega103__) || defined(__AVR_ATmega128__) || \
@@ -254,6 +260,16 @@ extern void lcd_command(uint8_t cmd);
 */
 extern void lcd_data(uint8_t data);
 
+
+/**
+ @brief    Send a custom character to a given CGRAM address
+ 
+ Similar to lcd_putc(), but without interpreting LF
+ @param    c Character Address
+           data PROGMEM pointer with 8 bytes of data
+ @return   none
+*/
+extern void lcd_custom_char_p(unsigned char c, const char *data);
 
 /**
  @brief macros for automatically storing string constant in program memory

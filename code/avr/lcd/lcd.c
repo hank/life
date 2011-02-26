@@ -506,6 +506,18 @@ void lcd_puts_p(const char *progmem_s)
 
 }/* lcd_puts_p */
 
+// Adds a custom character to the LCD from PROGMEM
+// Input: c     character to set
+//        data  8 bitstrings in PROGMEM
+void lcd_custom_char_p(unsigned char c, const char *data) {
+    uint8_t i = 0;
+    int xy = lcd_getxy(); // Save position in DDRAM
+    lcd_command(_BV(LCD_CGRAM));  /* set CG RAM start address 0 */
+    for (; i<8; ++i) {
+        lcd_data(pgm_read_byte_near(&data[i]));
+    }
+    lcd_gotoxy(xy>>4, xy&0x0F); // Reset to DDRAM mode and to old address.
+}
 
 /*************************************************************************
 Initialize display and select type of cursor 
