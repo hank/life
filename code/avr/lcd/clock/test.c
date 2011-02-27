@@ -3,6 +3,15 @@
 #include <util/delay.h>
 #include "lcd.h"
 
+#define BUTTON_PORT PORTD
+#define BUTTON_PIN PIND
+
+struct clock { 
+    uint8_t second; 
+    uint8_t minute; 
+    uint8_t hour; 
+};
+
 void update_time(struct clock * c)
 {
     lcd_home();
@@ -18,11 +27,11 @@ void update_time(struct clock * c)
 
 int main(void)
 {
-    //struct clock c = {.second = 0, .minute = 0, .hour = 0};
-    struct clock c;
-    c.second = 0;
-    c.minute = 0;
-    c.hour = 0;
+    struct clock c = {.second = 0, .minute = 0, .hour = 0};
+    //struct clock c;
+    //c.second = 0;
+    //c.minute = 0;
+    //c.hour = 0;
     /* initialize display, cursor off */
     lcd_init(LCD_DISP_ON);
     lcd_command(LCD_FUNCTION_4BIT_2LINES );

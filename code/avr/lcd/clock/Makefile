@@ -1,4 +1,7 @@
-CFLAGS=-I..
+LCDIESEL=/home/hank/repos/lcdiesel
+LCDIESEL_LIB=$(LCDIESEL)/lib
+LCDIESEL_INCLUDE=$(LCDIESEL)/include
+CFLAGS=-Os -DF_CPU=8000000 -mmcu=attiny2313a -I$(LCDIESEL_INCLUDE)
 all: 
-	avr-gcc $(CFLAGS) -Os -DF_CPU=4000000 -mmcu=attiny2313 -o main.o test.c ../lcd.c
-	avr-objcopy -j .text -O ihex main.o main.hex
+	avr-gcc $(CFLAGS) -o main.o test.c $(LCDIESEL_LIB)/lcd.o
+	avr-objcopy -j .text -j.data -O ihex main.o main.hex
