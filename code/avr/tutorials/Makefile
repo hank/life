@@ -12,7 +12,7 @@ OBJS=$(patsubst %.c, %.o, $(wildcard *.c))
 	$(CC) $(CFLAGS) -DF_CPU=$(F_CPU) -mmcu=$(MCU) $< -o $@
 
 %.hex: %.o
-	$(OBJCOPY) -j .data -j .text -O ihex $< $@ 
+	$(OBJCOPY) -R .fuse -R .lock -R .eeprom -O ihex $< $@ 
 
 all: $(TARGETS) $(OBJS)
 
