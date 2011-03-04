@@ -1,0 +1,57 @@
+1.
+  a) Yes.  Because routes can change at any time due to congestion and
+     many other factors, even if the software is working perfectly, packets
+     can still be routed differently and arrive out of order.  It is a normal
+     part of the operation of the network-layer nodes to optimize routing, so
+     one could say that the software is working perfectly even in the case
+     that packets arrive out of order.
+
+  b) Each serves a different purpose.  Because PLP uses virtual circuits and
+     LAPB is agnostic to these, the flow control mechanisms serve two different
+     purposes.  At the network layer, the PLP flow control operates per
+     circuit, offering a higher degree of granularity, and doesn't apply to
+     other circuits even if they are being multiplexed over the same LAPB
+     session. LAPB flow control applies to all carried network layer virtual
+     circuits, and effects all of them equally since it's network-layer
+     agnostic.
+
+  c) The D bit modifies the acknowledgement operation of the data link layer,
+     and therefore violates the OSI model.  The Q bit serves as an indicator
+     of control information or user data, which seems irrelevant to the data
+     link layer, and violates the OSI model because the network layer must
+     be aware of the type of data link layer underneath.
+
+
+2. 
+  a)          P(R) P(S) Type  N(R) N(S)
+         [I1 | 0  | 0  |  I  | 0  | 0  ] -->
+     <-- [I1 | 1  | 0  |  I  | 1  | 0  ]
+         [I1 | 1  | 1  |  I  | 1  | 1  ] -->
+         [I1 | 1  | 2  |  I  | 1  | 2  ] -->
+         [I2 | 0  | 0  |  I  | 1  | 3  ] -->
+         [I1 | 1  | 3  |  I  | 1  | 4  ] -->
+     <-- [I2 | 1  | 0  |  I  | 5  | 1  ]
+         [I3 | 0  | 0  |  I  | 2  | 5  ] -->
+         [I1 | 1  | 4  |  I  | 2  | 6  ] -->
+         [I2 | 1  | 1  |  I  | 2  | 7  ] -->
+         [I3 | 0  | 1  |  I  | 2  | 0  ] -->
+         [I1 | 1  | 5  |  I  | 2  | 1  ] -->
+     <-- [I3 | 2  | 0  |  I  | 2  | 2  ]
+
+  b)           V1(S) V1(R) V2(S) V2(R) V3(S) V3(R)   V(S) V(R)
+      Frame 1    1     0     0     0     0     0      1    0
+      Frame 2    1     1     0     0     0     0      1    1
+      Frame 3    2     1     0     0     0     0      2    1
+      Frame 4    3     1     0     0     0     0      3    1
+      Frame 5    3     1     1     0     0     0      4    1
+      Frame 6    4     1     1     0     0     0      5    1
+      Frame 7    4     1     1     1     0     0      5    5
+      Frame 8    4     1     1     1     1     0      6    5
+      Frame 9    5     1     1     1     1     0      7    5
+      Frame 10   5     1     2     1     1     0      0    5
+      Frame 11   5     1     2     1     2     0      1    5
+      Frame 12   6     1     2     1     2     0      2    5
+      Frame 13   6     1     2     1     2     2      2    2
+
+
+
