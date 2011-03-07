@@ -10,6 +10,8 @@ Makefile.  Basically, the XBM format is an ASCII C source code file that
 contains a static array of a bitmap.  You can include this file in a C program
 and easily print it out to the screen.  I wanted to print it out on my LCD.  
 
+You also need a compiled copy of [LCDiesel](https://github.com/hank/lcdiesel/).
+
 ## Usage
 First, make an XBM file in GIMP (80x16 pixels, Black and White).  Then, run
 `make xbm`, which will convert it to an AVR memory-friendly file, overwriting
