@@ -23,18 +23,20 @@ void construct_3x3s_P(uint8_t slot, const unsigned char * x1,
 }
 
 // 16 characters only!
-static const char s1[17] PROGMEM = "github.com/hank";
-static const char s2[17] PROGMEM = "   ralree.com";
-static const char s3[17] PROGMEM = " Experienced in";
-static const char s4[17] PROGMEM = " C C++ Ruby PHP";
-static const char s5[17] PROGMEM = "    Learning";
-static const char s6[17] PROGMEM = "  AVR/Embedded";
-static const char s7[17] PROGMEM = "Camping.goes :)";
-static const char s8[17] PROGMEM = " ::OSCON 2011::";
-static const char s9[17] PROGMEM = "Oregon Brewfest!";
+static const char s1[17] PROGMEM =  "github.com/hank";
+static const char s2[17] PROGMEM =  "   ralree.com";
+static const char s3[17] PROGMEM =  " Experienced in";
+static const char s4[17] PROGMEM =  " C C++ Ruby PHP";
+static const char s5[17] PROGMEM =  "    Learning";
+static const char s6[17] PROGMEM =  "  AVR/Embedded";
+static const char s7[17] PROGMEM =  "Camping.goes :)";
+static const char s8[17] PROGMEM =  " ::OSCON 2011::";
+static const char s9[17] PROGMEM =  "Oregon Brewfest!";
+static const char s10[17] PROGMEM = "Make this thing";
+static const char s11[17] PROGMEM = "  bit.ly/lcdnt";
 
 static const char * s_array[] = {
-    s1, s2, s3, s4, s5, s6, s7, s8, s9
+    s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11
 };
 
 int main(void)
@@ -64,7 +66,7 @@ int main(void)
     // lcd_puts_len("\0\1\2\3\4\5\6\7", 8);
     
     // Move the text back and forth.
-    int i = 0;
+    int i = 0, j = 0;
     int dir = 1;
     int xy = 0;
     for(;;)
@@ -80,7 +82,9 @@ int main(void)
         // Display messages
         xy = lcd_getxy();
         lcd_gotoxy(0, 1);
-        lcd_puts_p(s_array[i%(sizeof(s_array) / 2)]);
+        if(j == (sizeof(s_array) / 2)) j = 0;
+        lcd_puts_p(s_array[j%(sizeof(s_array) / 2)]);
+        ++j;
         lcd_gotoxy(xy>>4, xy&0x0F);
         i+=dir;
         _delay_ms(2500);
