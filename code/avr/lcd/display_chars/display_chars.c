@@ -1,7 +1,6 @@
-/* XBM file display for HD44780 displays
-   This page explains the format: http://www.martinreddy.net/gfx/2d/XBM.txt
-   Images MUST be 80x16 pixels for a 16x2 line display.
-   Just calculate the number of bits your display has.
+/* Nametag for HD44780 LCDs
+   This is a fun little app that prints some 3x3 bouncing text and
+   some custom messages underneath it that rotate.
 */
 #include <avr/io.h>
 #include <string.h>
