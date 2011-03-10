@@ -7,3 +7,6 @@ all:
 
 install:
 	sudo avrdude -c usbtiny -p t2313 -e -U flash:w:display_chars.hex
+
+clean:
+	rm *.o *.hex
