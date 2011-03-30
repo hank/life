@@ -8,17 +8,30 @@
 #define Burst_Asio_HTTP_Client
 #include <boost/asio.hpp>
 #include <iostream>
+// Namespace: burst
+// Framework riding on the shoulders of boost
 namespace burst
 {
+   // Namespace: asio
+   // Asychronous I/O
    namespace asio
    {
+      // Namespace: http
+      // HTTP bindings
       namespace http
       {
+        // Class: client
+        // HTTP client class for Asynchronous I/O
          class client
          {
          public:
-            // Three parameter constructor.  Allows user to set host, path, and
-            // user-agent
+            // Constructor: client
+            // Allows user to set host, path, and user-agent.
+            //
+            // Parameters:
+            // host - The hostname to connect to.
+            // path - The path to request.
+            // user_agent - The User-Agent to claim we are.
             explicit client(const std::string& host = "www.boost.org", 
                       const std::string& path = "/",
                       const std::string& user_agent = "Boost.Asio.HttpClient")
@@ -31,19 +44,22 @@ namespace burst
                   new boost::asio::ip::tcp::iostream(host, "http");
             }
 
+            // Destructor: ~client
             virtual ~client()
             {
                delete this->stream;
             }
 
-            // Print Request is just an alias for Print GET request
+            // Function: print_request
+            // Print Request is just an alias for Print GET request.
             bool print_request(std::ostream& stream) const
             { 
                return print_get_request(stream); 
             }
 
+            // Function: print_get_request
             // Print GET Request sends the request to be generated to the 
-            // given stream
+            // given stream.
             bool print_get_request(std::ostream& stream) const
             { 
                stream << "GET " << getPath() << " HTTP/1.0\r\n";
@@ -53,8 +69,13 @@ namespace burst
                return true;
             }
 
+            // Function: print_post_request
             // Print POST Request sends the request to be generated to the
-            // given stream with post data
+            // given stream with post data.
+            //
+            // Parameters:
+            // stream - an output stream
+            // post_data - data to be included in the body of the request
             bool print_post_request(std::ostream& stream, 
                                     const std::string& post_data) const
             { 
@@ -65,13 +86,15 @@ namespace burst
                return true;
             }
 
-            // Send Request is just an alias for Send GET request
+            // Function: send_request
+            // Send Request is just an alias for Send GET request.
             bool send_request() const
             { 
                return send_get_request(); 
             }
 
-            // Send GET request explicitly sends a GET
+            // Function: send_get_request
+            // Send GET request explicitly sends a GET.
             bool send_get_request() const
             {
                std::cout << path;
@@ -83,13 +106,17 @@ namespace burst
                return print_get_request(*(this->stream));
             }
 
+            // Function: send_post_request
             // Send POST Request posts some post data to the server
             bool send_post_request(const std::string& post_data) const
             {
                return print_post_request(*(this->stream), post_data);
             }
 
-            // Print Response outputs the response to the given stream
+            // Group: Output
+
+            // Function: print_response 
+            // Outputs the response to the given stream.
             void print_response(std::ostream& stream) const
             {
                std::string response_line;
@@ -97,26 +124,8 @@ namespace burst
                stream << response_line;
             }
 
-
-            // Getters/setters
-            const std::string getPath() const
-            {
-               return this->path;
-            }
-            const std::string getHost() const
-            {
-               return this->host;
-            }
-            const std::string getUserAgent() const
-            {
-               return this->user_agent;
-            }
-
-            const std::string getAccept() const
-            {
-               return this->accept;
-            }
-
+            // Function: print_response _content
+            // Outputs the response content to the given stream.
             void print_response_content(std::ostream& stream)
             {
                std::string response_line;
@@ -130,26 +139,64 @@ namespace burst
                }
             }
 
+
+            // Group: Getters
+
+            // Function: getPath
+            // Returns the HTTP Path.
+            const std::string getPath() const
+            {
+               return this->path;
+            }
+            // Function: getHost
+            // Returns the HTTP Host field.
+            const std::string getHost() const
+            {
+               return this->host;
+            }
+            // Function: getUserAgent
+            // Returns the HTTP User-Agent field.
+            const std::string getUserAgent() const
+            {
+               return this->user_agent;
+            }
+            // Function: getAccept
+            // Returns the HTTP Accept field.
+            const std::string getAccept() const
+            {
+               return this->accept;
+            }
+
+            // Group: Setters
+
+            // Function: setPath
+            // Sets the HTTP Path.
             void setPath(const std::string& path)
             {
                this->path = path;
             }
+            // Function: setHost
+            // Sets the HTTP Host field.
             void setHost(const std::string& host)
             {
                this->host = host;
             }
+            // Function: setUserAgent
+            // Sets the HTTP User-Agent field.
             void setUserAgent(const std::string& user_agent)
             {
                this->user_agent = user_agent;
             }
-
+            // Function: setAccept
+            // Sets the HTTP Accept field.
             void setAccept (const std::string& accept)
             {
                this->accept = accept;
             }
 
          protected:
-            // Send HTTP headers sends all the HTTP headers down the stream
+            // Function: send_headers
+            // Send HTTP headers sends all the HTTP headers down the stream.
             void send_headers(std::ostream& stream) const
             {
               stream 
@@ -163,13 +210,20 @@ namespace burst
             }
 
          private:
+            // Group: Variables
+
+            // Variable: path
             std::string path;
+            // Variable: host
             std::string host;
+            // Variable: user_agent
             std::string user_agent;
+            // Variable: accept
             std::string accept;
+            // Variable: stream
+            // Set in the constructor to Boost's HTTP Asio.
             boost::asio::ip::tcp::iostream* stream;
          };
-         // Set up our statics
       }
    }
 }
