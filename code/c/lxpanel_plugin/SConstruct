@@ -1,6 +1,3 @@
-#/bin/bash ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I.. -I. -I../src -DPACKAGE_DATA_DIR=\""/usr/share"\"      -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/gtk-2.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/lib/gtk-2.0/include -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/atk-1.0 -MT example.lo -MD -MP -MF .deps/example.Tpo -c -o example.lo example.c
-#libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I. -I../src -DPACKAGE_DATA_DIR=\"/usr/share\" -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/gtk-2.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/lib/gtk-2.0/include -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/atk-1.0 -MT example.lo -MD -MP -MF .deps/example.Tpo -c example.c  -fPIC -DPIC -o .libs/example.o
-
 env = Environment(
     LIBPREFIX = "",
 )
