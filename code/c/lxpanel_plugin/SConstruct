@@ -11,4 +11,6 @@ if not conf.CheckLib("cairo"):
   Exit(1)
 conf.Finish()
 
-env.SharedLibrary('example.c')
+plugin = env.SharedLibrary('example.c')
+env.Install('/usr/lib/lxpanel/plugins', plugin)
+env.Alias('install', '/usr/lib/lxpanel/plugins')
