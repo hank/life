@@ -1,0 +1,5 @@
+config.log
+*.so
+*.os
+.sconf_temp
+.sconsign.dblite
