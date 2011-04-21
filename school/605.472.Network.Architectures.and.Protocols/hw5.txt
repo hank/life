@@ -24,17 +24,149 @@ Homework 5
      H - I   J
 
 
-2. a)
+2. 
 
+a)
+ Session   Trans     Net       DL                                               DL      Net     Trans   Session
 |        |        |        |        |                                       |        |        |        |        |
 |       -->       |        |        |                                       |        |        |        |        |
 |    T-CONNECT   -->       |        |                                       |        |        |        |        |
 |       req   N-CONNECT   -->       |                                       |        |        |        |        |
 |        |       req   DL-CONNECT   | [ - | - | - | - | - | SABM | - | - ]  |        |        |        |        |
-|        |        |       req       |               --------->              |        |        |        |        |
+|        |        |       req       |               --------->              |   DL-CONNECT    |        |        |
+|        |        |        |        |                                       |       ind       |        |        |
+|        |        |        |        |                                       |       -->       |        |        |
+|        |        |        |        |                                       |   DL-CONNECT    |        |        |
+|        |        |        |        | [ - | - | - | - | - | UA   | - | - ]  |       res       |        |        |
+|        |        |       <--       |               <---------              |       <--       |        |        |
+|        |        |    DL-CONNECT   |                                       |        |        |        |        |
+|        |        |       con       |                                       |        |        |        |        |
+|        |        |      DL-DATA    |                                       |        |        |        |        |
+|        |        |       req       |                                       |        |        |        |        |
+|        |        |       -->       |                                       |        |        |        |        |
+|        |        |        |        | [ - | - | CREQ | - | - | I | 0 | 0 ]  |     DL-DATA     |        |        |
+|        |        |        |        |               --------->              |       ind    N-CONNECT   |        |
+|        |        |        |        |                                       |       -->      ind       |        |
+|        |        |        |        |                                       |        |       -->       |        |
+|        |        |        |        |                                       |        |     N-CONNECT   |        |
+|        |        |        |        |                                       |     DL-DATA    res       |        |
+|        |        |        |        | [ - | - | CACPT | - | - | I | 1 | 0 ] |       req      <--       |        |
+|        |        |    DL-DATA      |               <---------              |       <--       |        |        |
+|        |    N-CONNECT   ind       |                                       |        |        |        |        |
+|        |       con      <--       |                                       |        |        |        |        |
+|        |       <--       |        |                                       |        |        |        |        |
+|        |     N-DATA      |        |                                       |        |        |        |        |
+|        |       req   DL-DATA      |                                       |        |        |        |        |
+|        |       -->      req       |                                       |        |        |        |        |
+|        |        |       -->       | [ CR | - | I   | 0 | 0 | I | 1 | 1 ]  |     DL-DATA     |        |        |
+|        |        |        |        |               --------->              |       ind     N-DATA     |        |
+|        |        |        |        |                                       |       -->      ind       |        |
+|        |        |        |        |                                       |        |       -->    T-CONNECT   |
+|        |        |        |        |                                       |        |        |       ind       |
+|        |        |        |        |                                       |        |        |       -->       |
+|        |        |        |        |                                       |        |        |     T-CONNECT   |
+|        |        |        |        |                                       |        |        |       resp      |
+|        |        |        |        |                                       |        |      N-DATA    <--       |
+|        |        |    DL-DATA      |                                       |     DL-DATA    req       |        |
+|        |      N-DATA    ind       | [ CC | - | I   | 1 | 0 | I | 2 | 1 ]  |       req      <--       |        |
+|        |       ind      <--       |               <---------              |       <--       |        |        |
+|    T-CONNECT   <--       |        |                                       |        |        |        |        |
+|       conf      |        |        |                                       |        |        |        |        |
+|       <--       |        |        |                                       |        |        |        |        |
+|        |        |        |        |                                       |        |        |        |        |
+
+b)
+ Session   Trans     Net       DL                                               DL      Net     Trans   Session
+|        |        |        |        |                                       |        |        |        |        |
+|       -->       |        |        |                                       |        |        |        |        |
+|    T-CONNECT   -->       |        |                                       |        |        |        |        |
+|       req   N-UNITDATA  -->       |                                       |        |        |        |        |
+|        |       req     DL-DATA    |                                       |        |        |        |        |
+|        |        |       req       |                                       |        |        |        |        |
+|        |        |       -->       | [ CR | - | I   | - | - | UI | - | - ] |     DL-DATA     |        |        |
+|        |        |        |        |               --------->              |       ind    N-UNITDATA  |        |
+|        |        |        |        |                                       |       -->      ind       |        |
+|        |        |        |        |                                       |        |       -->    T-CONNECT   |
+|        |        |        |        |                                       |        |        |       ind       |
+|        |        |        |        |                                       |        |        |       -->       |
+|        |        |        |        |                                       |        |        |     T-CONNECT   |
+|        |        |        |        |                                       |        |        |       resp      |
+|        |        |        |        |                                       |        |    N-UNITDATA  <--       |
+|        |        |    DL-DATA      |                                       |     DL-DATA    req       |        |
+|        |    N-UNITDATA  ind       | [ CC | - | I   | - | - | UI | - | - ] |       req      <--       |        |
+|        |       ind      <--       |               <---------              |       <--       |        |        |
+|    T-CONNECT   <--       |        |                                       |        |        |        |        |
+|       conf      |        |        |                                       |        |        |        |        |
+|       <--       |        |        |                                       |        |        |        |        |
+|        |        |        |        |                                       |        |        |        |        |
+
+c)
+ Session   Trans     Net       DL                                               DL      Net     Trans   Session
+|        |        |        |        |                                       |        |        |        |        |
+|       -->       |        |        |                                       |        |        |        |        |
+|    T-DISCONNECT -->      |        |                                       |        |        |        |        |
+|       req    N-DATA     -->       |                                       |        |        |        |        |
+|        |       req     DL-DATA    |                                       |        |        |        |        |
+|        |        |       req       |                                       |        |        |        |        |
+|        |        |       -->       | [ DR | - | I   | 0 | 0 | I | 0 | 0 ]  |     DL-DATA     |        |        |
+|        |        |        |        |               --------->              |       ind    N-DATA      |        |
+|        |        |        |        |                                       |       -->      ind       |        |
+|        |        |        |        |                                       |        |       -->   T-DISCONNECT |
+|        |        |        |        |                                       |        |        |       ind       |
+|        |        |        |        |                                       |        |        |       -->       |
+|        |        |        |        |                                       |        |        |    T-DISCONNECT |
+|        |        |        |        |                                       |        |        |       resp      |
+|        |        |        |        |                                       |        |     N-DATA     <--       |
+|        |        |    DL-DATA      |                                       |     DL-DATA    req       |        |
+|        |    N-DATA      ind       | [ DC | - | I   | 1 | 0 | I | 1 | 0 ]  |       req      <--       |        |
+|        |       ind      <--       |               <---------              |       <--       |        |        |
+|  T-DISCONNECT  <--       |        |                                       |        |        |        |        |
+|       conf      |        |        |                                       |        |        |        |        |
+|       <--       |        |        |                                       |        |        |        |        |
+|        |    N-DISCONNECT |        |                                       |        |        |        |        |
+|        |       req   DL-DATA      |                                       |        |        |        |        |
+|        |       -->      req       | [ - | - | CLRREQ| 0 | 0 | I | 1 | 1 ] |     DL-DATA     |        |        |
+|        |        |       -->       |               --------->              |       ind   N-DISCONNECT |        |
+|        |        |        |        |                                       |       -->      ind       |        |
+|        |        |        |        |                                       |        |       -->       |        |
+|        |        |        |        |                                       |     DL-DATA     |        |        |
+|        |        |        |        |                                       |       req       |        |        |
+|        |        |        |        | [ - | - | CLRCNF| 0 | 0 | I | 2 | 1 ] |       <--       |        |        |
+|        |        |    DL-DATA      |               <---------              |        |        |        |        |
+|        |        |       ind       |                                       |        |        |        |        |
+|        |        |       <--       | [ - | - | - | - | - | RR | 3 | - ]    |        |        |        |        |
+|        |        |        |        |               --------->              |   DL-DISCONNECT |        |        |
+|        |        |        |        | [ - | - | - | - | - | DISC | - | - ]  |       req       |        |        |
+|        |        |        |        |               <---------              |       <--       |        |        |
+|        |        | DL-DISCONNECT   |                                       |        |        |        |        |
+|        |        |       ind       |                                       |        |        |        |        |
+|        |        |       <--       |                                       |        |        |        |        |
+|        |        |        |        | [ - | - | - | - | - | UA | - | - ]    |        |        |        |        |
+|        |        |        |        |               --------->              |        |        |        |        |
 |        |        |        |        |                                       |        |        |        |        |
 |        |        |        |        |                                       |        |        |        |        |
+
+d)
+ Session   Trans     Net       DL                                               DL      Net     Trans   Session
 |        |        |        |        |                                       |        |        |        |        |
-|        |        |        |        |                                       |        |        |        |        |
-|        |        |        |        |                                       |        |        |        |        |
+|       -->       |        |        |                                       |        |        |        |        |
+|    T-DISCONNECT   -->    |        |                                       |        |        |        |        |
+|       req   N-UNITDATA  -->       |                                       |        |        |        |        |
+|        |       req     DL-DATA    |                                       |        |        |        |        |
+|        |        |       req       |                                       |        |        |        |        |
+|        |        |       -->       | [ DR | - | I   | - | - | UI | - | - ] |     DL-DATA     |        |        |
+|        |        |        |        |               --------->              |       ind    N-UNITDATA  |        |
+|        |        |        |        |                                       |       -->      ind       |        |
+|        |        |        |        |                                       |        |       -->   T-DISCONNECT |
+|        |        |        |        |                                       |        |        |       ind       |
+|        |        |        |        |                                       |        |        |       -->       |
+|        |        |        |        |                                       |        |        |    T-DISCONNECT |
+|        |        |        |        |                                       |        |        |       resp      |
+|        |        |        |        |                                       |        |    N-UNITDATA  <--       |
+|        |        |    DL-DATA      |                                       |     DL-DATA    req       |        |
+|        |    N-UNITDATA  ind       | [ DC | - | I   | - | - | UI | - | - ] |       req      <--       |        |
+|        |       ind      <--       |               <---------              |       <--       |        |        |
+|  T-DISCONNECT  <--       |        |                                       |        |        |        |        |
+|       conf      |        |        |                                       |        |        |        |        |
+|       <--       |        |        |                                       |        |        |        |        |
 |        |        |        |        |                                       |        |        |        |        |
