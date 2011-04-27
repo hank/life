@@ -2,9 +2,11 @@
 
 def hashfun(key)
   hv = 0
-  key.to_s.each do |x|
-    hv = x
+  key.to_s.each_char do |x|
+    hv += x.ord
   end
+  hv *= key.size
+  hv /= 73
   return hv
 end
  
@@ -17,12 +19,18 @@ class Element
   end
 
   def print
-    puts @key+": "+@value
+    puts "#{@key}: #{@value||"NULL"}"
   end
 end
 
 class Table
   def find(key)
+    hash = hashfun(key)
+    e = @storage[hash]
+    if e.key != key
+      return nil
+    end
+    return e
   end
 
   def insert(key, value = nil)
@@ -30,7 +38,8 @@ class Table
     # Need to store the key for collision resolution
     # calculate hash
     hash = hashfun(key)
-    @storage[key] = e
+    @storage[hash] = e
+    # Make sure we don't have a collision
   end
 
   def delete(key)
@@ -47,4 +56,19 @@ t.insert("bar", "baz")
 t.insert("h")          # No value, so nil
 
 e = t.find("foo")
-e.print
+e.print if !e.nil?
+e = t.find("bar")
+e.print if !e.nil?
+e = t.find("h")
+if !e.nil?
+  e.print
+else
+  puts "NULL"
+end
+
+e = t.find("baz")
+if !e.nil?
+  e.print
+else
+  puts "NULL"
+end
