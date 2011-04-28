@@ -77,20 +77,29 @@ void swap(list* l, lnode* a, lnode* b)
 
 void ms(list* l, lnode* b, lnode* e, int size)
 {
+    printf("ms: %p %p %d\n", b, e, size);
     if(!b || !e) return;
-    if(size == 2)
+    switch(size)
     {
+      case 1:
+        // Do nothing
+        break;
+      case 2:
         // Normal final case, swap if needed
         if(b->data > e->data) swap(l, b, e);
-    }
-    else
-    {
+        break;
+      case 3:
+        // Other base case, 
+        if(b->data > e->data) swap(l, b, e);
+        break;
+      default:
         // Split, recurse
         int a = size/2;
         lnode* newe = b;
         while(a--) newe = newe->next;
         ms(l, b, newe, size/2);
         ms(l, newe->next, e, size/2);
+        break;
     }
 }
 
@@ -102,6 +111,7 @@ int main()
     insert(l, -17);
     insert(l, 45);
     insert(l, 923);
+    insert(l, -924);
     printf("Unsorted: \n");
     print_list(l);
 
