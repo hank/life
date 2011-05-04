@@ -1,5 +1,8 @@
-TARGETS=basic_heap merge_sort2 quick_sort
+TARGETS=basic_heap merge_sort2 quick_sort bfs
 all: $(TARGETS)
+
+bfs: bfs.cpp
+	g++ -Wall -o $@ $<
 
 basic_heap: basic_heap.c
 	gcc -Wall -o $@ $< -lm
