@@ -46,7 +46,8 @@ LI = 33                  CN Len
  PGI = 20                Session User Requirements
  LI  = 2                 Session User Requirements Len 
  PIV = 0x0081 == 0b0000000010000001
-                         Capability Data Exchange Functional Unit Proposed
+                         Half Duplex Functional Unit
+                         Negotiated Release Functional Unit
 ##########################################################
 Rx
 SI = 14                  AC
@@ -89,7 +90,8 @@ LI = 33                  CN Len
  PGI = 20                Session User Requirements
  LI  = 2                 Session User Requirements Len 
  PIV = 0x0081 == 0b0000000010000001
-                         Capability Data Exchange Functional Unit Proposed
+                         Half Duplex Functional Unit
+                         Negotiated Release Functional Unit
 ##########################################################
 Tx
 SI = 1                   GT
@@ -142,4 +144,44 @@ LI = 3                   DT Len
   DATA: 65 6E 74 61 74 69 6F 6E 2E
   'entation.'
 ##########################################################
+Rx
+SI = 1                   GT
+LI = 3                   GT Len
+  PI = 16                Token Item
+  LI = 1                 Token Item Len
+  PIV = 1                Data Token
 
+SI = 1                   DT (Concatenated)
+LI = 0                   DT Len
+
+  DATA: 4D 65 73 73 61 67 65 20 31 2E
+  'Message 1.'
+##########################################################
+Rx
+SI = 9                   FN
+LI = 0                   FN Len
+##########################################################
+Tx
+SI = 8                   NF
+LI = 0                   NF Len
+##########################################################
+Tx
+SI = 1                   GT
+LI = 0                   GT Len
+
+SI = 1                   DT
+LI = 0                   DT Len
+
+  DATA: 54 68 69 73 20 69 73 20 6D 79 20 6C 61 73 74 20 6D 65 73 73 61 67 65 2E
+  'This is my last message.'
+##########################################################
+Tx
+SI = 9                   FN
+LI = 0                   FN Len
+##########################################################
+Rx
+SI = 10                  DN
+LI = 0                   DN Len
+
+
+2. 
