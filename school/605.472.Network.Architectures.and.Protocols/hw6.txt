@@ -1,0 +1,145 @@
+Erik Gregg
+605.472
+Homework 6
+5/04/11
+
+1.
+##########################################################
+Tx
+SI = 13                  CN
+LI = 33                  CN Len
+
+  PGI = 1                Connection ID 
+  LI  = 8                Connection ID Len
+
+    PI  = 0A             Calling SS-user Reference
+    LI  = 2              Calling SS-user Reference Len
+    PIV = 0x0101 == 257  
+
+    PI  = 0B             Common Reference
+    LI  = 2              Common Reference Len
+    PIV = 0x0202 == 514  
+
+  PGI = 5                Connect/Accept Item
+  LI  = 17               Connect/Accept Item Len 
+
+    PI  = 13             Protocol Options
+    LI  = 1              Protocol Options Len
+    PIV =  0             Not able to receive extended concatenation
+
+    PI  = 16             Version Number
+    LI  = 1              Version Number Len
+    PIV = 1              Version 1
+
+    PI  = 23             Initial Serial Number
+    LI  = 6              Initial Serial Number Len
+    PIV = 0x353433323130 == 543210 ASCII
+
+    PI  = 26             Token Setting Item
+    LI  = 1              Token Setting Item Len
+    PIV = 3C             0b00111100
+                         8,7 == 00, Release token = Initiator
+                         6,5 == 11, Major/Activity token = Reserved
+                         4,3 == 11, Sync/Minor token = Reserved
+                         2,1 == 00, Data token = Initiator
+
+ PGI = 20                Session User Requirements
+ LI  = 2                 Session User Requirements Len 
+ PIV = 0x0081 == 0b0000000010000001
+                         Capability Data Exchange Functional Unit Proposed
+##########################################################
+Rx
+SI = 14                  AC
+LI = 33                  CN Len
+
+  PGI = 1                Connection ID 
+  LI  = 8                Connection ID Len
+
+    PI  = 09             Called SS-user Reference
+    LI  = 2              Called SS-user Reference Len
+    PIV = 0xFFFF == 65535
+
+    PI  = 0B             Common Reference
+    LI  = 2              Common Reference Len
+    PIV = 0x0202 == 514  
+
+  PGI = 5                Connect/Accept Item
+  LI  = 17               Connect/Accept Item Len 
+
+    PI  = 13             Protocol Options
+    LI  = 1              Protocol Options Len
+    PIV =  0             Not able to receive extended concatenation
+
+    PI  = 16             Version Number
+    LI  = 1              Version Number Len
+    PIV = 1              Version 1
+
+    PI  = 23             Initial Serial Number
+    LI  = 6              Initial Serial Number Len
+    PIV = 0x353433323130 == 543210 ASCII
+
+    PI  = 26             Token Setting Item
+    LI  = 1              Token Setting Item Len
+    PIV = 3C             0b00111100
+                         8,7 == 00, Release token = Initiator
+                         6,5 == 11, Major/Activity token = Reserved
+                         4,3 == 11, Sync/Minor token = Reserved
+                         2,1 == 00, Data token = Initiator
+
+ PGI = 20                Session User Requirements
+ LI  = 2                 Session User Requirements Len 
+ PIV = 0x0081 == 0b0000000010000001
+                         Capability Data Exchange Functional Unit Proposed
+##########################################################
+Tx
+SI = 1                   GT
+LI = 0                   GT Len
+
+SI = 1                   DT (Concatenated)
+LI = 3                   DT Len
+
+  PI = 25                Enclosure Item
+  LI = 1                 Enclosure Item Len
+  PIV = 1                Start of segment
+
+  DATA: 4E 6F 72 6D 61 6C 20 64 61 74 61 20 74 72 61 6E
+  'Normal data tran'
+##########################################################
+Tx
+SI = 1                   GT
+LI = 0                   GT Len
+
+SI = 1                   DT (Concatenated)
+LI = 3                   DT Len
+
+  PI = 25                Enclosure Item
+  LI = 1                 Enclosure Item Len
+  PIV = 0                Middle of segment
+
+  DATA: 73 66 65 72 20 77 69 74 68 20 73 65 67 6D
+  'sfer with segm'
+##########################################################
+Rx
+SI = 2                   PT
+LI = 3                   PT Len
+  PI = 16                Token Item
+  LI = 1                 Token Item Len
+  PIV = 1 == 0b00000001  Data Token
+##########################################################
+Tx
+SI = 1                   GT
+LI = 3                   GT Len
+  PI = 16                Token Item
+  LI = 1                 Token Item Len
+  PIV = 1                Data Token
+
+SI = 1                   DT (Concatenated)
+LI = 3                   DT Len
+  PI = 25                Enclosure Item
+  LI = 1                 Enclosure Item Len
+  PIV = 2                End of segment
+
+  DATA: 65 6E 74 61 74 69 6F 6E 2E
+  'entation.'
+##########################################################
+
