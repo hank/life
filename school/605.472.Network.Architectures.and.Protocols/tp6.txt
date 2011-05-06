@@ -1,0 +1,20 @@
+# Erik Gregg
+# 605.472
+# Term Project 6
+# 5/03/11
+
+# Original Data
+a = """
+11110011 01100101 01100011 01110010 01100101 01110100 10100000 11101101
+01100101 11110011 11110011 11100001 11100111 01100101 10100000 11110011
+01101001 01111000
+"""
+
+# Need to set the first bit to 0 to decode.
+# bitwise AND with 0b01111111 == 0x7F
+# >>> 'secret message six'
+
+# NOTE: This file is actually a valid python program.
+# Run it to see the result for yourself.
+import string
+print string.join(map(lambda x: chr(eval('0b'+x)&0x7F), a.split()), '')
