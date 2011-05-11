@@ -1,8 +1,6 @@
 // Defines an abstract class that concrete classes inherit from.  The users of
 // the abstract class don't have to commit to use of a single concrete
-// implementation.  Instead, they make use of polymorphism through the
-// abstract member functions of the parent factory class to access the child
-// factory classes transparently.
+// implementation.  We make things using an abstract factory class pointer.
 #include <cstdio>
 struct AbstractFactory
 {
@@ -10,8 +8,8 @@ struct AbstractFactory
   : foo(foo)
   , bar(bar)
   {}
-  virtual int get_foo() = 0;
-  virtual int get_bar() = 0;
+  virtual int make_foo() = 0;
+  virtual int make_bar() = 0;
   protected:
   int foo;
   int bar;
@@ -23,12 +21,12 @@ struct ManateeFactory : public AbstractFactory
   : AbstractFactory(1,2)
   {}
 
-  virtual int get_foo()
+  virtual int make_foo()
   {
     return this->foo;
   }
 
-  virtual int get_bar()
+  virtual int make_bar()
   {
     return this->bar;
   }
@@ -40,12 +38,12 @@ struct DugongFactory : AbstractFactory
   : AbstractFactory(3,4)
   {}
 
-  virtual int get_foo()
+  virtual int make_foo()
   {
     return this->foo*2;
   }
 
-  virtual int get_bar()
+  virtual int make_bar()
   {
     return this->bar*2;
   }
@@ -55,8 +53,10 @@ struct UserClass
 {
   static void go(AbstractFactory& af)
   {
-    printf("Foo: %d\n", af.get_foo());
-    printf("Bar: %d\n", af.get_bar());
+    int foo = af.make_foo();
+    int bar = af.make_bar();
+    printf("Foo: %d\n", foo);
+    printf("Bar: %d\n", bar);
   }
 };
 
