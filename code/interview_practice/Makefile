@@ -1,5 +1,9 @@
-TARGETS=basic_heap merge_sort2 quick_sort bfs abstract_factory_pattern
+TARGETS=basic_heap merge_sort2 quick_sort bfs abstract_factory_pattern \
+        builder_pattern
 all: $(TARGETS)
+
+builder_pattern: builder_pattern.cpp
+	g++ -Wall -o $@ $<
 
 abstract_factory_pattern: abstract_factory_pattern.cpp
 	g++ -Wall -o $@ $<
