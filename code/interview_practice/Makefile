@@ -1,5 +1,15 @@
-TARGETS=basic_heap merge_sort2 quick_sort money
+TARGETS=basic_heap merge_sort2 quick_sort bfs abstract_factory_pattern \
+        builder_pattern adapter_pattern money
 all: $(TARGETS)
+
+adapter_pattern: adapter_pattern.cpp
+	g++ -Wall -o $@ $<
+
+builder_pattern: builder_pattern.cpp
+	g++ -Wall -o $@ $<
+
+abstract_factory_pattern: abstract_factory_pattern.cpp
+	g++ -Wall -o $@ $<
 
 money: money.cpp
 	g++ -Wall -o $@ $<
