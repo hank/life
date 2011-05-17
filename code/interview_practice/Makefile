@@ -1,5 +1,8 @@
-TARGETS=basic_heap merge_sort2 quick_sort bfs
+TARGETS=basic_heap merge_sort2 quick_sort money
 all: $(TARGETS)
+
+money: money.cpp
+	g++ -Wall -o $@ $<
 
 bfs: bfs.cpp
 	g++ -Wall -o $@ $<
