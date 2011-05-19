@@ -27,6 +27,20 @@ sys 0m1.380s
  Verified here using Approximation: http://bit.ly/lZjqz6
 
 fib(134217729)=12999783... [28049847 digits] approx
+
+ And the 1 billionth one (which GMP can calculate faster):
+
+$ time ./fibo_mat 1000000000 | perl -pe's/(.{80})/$1\n/g' | head -n 2
+fib(1073741825) = 7851825146056272463599740720577820327891850760560080819610013
+3101776532172058485318886216890624269837804483701951962165893449312871571286222
+59...
+
+real  19m43.794s
+user  19m25.790s
+sys 0m18.470s
+
+mpz_fibo_ui can do this in about 15 minutes vs 19.5.  I'm still proud.
+
 */
 
 #include <stdio.h>
