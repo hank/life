@@ -1,6 +1,13 @@
+CFLAGS=-Lgmp/lib -Igmp/include
 TARGETS=basic_heap merge_sort2 quick_sort bfs abstract_factory_pattern \
-        builder_pattern adapter_pattern
+        builder_pattern adapter_pattern fizzbuzz fibo_mat
 all: $(TARGETS)
+
+fibo_mat: fibo_mat.c
+	gcc -Wall $(CFLAGS) -o $@ $< -lgmp
+
+fizzbuzz: fizzbuzz.c
+	gcc -Wall -o $@ $<
 
 adapter_pattern: adapter_pattern.cpp
 	g++ -Wall -o $@ $<
