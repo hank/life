@@ -4,8 +4,8 @@ require 'hpricot'
 require 'rss/maker'
 
 version = "2.0"
-#destination = ENV['HOME']+"/public_html/stolfo.xml"
-destination = "stolfo.xml"
+destination = ENV['HOME']+"/public_html/stolfo.xml"
+#destination = "stolfo.xml"
 
 content = RSS::Maker.make(version) do |m|
   m.channel.title = "Salvatore Stolfo Paper Feed"

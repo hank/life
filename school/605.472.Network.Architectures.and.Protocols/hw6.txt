@@ -1,0 +1,329 @@
+Erik Gregg
+605.472
+Homework 6
+5/04/11
+
+1.
+##########################################################
+Tx
+SI = 13                  CN
+LI = 33                  CN Len
+
+  PGI = 1                Connection ID 
+  LI  = 8                Connection ID Len
+
+    PI  = 0A             Calling SS-user Reference
+    LI  = 2              Calling SS-user Reference Len
+    PIV = 0x0101 == 257  
+
+    PI  = 0B             Common Reference
+    LI  = 2              Common Reference Len
+    PIV = 0x0202 == 514  
+
+  PGI = 5                Connect/Accept Item
+  LI  = 17               Connect/Accept Item Len 
+
+    PI  = 13             Protocol Options
+    LI  = 1              Protocol Options Len
+    PIV =  0             Not able to receive extended concatenation
+
+    PI  = 16             Version Number
+    LI  = 1              Version Number Len
+    PIV = 1              Version 1
+
+    PI  = 23             Initial Serial Number
+    LI  = 6              Initial Serial Number Len
+    PIV = 0x353433323130 == 543210 ASCII
+
+    PI  = 26             Token Setting Item
+    LI  = 1              Token Setting Item Len
+    PIV = 3C             0b00111100
+                         8,7 == 00, Release token = Initiator
+                         6,5 == 11, Major/Activity token = Reserved
+                         4,3 == 11, Sync/Minor token = Reserved
+                         2,1 == 00, Data token = Initiator
+
+ PGI = 20                Session User Requirements
+ LI  = 2                 Session User Requirements Len 
+ PIV = 0x0081 == 0b0000000010000001
+                         Half Duplex Functional Unit
+                         Negotiated Release Functional Unit
+##########################################################
+Rx
+SI = 14                  AC
+LI = 33                  CN Len
+
+  PGI = 1                Connection ID 
+  LI  = 8                Connection ID Len
+
+    PI  = 09             Called SS-user Reference
+    LI  = 2              Called SS-user Reference Len
+    PIV = 0xFFFF == 65535
+
+    PI  = 0B             Common Reference
+    LI  = 2              Common Reference Len
+    PIV = 0x0202 == 514  
+
+  PGI = 5                Connect/Accept Item
+  LI  = 17               Connect/Accept Item Len 
+
+    PI  = 13             Protocol Options
+    LI  = 1              Protocol Options Len
+    PIV =  0             Not able to receive extended concatenation
+
+    PI  = 16             Version Number
+    LI  = 1              Version Number Len
+    PIV = 1              Version 1
+
+    PI  = 23             Initial Serial Number
+    LI  = 6              Initial Serial Number Len
+    PIV = 0x353433323130 == 543210 ASCII
+
+    PI  = 26             Token Setting Item
+    LI  = 1              Token Setting Item Len
+    PIV = 3C             0b00111100
+                         8,7 == 00, Release token = Initiator
+                         6,5 == 11, Major/Activity token = Reserved
+                         4,3 == 11, Sync/Minor token = Reserved
+                         2,1 == 00, Data token = Initiator
+
+ PGI = 20                Session User Requirements
+ LI  = 2                 Session User Requirements Len 
+ PIV = 0x0081 == 0b0000000010000001
+                         Half Duplex Functional Unit
+                         Negotiated Release Functional Unit
+##########################################################
+Tx
+SI = 1                   GT
+LI = 0                   GT Len
+
+SI = 1                   DT (Concatenated)
+LI = 3                   DT Len
+
+  PI = 25                Enclosure Item
+  LI = 1                 Enclosure Item Len
+  PIV = 1                Start of segment
+
+  DATA: 4E 6F 72 6D 61 6C 20 64 61 74 61 20 74 72 61 6E
+  'Normal data tran'
+##########################################################
+Tx
+SI = 1                   GT
+LI = 0                   GT Len
+
+SI = 1                   DT (Concatenated)
+LI = 3                   DT Len
+
+  PI = 25                Enclosure Item
+  LI = 1                 Enclosure Item Len
+  PIV = 0                Middle of segment
+
+  DATA: 73 66 65 72 20 77 69 74 68 20 73 65 67 6D
+  'sfer with segm'
+##########################################################
+Rx
+SI = 2                   PT
+LI = 3                   PT Len
+  PI = 16                Token Item
+  LI = 1                 Token Item Len
+  PIV = 1 == 0b00000001  Data Token
+##########################################################
+Tx
+SI = 1                   GT
+LI = 3                   GT Len
+  PI = 16                Token Item
+  LI = 1                 Token Item Len
+  PIV = 1                Data Token
+
+SI = 1                   DT (Concatenated)
+LI = 3                   DT Len
+  PI = 25                Enclosure Item
+  LI = 1                 Enclosure Item Len
+  PIV = 2                End of segment
+
+  DATA: 65 6E 74 61 74 69 6F 6E 2E
+  'entation.'
+##########################################################
+Rx
+SI = 1                   GT
+LI = 3                   GT Len
+  PI = 16                Token Item
+  LI = 1                 Token Item Len
+  PIV = 1                Data Token
+
+SI = 1                   DT (Concatenated)
+LI = 0                   DT Len
+
+  DATA: 4D 65 73 73 61 67 65 20 31 2E
+  'Message 1.'
+##########################################################
+Rx
+SI = 9                   FN
+LI = 0                   FN Len
+##########################################################
+Tx
+SI = 8                   NF
+LI = 0                   NF Len
+##########################################################
+Tx
+SI = 1                   GT
+LI = 0                   GT Len
+
+SI = 1                   DT
+LI = 0                   DT Len
+
+  DATA: 54 68 69 73 20 69 73 20 6D 79 20 6C 61 73 74 20 6D 65 73 73 61 67 65 2E
+  'This is my last message.'
+##########################################################
+Tx
+SI = 9                   FN
+LI = 0                   FN Len
+##########################################################
+Rx
+SI = 10                  DN
+LI = 0                   DN Len
+
+
+2. 
+
+  User A          |  PDU  |    User B
+1)                |       |
+ S-CONNECT        |       |                               
+   req            |       |                      
+   -->            | CN    |                      
+                  | -->   |   S-CONNECT
+                  |       |      ind
+                  |       |      -->
+                  |       |   S-CONNECT
+                  |       |      resp
+                  | AC    |      <--
+ S-CONNECT        | <--   |
+   conf           |       |          
+   <--            |       |          
+2)                |       |   
+  S-DATA          |       |                                   
+   req            |       |                                 
+   -->            | DT    |                                                 
+                  | -->   |                                            
+                  | DT    |
+                  | -->   |   S-DATA
+                  |       |      ind
+                  |       |      -->
+3)                |       |
+S-CAPABILITY-DATA |       |                                           
+     req          |       |                                   
+     -->          | CD    |                                                 
+                  | -->   |  S-CAPABILITY-DATA
+                  |       |      ind
+                  |       |      -->
+                  |       |    S-CAPABILITY-DATA
+                  |       |      resp
+                  | CDR   |    <--
+S-CAPABILITY-DATA | <--   |
+   conf           |       |                                 
+   <--            |       |                                             
+S-ACTIVITY-START  |       |
+   req            |       |                                 
+   -->            | AS    |                                                
+                  | -->   | S-ACT-START
+                  |       |     ind
+                  |       |     -->
+4)                |       |
+S-DATA            |       |
+ req              |       |
+ -->              | DT    |
+                  | -->   |
+                  | DT    |
+                  | -->   | S-DATA
+                  |       |   ind
+                  |       |   -->
+5)                |       | 
+                  |       | S-TOKEN-PLEASE
+                  |       |   req
+                  | PT    |   <--
+ S-TOKEN-PLEASE   | <--   |
+     ind          |       |
+     <--          |       |
+ S-TOKEN-GIVE     |       |
+     req          |       |
+     -->          | GT    |
+                  | -->   |  S-TOKEN-GIVE
+                  |       |     ind
+                  |       |     -->
+                  |       |  S-DATA
+                  |       |  req
+                  |  DT   |  <--
+                  |  <--  | 
+                  |  DT   | 
+  S-DATA          |  <--  | 
+    ind           |       | 
+    <--           |       | 
+6)                |       | 
+  S-CONTROL-GIVE  |       | 
+      req         |  GTC  | 
+                  |  -->  | S-CONTROL-GIVE
+                  |       |     ind
+                  |       |     -->
+                  |       | S-CONTROL-GIVE
+                  |       |     resp
+                  |  GTA  |     <--
+ S-CONTROL-GIVE   |  <--  | 
+      conf        |       | 
+      <--         |       | 
+7)                |       |
+                  |       | S-DATA
+                  |       |  req
+                  | DT    |  <--
+                  | <--   |
+                  | DT    |
+   S-DATA         | <--   |
+     ind          |       |
+     <--          |       |
+8)                |       | 
+                  |       | S-ACTIVITY-END
+                  |       |      req
+                  |  AE   |      <--
+ S-ACTIVITY-END   |  <--  |
+      ind         |       | 
+      <--         |       | 
+ S-ACTIVITY-END   |       | 
+      resp        |       | 
+      -->         |  AEA  | 
+                  |  -->  | S-ACTIVITY-END
+                  |       |      conf
+                  |       |      -->
+9)                |       | 
+                  |       | S-RELEASE
+                  |       |   req
+                  |  FN   |   <--
+  S-RELEASE       |  <--  | 
+     ind          |       | 
+     <--          |       | 
+  S-RELEASE       |       | 
+     resp         |       | 
+     -->          |  DN   | 
+                  |  -->  | S-RELEASE
+                  |       |    conf
+                  |       |    -->
+                  |       | 
+
+3. Assuming BER encoding.
+                       count1 = 25                unit1 = wait, sleep
+   00110000 00101010 00000010 00000001 00011001 00000011 00000001 00110000
+    datatype = false           name1 = DAVID
+   00000001 00000001 00000000 00010110 01000100 01000001 01010110 01001001 
+   01000100
+   name2 = (value1 = 5, value2 = HOLD)
+   00110000 00001001 00000010 00000001 00000101 00010110 00000100 01001000
+   01001111 01001100 01000100 
+   name3 = (type1 = GOLD, type2 = STOP)
+   10100101 00001110 10000000 00000100 01000111 01001111 01001100 01000100
+   10100001 00000110 00010110 00000100 01010011 01010100 01001111 01010000
+   data1 = 34 12 35 13
+   00000100 00000100 00100010 00001100 00100011 00001101
+
+   Final Hex-encoded BER message:
+
+   30 2A 02 01 19 03 01 30 01 01 00 16 44 41 56 49 44 30 09 02 01 05 16 04 
+   48 4F 4C 44 A5 0E 80 04 47 4F 4C 44 A1 06 16 04 53 54 4F 50 04 04 22 0C 
+   23 0D

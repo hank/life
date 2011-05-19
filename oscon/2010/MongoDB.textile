@@ -1,0 +1,5 @@
+h1. MongoDB
+
+Data is complex.  You have a bunch of objects that don't really match a row.
+
+Capped collections are awesome.  We need that.

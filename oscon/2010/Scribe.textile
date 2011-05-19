@@ -1,0 +1,12 @@
+h1. Scribe
+
+* 130TB per day
+* hundreds of billions of machines
+* tens of thousands of machines
+* hundreds of uses at facebook
+
+* Made a really simple API for developers to use
+* Then the file would show up and one could tail it.
+
+* NFS sucks.  It's the weak point, single point of failure.
+* So, hadoop.  Maybe zookeeper later.

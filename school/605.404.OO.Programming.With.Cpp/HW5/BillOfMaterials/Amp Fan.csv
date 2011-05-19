@@ -1,0 +1,47 @@
+Weber Amp Fan Kit,,
+
+Bill of Materials,,
+
+Qty,Part Number,Description
+1,PCB_AF_ASM,"Circuit board, assembled"
+2,standoff-4-metal,"Standoff 3/4"", metal, with four  #4-40/3/8"" screws"
+1,Fan,"Fan, 12VDC"
+
+
+
+Circuit board components,,
+Qty,Part Number,Description
+1,PCB_AF,Circuit board
+2,1N4007,Diode
+1,WSWDPDT-SL,"Slide switch, DPDT"
+2,EC477-10,"4700uF, 10V el cap, radial"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+,,

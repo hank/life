@@ -43,7 +43,7 @@ uint32_t dlist_print(dlist_t * list) {
     node = node->next;
   }
 
-  return 1;
+  return i;
 }
 
 dlist_t * dlist_reverse(dlist_t * list) {
@@ -60,7 +60,6 @@ dlist_t * dlist_reverse(dlist_t * list) {
     current->prev = tmp;
     current = tmp;
   }
-
 
   return list;
 }

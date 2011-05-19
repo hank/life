@@ -1,0 +1,4 @@
+Title: License
+
+This source code is licensed under a Simplified BSD license.
+Copyright Erik Gregg 2010

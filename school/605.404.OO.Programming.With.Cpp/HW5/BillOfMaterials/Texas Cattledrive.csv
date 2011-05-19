@@ -1,0 +1,30 @@
+Weber Texas Cattledrive Kit,,
+Bill of Materials,,
+
+Qty,Part Number,Description
+1,"Transistor, germanium", PNP  NPN
+1,TC_BD,"Circuit board, labeled,  PNP  NPN"
+1,Batt_clip_9V,"Battery Clip, 9 volts"
+1,Batt_9V_A,"Battery, 9V, alkaline"
+1,WSW3PDT-PB,"Pushbutton, 3PDT"
+1ft,1017/red,"Wire, #22 solid, red"
+2,PJP,"Phone jack, non shorting"
+2,EC47-10,"Capacitor, 47uF@10 VDC"
+1,MFR2.2K-.5,"Metal film resistor, 2.2K ohm, 1/2 watt"
+1,MFR10K-.5,"Metal film resistor, 10K ohm, 1/2 watt"
+1,MFR82K-.5,"Metal film resistor, 82K ohm, 1/2 watt"
+1,MFR150K-.5,"Metal film resistor, 150K ohm, 1/2 watt"
+1,MFR220K-.5,"Metal film resistor, 220K ohm, 1/2 watt",
+1,MFR270K-.5,"Metal film resistor, 270K ohm, 1/2 watt",
+1,MFR330K-.5,"Metal film resistor, 330K ohm, 1/2 watt",
+1,MFR470K-.5,"Metal film resistor, 470K ohm, 1/2 watt",
+2,WP254A,"Pot, 250K-A",
+2,WKW,"Knob, white, round",
+1,PEC152-63,"Capacitor, Polyester, .0015uF@63V",
+1,PEC223-63,"Capacitor, Polyester, .022uF@63V",
+1,PEC104-63,"Capacitor, Polyester, .1uF@63V",
+
+Note: 150K to 470K resistors are used for setting gain and bias of transistor for best overall tone.,,,
+
+
+,,,

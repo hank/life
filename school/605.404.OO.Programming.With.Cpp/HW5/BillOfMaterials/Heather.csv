@@ -1,0 +1,95 @@
+Weber Heather Amp Kit,,
+Bill of Materials,,
+
+Qty,Part Number,Description
+1,CAB-6Sx,"Cabinet, 6Sx, covering and grills chosen by customer "
+1,6Sx_KT,"Chassis kit. Chassis, brass plate"
+1,Heather_FB,"Fiber board, Heather"
+1,FEN-PL, Red  Blue  Green ? Purple
+1,WOT100 LHR or HHR,"Transformer, output, per customer spec.  WOT100HHR                 WOT100LHR"
+1,WPT100,"Transformer, power NOTE: TAPS ON ONE SIDE"
+1,W022699,Choke
+4,KT88   ,"Vacuum tube, per customer spec"
+4,EL34   ,"Vacuum tube, per customer spec"
+5,12AX7B,Vacuum tube
+1,WSW-FS-1,1 button foot switch
+1,Heather_FB_mount,"Heather fiber mount - 8 #6 Nylon standoffs, 16 #6 screws, 2 #8 standoffs, 2 #8 screws, 4 #4 (3/4"") standoffs, 4 #4 screws"
+2,Chansw-LP,"Channel switch board, 2 units",
+1,PC-IEC,"Power cord, IEC end",
+,,,
+1,CCW-Heather,"Kit, cloth covered wire, Heather",
+,"( 14 ft. Red, Yellow, Green)",,
+10,CHK-11,"Knob, chicken head, flat top, black",
+1,CBL-GP,"Shielded cable, 8ft, unterminated",
+1,CF-1,"Fuse, 1 amp",
+1,CF-4,"Fuse, 4 amp",
+,,,
+5,SKT9,"Tube socket, 9 pin",
+4,SKT-8A,"Tube socket, 8 pin",
+4,TR-34 or TR-8,Depends on output tubes chosen    EL34/TR-34  6L6GCR/TR-8,
+18,Bolt-SKT,"Bolt, machine, #4-40x5/16, with nut w/integral star washer",
+,,,
+1,IEC-1,"IEC Plug, Chassis mount",
+2,FH-2,Fuseholder,,
+2,WSW-SPST-1,"Switch, toggle, panel mount, SPST",,
+2,PJP,"Chassis mount phone jack, non shorting",,
+1,PJP-ST,"Chassis mount phone jack, stereo (foot switch)",, 
+3,PJP-CL,"Phone jack, cliff type, with circuit board",,
+4,Large Grommet,"5/8"" OD chassis grommets",,
+1,Small Grommet,"9/16"" OD  Chassis Grommets",,
+2,WSW-SPDT-M,"Switch, mini toggle, SPDT",,
+1,WSW-DPDT-M,"Switch, mini toggle, DPDT",,
+1,KXM-5-2x3,Impedance Selector (sections paralleled),,
+1,Wire Nut,"Wire Nut, small",,
+1,Terminal,"Terminal, #8, solder lug",,
+4,#10-32x1,"#10-32x1 bolt, philips head",,
+1,WP502L,"Potentiometer, 5K Linear",,
+1,WP253L-slot,"Potentiometer, 25K Linear, screwdriver slot",,
+1,WP253L,"Potentiometer, 25K Linear",,
+1,WP254L   ,"Potentiometer, 250K Linear",
+2,WP504A        ,"Potentiometer, 500K Audio",
+4,WP105A,"Potentiometer, 1 meg Audio",
+,,,
+1,MFR470-.5,"Resistor, 470, 1/2 watt",
+1,MFR1200-.5,"Resistor, 1.2K, 1/2 watt",
+2,MFR2K-.5,"Resistor, 2K, 1/2 watt",
+7,MFR2.2K-.5,"Resistor, 2.2K, 1/2 watt",
+1,MFR4.7K-.5,"Resistor, 4.7K, 1/2 watt",
+1,MFR10K-.5,"Resistor, 10K, 1/2 watt",
+1,MFR20K-.5,"Resistor, 20K, 1/2 watt",
+3,MFR39K-.5,"Resistor, 39K, 1/2 watt",
+1,MFR47K-.5,"Resistor, 47K, 1/2 watt",
+1,MFR56K-.5,"Resistor, 56K, 1/2 watt",
+1,MFR68K-.5,"Resistor, 68K, 1/2 watt",
+1,MFR82K-.5,"Resistor, 82K, 1/2 watt",
+6,MFR100K-.5,"Resistor, 100K, 1/2 watt"
+6,MFR220K-.5,"Resistor, 220K, 1/2 watt"
+1,MFR330K-.5,"Resistor, 330K, 1/2 watt"
+4,MFR470K-.5,"Resistor, 470K, 1/2 watt"
+5,MFR1M-.5,"Resistor, 1M ohm, 1/2 watt"
+2,MFR2.2M-.5,"Resistor, 2.2M, 1/2 watt"
+2,MFR15K-1,"Resistor, 15K, 1 watt"
+1,MFR10K-2,"Resistor, 10K, 2 watt"
+8,MFR220K-2,"Resistor, 220K, 2 watt"
+4,MFR1K-5,"Resistor, 1K, 5 watt"
+4,CCC103-1KV,"Capacitor, .01uF, 1KV"
+1,CCC104-1KV,"Capacitor, .1uF, 1KV"
+1,SMC470-500,"Capacitor, 47pF, 500 volts"
+2,SMC121-500,"Capacitor, 120pF, 500 volts"
+2,SMC501-500,"Capacitor, 500pF, 500 volts"
+2,PEC102-630,"Capacitor, .001uf, 630 volts"
+1,PEC222-630,"Capacitor, .0022uf, 630 volts",,,
+1,PEC562-630,"Capacitor, .0056uf, 630 volts",,,
+7,PEC223-630,"Capacitor, .022uF, 630 volts",,,
+2,PEC473-630,"Capacitor, .047uF, 630 volts",,,
+2,PEC104-630,"Capacitor, .1uF, 630 volts",,,
+4,EC105-25,"Capacitor, 1uF, 25 volts",,,
+1,EC256-25,"Capacitor, 25uF, 25 volts",,,
+2,EC166-150,"Capacitor, 16uF, 150 volts",,,
+2,EC206-450,"Capacitor, 20uF, 450 volts",,,
+1,EC406-450,"Capacitor, 40uF, 450 volts",,,
+8,EC107-450,"Capacitor, 100uF, 450 volts",,,
+4,1N5408,Diode,,,
+1,1N4007,Diode,,,
+1,WTH-1,Weber Thermistor,,,
+,,,,,

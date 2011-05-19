@@ -1,0 +1,8 @@
+env = DefaultEnvironment(
+   CPPPATH = ['#include/'],
+   CXXFLAGS = "-std=c++0x",
+   #CXXCOMSTR = "Building $TARGET",
+   #LINKCOMSTR = "Linking $TARGET",
+)
+Export('env')
+env.SConscript(['examples/SConscript'])

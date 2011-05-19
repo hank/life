@@ -1,0 +1,96 @@
+Weber 6D30 Combo Amp Kit,,
+Bill of Materials,,
+
+Qty,Part Number,Description
+1,6D30KT,"6D30 Combo chassis kit. Chassis, brass plate, fiber boards,"
+,,Panel             Gold w/black letters   Black with white letters 
+ ,6D30 Combo Cab," Cabinet, combo, selected by customer"
+ ,Speaker(s),Speaker(s)   and cabinet chosen by customer.
+ ,#8-32 Nut,For mounting speakers. Qty determined by cabinet chosen.
+1,6M45-PL, Red  White  Green (Customer selected) 
+1,WPT30,Power Transformer  International primary voltages
+1,WOT45HHR,Output Transformer     WOT45HHR  
+1,Bias_Meter,"Bias Meter for the 6D30, assembled"
+1,W014684,Choke
+1,WZ34,Copper Cap Rectifier
+4,EL84,Vacuum tube
+3,12AX7B,Vacuum tube
+1,EF86,Vacuum tube
+1,WCC-6D30,"Weber Cap Can,  40uF, 40uF, 20uf, 20uF   w/2 #6-32 bolts and nuts"
+1,PC-Clamp,"Clamp, power cord, plastic"
+1,6V30 standoff kit,"6 each 4-40x3/8  standoff, 12 each 4-40x1/4 screw w/star washer "
+4,#8-32 Solder Term.,#8-32 Solder Terminal Keystone
+2,#4-40 Solder Term.,#4-40 Solder Terminal
+1,PC-CUT,"Power cord, cut end"
+,,
+1,CCW-6V30,"Kit, cloth covered wire, 6V30"
+,"( 12ft Yellow, Red, Green, 4 ft. Black, White)",
+10ft,3053/1,"Wire, solid, black, 20ga."
+1,CBL-GP,"Shielded cable, 8ft, unterminated"
+9,MRK or WKW,"Knob, customer choice              MRK   WKW "
+1,CF-3,"Fuse, 3 amp"
+,,
+4,SKT9,"Tube socket, 9 pin"
+4,SKT9A,"Tube socket assembly, 9 pin"
+1,SKT8A,"Tube socket, octal"
+4,TR-84,Tube Retainer
+1,TS-2,"Terminal strip, 2 position"
+2,TS-3,"Terminal strip, 3 position"
+18,Bolt-SKT,"Bolt, machine, #4-40x5/16, with nut and star washer"
+,,
+8,PJ-P-CL,"Chassis mount phone jack, Cliff type"
+1,FH-2,Fuseholder
+2,CB-6M45,"#8-32 x 3/4"" Chassis bolt with finshing washer (preamp)"
+2,WSW-SPST-3,"Switch, toggle, panel mount, SPST, Carling 110-63"
+3,WSW-DPDT-F-5,"Switch, toggle, panel mount, DPDT"
+1,WSW-R2x3,"Rotary switch, 2 pole, three position (impedance selector)"
+1,WSW-R1x12,"Rotary switch, 12 position (TDS)"
+6,Small Grommet,"9/16"" OD Chassis Grommets"
+3,"#8-32 x 1/2"" Bolt/Nut",#8-32 bolt and nut with star washer (attach chasses together)
+1,RES-CLAMP,"Resistor clamp, 6D30, with #4-40 hardware"
+1,TP_BLK,"Test Point, Black"
+1,TP_RED,"Test Point, Red"
+3,Wire Nut,"Wire Nut, small"
+5,"#10-32 x 1"" Bolt","Chassis mounting screws, w/star washer (power amp)"
+1,WP253L     ,"Potentiometer, 25K linear "
+1,WP503L-slot,"Potentiometer, 50K linear, screwdriver slot "
+2,WP504A,"Potentiometer, 500K audio"
+1,WP105A-PPSW,"Potentiometer, 1 meg audio, w/P-P switch"
+2,WP105A,"Potentiometer, 1 meg audio"
+,,
+2,RES50-10,"Resistor, 50, 10 watt"
+1,MFR1.2K-.5,"Resistor, 1.2K, 1/2 watt"
+6,MFR1500-.5,"Resistor, 1.5K, 1/2 watt"
+1,MFR2.2K-.5,"Resistor, 2.2K, 1/2 watt"
+1,MFR15K-.5,"Resistor, 15K, 1/2 watt"
+1,MFR47K-.5,"Resistor, 47K, 1/2 watt"
+1,MFR56K-.5,"Resistor, 56K, 1/2 watt"
+4,MFR68K-.5,"Resistor, 68K, 1/2 watt"
+4,MFR100K-.5,"Resistor, 100K, 1/2 watt"
+4,MFR220K-.5,"Resistor, 220K, 1/2 watt"
+1,MFR270K-.5,"Resistor, 270K, 1/2 watt"
+4,MFR1M-.5,"Resistor, 1M ohm, 1/2 watt"
+1,MFR1.5M-.5,"Resistor, 1.5M ohm, 1/2 watt"
+1,MFR1-2,"Resistor, 1 ohms, 2 watts"
+4,MFR100-2,"Resistor, 100, 2 watt"
+3,MFR22K-2,"Resistor, 22K, 2 watt"
+1,1N4007,Diode
+2,SMC121-500,"Capacitor, 120pF, 500 volts"
+1,SMC251-500,"Capacitor, 250pF, 500 volts"
+3,SMC501-500,"Capacitor, 500pF, 500 volts"
+1,SMC751-500,"Capacitor, 750pF, 500 volts"
+1,PEC102-630,"Capacitor, .001uF, 630 volts"
+1,PEC152-630,"Capacitor, .0015uF, 630 volts"
+1,PEC222-630,"Capacitor, .0022uF, 630 volts"
+1,PEC332-630,"Capacitor, .0033uF, 630 volts"
+1,PEC472-630,"Capacitor, .0047uF, 630 volts"
+1,PEC682-630,"Capacitor, .0068uF, 630 volts"
+3,PEC103-630,"Capacitor, .01uF, 630 volts"
+3,PEC223-630,"Capacitor, .022uF, 630 volts"
+1,PEC473-630,"Capacitor, .047uF, 630 volts"
+3,PEC104-630,"Capacitor, .1uF, 630 volts"
+1,EC257-25,"Capacitor, 250uF, 25 volts"
+3,EC256-50,"Capacitor, 25uF, 50 volts"
+1,EC506-150,"Capacitor, 50uF, 150 volts"
+2,EC206-450,"Capacitor, 20uF, 450 volts"
+1,EC406-450,"Capacitor, 40uF, 450 volts"

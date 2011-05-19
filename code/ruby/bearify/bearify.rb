@@ -29,6 +29,9 @@ class MainController < Ramaze::Controller
   def verify
     @sigs = []
     @orig_data = request.params['data']
+    if @orig_data.nil?
+      # XXX: Implement HTTP error here.
+    end
     begin
       GPGME::verify(request.params['data'], nil, @plain) do |signature|
         @sigs << signature

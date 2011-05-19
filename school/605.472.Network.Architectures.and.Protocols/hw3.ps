@@ -1,0 +1,278 @@
+%!PS-Adobe-2.0
+%Creator: atp v1.2 - February 1, 1995
+%%CreationDate: Fri Mar  4 21:22:48 2011
+%%Orientation: Landscape
+%%Pages: (atend)
+%%PageOrder: Ascend
+%%Title: hw3.txt
+%%DocumentFonts: Courier Courier-Italic Courier-Bold Helvetica-Bold  
+%%EndComments
+
+/Centre  { dup stringwidth pop 2 div neg 0 rmoveto } def
+   % change fonts using ISO Latin1 characters
+/ChgFnt
+{  dup FontDirectory exch known
+   { exch pop }
+   { dup 3 2 roll ReEncode } ifelse
+   findfont exch makefont exch scalefont setfont
+} def
+/ReEncode {
+findfont dup length dict begin
+  {  1 index /FID ne {def} {pop pop} ifelse } forall
+  /Encoding ISOLatin1Encoding def
+  currentdict end definefont pop
+} def
+/Rf { 700 [1.00 0.00 0.00 1.00 0 0] /Courier /Courier-Latin1 ChgFnt } def
+/If { 700 [1.00 0.00 0.00 1.00 0 0] /Courier-Italic /Courier-Italic-Latin1 ChgFnt } def
+/Bf { 700 [1.00 0.00 0.00 1.00 0 0] /Courier-Bold /Courier-Bold-Latin1 ChgFnt } def
+/Gpnf { 1450 [1.00 0.00 0.00 1.00 0 0] /Helvetica-Bold /Helvetica-Bold-Latin1 ChgFnt } def
+/Titlef { 1600 [1.00 0.00 0.00 1.00 0 0] /Helvetica-Bold /Helvetica-Bold-Latin1 ChgFnt } def
+/Datef { 1300 [0.83 0.00 0.00 1.00 0 0] /Helvetica-Bold /Helvetica-Bold-Latin1 ChgFnt } def
+/Gl        { newpath moveto 7902 0 rlineto 0 1839 rlineto -7902 0 rlineto fill } def
+/Gr        { newpath moveto 4800 0 rlineto 0 1839 rlineto -4800 0 rlineto fill } def
+/Gm        { newpath moveto 59298 0 rlineto 0 1839 rlineto -59298 0 rlineto fill } def
+/Header    { 0.80 setgray 3600 57561 Gl 70800 57561 Gr 0.93 setgray 11502 57561 Gm } def
+/U { currentpoint 3 -1 roll dup stringwidth pop 0 currentpoint
+     77 sub newpath M rlineto stroke 3 1 roll M S} def
+/M {moveto} def
+/S {show} def
+/Fr { Bf newpath moveto 0.94 setgray dup stringwidth pop 350 add dup 0
+  rlineto neg 3 2 roll 0 exch rlineto 0 rlineto fill 3 1 roll 0 setgray } def
+/#copies 1 def
+initgraphics
+1 100 div dup scale
+90 rotate 0 -61200 translate
+/StartPage { /SavedPage save def
+    Header
+  Datef  0 setgray 7671 57941 M Centre dup S 7551 58061 M Centre 1 setgray dup S
+  7551 58061 M Centre false charpath 0 setgray stroke
+  Gpnf 73320 57891 M Centre dup S 73200 58011 M Centre 1 setgray dup S
+  73200 58011 M Centre false charpath 0 setgray stroke
+  Titlef 39720 57951 M Centre dup S 39600 58071 M Centre 1 setgray dup S
+  39600 58071 M Centre false charpath 0 setgray stroke
+  Rf 0 setgray } def
+/EndPage { 1 setlinewidth 39600 56211 M 0 -51961 rlineto stroke showpage SavedPage restore } def
+%EndProlog
+%%Page: 1 1
+(hw3.txt) (1) (Mar 4  21:22) StartPage Rf 
+3600 55861 M (1.)S 
+4440 55094 M (a\) Yes.  Because routes can change at any time due to congestion and)S 
+5700 54327 M (many other factors, even if the software is working perfectly, packets)S 
+5700 53560 M (can still be routed differently and arrive out of order.  It is a normal)S 
+5700 52793 M (part of the operation of the network-layer nodes to optimize routing, so)S 
+5700 52026 M (one could say that the software is working perfectly even in the case)S 
+5700 51259 M (that packets arrive out of order.)S 
+4440 49725 M (b\) Each serves a different purpose.  Because PLP uses virtual circuits and)S 
+5700 48958 M (LAPB is agnostic to these, the flow control mechanisms serve two different)S 
+5700 48191 M (purposes.  At the network layer, the PLP flow control operates per)S 
+5700 47424 M (circuit, offering a higher degree of granularity, and doesn't apply to)S 
+5700 46657 M (other circuits even if they are being multiplexed over the same LAPB)S 
+5700 45890 M (session. LAPB flow control applies to all carried network layer virtual)S 
+5700 45123 M (circuits, and effects all of them equally since it's network-layer)S 
+5700 44356 M (agnostic.)S 
+4440 42822 M (c\) The D bit modifies the acknowledgement operation of the data link layer,)S 
+5700 42055 M (and therefore violates the OSI model.  The Q bit serves as an indicator)S 
+5700 41288 M (of control information or user data, which seems irrelevant to the data)S 
+5700 40521 M (link layer, and violates the OSI model because the network layer must)S 
+5700 39754 M (be aware of the type of data link layer underneath.)S 
+3600 37453 M (2. )S 
+4440 36686 M (a\)          P\(R\) P\(S\) Type  N\(R\) N\(S\))S 
+7380 35919 M ([I1 | 0  | 0  |  I  | 0  | 0  ] -->)S 
+5700 35152 M (<-- [I1 | 1  | 0  |  I  | 1  | 0  ])S 
+7380 34385 M ([I1 | 1  | 1  |  I  | 1  | 1  ] -->)S 
+7380 33618 M ([I1 | 1  | 2  |  I  | 1  | 2  ] -->)S 
+7380 32851 M ([I2 | 0  | 0  |  I  | 1  | 3  ] -->)S 
+7380 32084 M ([I1 | 1  | 3  |  I  | 1  | 4  ] -->)S 
+5700 31317 M (<-- [I2 | 1  | 0  |  I  | 5  | 1  ])S 
+7380 30550 M ([I3 | 0  | 0  |  I  | 2  | 5  ] -->)S 
+7380 29783 M ([I1 | 1  | 4  |  I  | 2  | 6  ] -->)S 
+7380 29016 M ([I2 | 1  | 1  |  I  | 2  | 7  ] -->)S 
+7380 28249 M ([I3 | 0  | 1  |  I  | 2  | 0  ] -->)S 
+7380 27482 M ([I1 | 1  | 5  |  I  | 2  | 1  ] -->)S 
+5700 26715 M (<-- [I3 | 2  | 0  |  I  | 2  | 2  ])S 
+4440 25181 M (b\)           V1\(S\) V1\(R\) V2\(S\) V2\(R\) V3\(S\) V3\(R\)   V\(S\) V\(R\))S 
+6120 24414 M (Frame 1    1     0     0     0     0     0      1    0)S 
+6120 23647 M (Frame 2    1     1     0     0     0     0      1    1)S 
+6120 22880 M (Frame 3    2     1     0     0     0     0      2    1)S 
+6120 22113 M (Frame 4    3     1     0     0     0     0      3    1)S 
+6120 21346 M (Frame 5    3     1     1     0     0     0      4    1)S 
+6120 20579 M (Frame 6    4     1     1     0     0     0      5    1)S 
+6120 19812 M (Frame 7    4     1     1     1     0     0      5    5)S 
+6120 19045 M (Frame 8    4     1     1     1     1     0      6    5)S 
+6120 18278 M (Frame 9    5     1     1     1     1     0      7    5)S 
+6120 17511 M (Frame 10   5     1     2     1     1     0      0    5)S 
+6120 16744 M (Frame 11   5     1     2     1     2     0      1    5)S 
+6120 15977 M (Frame 12   6     1     2     1     2     0      2    5)S 
+6120 15210 M (Frame 13   6     1     2     1     2     2      2    2)S 
+3600 13676 M (3. Frames/Packets in format [PT | Pr | Ps | FT | Nr | Ns].)S 
+9900 12142 M (|    Interface Commands           |   Protocol Actions             )S 
+9900 10608 M (|         Node A                  |                                )S 
+4020 9074 M (Transport     | Network        | Data Link      |                                )S 
+9900 7540 M (|                |                |                                )S 
+7380 6006 M (N-CONNECT req          |                |                                )S 
+7380 4472 M (------------>          |                |                                )S 
+47770 55094 M (|        DL-CONNECT req           |                                )S 
+47770 53560 M (|      ---------------->          |                                )S 
+47770 52026 M (|                |                |  [ - | -  | - | SABM | - | - ] )S 
+47770 50492 M (|                |                |         ------------->         )S 
+47770 48958 M (|                |                |                                )S 
+47770 47424 M (|                |                |                                )S 
+47770 45890 M (|                |                |   [ - | - | - | UA | - | - ]   )S 
+47770 44356 M (|       DL-CONNECT con            |          <-----------          )S 
+47770 42822 M (|      <----------------          |                                )S 
+47770 41288 M (|         DL-DATA req             |                                )S 
+47770 39754 M (|      ---------------->          | [CALLREQ | - | - | I | 0 | 0]  )S 
+47770 38220 M (|                |                |     -------------------->      )S 
+47770 36686 M (|                |                |                                )S 
+47770 35152 M (|                |                |                                )S 
+47770 33618 M (|                |                |                                )S 
+47770 32084 M (|                |                |                                )S 
+47770 30550 M (|                |                |                                )S 
+47770 29016 M (|                |                |                                )S 
+47770 27482 M (|                |                | [CALLCONF | - | - | I | 1 | 0] )S 
+47770 25948 M (|         DL-DATA ind             |      <--------------------     )S 
+47770 24414 M (|         <----------             |                                )S 
+45250 22880 M (N-CONNECT con          |                |                                )S 
+45250 21346 M (<------------          |                |                                )S 
+41470 19812 M (\(1\)      N-DATA req             |                |                                )S 
+45250 18278 M (------------>          |                |                                )S 
+47770 16744 M (|         DL-DATA req             |                                )S 
+47770 15210 M (|      ---------------->          |    [VC1 | 0 | 0 | I | 1 | 1]   )S 
+45250 13676 M (N-DATA req             |                |     -------------------->      )S 
+45250 12142 M (------------>          |                |                                )S 
+47770 10608 M (|         DL-DATA req             |                                )S 
+47770 9074 M (|      ---------------->          |    [VC1 | 0 | 1 | I | 1 | 2]   )S 
+45250 7540 M (N-DATA req             |                |     -------------------->      )S 
+45250 6006 M (------------>          |                |                                )S 
+47770 4472 M (|         DL-DATA req             |                                )S 
+EndPage
+%%Page: 2 2
+(hw3.txt) (2) (Mar 4  21:22) StartPage Rf 
+9900 55861 M (|      ---------------->          |    [VC1 | 0 | 2 | I | 1 | 3]   )S 
+9900 54327 M (|                |                |     -------------------->      )S 
+9900 52793 M (|                |                |                                )S 
+9900 51259 M (|                |                |                                )S 
+9900 49725 M (|                |                |                                )S 
+9900 48191 M (|                |                |                                )S 
+3600 46657 M (\(2\)      N-DATA req             |                |                                )S 
+7380 45123 M (------------>          |                |                                )S 
+9900 43589 M (|         DL-DATA req             |                                )S 
+9900 42055 M (|      ---------------->          |    [VC2 | 0 | 0 | I | 1 | 4]   )S 
+9900 40521 M (|                |                |     -------------------->      )S 
+9900 38987 M (|                |                |                                )S 
+9900 37453 M (|                |                |                                )S 
+9900 35919 M (|                |                |                                )S 
+3600 34385 M (\(3\)            |                |                |    [ - | - | - | REJ | 3 | - ] )S 
+9900 32851 M (|                |                |    <---------------------      )S 
+9900 31317 M (|                |                |    [VC1 | 0 | 2 | I | 1 | 3]   )S 
+9900 29783 M (|                |                |     -------------------->      )S 
+9900 28249 M (|                |                |                                )S 
+9900 26715 M (|                |                |                                )S 
+9900 25181 M (|                |                |    [VC2 | 0 | 0 | I | 1 | 4]   )S 
+3600 23647 M (\(4\)      N-DATA req             |                |     -------------------->      )S 
+7380 22113 M (------------>          |                |                                )S 
+9900 20579 M (|         DL-DATA req             |                                )S 
+9900 19045 M (|      ---------------->          |    [VC2 | 0 | 1 | I | 1 | 5]   )S 
+9900 17511 M (|                |                |     -------------------->      )S 
+9900 15977 M (|                |                |                                )S 
+9900 14443 M (|                |                |                                )S 
+9900 12909 M (|                |                |                                )S 
+9900 11375 M (|                |                |                                )S 
+3600 9841 M (\(5\)            |                |                |                                )S 
+9900 8307 M (|                |                |                                )S 
+9900 6773 M (|                |                |    [VC1 | 3 | 0 | I | 6 | 1]   )S 
+9900 5239 M (|          DL-DATA ind            |     <--------------------      )S 
+47770 55861 M (|          <----------            |                                )S 
+45250 54327 M (N-DATA ind             |                |                                )S 
+45250 52793 M (<---------             |                |                                )S 
+41470 51259 M (\(6\)      N-DATA req             |                |                                )S 
+45250 49725 M (--------->       DL-DATA req            |                                )S 
+47770 48191 M (|          ---------->            |    [VC2 | 0 | 2 | I | 2 | 6]   )S 
+47770 46657 M (|                |                |     -------------------->      )S 
+47770 45123 M (|                |                |                                )S 
+47770 43589 M (|                |                |                                )S 
+47770 42055 M (|                |                |                                )S 
+45250 40521 M (N-DATA req             |                |                                )S 
+45250 38987 M (--------->       DL-DATA req            |                                )S 
+47770 37453 M (|          ---------->            |    [VC2 | 0 | 3 | I | 2 | 7]   )S 
+47770 35919 M (|                |                |     -------------------->      )S 
+47770 34385 M (|                |                |                                )S 
+47770 32851 M (|                |                |                                )S 
+47770 31317 M (|                |                |                                )S 
+41470 29783 M (\(7\)            |                |                |                                )S 
+47770 28249 M (|                |                |  [VC2RR | 4 | - | I | 0 | 2]   )S 
+47770 26715 M (|          DL-DATA ind            |     <--------------------      )S 
+47770 25181 M (|          <----------            |                                )S 
+47770 23647 M (|                |                |                                )S 
+47770 22113 M (|                |                |                                )S 
+41470 20579 M (\(8\)      N-DATA req             |                |                                )S 
+45250 19045 M (--------->       DL-DATA req            |                                )S 
+47770 17511 M (|          ---------->            |    [VC1 | 1 | 3 | I | 3 | 0]   )S 
+47770 15977 M (|                |                |     -------------------->      )S 
+47770 14443 M (|                |                |                                )S 
+47770 12909 M (|                |                |                                )S 
+47770 11375 M (|                |                |                                )S 
+45250 9841 M (N-DATA req             |                |                                )S 
+45250 8307 M (--------->       DL-DATA req            |                                )S 
+47770 6773 M (|          ---------->            |    [VC1 | 1 | 4 | I | 3 | 1]   )S 
+47770 5239 M (|                |                |     -------------------->      )S 
+EndPage
+%%Page: 3 3
+(hw3.txt) (3) (Mar 4  21:22) StartPage Rf 
+9900 55861 M (|                |                |                                )S 
+9900 54327 M (|                |                |                                )S 
+9900 52793 M (|                |                |                                )S 
+7380 51259 M (N-DATA req             |                |                                )S 
+7380 49725 M (--------->       DL-DATA req            |                                )S 
+9900 48191 M (|          ---------->            |    [VC1 | 1 | 5 | I | 3 | 2]   )S 
+9900 46657 M (|                |                |     -------------------->      )S 
+9900 45123 M (|                |                |                                )S 
+9900 43589 M (|                |                |                                )S 
+9900 42055 M (|                |                |                                )S 
+3600 40521 M (\(9\)            |                |                |    [ - | - | - | RR | 3 | -]   )S 
+9900 38987 M (|                |                |     <--------------------      )S 
+3600 37453 M (\(10\)           |                |                |                                )S 
+9900 35919 M (|                |                |                                )S 
+9900 34385 M (|                |                |                                )S 
+9900 32851 M (|                |                |                                )S 
+9900 31317 M (|                |                |    [VC1 | 6 | 1 | I | 3 | 3]   )S 
+9900 29783 M (|                |  [DL Rejected] |     <--------------------      )S 
+9900 28249 M (|                |                |                                )S 
+9900 26715 M (|                |                |                                )S 
+9900 25181 M (|                |                |                                )S 
+9900 23647 M (|                |                |    [VC1 | 6 | 2 | I | 3 | 4]   )S 
+9900 22113 M (|                |  [DL Rejected] |     <--------------------      )S 
+9900 20579 M (|                |                |                                )S 
+3600 19045 M (\(11\)           |                |                |    [ - | - | - | REJ | 3 | -]  )S 
+9900 17511 M (|                |                |     -------------------->      )S 
+9900 15977 M (|                |                |                                )S 
+9900 14443 M (|                |                |                                )S 
+9900 12909 M (|                |                |    [VC1 | 6 | 1 | I | 3 | 3]   )S 
+9900 11375 M (|          DL-DATA ind            |     <--------------------      )S 
+9900 9841 M (|          <----------            |                                )S 
+7380 8307 M (N-DATA ind             |                |                                )S 
+7380 6773 M (<---------             |                |                                )S 
+9900 5239 M (|                |                |    [VC1 | 6 | 2 | I | 3 | 4]   )S 
+47770 55861 M (|          DL-DATA ind            |     <--------------------      )S 
+47770 54327 M (|          <----------            |                                )S 
+45250 52793 M (N-DATA ind             |                |                                )S 
+45250 51259 M (<---------             |                |                                )S 
+47770 49725 M (|                |                |                                )S 
+41470 48191 M (\(12\)           |                |                |                                )S 
+47770 46657 M (|                |                |                                )S 
+47770 45123 M (|                |                |    [VC2 | 4 | 0 | I | 3 | 5]   )S 
+47770 43589 M (|          DL-DATA ind            |     <--------------------      )S 
+47770 42055 M (|          <----------            |                                )S 
+45250 40521 M (N-DATA ind             |                |                                )S 
+45250 38987 M (<---------             |                |                                )S 
+47770 37453 M (|                |                |                                )S 
+41470 35919 M (\(13\)           |          DL-DATA req            |   [VC1RR | 3 | - | I | 6 | 3]  )S 
+47770 34385 M (|          ---------->            |   -------------------->        )S 
+47770 32851 M (|                |                |                                )S 
+47770 31317 M (|                |                |                                )S 
+47770 29783 M (|                |                |                                )S 
+47770 28249 M (|                |                |                                )S 
+EndPage
+%%Trailer
+%%Pages: 3
+%%EOF

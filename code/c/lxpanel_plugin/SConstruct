@@ -1,0 +1,16 @@
+env = Environment(
+    LIBPREFIX = "",
+)
+
+# Grab all the pkg-config stuff.
+env.ParseConfig('pkg-config --cflags --libs gtk+-2.0')
+
+conf = Configure(env)
+if not conf.CheckLib("cairo"):
+  print 'Could not find cairo library.'
+  Exit(1)
+conf.Finish()
+
+plugin = env.SharedLibrary('example.c')
+env.Install('/usr/lib/lxpanel/plugins', plugin)
+env.Alias('install', '/usr/lib/lxpanel/plugins')

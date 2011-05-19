@@ -1,0 +1,94 @@
+Weber Halle Amp Head Kit,,
+Bill of Materials,,
+
+Qty,Part Number,Description
+1,CAB-6M45,"Cabinet, 6M45 Head, covering color chosen by customer"
+1,HalleKT,"Halle Chassis kit. Chassis. brass plate, fiber board"
+1,Halle_plexi,"Plexi panels, front and rear, chosen by customer"
+1,6M45-lamp, Red  White  Green (Customer selected)
+1,WOT45HHR or LHR,Output Transformer      WOT45HHR           WOT45LHR
+1,W022798 (EU),"Transformer, power   USA  EU"
+1,W022699,Choke
+2,EL34       6LGCR ,Vacuum tube (Customer selected)
+1,WZ34,Copper Cap Rectifier
+3,12AX7B,Vacuum tube
+1,WSW-FS-1,1 button foot switch
+1,Halle-Standoff,"Halle Standoff Kit - 4 #6 Standoffs, 8 #6 screws, 2 #8 standoffs, 2 #8 screws, 4 #4 (3/4"") standoffs, 8 #4 screws"
+1,Chansw-LP,"Channel switch board, low power, assembled"
+1,PC-IEC,Power cord IEC end
+,,
+1,CCW-6M45,"Kit, cloth covered wire, 6M45"
+,"( 12 ft. Red, Yellow, Green)",
+14,WKW,"Knob, round, white"
+1,CHK-11,"Knob, chicken head, flat top, black"
+1,CF-.5,"Fuse, .5 amp NOTE: This fuse is .5  NOT  5"
+1,CF-3,"Fuse,  3 amp"
+,,
+3,SKT9,"Tube socket, 9 pin"
+3,SKT-8A,"Tube socket, 8 pin"
+1,TR-8,"Tube clamp, octal, for copper cap"
+2,TR-34 or TR-8,Depends on output tubes chosen    EL34/TR-34  6L6GCR
+12,Bolt-SKT,"Bolt, machine, #4-40x5/16, with nut and star washer"
+,,
+3,PJ-P-CL,"Chassis mount phone jack, Cliff type",,
+1,IEC-1,"IEC Plug, chassis mount",, 
+2,FH-2,Fuseholder,,
+4,CB-6M45,"8-32 x 3/4"" Chassis bolt with finshing washer",,
+2,PJP,"Chassis mount phone jack, non shorting",,
+3,Large Grommet,"5/8"" OD  Chassis Grommet",,
+2,WSW-DPDT-F5,"Switch, toggle, panel mount, DPDT",,
+1,KXM-5-2x3,Impedance Selector (sections paralleled),,
+3,TS-2,Terminal Strip,,
+1,Terminal,"Terminal, #8, solder lug",,
+2,WP502L,"Potentiometer, 5K Linear",,
+1,WP253L,"Potentiometer, 25K Linear",,
+1,WP104A     ,"Potentiometer, 100K Audio",,
+1,WP254A         ,"Potentiometer, 250K Audio",,
+3,WP254L         ,"Potentiometer, 250K Linear",,
+1,WP504A         ,"Potentiometer, 500K Audio",,
+3,WP105A,"Potentiometer, 1 meg Audio"
+1,WP105L,"Potentiometer, 1 meg Linear"
+1,WP105L-PPSW,"Potentiometer, 1 meg Linear, with push-pull switch"
+1,WP503L-slot,"Potentiometer, 50K, linear, screwdriver slot"
+,,
+2,MFR470-.5,"Resistor, 470, 1/2 watt"
+1,MFR510-.5,"Resistor, 510, 1/2 watt"
+1,MFR2K-.5,"Resistor, 2K, 1/2 watt"
+2,MFR3.3K-.5,"Resistor, 3.3K, 1/2 watt"
+3,MFR5.1K-.5,"Resistor, 5.1K, 1/2 watt"
+2,MFR10K-.5,"Resistor, 10K, 1/2 watt (extra 10K for bias range adjustment)"
+2,MFR15K-.5,"Resistor, 15K, 1/2 watt (extra 15K for bias range adjustment)"
+1,MFR27K-.5,"Resistor, 27K, 1/2 watt"
+1,MFR33K-.5,"Resistor, 33K, 1/2 watt"
+3,MFR68K-.5,"Resistor, 68K, 1/2 watt"
+1,MFR91K-.5,"Resistor, 91K, 1/2 watt"
+3,MFR100K-.5,"Resistor, 100K, 1/2 watt"
+3,MFR120K-.5,"Resistor, 120K, 1/2 watt"
+1,MFR150K-.5,"Resistor, 150K, 1/2 watt"
+1,MFR180K-.5,"Resistor, 180K, 1/2 watt"
+1,MFR200K-.5,"Resistor, 200K, 1/2 watt"
+2,MFR220K-.5,"Resistor, 220K, 1/2 watt"
+2,MFR270K-.5,"Resistor, 270K, 1/2 watt"
+3,MFR1M-.5,"Resistor, 1M ohm, 1/2 watt"
+2,MFR1K-5,"Resistor, 1K, 5 watt"
+1,MFR3.3K-2,"Resistor, 3.3K, 2 watt"
+2,MFR10K-2,"Resistor, 10K, 2 watt"
+4,MFR220K-2,"Resistor, 220K, 2 watt"
+1,1N4007,Diode
+1,SMC470-500,"Capacitor, 47pF, 500 volts"
+1,SMC251-500,"Capacitor, 250pF, 500 volts"
+1,SMC331-500,"Capacitor, 330pF, 500 volts"
+1,SMC471-500,"Capacitor, 470pF, 500 volts"
+1,PEC222-630,"Capacitor, .0022uF, 630 volts"
+1,PEC103-630,"Capacitor, .01uF, 630 volts"
+1,PEC153-630,"Capacitor, .015uF, 630 volts"
+3,PEC223-630,"Capacitor, .022uF, 630 volts"
+2,PEC473-630,"Capacitor, .047uF, 630 volts"
+6,PEC104-630,"Capacitor, .1uF, 630 volts"
+1,EC684-50,"Capacitor, .68uF, 50 volts"
+1,EC105-50,"Capacitor, 1uF, 50 volts"
+2,EC475-50,"Capacitor, 4.7uF, 50 volts"
+1,EC685-50,"Capacitor, 6.8uF, 50 volts"
+2,EC506-150,"Capacitor, 50uF, 150 volts"
+3,EC406-450,"Capacitor, 40uF, 450 volts"
+4,EC107-450,"Capacitor, 100uF, 450 volts"
