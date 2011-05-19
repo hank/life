@@ -3,7 +3,7 @@
 
 TEST(FactorialTest, Negative) {
   Factorial f(-5);
-  EXPECT_EQ(1, (int)f);
+  EXPECT_EQ(0, (int)f);
   Factorial g(-1);
   EXPECT_EQ(1, (int)g);
 }
