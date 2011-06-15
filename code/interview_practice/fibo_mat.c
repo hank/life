@@ -51,8 +51,6 @@ mpz_fibo_ui can do this in about 15 minutes vs 19.5.  I'm still proud.
 
 void print_state(mpz_t* fm2, mpz_t* fm1, mpz_t* f, uint32_t n)
 {
-  //gmp_printf("Result:\t%Zd\n\t%Zd\n\t%Zd\n", 
-  //            fm2, fm1, f);
   gmp_printf("fib(%d) = %Zd\n", n, f);
 }
 
@@ -86,39 +84,9 @@ int main(int argc, char** argv)
   mpz_set_si(fm1, 1);
   mpz_set_si(f, 1);
 
-/*
-  printf("Initial state:\n");
-  print_state(&fm2, &fm1, &f, n);
-*/
-  // Let the games begin!
-  // |3 2|   |3 2| 
-  // |2 1|   |2 1|
-  // f = 3 * 3 + 2 * 2 = 9 + 4 = 13
-  //     f * f + fm1 * fm1
-  // fm1 = 3 * 2 + 2 * 1 = 8
-  //       f * fm1 + fm1 * fm2
-  // fm2 = 2 * 2 + 1 * 1 = 5
-  //       fm1 * fm1 + fm2 * fm2
   mpz_t oldf, oldfm1, tmp;
   mpz_inits(oldf, oldfm1, tmp, NULL);
 
-/*
-  NEXT_FIB();
-
-  printf("After first round:\n");
-  print_state(&fm2, &fm1, &f, n);
-
-  NEXT_FIB();
-
-  printf("After second round:\n");
-  print_state(&fm2, &fm1, &f, n);
-
-  NEXT_FIB();
-
-  printf("After third round:\n");
-  print_state(&fm2, &fm1, &f, n);
-*/
-  // Time to do what we were asked.
   if(argc < 2) 
   {
     printf("Give me a number, brah!\n");

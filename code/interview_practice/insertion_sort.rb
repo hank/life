@@ -9,9 +9,10 @@ def is!(ar)
         ar[j-1] = t
         j -= 1
     end
+    puts ar.to_s
   end
 end
 
 a = [4,2,3,5,6,3,2,5,2,5,2,6,34,54,65,7,3,23,34,2,3,-2,4,5,-324,34,2,4,6]
 is!(a)
-puts a
+puts a.to_s
