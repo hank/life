@@ -5,5 +5,5 @@ function Dog(name)
   this.name = name;
 }
 
-Dog.prototype.__proto__ = EventEmitter.prototype;
+Dog.prototype = new EventEmitter;
 exports.Dog = Dog;
