@@ -1,5 +1,6 @@
 var qs = require("querystring");
 var fs = require("fs");
+var jade = require("jade");
 var helpy = require("../helpy");
 
 function list(response, postData) {
@@ -22,18 +23,12 @@ function list(response, postData) {
 
 function start(response, postData) {
   console.log("Request handler 'start' was called.");
-  var body = '<html>'+
-   '<body>'+
-   '<ul><li><a href="/list">List</a></li></ul>'+
-   '<form action="upload" method="post">'+
-   '<textarea name="text" rows=20 cols=60></textarea>'+
-   '<input type="submit" value="Submit text" />'+
-   '</form>'+
-   '</body>'+
-   '</html>';
-  response.writeHead(200, {"Content-Type":"text/html"});
-  response.write(body);
-  response.end();
+  jade.renderFile('./templates/start.jd', function(err, html) {
+    if(err) throw err;
+    response.writeHead(200, {"Content-Type":"text/html"});
+    response.write(html);
+    response.end();
+  });
 }
 
 function upload(response, postData) {
