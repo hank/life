@@ -1,4 +1,7 @@
-all: heaps prim htable2 itoa fun_with_strings queue
+all: heaps prim htable2 itoa fun_with_strings queue bintree
+
+bintree: bintree.c
+	gcc -Wall -o $@ $<
 
 heaps: heaps.c
 	gcc -Wall -o $@ $<

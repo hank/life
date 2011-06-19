@@ -1,0 +1,10 @@
+!!! 5
+html
+  body
+    h1 Nodey Webserver
+    ul
+      li
+        a(href="/list") List
+    form(action="upload",method="post")
+      textarea(name="text",rows="20",cols="60")
+      input(type="submit",value="Submit text")
