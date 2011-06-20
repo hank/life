@@ -1,4 +1,4 @@
-all: heaps prim htable2 itoa fun_with_strings bintree quicksort
+all: heaps prim htable2 itoa fun_with_strings bintree quicksort queue
 
 bintree: bintree.c
 	gcc -Wall -o $@ $<
@@ -20,3 +20,6 @@ htable2: htable2.cpp
 
 prim: prim.c
 	gcc -Wall -o $@ $<
+
+queue: queue.cpp
+	g++ -Wall -o $@ $<
