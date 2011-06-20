@@ -1,7 +1,7 @@
 CFLAGS=-Lgmp/lib -Igmp/include
 TARGETS=basic_heap merge_sort2 quick_sort bfs abstract_factory_pattern \
         builder_pattern adapter_pattern fizzbuzz fibo_mat money \
-        fibo_gmp_native avl_tree
+        fibo_gmp_native avl_tree sel_sort
 all: $(TARGETS)
 
 fibo_gmp_native: fibo_gmp_native.c
@@ -12,6 +12,9 @@ fibo_mat: fibo_mat.c
 
 avl_tree: avl_tree.cpp
 	g++ -Wall -o $@ $<
+
+sel_sort: sel_sort.c
+	gcc -Wall -o $@ $<
 
 fizzbuzz: fizzbuzz.c
 	gcc -Wall -o $@ $<
