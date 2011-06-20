@@ -1,3 +1,4 @@
+queue
 quicksort
 itoa
 fun_with_strings
@@ -5,3 +6,4 @@ bintree
 heaps
 htable2
 prim
+quicksort_test
