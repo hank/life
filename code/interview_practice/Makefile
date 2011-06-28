@@ -1,11 +1,15 @@
 CFLAGS=-Lgmp/lib -Igmp/include
 TARGETS=basic_heap merge_sort2 quick_sort bfs abstract_factory_pattern \
-        builder_pattern adapter_pattern fizzbuzz money weird_sort_string \
+        builder_pattern adapter_pattern fizzbuzz fibo_mat money        \
+        weird_sort_string fibo_gmp_native avl_tree sel_sort splay_tree \
         reverse_linked_list biggest_subarray
 all: $(TARGETS)
 
 fibo_gmp_native: fibo_gmp_native.c
 	gcc -Wall $(CFLAGS) -o $@ $< -lgmp
+
+splay_tree: splay_tree.cpp splay_tree.h
+	g++ -O2 -g --std=gnu++0x -Wall -o $@ $<
 
 fibo_mat: fibo_mat.c
 	gcc -Wall $(CFLAGS) -o $@ $< -lgmp

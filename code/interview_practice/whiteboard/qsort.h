@@ -5,7 +5,7 @@
 void swap(int* i, int* j)
 { int tmp = *i; *i = *j; *j = tmp; }
 
-// Takes list, left/right pointers, and pivot index
+// Takes list, length, and pivot index
 // Returns new pivot index
 int partition(int* a, int n, int pivotidx)
 {
@@ -23,6 +23,7 @@ int partition(int* a, int n, int pivotidx)
   return save - a;
 }
 
+// In-place quicksort for arrays.
 void quicksort(int* a, int n)
 {
   if(n < 2) return;
@@ -32,6 +33,8 @@ void quicksort(int* a, int n)
   quicksort(&a[new_pividx+1], n - new_pividx - 1);
 }
 
+// In-place quickselect for arrays
+// May mangle array order, though.  Consider copying before calling.
 int quickselect(int* a, int n, int rank)
 {
   if(n < 2) return a[0];

@@ -10,7 +10,10 @@ inline void fill_subset(int a[], int n, int rank, int fill[])
 {
   int i = 0;
   while(rank) {
-    if(rank&1) fill[i++] = i;
+    if(rank&1) {
+      fill[i] = i;
+      ++i;
+    }
     rank >>= 1;
     ++i;
   }
@@ -30,23 +33,6 @@ void random_subset(int a[], int n)
 {
   unsigned int rank = rand() % n;
   subset(a, n, rank);
-}
-
-
-void set_cover(int a[], int n)
-{
-  if(!n) return;
-  int num_subsets = pow(2,n) - 1;
-  int* current = calloc(1, sizeof(a[0])*n);
-  int added = 0;
-  int i;
-  int 
-  while(added < n)
-  {
-    // Find the subset that contains the most 
-    // new items
-    fill_subset(a, n, 
-  }
 }
 
 // Simply create an integer and increment until (2^n)-1
@@ -71,8 +57,7 @@ int main()
 {
   srand(time(0));
   int a[] = {3,4,5,6};
-  //find_all_subsets(a, sizeof(a)/sizeof(a[0]));
+  find_all_subsets(a, sizeof(a)/sizeof(a[0]));
   //random_subset(a, sizeof(a)/sizeof(a[0]));
-  set_cover(a, sizeof(a)/sizeof(a[0]));
   return 0;
 }

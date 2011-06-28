@@ -78,14 +78,26 @@ int main(int argc, char** argv)
   uint32_t n = 2;
   uint32_t i = 1;
 
+  #if __GNU_MP__ == 5
   mpz_inits(fm2, fm1, f, NULL);
+  #else
+  mpz_init(fm2);
+  mpz_init(fm1);
+  mpz_init(f);
+  #endif
   // Initial conditions: 0 1 1
   mpz_set_si(fm2, 0);
   mpz_set_si(fm1, 1);
   mpz_set_si(f, 1);
 
   mpz_t oldf, oldfm1, tmp;
+  #if __GNU_MP__ == 5
   mpz_inits(oldf, oldfm1, tmp, NULL);
+  #else
+  mpz_init(oldf);
+  mpz_init(oldfm1);
+  mpz_init(tmp);
+  #endif
 
   if(argc < 2) 
   {
