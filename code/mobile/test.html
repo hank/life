@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="text/javascript" 
+    src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
+  <script type="text/javascript" 
+    src="http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.js"></script>
+  <link rel="stylesheet"
+     href="http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.css" />
+</head>
+<body>
+<div data-role="page" id="foo">
+  <div data-role="header">
+    <h1>Foofagnugen</h1>
+  </div>
+  <div data-role="content">
+    <p>I'm the first page</p>
+    <a href="#bar">Go to Bar!</a>
+  </div>
+  <div data-role="footer">
+    <h3>This is the happy footer</h3>
+  </div>
+</div>
+
+<div data-role="page" id="bar">
+  <div data-role="header">
+    <h1>Bar</h1>
+  </div>
+  <div data-role="content">
+    <p>I'm the second page</p>
+    <a href="#foo">Go back to Foofagnugen!</a>
+  </div>
+  <div data-role="footer">
+    <h3>This is the happy footer</h3>
+  </div>
+</div>
+</body>
+</html>
