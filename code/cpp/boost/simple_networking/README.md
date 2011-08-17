@@ -9,3 +9,6 @@ Run the server: ./server
 Then run the client: ./client
 
 **Tada!**
+
+## Information Sources
+[Boost.Asio Iostreams Examples](http://www.boost.org/doc/libs/1_42_0/doc/html/boost_asio/examples.html#boost_asio.examples.iostreams)
