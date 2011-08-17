@@ -3,13 +3,20 @@ This is a neat little example of an extremely simple Boost.Asio client and serve
 
 ## Building
 Get dependencies
+
     sudo apt-get install libboost-dev libboost-system-dev build-essential
 Then
+
     make
 
 ## Running
-Run the server: ./server
-Then run the client: ./client
+Run the server:
+
+    ./server
+
+Then run the client:
+
+    ./client
 
 **Tada!**
 
