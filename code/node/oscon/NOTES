@@ -1,0 +1,6 @@
+node --debug opens a port on 5858
+Javascript doesn't have an event queue - node added it.
+EventEmitter
+Added inherits method to JS
+.on is the core of the event system
+
