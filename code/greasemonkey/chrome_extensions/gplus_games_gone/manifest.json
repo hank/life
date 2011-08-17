@@ -1,0 +1,14 @@
+{
+  "name": "G+ Games Gone!",
+  "version": "1.0",
+  "description": "Remove the Google+ Games button",
+  "content_scripts": [
+    {
+      "matches": ["https://plus.google.com/*"],
+      "css": ["gamesgone.css"]
+    }
+  ],
+  "permissions": [
+    "https://plus.google.com/"
+  ]
+}
