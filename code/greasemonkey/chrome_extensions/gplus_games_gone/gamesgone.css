@@ -1,3 +1,8 @@
 a[aria-label="Games"] {
   display:none;
 }
+
+div.c-ge-bd div div div.Vp,
+div.c-ge-bd div div div.Ie {
+  display:none;
+}

@@ -1,6 +1,6 @@
 {
   "name": "G+ Games Gone!",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Remove the Google+ Games button",
   "content_scripts": [
     {
