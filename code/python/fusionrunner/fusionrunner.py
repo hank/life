@@ -9,7 +9,8 @@ sys.path.append("./fusion-tables-client-python-read-only/src/")
 from authorization.oauth import OAuth
 from sql.sqlbuilder import SQL
 import ftclient
-from fileimport.fileimporter import CSVImporter
+import pprint
+pp = pprint.PrettyPrinter(indent=4)
 
 if __name__ == "__main__":
   consumer_key = "207320244638.apps.googleusercontent.com"
@@ -29,9 +30,10 @@ if __name__ == "__main__":
   token = "1/9rGx1JkAF8UtTSJKK1eSrqPznrZ-eYv1nE76Hb932Ho"
   secret = "6W7xLwgsiztHm-eOxFqaL20S"
   oauth_client = ftclient.OAuthFTClient(consumer_key, consumer_secret, token, secret)
-  print "Token: ", token
-  print "Secret: ", secret
 
-  #show tables
-  results = oauth_client.query(SQL().showTables())
-  print results
+  # show tables
+  results = [ x.split(",") for x in oauth_client.query(SQL().showTables()).split("\n")[1:-1] ]
+  pp.pprint(results)
+
+  for table in results:
+    print oauth_client.query(SQL().select(int(table[0]), None, None))
