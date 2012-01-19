@@ -17,18 +17,15 @@ if __name__ == "__main__":
   f = open('secret')
   try:
     consumer_secret = f.readline().rstrip()
-    print consumer_secret
   finally:
     f.close()
-#  
-#  url, token, secret = OAuth().generateAuthorizationURL(consumer_key, consumer_secret, consumer_key)
-#  print "Visit this URL in a browser: "
-#  print url
-#  raw_input("Hit enter after authorization")
-#  
-#  token, secret = OAuth().authorize(consumer_key, consumer_secret, token, secret)
-  token = "1/9rGx1JkAF8UtTSJKK1eSrqPznrZ-eYv1nE76Hb932Ho"
-  secret = "6W7xLwgsiztHm-eOxFqaL20S"
+  
+  url, token, secret = OAuth().generateAuthorizationURL(consumer_key, consumer_secret, consumer_key)
+  print "Visit this URL in a browser: "
+  print url
+  raw_input("Hit enter after authorization")
+  
+  token, secret = OAuth().authorize(consumer_key, consumer_secret, token, secret)
   oauth_client = ftclient.OAuthFTClient(consumer_key, consumer_secret, token, secret)
 
   # show tables
