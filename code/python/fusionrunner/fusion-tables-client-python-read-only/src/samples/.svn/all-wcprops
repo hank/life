@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/23/trunk/src/samples
+END
+oauth_example.py
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/23/trunk/src/samples/oauth_example.py
+END
+data.csv
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/14/trunk/src/samples/data.csv
+END
+clientlogin_example.py
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/23/trunk/src/samples/clientlogin_example.py
+END

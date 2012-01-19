@@ -1,0 +1,80 @@
+10
+
+dir
+23
+http://fusion-tables-client-python.googlecode.com/svn/trunk/src
+http://fusion-tables-client-python.googlecode.com/svn
+
+
+
+2011-10-20T21:28:14.765557Z
+23
+kbrisbin@google.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+21f10416-60cb-c34b-432c-f772d4f92854
+
+sql
+dir
+
+ftclient.py
+file
+
+
+
+
+2012-01-19T06:12:06.000000Z
+bf549f66a3b00f7b7a3116d0e6b634e3
+2011-10-20T21:28:14.765557Z
+23
+kbrisbin@google.com
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2523
+
+authorization
+dir
+
+oauth2
+dir
+
+samples
+dir
+
+httplib2
+dir
+
+fileimport
+dir
+
