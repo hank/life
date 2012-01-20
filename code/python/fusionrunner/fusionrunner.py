@@ -4,17 +4,21 @@
 Queries Google Fusion Tables for MyTracks data.
 """
 __author__ = 'hardware.hank@gmail.com (Erik Gregg)'
-import sys, getpass
+### IMPORTS ###
+import sys 
 sys.path.append("./fusion-tables-client-python-read-only/src/")
 sys.path.append("./httplib2/python2")
+import getpass, httplib2, urllib, re, string
+from datetime import datetime, timedelta
 from authorization.oauth import OAuth
 from sql.sqlbuilder import SQL
 import ftclient
 import pprint
 pp = pprint.PrettyPrinter(indent=4)
+from xml.etree import ElementTree
 
-import httplib2, urllib
-
+### Fusion Tables Authentication ###
+print "Authenticating with Google...",
 consumer_key = "207320244638.apps.googleusercontent.com"
 try:
   with open('secret', 'r') as f:
@@ -37,38 +41,62 @@ except IOError:
     f.write(token + "\n" + secret)
 
 oauth_client = ftclient.OAuthFTClient(consumer_key, consumer_secret, token, secret)
+print "Success"
 
-# show tables
-results = [ x.split(",") for x in oauth_client.query(SQL().showTables()).split("\n")[1:-1] ]
-pp.pprint(results)
-
-for table in results:
-  print oauth_client.query(SQL().select(int(table[0]), None, None))
-
-# Start interaction with Smashrun
+### Smashrun Authentication ### 
 # Using some awesome login action and this handy JSON endpoint:
 # http://smashrun.com/services/running-jsonservice.asmx
-f = open('smashrun_secret')
 try:
-  smashrun_secret = f.readline().rstrip()
-finally:
-  f.close()
-url = "http://smashrun.com/services/user-jsonservice.asmx/LoginUser"
-body = '{"loginEmail":"smashrun.hardwarehank@ralree.com","loginPassword":"%s"}' % (smashrun_secret)
-headers = {
+  with open('smashrun_secret', 'r') as f:
+      smashrun_secret = f.readline().rstrip()
+except IOError:
+  print "No Smashrun secret - can't authenticate.  Make a smashrun_secret file with your password."
+  sys.exit(-1)
+
+print "Authenticating with Smashrun...",
+smashrun_url = "http://smashrun.com/services/user-jsonservice.asmx/LoginUser"
+smashrun_body = '{"loginEmail":"smashrun.hardwarehank@ralree.com","loginPassword":"%s"}' % (smashrun_secret)
+smashrun_headers = {
             'Content-Type': 'application/json; charset=UTF-8',
             'Referer': 'http://smashrun.com/login',
           }
-http = httplib2.Http()
-response, content = http.request(url, 'POST', headers=headers, body=body)
-pp.pprint(response)
-pp.pprint(content)
+smashrun_http = httplib2.Http()
+smashrun_response, smashrun_content = smashrun_http.request(smashrun_url, 'POST', 
+                                                   headers=smashrun_headers, body=smashrun_body)
+smashrun_headers['Cookie'] = smashrun_response['set-cookie']
+del smashrun_headers['Referer']
+print "Success"
 
-headers['Cookie'] = response['set-cookie']
-del headers['Referer']
+### Fusion Tables queries ###
+fusion_results = [ x.split(",") for x in oauth_client.query(SQL().showTables()).split("\n")[1:-1] ]
 
-url = "http://smashrun.com/services/running-jsonservice.asmx/SaveRunListItem"
-body = '{"runListItem": { "distance":"2.71", "bookedUnitCode":"m", "startDateTime":"2012-01-19T06:32:00", "duration":7384000, "runId":null }}'
-response, content = http.request(url, 'POST', headers=headers, body=body)
-pp.pprint(response)
-pp.pprint(content)
+for table in fusion_results:
+  rows = oauth_client.query(SQL().select(int(table[0]), ['description'], "name LIKE '%(End)'"))
+  desc = rows.split("\n")[1]
+  print desc
+  # Grab things with regex.
+  strdate = re.search(r'Recorded: (.*?)<br>', desc).group(1)
+  start_date_time = datetime.strptime(strdate, "%m/%d/%y %I:%M %p").isoformat()
+  print start_date_time
+
+  distance_km = re.search(r'Total distance: (.*?) km ', desc).group(1)
+  print distance_km
+
+  total_time = re.search(r'Total time: (.*?)<br>', desc).group(1)
+  m = re.match(r'(\d+):(\d+):(\d+)|(\d+):(\d+)', total_time) 
+  groups = [x for x in m.groups() if x != None]
+  if len(groups) == 2:
+    total_time = timedelta(minutes=int(groups[0]), seconds=int(groups[1]))
+  else:
+    total_time = timedelta(hours=int(groups[0]), minutes=int(groups[1]), seconds=int(groups[2]))
+  total_time = int(total_time.total_seconds() * 1000)
+  print total_time
+  
+  
+## Save a run
+#smashrun_url = "http://smashrun.com/services/running-jsonservice.asmx/SaveRunListItem"
+#smashrun_body = '{"runListItem": { "distance":"2.71", "bookedUnitCode":"m", "startDateTime":"2012-01-19T06:32:00", "duration":7384000, "runId":null }}'
+#smashrun_response, smashrun_content = smashrun_http.request(smashrun_url, 'POST', 
+#                                                            headers=smashrun_headers, body=smashrun_body)
+#pp.pprint(smashrun_response)
+#pp.pprint(smashrun_content)
