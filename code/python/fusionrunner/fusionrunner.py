@@ -73,14 +73,11 @@ fusion_results = [ x.split(",") for x in oauth_client.query(SQL().showTables()).
 for table in fusion_results:
   rows = oauth_client.query(SQL().select(int(table[0]), ['description'], "name LIKE '%(End)'"))
   desc = rows.split("\n")[1]
-  print desc
-  # Grab things with regex.
+  # Grab fusion table fields with regex.
   strdate = re.search(r'Recorded: (.*?)<br>', desc).group(1)
   start_date_time = datetime.strptime(strdate, "%m/%d/%y %I:%M %p").isoformat()
-  print start_date_time
 
-  distance_km = re.search(r'Total distance: (.*?) km ', desc).group(1)
-  print distance_km
+  distance_km = re.search(r'Total distance: (.*?) km', desc).group(1)
 
   total_time = re.search(r'Total time: (.*?)<br>', desc).group(1)
   m = re.match(r'(\d+):(\d+):(\d+)|(\d+):(\d+)', total_time) 
@@ -90,13 +87,27 @@ for table in fusion_results:
   else:
     total_time = timedelta(hours=int(groups[0]), minutes=int(groups[1]), seconds=int(groups[2]))
   total_time = int(total_time.total_seconds() * 1000)
-  print total_time
-  
-  
-## Save a run
-#smashrun_url = "http://smashrun.com/services/running-jsonservice.asmx/SaveRunListItem"
-#smashrun_body = '{"runListItem": { "distance":"2.71", "bookedUnitCode":"m", "startDateTime":"2012-01-19T06:32:00", "duration":7384000, "runId":null }}'
-#smashrun_response, smashrun_content = smashrun_http.request(smashrun_url, 'POST', 
-#                                                            headers=smashrun_headers, body=smashrun_body)
-#pp.pprint(smashrun_response)
-#pp.pprint(smashrun_content)
+
+  activity = re.search(r'Activity type: (\w+)', desc).group(1)
+  if activity == 'walking':
+    activity = 'Walk'
+    tagid = 2
+  if activity == 'race':
+    activity = 'Race'
+    tagid = 2
+
+  # Save the run
+  print "Adding Run from %s..." % (start_date_time)
+  smashrun_url = "http://smashrun.com/services/running-jsonservice.asmx/SaveRunListItem"
+  smashrun_body = '{"runListItem": { "distance":"%s", "bookedUnitCode":"k", "viewunitcode":"m", "startDateTime":"%s", "duration":%d, "runId":null }}' % (distance_km, start_date_time, total_time)
+  smashrun_response, smashrun_content = smashrun_http.request(smashrun_url, 'POST', 
+                                                              headers=smashrun_headers, body=smashrun_body)
+  print "Add Run Response Code: %s" % (smashrun_response['status'])
+
+  match = re.search(r'"runId":(\d+)', smashrun_content)
+  runid = int(match.group(1))
+  smashrun_url = "http://smashrun.com/services/running-jsonservice.asmx/SaveRunTag"
+  smashrun_body = '{"runId":%d,"tagId":%d,"text":"%s",untag:false}' % (runid, tagid, activity)
+  smashrun_response, smashrun_content = smashrun_http.request(smashrun_url, 'POST', 
+                                                              headers=smashrun_headers, body=smashrun_body)
+  print "Tagging Response Code: %s" % (smashrun_response['status'])
