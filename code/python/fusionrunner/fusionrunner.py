@@ -15,7 +15,7 @@ from sql.sqlbuilder import SQL
 import ftclient
 import pprint
 pp = pprint.PrettyPrinter(indent=4)
-from xml.etree import ElementTree
+from BeautifulSoup import BeautifulSoup
 
 ### Fusion Tables Authentication ###
 print "Authenticating with Google...",
@@ -67,6 +67,24 @@ smashrun_headers['Cookie'] = smashrun_response['set-cookie']
 del smashrun_headers['Referer']
 print "Success"
 
+### List smashrun runs ###
+
+smashrun_url = "http://smashrun.com/hank/list"
+smashrun_response, smashrun_content = smashrun_http.request(smashrun_url, 'GET')
+soup = BeautifulSoup(smashrun_content)
+ids = [int(x['id']) for x in soup.findAll('tr', id=re.compile('\d+'))]
+
+smashrun_url = "http://smashrun.com/services/running-jsonservice.asmx/GetRunListItem"
+dates = []
+for i in ids:
+  smashrun_body = '{"runId":"%d","unit":"m"}' % (i)
+  smashrun_response, smashrun_content = smashrun_http.request(smashrun_url, 'POST', 
+                                      headers=smashrun_headers, body=smashrun_body)
+  date = re.search(r'startDateTime":new Date\((.*?)\),', smashrun_content).group(1)
+  # The extracted start date
+  date = datetime.fromtimestamp(float(date)/1000)
+  dates.append(date)
+
 ### Fusion Tables queries ###
 fusion_results = [ x.split(",") for x in oauth_client.query(SQL().showTables()).split("\n")[1:-1] ]
 
@@ -75,7 +93,15 @@ for table in fusion_results:
   desc = rows.split("\n")[1]
   # Grab fusion table fields with regex.
   strdate = re.search(r'Recorded: (.*?)<br>', desc).group(1)
-  start_date_time = datetime.strptime(strdate, "%m/%d/%y %I:%M %p").isoformat()
+  start_date_time = datetime.strptime(strdate, "%m/%d/%y %I:%M %p")
+  # Check if we already recorded it using the data we collected from SmashRun
+  date_diffs = [x - start_date_time for x in dates]
+  date_diffs = [x for x in date_diffs if x.total_seconds() == 0]
+  if len(date_diffs) > 0:
+    # We already imported this.  Alert the user and move on.
+    print "Already imported run from", start_date_time, ".  Skipping..."
+    continue
+  start_date_time = start_date_time.isoformat()
 
   distance_km = re.search(r'Total distance: (.*?) km', desc).group(1)
 
@@ -97,17 +123,20 @@ for table in fusion_results:
     tagid = 2
 
   # Save the run
-  print "Adding Run from %s..." % (start_date_time)
+  print "Adding Run from %s..." % (start_date_time),
   smashrun_url = "http://smashrun.com/services/running-jsonservice.asmx/SaveRunListItem"
   smashrun_body = '{"runListItem": { "distance":"%s", "bookedUnitCode":"k", "viewunitcode":"m", "startDateTime":"%s", "duration":%d, "runId":null }}' % (distance_km, start_date_time, total_time)
   smashrun_response, smashrun_content = smashrun_http.request(smashrun_url, 'POST', 
                                                               headers=smashrun_headers, body=smashrun_body)
-  print "Add Run Response Code: %s" % (smashrun_response['status'])
+  if smashrun_response['status'] == "200":
+    print "Success"
 
+  print "Tagging Run from %s..." % (start_date_time),
   match = re.search(r'"runId":(\d+)', smashrun_content)
   runid = int(match.group(1))
   smashrun_url = "http://smashrun.com/services/running-jsonservice.asmx/SaveRunTag"
   smashrun_body = '{"runId":%d,"tagId":%d,"text":"%s",untag:false}' % (runid, tagid, activity)
   smashrun_response, smashrun_content = smashrun_http.request(smashrun_url, 'POST', 
                                                               headers=smashrun_headers, body=smashrun_body)
-  print "Tagging Response Code: %s" % (smashrun_response['status'])
+  if smashrun_response['status'] == "200":
+    print "Success"
