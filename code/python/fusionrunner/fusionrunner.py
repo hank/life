@@ -105,7 +105,7 @@ for table in fusion_results:
 
   distance_km = re.search(r'Total distance: (.*?) km', desc).group(1)
 
-  total_time = re.search(r'Total time: (.*?)<br>', desc).group(1)
+  total_time = re.search(r'Moving time: (.*?)<br>', desc).group(1)
   m = re.match(r'(\d+):(\d+):(\d+)|(\d+):(\d+)', total_time) 
   groups = [x for x in m.groups() if x != None]
   if len(groups) == 2:
@@ -115,6 +115,7 @@ for table in fusion_results:
   total_time = int(total_time.total_seconds() * 1000)
 
   activity = re.search(r'Activity type: (\w+)', desc).group(1)
+  tagid = None
   if activity == 'walking':
     activity = 'Walk'
     tagid = 2
@@ -131,12 +132,13 @@ for table in fusion_results:
   if smashrun_response['status'] == "200":
     print "Success"
 
-  print "Tagging Run from %s..." % (start_date_time),
-  match = re.search(r'"runId":(\d+)', smashrun_content)
-  runid = int(match.group(1))
-  smashrun_url = "http://smashrun.com/services/running-jsonservice.asmx/SaveRunTag"
-  smashrun_body = '{"runId":%d,"tagId":%d,"text":"%s",untag:false}' % (runid, tagid, activity)
-  smashrun_response, smashrun_content = smashrun_http.request(smashrun_url, 'POST', 
-                                                              headers=smashrun_headers, body=smashrun_body)
-  if smashrun_response['status'] == "200":
-    print "Success"
+  if tagid != None:
+    print "Tagging Run from %s..." % (start_date_time),
+    match = re.search(r'"runId":(\d+)', smashrun_content)
+    runid = int(match.group(1))
+    smashrun_url = "http://smashrun.com/services/running-jsonservice.asmx/SaveRunTag"
+    smashrun_body = '{"runId":%d,"tagId":%d,"text":"%s",untag:false}' % (runid, tagid, activity)
+    smashrun_response, smashrun_content = smashrun_http.request(smashrun_url, 'POST', 
+                                                                headers=smashrun_headers, body=smashrun_body)
+    if smashrun_response['status'] == "200":
+      print "Success"
