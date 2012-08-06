@@ -1,3 +1,4 @@
+import os
 import random
 import hashlib
  
@@ -34,6 +35,9 @@ def GenerateKeys(numKeys = 10):
                        candHash.encode('hex_codec')))
                 if CheckShortKey(cand):
                     print('Validated.')
+                    # Generate QRCode
+                    os.system('qrencode -o /tmp/test.png -s 50 -l H -m 6 %s' % (cand))
+                    os.system('composite -gravity center coin.png /tmp/test.png %s.png' % (cand))
                 else:
                     print('Invalid!')
                 keysGenerated += 1
