@@ -2,11 +2,11 @@
 OFFSET=1
 TMPFILES=
 THUMBS= 
-THUMBIDX=0
+THUMBIDX=1
 OUT=bc-coin-page.png
 for i in $@; do
   THUMB="${i%.png}.thumb.png"
-  convert -resize 300x $i $THUMB
+  convert $i -resize 300x label:${i} -gravity center -append $THUMB
   THUMBS[$THUMBIDX]="$THUMB"
   THUMBIDX=$(($THUMBIDX+1))
 done
