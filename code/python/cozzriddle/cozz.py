@@ -1,3 +1,5 @@
+import sys
+import os
 import binascii
 def caesar(plaintext,shift):
   alphabet=["a","b","c","d","e","f","g","h","i","j","k","l",
@@ -63,34 +65,41 @@ print "After 'cashing in' numbers = ", m
 # that he must be born before jesus.  Whenever possible he tells me his war
 # stories and how some fat guy kicked his ass.
 # Caesar
-m = caesar(m, 26)
-print "After Caesar = ", m
+for i in xrange(1, 25):
+  m = caesar(m, i)
+  #print "After Caesar = ", m
 
-# I even met a woman in europe.  Her name was alice.  She invited me to her
-# house.  I was great she even had a whirlpool there.  Immediately we both
-# jumped into it.  The neighbours already shouting cozz+alice didn't really
-# bother me at this time. (whirlpool hash)
-import whirlpool
-m = m + "alice"
-for _ in xrange(50): m = whirlpool.hash(m)
-print "Whirlpool = ", binascii.b2a_hex(m)
+  # I even met a woman in europe.  Her name was alice.  She invited me to her
+  # house.  I was great she even had a whirlpool there.  Immediately we both
+  # jumped into it.  The neighbours already shouting cozz+alice didn't really
+  # bother me at this time. (whirlpool hash)
+  import whirlpool
+  m = m + "alice"
+  for _ in xrange(50): m = whirlpool.hash(m)
+  #print "Whirlpool = ", binascii.b2a_hex(m)
 
-# When I had to get back to america I was looking for my flight number 888 at
-# the airport, but I couldnt find it anywhere.  So I called another friend in
-# europe and asked him for advice. He has won his first race championship in
-# 1996 in europe driving with a speed of 160 miles per hour.   This friend now
-# guided me really really quickly until I found my flight back home. Funny
-# thing was that my flight number was at the very beginning of the airport.
-ripe = m
-while ripe[0:3] != "888":
-  ripe = hashlib.new('ripemd160', ripe).hexdigest()
-print "Ripe result = ", ripe
+  # When I had to get back to america I was looking for my flight number 888 at
+  # the airport, but I couldnt find it anywhere.  So I called another friend in
+  # europe and asked him for advice. He has won his first race championship in
+  # 1996 in europe driving with a speed of 160 miles per hour.   This friend now
+  # guided me really really quickly until I found my flight back home. Funny
+  # thing was that my flight number was at the very beginning of the airport.
+  ripe = m
+  while ripe[0:3] != "888":
+    ripe = binascii.b2a_hex(hashlib.new('ripemd160', ripe).digest())
+  print "Ripe result = ", ripe
 
-# Over all this was a very exciting trip, and the whole trip I never felt like I
-# had to add another entering somewhere.  
-# (no carriage returns / newlines)
+  # Try GPG
+  command = "gpg --decrypt --passphrase %s /tmp/foo" % (ripe)
+  print command
+  os.system(command)
+  sys.stdin.read(1)
+  
+  # Over all this was a very exciting trip, and the whole trip I never felt like I
+  # had to add another entering somewhere.  
+  # (no carriage returns / newlines)
 
-# The only thing that bothers me is that I have lost alice phone number
-# somewhere. Only thing I can remember it was an eight digit number starting
-# with 78.  Well at least I know where I can find her.
-# (append 78xxxxxx (x=0-9) to the result until key is found)
+  # The only thing that bothers me is that I have lost alice phone number
+  # somewhere. Only thing I can remember it was an eight digit number starting
+  # with 78.  Well at least I know where I can find her.
+  # (append 78xxxxxx (x=0-9) to the result until key is found)
