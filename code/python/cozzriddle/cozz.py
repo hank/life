@@ -1,6 +1,11 @@
 import sys
 import os
 import binascii
+def clear_screen():
+    import curses, sys
+    curses.setupterm()
+    sys.stdout.write(curses.tigetstr("clear"))
+    sys.stdout.flush()
 def caesar(plaintext,shift):
   alphabet=["a","b","c","d","e","f","g","h","i","j","k","l",
   "m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
@@ -75,7 +80,7 @@ for i in xrange(1, 25):
   # bother me at this time. (whirlpool hash)
   import whirlpool
   m = m + "alice"
-  for _ in xrange(50): m = whirlpool.hash(m)
+  for _ in xrange(50): m = binascii.b2a_hex(whirlpool.hash(m))
   #print "Whirlpool = ", binascii.b2a_hex(m)
 
   # When I had to get back to america I was looking for my flight number 888 at
@@ -91,6 +96,7 @@ for i in xrange(1, 25):
 
   # Try GPG
   command = "gpg --decrypt --passphrase %s /tmp/foo" % (ripe)
+  clear_screen()
   print command
   os.system(command)
   sys.stdin.read(1)
