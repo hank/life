@@ -1,0 +1,3 @@
+npm install bitminter dateformat
+
+* Rename KEY.example to KEY and put in proper API key
