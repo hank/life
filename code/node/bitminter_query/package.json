@@ -1,0 +1,10 @@
+{
+  "name": "bitminter_query",
+  "description": "An app that will pull stats from the bitminter API",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "bitminter": "1.x.x",
+    "dateformat": "1.0.x"
+  }
+}
