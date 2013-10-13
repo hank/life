@@ -5,12 +5,12 @@
   },
   "name": "hank_util",
   "description": "Random utilities",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": {
     "type": "git",
     "url": "git://github.com/hank/life/code/node/hank_util"
   },
-  "main": "hank_util.js",
+  "main": "./lib/hank_util",
   "license": {
     "type": "Public Domain"
   }
