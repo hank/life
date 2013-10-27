@@ -1,4 +1,3 @@
-import argparse, logging, pprint
 from urllib import urlencode
 import requests, json, base64
 import hmac, hashlib
@@ -17,10 +16,8 @@ class BitmeAPI:
                 datetime.now()) * 1000 + 1000000000
         params = OrderedDict({'nonce': nonce})
         p_encoded = urlencode(params)
-        logging.debug('Params:' + p_encoded)
         mac = base64.b64encode(
                 hmac.new(self.apisecret, p_encoded, hashlib.sha512).digest())
-        logging.debug('Sign: ' + mac)
         url = API_URLROOT + url
         headers = {'Rest-Key': self.apikey,
                    'Rest-Sign': mac}
@@ -35,6 +32,7 @@ class BitmeAPI:
         return self.query('/bitcoin-address', auth=True)
 
 if __name__ == '__main__':
+    import argparse, logging, pprint
     pp = pprint.PrettyPrinter(indent=4)
     parser = argparse.ArgumentParser(description="Bitme API")
     parser.add_argument('--apikeyfile',
