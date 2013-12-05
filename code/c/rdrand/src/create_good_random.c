@@ -4,6 +4,9 @@
 #include <stdlib.h>
 #include <rdrand.h>
 #include <openssl/sha.h>
+
+#define ROUNDS_MIN (1<<24)
+#define ROUNDS_MAX (1<<26)
 int main()
 {
     SHA256_CTX sha256;
@@ -24,7 +27,7 @@ int main()
             fprintf(stderr, "rdrand_32 returned %d, exiting...\n", result);
             return EXIT_FAILURE;
         }
-    } while(times < (1<<22) || times > (1<<25));
+    } while(times < ROUNDS_MIN || times > ROUNDS_MAX);
     fprintf(stderr, "Hashing our random input %u times...\n", times);
     while(times-- > 0) {
         SHA256_Update(&sha256, (char*)rnd, sizeof(uint32_t)*8);       
