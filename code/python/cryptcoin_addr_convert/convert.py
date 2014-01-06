@@ -18,7 +18,8 @@ elif args.tobtc:
     args.version = 0x80
 elif args.tocustom:
     args.version = args.tocustom[0]
-
+else
+    raise Exception("Unrecognized address format")
 
 __b58chars = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
 __b58base = len(__b58chars)
