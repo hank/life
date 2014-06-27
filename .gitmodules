@@ -1,0 +1,3 @@
+[submodule "code/bash/pybrainwallet"]
+	path = code/bash/pybrainwallet
+	url = https://github.com/willwharton/pybrainwallet.git
