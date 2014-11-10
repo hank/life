@@ -1,0 +1,54 @@
+shell_patterns=0
+
+@  Do something on all of the file(s) at once
+   CMD=%{Enter command}
+   exec $CMD %s
+
++ t t
+@  Do something on the tagged files one by one
+   CMD=%{Enter command}
+   for f in %t; do
+     $CMD "$f"
+   done
+
++ t r
+p  View the file in the pager
+   less %f
+
++ t r
+v  Edit file in vim
+   vim %f
+
++ t r & f \.(bmp|BMP|gif|GIF|jpg|JPG|jpeg|JPEG|png|PNG|xpm)$ | t t
+= t r & f \.(bmp|BMP|gif|GIF|jpg|JPG|jpeg|JPEG|png|PNG|xpm)$
+P  View image
+   img2txt %f
+
+=+ t r & f \.tar(|\.bz2|\.gz|\.xz)$
+e  Extract TAR
+   exec tar xvf %f
+
+=+ t r & f \.(zip|ZIP)$
+e  Extract from zip
+   exec unzip %f
+
+=+ t r & f \.7z$
+e  Extract from 7zip
+   exec 7zr x %f
+
+=+ t r & f \.(rar|RAR)$
+e  Extract from rar
+   exec unrar x -y %f
+
+=+ t r & f \.(par2|PAR2)$
+e  Repair PAR
+   exec par2 r %f
+
+=+ t t & f \.(par2|PAR2)$
+e  Repair PARs
+   exec par2 r %t
+
++ t r & t t
+j  Join Files
+   OUTFILE=%{Enter Destination Filename}
+   cat %t > $OUTFILE
