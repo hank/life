@@ -1,5 +1,5 @@
-= Diigo Link Checker
-== Usage
+# Diigo Link Checker
+## Usage
 Make a password file with your password in it and no newlines.  I call this PW
 below in the examples.  Alternatively, you should be prompted.
 
