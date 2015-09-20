@@ -37,7 +37,11 @@ def nameByName(showname, episodename):
 
     ..so the episode name must be accurate
     """
-    show = Tvdb(interactive=True)[showname]
+    try:
+        show = Tvdb(interactive=True)[showname]
+    except Exception as e:
+        print e
+        return None, []
     sr = show.search(episodename, key='episodename')
     if len(sr) == 0:
         another = " ".join(episodename.replace('_', ' ').split(" ")[0:2])
@@ -50,6 +54,7 @@ def nameByName(showname, episodename):
 
 def main():
     for fname in sys.argv[1:]:
+        print "Processing {}".format(fname)
         # Get absolute path to file
         fullpath = os.path.abspath(fname)
 
@@ -76,12 +81,14 @@ def main():
             epname = m.group(2)
             
             corrected_showname, eps = nameByName(showname, epname)
+            if corrected_showname is None:
+                continue
             if len(eps) == 0:
                 continue
             # Construct new episode names
             newnames = []
             for ep in eps:
-                newnames.append("%s - [%02dx%02d] - %s" % (
+                newnames.append("%s - %02dx%02d - %s" % (
                     corrected_showname,
                     int(ep['seasonnumber']),
                     int(ep['episodenumber']),
