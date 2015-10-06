@@ -11,10 +11,10 @@ DIR=/var/mobile/Library/Downloads/
 echo "Checking for changes in $DIR" >> $LOG
 /usr/bin/find $DIR -type f | while read f
 do
-	if [[ ${f##*.} == "mp3" ]]; then
-		#echo "$f is an mp3.  Moving on!"
-		continue
-	fi
+    if [[ ${f##*.} == "mp3" ]]; then
+        #echo "$f is an mp3.  Moving on!"
+        continue
+    fi
         grep -i -m 1 -E "^<nzb" "$f" 2>&1 > /dev/null
         IS_NZB=$?
         if [ $IS_NZB -eq 0 ]; then

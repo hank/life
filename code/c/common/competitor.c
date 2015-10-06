@@ -34,4 +34,5 @@ int competitor_main()
     size_t len = 8;
     const unsigned char a[] = "DO NOT WANT";
     printf("%s\n", char_to_hex((const unsigned char*)a, len, (char**)hex2ascii));
+    return 0;
 }

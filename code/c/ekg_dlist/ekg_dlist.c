@@ -22,19 +22,20 @@ dnode_t* dlist_push(dlist_t* list, dnode_t* node)
 
     if(!list->tail)
     {
-        dnode_t* node = list->head;
+        dnode_t* cnode = list->head;
 
         // No tail.  Find it.
-        while(node)
+        while(cnode)
         {
-            list->tail = node;
-            node = node->next;
+            list->tail = cnode;
+            cnode = cnode->next;
         }
     }
 
     list->tail->next = node;
     node->prev = list->tail;
     list->tail = node;
+    return node;
 }
 
 uint32_t dlist_print(dlist_t* list)
