@@ -1,4 +1,4 @@
-import urllib2, socket, logging, urllib
+import urllib2, socket, logging, urllib, re
 from argparse import ArgumentParser
 from pydiigo import DiigoApi
 from getpass import getpass
@@ -47,6 +47,10 @@ while True:
             sanitized_url = urllib.quote_plus(bookmark.url, safe='/:#&?=')
         except:
             print "Could not sanitize URL"
+            continue
+        # Get rid of about: links
+        if re.search('http://about:', sanitized_url):
+            print "Skipping {}".format(sanitized_url)
             continue
         print u"Attempting to open {}".format(sanitized_url)
         error_occurred = False
