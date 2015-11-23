@@ -64,7 +64,7 @@ checkout_missing_repo() {
     fi
 }
 typeset -A repos
-repos=("$HOME/repos/zsh-custom" "https://egregg@bitbucket.org/egregg/zsh-custom.git"
+repos=("$HOME/repos/zsh-custom" "git@bitbucket.org:egregg/zsh-custom.git"
        "$HOME/repos/life"       "https://github.com/hank/life.git"
        "$HOME/repos/vim"        "https://github.com/hank/vim.git")
 
