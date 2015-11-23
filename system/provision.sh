@@ -73,10 +73,10 @@ if [[ ! -d $HOME/.oh-my-zsh ]]; then
     if read -q "?You don't have OhMyZsh!  Would you like to install it? [yn] "; then
         echo
         # Figure out if we should use wget or curl
-        if [[ 0 -eq `which curl` ]]; then
+        if hash curl 2>/dev/null; then
             echo "Using curl..."
             sh -c "$(curl -fsSL $OHMYZSH_URL)"
-        elif [[ 0 -eq `which wget` ]]; then
+        elif hash wget 2>/dev/null; then
             echo "Using wget..."
             sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
         else
