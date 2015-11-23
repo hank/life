@@ -4,7 +4,7 @@ OHMYZSH_URL="https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.
 symlink_repo() {
     srcdir=$1
     targetdir=$2
-    if [[ ! -h $targetdir ]]; then
+    if [[ -e $targetdir && ! -h $targetdir ]]; then
         if read -q "?$targetdir exists and is not a link.  Move aside? [yn] "; then
             mv $targetdir ${targetdir}.bak
         fi
@@ -55,7 +55,7 @@ checkout_missing_repo() {
         if read -q "?$repo not checked out, do you want to get it? [yn] "; then
             echo
             echo "Checking out $repo into $dir"
-            git clone $repo $dir
+            git clone --recursive $repo $dir
         else
             echo
         fi
@@ -91,38 +91,8 @@ for i in ${(@k)repos}; do
     checkout_missing_repo $i ${repos[$i]}
 done
 # Time to symlink!
-if [[ -h $HOME/.vim ]]; then
-    link=$(readlink -f $HOME/.vim)
-    echo "$HOME/.vim already symlinked -> $link"
-else
-    if read -q "?Would you like to link .vim? [yn] "; then
-        ln -s $HOME/repos/vim $HOME/.vim
-        echo "\t\tDone."
-    else
-        echo
-    fi
-fi
-if [[ -h $HOME/.vimrc ]]; then
-    link=$(readlink -f $HOME/.vimrc)
-    echo "$HOME/.vimrc already symlinked -> $link"
-else
-    if read -q "?Would you like to link .vimrc? [yn] "; then
-        ln -s $HOME/repos/vim/vimrc $HOME/.vimrc
-        echo "\t\tDone."
-    else
-        echo
-    fi
-fi
-if [[ -h $HOME/.tmux.conf ]]; then
-    link=$(readlink -f $HOME/.tmux.conf)
-    echo "$HOME/.tmux.conf already symlinked -> $link"
-else
-    if read -q "?Would you like to link .tmux.conf? [yn] "; then
-        ln -s $HOME/repos/life/system/tmux.conf $HOME/.tmux.conf
-        echo "\t\tDone."
-    else
-        echo
-    fi
-fi
+symlink_repo $HOME/repos/vim $HOME/.vim
 symlink_repo $HOME/repos/zsh-custom $HOME/.oh-my-zsh/custom
+symlink_repo_file $HOME/repos/vim/vimrc $HOME/.vimrc
 symlink_repo_file $HOME/repos/life/system/tmux.conf $HOME/.tmux.conf
+symlink_repo_file $HOME/repos/zsh-custom/zshrc $HOME/.zshrc
