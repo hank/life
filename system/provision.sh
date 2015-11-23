@@ -71,6 +71,7 @@ repos=("$HOME/repos/zsh-custom" "https://egregg@bitbucket.org/egregg/zsh-custom.
 # Provisions the current system with all the happy files
 if [[ ! -d $HOME/.oh-my-zsh ]]; then
     if read -q "?You don't have OhMyZsh!  Would you like to install it? [yn] "; then
+        echo
         # Figure out if we should use wget or curl
         if [[ 0 -eq `which curl` ]]; then
             echo "Using curl..."
