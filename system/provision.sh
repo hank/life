@@ -92,6 +92,7 @@ for i in ${(@k)repos}; do
 done
 # Time to symlink!
 symlink_repo $HOME/repos/vim $HOME/.vim
+symlink_repo $HOME/repos/life/system/scripts $HOME/.ekgscripts
 symlink_repo $HOME/repos/zsh-custom $HOME/.oh-my-zsh/custom
 symlink_repo_file $HOME/repos/vim/vimrc $HOME/.vimrc
 symlink_repo_file $HOME/repos/life/system/tmux.conf $HOME/.tmux.conf
