@@ -1,0 +1,6 @@
+[package]
+name = "travis-demo"
+version = "0.1.0"
+authors = ["Erik <git@hank.33mail.com>"]
+
+[dependencies]
