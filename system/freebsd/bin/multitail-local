@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# -ev negates the regular expression so it will not show up in the logfile window only
+# for the file following the command(s).
+# -cS uses the color scheme set in multitail.conf for only the file follwing the command.
+# -i specific file to tail.
+# -wh window 2's only 12 lines high
+
+# The order of these lines matter as each color scheme and regular expression are tied to
+# the file that is being tailed. Everything before each -i is tied to the options before it.
+
+confpath="$HOME/.multitail.conf"
+
+sudo multitail --config $confpath \
+-cS syslog \
+-ev "publickey for sybase" \
+-ev "pam_rhosts_auth" \
+-ev "pam_unix" \
+-ev "ftp" \
+-ev "inetd" \
+-ev "last message repeated" \
+-ev "load average" \
+-ev "ucd-snmp" \
+-ev "usb-uhci" \
+-i /var/log/messages \
+-cS postfix \
+-ev "data_notify" \
+-ev "allmode" \
+-i /var/log/maillog \
+-wh 12 \
+-i /var/log/security
