@@ -1,5 +1,4 @@
 import sys
-sys.path.insert(0,'/home/hank/repos/discogs_client')
 import discogs_client
 from decimal import Decimal
 try:
