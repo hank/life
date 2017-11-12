@@ -25,11 +25,16 @@ paid_field_id = paid_field['id']
 total_paid = Decimal(0)
 # We have the paid field, query all releases to build total amount paid
 for release in me.collection_folders[0].releases:
-    paid_field = [k for k in release.notes if k['field_id'] == paid_field_id]
-    if len(paid_field) != 0:
-        paid_field = paid_field[0]
-        # Add paid amount to total
-        paid_amount = Decimal(paid_field['value'].strip('$'))
-        total_paid += paid_amount
-print "Total paid:", total_paid
-print "Total value:", me.collection_value()
+    if release.notes is not None:
+        paid_field = [k for k in release.notes if k['field_id'] == paid_field_id]
+        if len(paid_field) != 0:
+            paid_field = paid_field[0]
+            # Add paid amount to total
+            paid_amount = Decimal(paid_field['value'].strip('$'))
+            total_paid += paid_amount
+print "Total paid: ${}".format(total_paid)
+values = me.collection_value()
+print "Value:"
+for k, amount in values.items():
+    print "\t{}: {} (${} profit)".format(k.capitalize(), amount,
+                Decimal(amount.strip('$').replace(',',''))-total_paid)
