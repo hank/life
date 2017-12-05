@@ -65,10 +65,12 @@ def main():
         print('No files found.')
     else:
         print('Files:')
+        i = 0
         for item in items:
-            print('{0} ({1})'.format(item['name'], item['id']))
-    print(items[0])
-    results = service.files().export(fileId=items[0]['id'], mimeType='text/csv').execute()
+            print('{0}: {1} ({2})'.format(i, item['name'], item['id']))
+            i += 1
+    num = int(raw_input("Item number: ").strip())
+    results = service.files().export(fileId=items[num]['id'], mimeType='text/csv').execute()
     # print(results)
     import csv
     import io
@@ -76,6 +78,7 @@ def main():
     reader = csv.reader(csvIn)
     reader = list(reader)
     labels = reader[0]
+    print(labels)
     for row in reader[1:]:
         # Open a file with the address as the name and add fields to it
         fname = (row[labels.index('Inspection Address')].replace(r' ', '-') + ".txt")
