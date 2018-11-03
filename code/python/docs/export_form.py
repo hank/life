@@ -1,4 +1,5 @@
 from __future__ import print_function
+import sys
 import httplib2
 import os
 
@@ -69,24 +70,32 @@ def main():
         for item in items:
             print('{0}: {1} ({2})'.format(i, item['name'], item['id']))
             i += 1
-    num = int(raw_input("Item number: ").strip())
+    num = int(input("Item number: ").strip())
     results = service.files().export(fileId=items[num]['id'], mimeType='text/csv').execute()
+    with open("out.csv", "wb") as f:
+        f.write(results)
     # print(results)
     import csv
-    import io
-    csvIn = io.StringIO(unicode(results))
-    reader = csv.reader(csvIn)
-    reader = list(reader)
+    # import io
+    # csvIn = io.StringIO(str(results), newline='')
+    with open("out.csv", "r") as f:
+        reader = csv.reader(f)
+        reader = list(reader)
     labels = reader[0]
     print(labels)
     for row in reader[1:]:
         # Open a file with the address as the name and add fields to it
-        fname = (row[labels.index('Inspection Address')].replace(r' ', '-') + ".txt")
+        fname = (row[labels.index('Inspection Address')].replace(r' ', '-').strip() + ".txt")
         print("Writing {}".format(fname))
         with open(fname, 'w') as f:
             for idx, field in enumerate(row):
+                if len(field) == 0:
+                    field = "None"
                 f.write("{}: {}\n".format(labels[idx], field))
                 # print("{}: {}".format(labels[idx], field))
+    if os.path.exists("out.csv"):
+        print("Deleting temporary CSV")
+        os.remove("out.csv")
 
 if __name__ == '__main__':
     main()
