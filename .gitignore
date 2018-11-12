@@ -3,3 +3,5 @@
 .*.swo
 cscope.out
 code/python/docs/client_secret.json
+code/python/docs/inspections
+code/python/docs/*.zip

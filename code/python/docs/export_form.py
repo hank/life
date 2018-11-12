@@ -2,17 +2,12 @@ from __future__ import print_function
 import sys
 import httplib2
 import os
+from parse_homeowners import parse_homeowners
 
 from apiclient import discovery
 from oauth2client import client
 from oauth2client import tools
 from oauth2client.file import Storage
-
-try:
-    import argparse
-    flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
-except ImportError:
-    flags = None
 
 # If modifying these scopes, delete your previously saved credentials
 # at ~/.credentials/drive-python-quickstart.json
@@ -33,6 +28,7 @@ def get_credentials():
     home_dir = os.path.expanduser('~')
     credential_dir = os.path.join(home_dir, '.credentials')
     if not os.path.exists(credential_dir):
+
         os.makedirs(credential_dir)
     credential_path = os.path.join(credential_dir,
                                    'drive-python-quickstart.json')
@@ -49,7 +45,7 @@ def get_credentials():
         print('Storing credentials to ' + credential_path)
     return credentials
 
-def main():
+def main(homeowners_fpath, outdir):
     """Shows basic usage of the Google Drive API.
 
     Creates a Google Drive API service object and outputs the names and IDs
@@ -83,20 +79,42 @@ def main():
         reader = list(reader)
     labels = reader[0]
     print(labels)
+
+    with open("letter_template.txt", "r") as template:
+        letter_template = template.read()
+
+    try:
+        os.makedirs(outdir)
+    except:
+        pass
+
+    homeowners = parse_homeowners(homeowners_fpath)
+    addresses = {x['Street Address'].strip(): x['Last Name'] for x in homeowners}
     for row in reader[1:]:
+        # Attempt to find address in homeowners
+        if row[labels.index('Inspection Address')] not in addresses:
+            raise RuntimeError("ERROR, couldn't find {} in addresses".format(row[labels.index('Inspection Address')]))
+        lastname = addresses[row[labels.index('Inspection Address')]].strip()
+        insp_arr = []
+        for idx, field in enumerate(row):
+            if len(field) == 0:
+                field = "None"
+            insp_arr.append("{}: {}".format(labels[idx].strip(), field.strip()))
+        inspection = "\n".join(insp_arr)
+        message = letter_template.format(lastname=lastname, inspection=inspection)
         # Open a file with the address as the name and add fields to it
         fname = (row[labels.index('Inspection Address')].replace(r' ', '-').strip() + ".txt")
         print("Writing {}".format(fname))
-        with open(fname, 'w') as f:
-            for idx, field in enumerate(row):
-                if len(field) == 0:
-                    field = "None"
-                f.write("{}: {}\n".format(labels[idx], field))
-                # print("{}: {}".format(labels[idx], field))
+        with open(os.path.join("inspections", fname), 'w') as f:
+            f.write(message)
     if os.path.exists("out.csv"):
         print("Deleting temporary CSV")
         os.remove("out.csv")
 
 if __name__ == '__main__':
-    main()
-
+    import argparse
+    parser = argparse.ArgumentParser(parents=[tools.argparser])
+    parser.add_argument("homeowners", help="TSV file containing homeowners information. Must be TAB delimited and the first row needs the column names.")
+    parser.add_argument("--outdir", help="Output directory. Files will be overwritten if existing", default="inspections")
+    args = parser.parse_args()
+    main(args.homeowners, args.outdir)

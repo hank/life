@@ -1,0 +1,8 @@
+Dear {lastname} residence,
+
+The following notes were taken during annual inspection of your home. Please take some time to review them and to correct any issues over the next year.
+
+{inspection}
+
+Sincerely,
+The Gables Arch Committee
