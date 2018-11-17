@@ -3,6 +3,7 @@ import sys
 import httplib2
 import os
 from parse_homeowners import parse_homeowners
+from pdf_convert import pdf_convert
 
 from apiclient import discovery
 from oauth2client import client
@@ -45,7 +46,7 @@ def get_credentials():
         print('Storing credentials to ' + credential_path)
     return credentials
 
-def main(homeowners_fpath, outdir):
+def main(homeowners_fpath, outdir, fmat="TXT"):
     """Shows basic usage of the Google Drive API.
 
     Creates a Google Drive API service object and outputs the names and IDs
@@ -103,10 +104,16 @@ def main(homeowners_fpath, outdir):
         inspection = "\n".join(insp_arr)
         message = letter_template.format(lastname=lastname, inspection=inspection)
         # Open a file with the address as the name and add fields to it
-        fname = (row[labels.index('Inspection Address')].replace(r' ', '-').strip() + ".txt")
-        print("Writing {}".format(fname))
-        with open(os.path.join("inspections", fname), 'w') as f:
-            f.write(message)
+        fname = (row[labels.index('Inspection Address')].replace(r' ', '-').strip() + ".{}".format(fmat))
+        if "pdf" == fmat:
+            fullfname = os.path.join("inspections", fname)
+            print("Creating {}".format(fullfname))
+            pdf_convert(fullfname, message)
+
+        else:
+            print("Writing {}".format(fname))
+            with open(os.path.join("inspections", fname), 'w') as f:
+                f.write(message)
     if os.path.exists("out.csv"):
         print("Deleting temporary CSV")
         os.remove("out.csv")
@@ -116,5 +123,10 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(parents=[tools.argparser])
     parser.add_argument("homeowners", help="TSV file containing homeowners information. Must be TAB delimited and the first row needs the column names.")
     parser.add_argument("--outdir", help="Output directory. Files will be overwritten if existing", default="inspections")
+    parser.add_argument("--pdf", help="Make PDFs instead of TXT", action="store_true")
     args = parser.parse_args()
-    main(args.homeowners, args.outdir)
+    if args.pdf:
+        fmat="pdf"
+    else:
+        fmat="txt"
+    main(args.homeowners, args.outdir, fmat=fmat)
