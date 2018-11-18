@@ -79,7 +79,7 @@ def main(homeowners_fpath, outdir, fmat="TXT"):
         reader = csv.reader(f)
         reader = list(reader)
     labels = reader[0]
-    print(labels)
+    # print(labels)
 
     with open("letter_template.txt", "r") as template:
         letter_template = template.read()
